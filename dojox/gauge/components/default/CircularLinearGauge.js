@@ -154,7 +154,7 @@ define([
 				x: this._radius - 20,
 				y: this._radius * 1.8 - 20,
 				width: 40,
-				height: 20,
+				height: 20
 			}).setStroke({
 				color: GaugeUtils.brightness(this.innerColor, -20),
 				width: 0.3
@@ -167,7 +167,7 @@ define([
 			}).setFont({
 				family: "Helvetica",
 				weight: 'bold',
-				size: "12pt",
+				size: "12pt"
 			}).setFill(this.font.color ? this.font.color : "black");
 		}
 		

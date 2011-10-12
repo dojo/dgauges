@@ -8,7 +8,7 @@ define([
 		"../../LinearScaler", 
 		"../../RectangularScale", 
 		"../../RectangularValueIndicator", 
-		"../../RectangularRangeIndicator", 
+		"../../RectangularRangeIndicator"
 	], 
 	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, RectangularRangeIndicator){
 
@@ -191,7 +191,7 @@ define([
 				x: 5,
 				y: 5,
 				width: 40,
-				height: 40,
+				height: 40
 			}).setStroke({
 				color: "#CECECE",
 				width: 1
@@ -204,7 +204,7 @@ define([
 			}).setFont({
 				family: "Helvetica",
 				weight: 'bold',
-				size: "12pt",
+				size: "12pt"
 			}).setFill(this.font.color ? this.font.color : "black");
 		}
 		

@@ -129,7 +129,7 @@ define([
 				{color:this.colorRange1, size:22},
 				{color:this.colorRange2, size:18},
 				{color:this.colorRange3, size:20},
-				{color:this.colorRange4, size:40},				
+				{color:this.colorRange4, size:40}
 			]);			
 			scale.addIndicator("segindicator", ri, true);
 
@@ -171,8 +171,8 @@ define([
 					{
 						color: "#E0E0E0",
 						offset: 1
-					},
-				],				
+					}
+				]
 				};
 
 			g.createRect({
@@ -214,8 +214,8 @@ define([
 					{
 						color: "rgba(64, 64, 64, 0.2)",
 						offset: 1
-					},
-				],				
+					}
+				]
 				};
 
 			g.createRect({
@@ -225,7 +225,7 @@ define([
 				height: 24,
 				r: 12
 			}).setFill(gradient);			
-		},
+		}
 
 		
 	});

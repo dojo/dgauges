@@ -167,7 +167,7 @@ define([
 				x: this._width / 2 - 12,
 				y: this._height - 20,
 				width: 24,
-				height: 14,
+				height: 14
 			}).setStroke({
 				color: GaugeUtils.brightness(this.innerColor, -20),
 				width: 0.3

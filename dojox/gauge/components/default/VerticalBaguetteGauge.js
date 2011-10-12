@@ -58,7 +58,7 @@ define([
 				{color:'rgb(123,98,149)', size:22},
 				{color:'rgb(224,137,0)', size:18},
 				{color:'rgb(135,170,230)', size:20},
-				{color:'rgb(73,202,49)', size:40},			
+				{color:'rgb(73,202,49)', size:40}
 			]);					
             scale.addIndicator("indicator", ri, true);
 			 
@@ -100,8 +100,8 @@ define([
 					{
 						color: "#E0E0E0",
 						offset: 1
-					},
-				],				
+					}
+				]
 				};
 
 			g.createRect({
@@ -142,8 +142,8 @@ define([
 					{
 						color: "rgba(64, 64, 64, 0.2)",
 						offset: 1
-					},
-				],				
+					}
+				]
 				};
 
 			g.createRect({
@@ -153,7 +153,7 @@ define([
 				height: h - (2*+ this.padding1) -7,
 				r: 12
 			}).setFill(gradient);			
-		},		
+		}
 		
 	});
 });

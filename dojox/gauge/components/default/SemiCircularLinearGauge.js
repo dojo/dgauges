@@ -180,7 +180,7 @@ define([
 			}).setFont({
 				family: "Helvetica",
 				weight: 'bold',
-				size: "10pt",
+				size: "10pt"
 			}).setFill(this.font.color ? this.font.color : "black");
 		}
 		

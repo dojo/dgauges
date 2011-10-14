@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "./_Invalidating"], function(declare, _Invalidating){
+define(["dojo/_base/declare", "../widget/_Invalidating"], function(declare, _Invalidating){
 
 	/*=====
 	 var _Invalidating = dojox.widget._Invalidating;

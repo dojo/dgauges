@@ -10,9 +10,9 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/Stateful"],
 		//		Base class for classes (usually widgets) that watch invalidated properties and delay the rendering
 		//		after these properties modifications to the next execution frame.
 
-		//	watchedPoperties: String[]
-		//		The list of properties to watch for. This list must be initialized in the constructor.
-		//		Default value is null.
+		//	invalidatingPoperties: String[]
+		//		The list of properties to watch for to trigger invalidation. This list must be initialized in the
+		// 		constructor. Default value is null.
 		invalidatingProperties: null,
 		//	invalidRenderering: Boolean
 		//		Whether the rendering is invalid or not. This is a readonly information, one must call 
@@ -29,9 +29,9 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/Stateful"],
 		},
 		addInvalidatingProperties: function(/*Array*/ properties){
 			// summary:
-			//		Add properties to the watched properties. This method must be called in the constructor.
-			//		It is typically used by subclasses of a _Invalidating class to add more properties to
-			//		watch for.
+			//		Add properties to the watched properties to trigger invalidation. This method must be called in
+			// 		the constructor. It is typically used by subclasses of a _Invalidating class to add more properties
+			// 		to watch for.
 			// properties: String[]
 			//		The list of properties to watch for.
 			this.invalidatingProperties = this.invalidatingProperties?this.invalidatingProperties.concat(properties):properties;

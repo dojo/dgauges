@@ -1,4 +1,4 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect", "dojox/gfx", "./_CircularGaugeUtil", "./_Invalidating", "./IndicatorBase"], function(lang, declare, on, connect, gfx, _CircularGaugeUtil, _Invalidating, IndicatorBase){
+define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect", "dojox/gfx", "./_CircularGaugeUtil", "../widget/_Invalidating", "./IndicatorBase"], function(lang, declare, on, connect, gfx, _CircularGaugeUtil, _Invalidating, IndicatorBase){
 
 	/*=====
 	 var _Invalidating = dojox.widget._Invalidating;

@@ -1,10 +1,10 @@
-define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./_GaugeBase", "./_CircularGaugeUtil"], function(declare, domGeom, gfx, _GaugeBase, _CircularGaugeUtil){
+define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "./_CircularGaugeUtil"], function(declare, domGeom, gfx, GaugeBase, _CircularGaugeUtil){
 
     /*=====
-     var _GaugeBase = dojox.gauge._GaugeBase;
+     var GaugeBase = dojox.gauge.GaugeBase;
      =====*/
 
-	return declare("dojox.gauge.CircularGauge", _GaugeBase, {
+	return declare("dojox.gauge.CircularGauge", GaugeBase, {
 		_transformProperties: null,
 		
 		refreshRendering: function(){

@@ -7,7 +7,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
      var _Invalidating = dojox.widget._Invalidating;
      =====*/
 	
-	return declare("dojox.gauge._GaugeBase", [_WidgetBase, _Invalidating], {
+	return declare("dojox.gauge.GaugeBase", [_WidgetBase, _Invalidating], {
 		//	summary: 
 		//		This class is a base class for the circular and 
 		//		rectangular (horizontal and vertical) gauge components.

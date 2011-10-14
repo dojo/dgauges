@@ -1,8 +1,8 @@
-define(["dojo/_base/declare", "./_GaugeBase", "./_ScaleBase"], function(declare, _GaugeBase, _ScaleBase){
+define(["dojo/_base/declare", "./GaugeBase", "./_ScaleBase"], function(declare, GaugeBase, _ScaleBase){
 	/*=====
-     var _GaugeBase = dojox.gauge._GaugeBase;
+     var GaugeBase = dojox.gauge.GaugeBase;
      =====*/
-	return declare("dojox.gauge.RectangularGauge", _GaugeBase, {
+	return declare("dojox.gauge.RectangularGauge", GaugeBase, {
 	
 		orientation: "horizontal",
 		

@@ -1,8 +1,8 @@
-define(["dojo/_base/declare", "dojox/gfx", "./_ScaleBase"], function(declare, gfx, _ScaleBase){
+define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx, ScaleBase){
 	/*=====
-     var _ScaleBase = dojox.gauge._ScaleBase;
+     var ScaleBase = dojox.gauge.ScaleBase;
      =====*/
-	return declare("dojox.gauge.RectangularScale", _ScaleBase, {
+	return declare("dojox.gauge.RectangularScale", ScaleBase, {
 		paddingLeft: 15,
 		paddingTop: 12,
 		paddingRight: 15,

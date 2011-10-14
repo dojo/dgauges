@@ -1,10 +1,10 @@
-define(["dojo/_base/declare", "dojox/gfx", "./_ScaleIndicatorBase", "./_CircularGaugeUtil", "dojo/_base/event"], function(declare, gfx, _ScaleIndicatorBase, _CircularGaugeUtil, eventUtil){
+define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_CircularGaugeUtil", "dojo/_base/event"], function(declare, gfx, ScaleIndicatorBase, _CircularGaugeUtil, eventUtil){
 
     /*=====
-     var _IndicatorBase = dojox.gauge._IndicatorBase;
+     var IndicatorBase = dojox.gauge.IndicatorBase;
      =====*/	
 
-	return declare("dojox.gauge.CircularValueIndicator", _ScaleIndicatorBase, {
+	return declare("dojox.gauge.CircularValueIndicator", ScaleIndicatorBase, {
 		indicatorShapeFunction: function(indicator, group, scale){
 			return group.createLine({
 				x1: 0,

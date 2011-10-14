@@ -4,7 +4,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "./_Invalidating"]
      var _Invalidating = dojox.widget._Invalidating;
      =====*/
 	
-	return declare("dojox.gauge._ScaleBase", _Invalidating, {
+	return declare("dojox.gauge.ScaleBase", _Invalidating, {
 		scaler: null,
 		_gauge: null,
 		_gfxGroup: null,
@@ -110,7 +110,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "./_Invalidating"]
 		tickShapeFunction: function(scale, group, tickItem){
 			//	summary:
 			//		Customize the shape of ticks.
-			//		scale: _ScaleBase
+			//		scale: ScaleBase
 			//			The scale being processed.
 			//		group: dojox.gfx.Group
 			//			The GFX group used for drawing the tick.
@@ -159,7 +159,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "./_Invalidating"]
 			//		Remove an indicator.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
-			//	returns: _IndicatorBase
+			//	returns: IndicatorBase
 			//		The removed indicator.
 			var indicator = this._indicatorsIndex[name];
 			if (indicator) {
@@ -181,7 +181,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "./_Invalidating"]
 			//		Get an indicator instance.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
-			//	returns: _IndicatorBase
+			//	returns: IndicatorBase
 			//		The indicator associated with the name parameter.
 			return this._indicatorsIndex[name];
 		},

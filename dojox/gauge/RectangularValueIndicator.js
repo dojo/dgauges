@@ -1,10 +1,10 @@
-define(["dojo/_base/declare", "./_ScaleIndicatorBase", "dojox/gfx", "dojo/_base/event", "dojo/dom-geometry"], function(declare, _ScaleIndicatorBase, gfx, eventUtil, domGeom){
+define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/event", "dojo/dom-geometry"], function(declare, ScaleIndicatorBase, gfx, eventUtil, domGeom){
 
 	/*=====
-     var _IndicatorBase = dojox.gauge._IndicatorBase;
+     var IndicatorBase = dojox.gauge.IndicatorBase;
      =====*/
 	
-	return declare("dojox.gauge.RectangularValueIndicator", _ScaleIndicatorBase, {
+	return declare("dojox.gauge.RectangularValueIndicator", ScaleIndicatorBase, {
 		paddingLeft: 0,
 		paddingTop: 0,
 		paddingRight: 0,

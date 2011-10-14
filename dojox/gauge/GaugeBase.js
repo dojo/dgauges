@@ -1,6 +1,6 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
-		"dojo/_base/event", "dojox/gfx", "./_Invalidating","./_ScaleBase"], 
-	function(lang, declare, connect, WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating,_ScaleBase){
+		"dojo/_base/event", "dojox/gfx", "./_Invalidating","./ScaleBase"], 
+	function(lang, declare, connect, WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating,ScaleBase){
 	
     /*=====
      var _WidgetBase = dijit._WidgetBase;
@@ -213,7 +213,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			//		This parameter can be:
 			//		- A function which takes on argument of type GFX Group and return null or a
 			//		GFX element retrievable using the getElementRenderer() method.
-			//		- A _ScaleBase subclass, i.e. CircularScale or RectangularScale.
+			//		- A ScaleBase subclass, i.e. CircularScale or RectangularScale.
 			if (this._elementsIndex[name] && this._elementsIndex[name] != element) {
 				this.removeElement(name);
 			}
@@ -239,7 +239,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 				this._elements.push(element);
 				this._elementsIndex[name] = element;
 				
-				if (element instanceof _ScaleBase) {
+				if (element instanceof ScaleBase) {
 					this._scales.push(element);
 				}
 			}
@@ -261,7 +261,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 				var idx = this._elements.indexOf(element);
 				this._elements.splice(idx, 1);
 				
-				if (element instanceof _ScaleBase) {
+				if (element instanceof ScaleBase) {
 					var idxs = this._scales.indexOf(element);
 					this._scales.splice(idxs, 1);
 				}

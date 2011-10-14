@@ -1,9 +1,9 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect", "dojox/gfx", "./_CircularGaugeUtil", "./_Invalidating", "./_IndicatorBase"], function(lang, declare, on, connect, gfx, _CircularGaugeUtil, _Invalidating, _IndicatorBase){
+define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect", "dojox/gfx", "./_CircularGaugeUtil", "./_Invalidating", "./IndicatorBase"], function(lang, declare, on, connect, gfx, _CircularGaugeUtil, _Invalidating, IndicatorBase){
 
 	/*=====
 	 var _Invalidating = dojox.widget._Invalidating;
 	 =====*/
-	return declare("dojox.gauge._ScaleIndicatorBase", _IndicatorBase, {
+	return declare("dojox.gauge.ScaleIndicatorBase", IndicatorBase, {
 		scale: null,
 		value: 0,
 		

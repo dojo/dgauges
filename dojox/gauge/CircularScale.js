@@ -1,10 +1,10 @@
-define(["dojo/_base/declare", "dojox/gfx", "./_ScaleBase", "./_CircularGaugeUtil"], function(declare, gfx, _ScaleBase, _CircularGaugeUtil){
+define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_CircularGaugeUtil"], function(declare, gfx, ScaleBase, _CircularGaugeUtil){
 	
     /*=====
-     var _ScaleBase = dojox.gauge._ScaleBase;
+     var ScaleBase = dojox.gauge.ScaleBase;
      =====*/	
 	
-	return declare("dojox.gauge.CircularScale", _ScaleBase, {
+	return declare("dojox.gauge.CircularScale", ScaleBase, {
 		scaler: null,
 		originX: 50,
 		originY: 50,

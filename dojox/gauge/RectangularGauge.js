@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "./GaugeBase", "./_ScaleBase"], function(declare, GaugeBase, _ScaleBase){
+define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, GaugeBase, ScaleBase){
 	/*=====
      var GaugeBase = dojox.gauge.GaugeBase;
      =====*/

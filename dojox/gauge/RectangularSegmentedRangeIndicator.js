@@ -1,8 +1,8 @@
-define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./_IndicatorBase"], function(declare, on, gfx, _IndicatorBase){
+define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], function(declare, on, gfx, IndicatorBase){
 	/*=====
-     var _IndicatorBase = dojox.gauge._IndicatorBase;
+     var IndicatorBase = dojox.gauge.IndicatorBase;
      =====*/
-	return declare("dojox.gauge.RectangularRangeIndicator", _IndicatorBase, {
+	return declare("dojox.gauge.RectangularRangeIndicator", IndicatorBase, {
 		start: 0,
 		startWeight: 10,
 		endWeight: 10,

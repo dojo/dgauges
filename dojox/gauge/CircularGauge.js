@@ -16,7 +16,8 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 			
 			// Maximize the drawing area and center the gauge
 			var bb = this._computeBoundingBox(this._gfxGroup);
-			var naturalRatio = bb.width / bb.height;
+			
+			var naturalRatio = (bb.x + bb.width) / (bb.y + bb.height);
 			var widgetWidth = this._widgetBox.w;
 			var widgetHeight = this._widgetBox.h;
 			var widgetRatio = this._widgetBox.w / this._widgetBox.h;
@@ -34,7 +35,7 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 				w = h * naturalRatio;
 				xpos = (widgetWidth - w) / 2;
 			}
-			var scaleFactor = Math.max(w / bb.width, h / bb.height);
+			var scaleFactor = Math.max(w / (bb.x + bb.width), h / (bb.y + bb.height));
 			this._transformProperties = {scale:scaleFactor, tx:xpos, ty:ypos};
 			this._gfxGroup.setTransform([gfx.matrix.scale(scaleFactor), gfx.matrix.translate(xpos / scaleFactor, ypos / scaleFactor)]);
 		},

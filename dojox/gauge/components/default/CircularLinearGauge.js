@@ -36,7 +36,7 @@ define([
 			this.addElement("scale", scale);
 			
 			// Value indicator
-			indicator = new CircularValueIndicator();
+			var indicator = new CircularValueIndicator();
 			scale.addIndicator("indicator", indicator);
 			
 			// Gauge Foreground (needle cap)

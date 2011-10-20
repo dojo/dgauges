@@ -1,6 +1,6 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
 		"dojo/_base/event", "dojox/gfx", "../widget/_Invalidating","./ScaleBase"], 
-	function(lang, declare, connect, WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating,ScaleBase){
+	function(lang, declare, connect, WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase){
 	
     /*=====
      var _WidgetBase = dijit._WidgetBase;

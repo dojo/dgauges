@@ -12,8 +12,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_CircularG
 				x2: 40,
 				y2: 0
 			}).setStroke({
-				color: 'green',
-				width: 3
+				color: 'black',
+				width: 1
 			});
 		},
 		

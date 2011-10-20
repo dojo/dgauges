@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>Gauges Gallery</title>
+        <style type="text/css">
+            @import "../../../dojo/resources/dojo.css";
+            @import "../../../dijit/themes/claro/claro.css";
+            @import "style.css";
+        </style>
+        <script type="text/javascript">
+            var djConfig = {
+                parseOnLoad: true,
+                async: true
+            }
+        </script>
+        <script type="text/javascript" src="../../../dojo/dojo.js">
+        </script>
+        <script type="text/javascript">
+            require(["dojo/_base/kernel", 
+					 "dojo/parser", 
+					 "dijit/layout/TabContainer", 
+					 "dijit/layout/BorderContainer", 
+					 "dijit/layout/ContentPane", 
+					 "dojox/gauge/components/default/CircularLinearGauge", 
+					 "dojox/gauge/components/default/SemiCircularLinearGauge", 
+					 "dojox/gauge/components/default/HorizontalLinearGauge", 
+					 "dojox/gauge/components/default/VerticalLinearGauge",
+					 "dojox/gauge/components/black/CircularLinearGauge", 
+					 "dojox/gauge/components/black/SemiCircularLinearGauge", 
+					 "dojox/gauge/components/black/HorizontalLinearGauge", 
+					 "dojox/gauge/components/black/VerticalLinearGauge"]);
+        </script>
+    </head>
+    <body class="claro">
+        <div data-dojo-type="dijit.layout.TabContainer" id="tabContainer" style="width:1000px; height:800px">
+            <div data-dojo-type="dijit.layout.ContentPane" title="Default">
+                <div data-dojo-type="dijit.layout.BorderContainer" gutters="true" liveSplitters="true">
+                    <div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa;" splitter="true" region="center">
+                        <div data-dojo-type="dojox.gauge.components.default.CircularLinearGauge">
+                        </div>
+                    </div>
+                    <div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; width:300px" splitter="true" region="left">
+                        <div data-dojo-type="dojox.gauge.components.default.SemiCircularLinearGauge">
+                        </div>
+                    </div>
+                    <div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; width:300px" splitter="true" region="right">
+                        <div data-dojo-type="dojox.gauge.components.default.VerticalLinearGauge">
+                        </div>
+                    </div>
+                    <div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; height:100px" splitter="true" region="bottom">
+                        <div data-dojo-type="dojox.gauge.components.default.HorizontalLinearGauge">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-dojo-type="dijit.layout.ContentPane" title="Black">
+                <div data-dojo-type="dijit.layout.BorderContainer" gutters="true" liveSplitters="true">
+                    <div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa;" splitter="true" region="center">
+                        <div data-dojo-type="dojox.gauge.components.black.CircularLinearGauge">
+                        </div>
+                    </div>
+                    <div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; width:300px" splitter="true" region="left">
+                        <div data-dojo-type="dojox.gauge.components.black.SemiCircularLinearGauge">
+                        </div>
+                    </div>
+                    <div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; width:300px" splitter="true" region="right">
+                        <div data-dojo-type="dojox.gauge.components.black.VerticalLinearGauge">
+                        </div>
+                    </div>
+                    <div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; height:100px" splitter="true" region="bottom">
+                        <div data-dojo-type="dojox.gauge.components.black.HorizontalLinearGauge">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

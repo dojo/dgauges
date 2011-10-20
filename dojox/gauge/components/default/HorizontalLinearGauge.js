@@ -53,6 +53,7 @@ define([
 			scale.addIndicator("indicator", indicator);
 			
 			// Range  Indicator example			
+			/*
 			var ri = new RectangularRangeIndicator();
 			ri.set("interactionArea", "gauge");
 			ri.set("start", 0);
@@ -72,7 +73,7 @@ define([
 				}]
 			});
 			scale.addIndicator("ri", ri, true);
-
+			*/
 			
 			// Gauge Foreground (needle cap)
 			//this.addElement("foreground", lang.hitch(this, this.drawForeground));

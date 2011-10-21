@@ -1,7 +1,7 @@
 define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], function(declare, on, gfx, IndicatorBase){
 	/*=====
-     var IndicatorBase = dojox.gauge.IndicatorBase;
-     =====*/
+	var IndicatorBase = dojox.gauge.IndicatorBase;
+	=====*/
 	return declare("dojox.gauge.RectangularRangeIndicator", IndicatorBase, {
 		start: 0,
 		startWeight: 10,
@@ -81,7 +81,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			var shape, i,gp,radius;
 			var x = startX;
 			var y = startY;
-            var chicklet = (length / this.segments) - this.segmentSpacing;
+			var chicklet = (length / this.segments) - this.segmentSpacing;
 			var visibleSegments = Math.abs( (endPosition - startX) / (chicklet+this.segmentSpacing) );
 			var sw = this.startWeight;
 			var inc = (this.endWeight - this.startWeight) /this.segments
@@ -89,38 +89,38 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			var remain = visibleSegments - Math.floor(visibleSegments);
 			
 			
-            for(i = 0; i < Math.floor(visibleSegments); i++){
+			for(i = 0; i < Math.floor(visibleSegments); i++){
 				var path = group.createPath();
-                
-                if(i == 0 && this.rounded && (sw/2) < chicklet){ // first segment rounded
+				
+				if(i == 0 && this.rounded && (sw/2) < chicklet){ // first segment rounded
 					radius = sw/2;
-                    path.moveTo(x + radius, y);
-                    path.lineTo(x + chicklet, y);
-                    path.lineTo(x + chicklet, y + ew);
-                    path.lineTo(x + radius, y + sw);
-                    path.arcTo(radius, radius, 0, 0, 1, x + radius, y)
-                }else{
-                    if(i == Math.floor(visibleSegments) - 1 && (remain == 0) && this.rounded && (ew/2) < chicklet){ // last segment rounded
+					path.moveTo(x + radius, y);
+					path.lineTo(x + chicklet, y);
+					path.lineTo(x + chicklet, y + ew);
+					path.lineTo(x + radius, y + sw);
+					path.arcTo(radius, radius, 0, 0, 1, x + radius, y)
+				}else{
+					if(i == Math.floor(visibleSegments) - 1 && (remain == 0) && this.rounded && (ew/2) < chicklet){ // last segment rounded
 						radius = ew/2;
-                        path.moveTo(x, y);
-                        path.lineTo(x + chicklet - radius, y);
-                        path.arcTo(radius, radius, 0, 0, 1, x + chicklet - radius, y + ew)
-                        path.lineTo(x, y + sw);
-                        path.lineTo(x, y);
-                    }else{
-                        path.moveTo(x, y);
-                        path.lineTo(x + chicklet, y);
-                        path.lineTo(x + chicklet, y + ew);
-                        path.lineTo(x, y + sw);
-                        path.lineTo(x, y);
-                    }
+						path.moveTo(x, y);
+						path.lineTo(x + chicklet - radius, y);
+						path.arcTo(radius, radius, 0, 0, 1, x + chicklet - radius, y + ew)
+						path.lineTo(x, y + sw);
+						path.lineTo(x, y);
+					}else{
+						path.moveTo(x, y);
+						path.lineTo(x + chicklet, y);
+						path.lineTo(x + chicklet, y + ew);
+						path.lineTo(x, y + sw);
+						path.lineTo(x, y);
+					}
 				}
 				
 				path.setFill(fill).setStroke(stroke);
 				sw = ew;
 				ew += inc;
-                x += chicklet + this.segmentSpacing;
-            }
+				x += chicklet + this.segmentSpacing;
+			}
 			
 			// draw the remaining segment part
 			if(remain > 0){
@@ -168,45 +168,45 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			var shape, i,gp,radius;
 			var x = startX;
 			var y = startY;
-            var chicklet = (length / this.segments) - this.segmentSpacing;
+			var chicklet = (length / this.segments) - this.segmentSpacing;
 			var visibleSegments = Math.abs( (endPosition - startY) / (chicklet+this.segmentSpacing) );
 			var sw = this.startWeight;
 			var inc = (this.endWeight - this.startWeight) /this.segments
 			var ew = sw+inc;			
 			var remain = visibleSegments - Math.floor(visibleSegments);
 			
-            for(i = 0; i < Math.floor(visibleSegments); i++){
+			for(i = 0; i < Math.floor(visibleSegments); i++){
 				var path = group.createPath();
-                
-                if(i == 0 && this.rounded && (sw/2) < chicklet){ // first segment rounded
+				
+				if(i == 0 && this.rounded && (sw/2) < chicklet){ // first segment rounded
 					radius = sw/2;
-                    path.moveTo(x , y+ radius);
-                    path.lineTo(x , y+ chicklet);
-                    path.lineTo(x + ew, y + chicklet);
-                    path.lineTo(x + sw, y + radius);
-                    path.arcTo(radius, radius, 0, 0, 0, x , y+ radius)
-                }else{
-                    if(i == Math.floor(visibleSegments) - 1 && (remain == 0) && this.rounded && (ew/2) < chicklet){ // last segment rounded
+					path.moveTo(x , y+ radius);
+					path.lineTo(x , y+ chicklet);
+					path.lineTo(x + ew, y + chicklet);
+					path.lineTo(x + sw, y + radius);
+					path.arcTo(radius, radius, 0, 0, 0, x , y+ radius)
+				}else{
+					if(i == Math.floor(visibleSegments) - 1 && (remain == 0) && this.rounded && (ew/2) < chicklet){ // last segment rounded
 						radius = ew/2;
-                        path.moveTo(x, y);
-                        path.lineTo(x , y+ chicklet - radius);
-                        path.arcTo(radius, radius, 0, 0, 0, x + ew, y + chicklet - radius)
-                        path.lineTo(x+ sw, y );
-                        path.lineTo(x, y);
-                    }else{
-                        path.moveTo(x, y);
-                        path.lineTo(x , y+ chicklet);
-                        path.lineTo(x + ew, y + chicklet);
-                        path.lineTo(x+ sw, y );
-                        path.lineTo(x, y);
-                    }	
+						path.moveTo(x, y);
+						path.lineTo(x , y+ chicklet - radius);
+						path.arcTo(radius, radius, 0, 0, 0, x + ew, y + chicklet - radius)
+						path.lineTo(x+ sw, y );
+						path.lineTo(x, y);
+					}else{
+						path.moveTo(x, y);
+						path.lineTo(x , y+ chicklet);
+						path.lineTo(x + ew, y + chicklet);
+						path.lineTo(x+ sw, y );
+						path.lineTo(x, y);
+					}	
 				}
 
 				path.setFill(fill).setStroke(stroke);
 				sw = ew;
 				ew += inc;
-                y += chicklet + this.segmentSpacing;
-            }
+				y += chicklet + this.segmentSpacing;
+			}
 			
 			// draw the remaining segment part
 			if(remain > 0){

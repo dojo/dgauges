@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_CircularGaugeUtil"], function(declare, gfx, ScaleBase, _CircularGaugeUtil){
+define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"], function(declare, gfx, ScaleBase, _circularGaugeUtil){
 	
     /*=====
      var ScaleBase = dojox.gauge.ScaleBase;
@@ -25,22 +25,22 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_CircularGaugeUtil"
 		},
 		
 		positionForValue: function(value){
-			var totalAngle = _CircularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
+			var totalAngle = _circularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
 			var relativePos = this.scaler.positionForValue(value);
-			return _CircularGaugeUtil.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * relativePos, 360);
+			return _circularGaugeUtil.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * relativePos, 360);
 		},
 		
 		_positionForTickItem: function(tickItem){
-			var totalAngle = _CircularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
-			return _CircularGaugeUtil.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * tickItem.position, 360);
+			var totalAngle = _circularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
+			return _circularGaugeUtil.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * tickItem.position, 360);
 		},
 		
 		valueForPosition: function(angle){
 			if (!this.positionInRange(angle)) {
 			
-				var min1 = _CircularGaugeUtil.modAngle(this.startAngle - angle, 360);
+				var min1 = _circularGaugeUtil.modAngle(this.startAngle - angle, 360);
 				var min2 = 360 - min1;
-				var max1 = _CircularGaugeUtil.modAngle(this.endAngle - angle, 360);
+				var max1 = _circularGaugeUtil.modAngle(this.endAngle - angle, 360);
 				var max2 = 360 - max1;
 				var pos;
 				if (Math.min(min1, min2) < Math.min(max1, max2)) {
@@ -49,8 +49,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_CircularGaugeUtil"
 					pos = 1;
 				}
 			} else {
-				var relativeAngle = _CircularGaugeUtil.modAngle(this._getOrientationNum() * (angle - this.startAngle), 360);
-				var totalAngle = _CircularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
+				var relativeAngle = _circularGaugeUtil.modAngle(this._getOrientationNum() * (angle - this.startAngle), 360);
+				var totalAngle = _circularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
 				pos = relativeAngle / totalAngle;
 			}
 			return this.scaler.valueForPosition(pos);
@@ -59,7 +59,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_CircularGaugeUtil"
 		positionInRange: function(value){
 			if (this.startAngle == this.endAngle) 
 				return true;
-			value = _CircularGaugeUtil.modAngle(value, 360);
+			value = _circularGaugeUtil.modAngle(value, 360);
 			if (this._getOrientationNum() == 1) {
 				if (this.startAngle < this.endAngle) 
 					return value >= this.startAngle && value <= this.endAngle;
@@ -177,8 +177,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_CircularGaugeUtil"
 				return;
 			
 			// Normalize angles
-			this.startAngle = _CircularGaugeUtil.modAngle(this.startAngle, 360);
-			this.endAngle = _CircularGaugeUtil.modAngle(this.endAngle, 360);
+			this.startAngle = _circularGaugeUtil.modAngle(this.startAngle, 360);
+			this.endAngle = _circularGaugeUtil.modAngle(this.endAngle, 360);
 			
 			this._ticksGroup.clear();
 			
@@ -224,7 +224,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_CircularGaugeUtil"
 					} else {
 						rad += this.labelGap;
 					}
-					this._layoutLabel(label, labelText, this.originX, this.originY, rad, _CircularGaugeUtil.toRadians(360 - a), this.labelPosition);
+					this._layoutLabel(label, labelText, this.originX, this.originY, rad, _circularGaugeUtil.toRadians(360 - a), this.labelPosition);
 				}
 			}
 			

@@ -42,10 +42,6 @@ define([
 			// Gauge Foreground (needle cap)
 			this.addElement("foreground", lang.hitch(this, this.drawForeground));
 			
-			// Value Label
-			this.addElement("valueLabel", lang.hitch(this, this.drawValueLabel));
-			
-			
 			GaugeUtils.genericCircularGauge(scale, indicator, this._radius, this._radius, 0.65 * this._radius, 130, 50, null, null, "outside");
 		},
 		
@@ -147,29 +143,6 @@ define([
 				color: GaugeUtils.brightness(this.innerColor, -50),
 				width: 0.4
 			});
-		},
-		
-		drawValueLabel: function(g){
-			g.createRect({
-				x: this._radius - 20,
-				y: this._radius * 1.8 - 20,
-				width: 40,
-				height: 20
-			}).setStroke({
-				color: GaugeUtils.brightness(this.innerColor, -20),
-				width: 0.3
-			});
-			return g.createText({
-				x: this._radius,
-				y: this._radius * 1.8 - 4,
-				text: this.getElement("scale").getIndicator("indicator").value.toFixed(0),
-				align: "middle"
-			}).setFont({
-				family: "Helvetica",
-				weight: 'bold',
-				size: "12pt"
-			}).setFill(this.font.color ? this.font.color : "black");
 		}
-		
 	});
 });

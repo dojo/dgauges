@@ -43,9 +43,8 @@ define([
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
 				indicator.set("indicatorShapeFunction", function(indicator, group, scale) {
-			
 					return group.createPolyline([0, -12, scale.radius - 2, 0, 0, 12, 0, -12]).setStroke({
-						color: [69,69,69],
+						color: [70,70,70],
 						width: 1
 					}).setFill([164,164,164]);
 					

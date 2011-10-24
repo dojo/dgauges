@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_CircularGaugeUtil", "dojo/_base/event"], function(declare, gfx, ScaleIndicatorBase, _CircularGaugeUtil, eventUtil){
+define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularGaugeUtil", "dojo/_base/event"], function(declare, gfx, ScaleIndicatorBase, _circularGaugeUtil, eventUtil){
 
     /*=====
      var IndicatorBase = dojox.gauge.IndicatorBase;

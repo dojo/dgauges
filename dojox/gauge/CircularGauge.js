@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "./_CircularGaugeUtil"], function(declare, domGeom, gfx, GaugeBase, _CircularGaugeUtil){
+define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "./_circularGaugeUtil"], function(declare, domGeom, gfx, GaugeBase, _circularGaugeUtil){
 
     /*=====
      var GaugeBase = dojox.gauge.GaugeBase;

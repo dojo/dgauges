@@ -8,9 +8,10 @@ define([
 		"../../LinearScaler", 
 		"../../RectangularScale", 
 		"../../RectangularValueIndicator", 
-		"../../RectangularRangeIndicator"
+		"../../RectangularRangeIndicator",
+		"../../TextIndicator"
 	], 
-	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, RectangularRangeIndicator){
+	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, RectangularRangeIndicator, TextIndicator){
 
 	/*=====
      var RectangularGauge = dojox.gauge.RectangularGauge;
@@ -85,15 +86,15 @@ define([
 			// Gauge Foreground (needle cap)
 			//this.addElement("foreground", lang.hitch(this, this.drawForeground));
 			
-			// Value Label
-			this.addElement("valueLabel", lang.hitch(this, this.drawValueLabel), "leading");
+			// Indicator Text Border
+			this.addElement("indicatorTextBorder", lang.hitch(this, this.drawTextBorder), "leading");
 			
-			// Map indicator value to label
-			connect.connect(indicator, "valueChanged", lang.hitch(this, function(ev){
-				this.getElementRenderer("valueLabel").setShape({
-					text: ev.value.toFixed(0)
-				});
-			}));
+			// Indicator Text
+			var indicatorText = new TextIndicator();
+			indicatorText.set("indicator", indicator);
+			indicatorText.set("x", 22.5);
+			indicatorText.set("y", 30);
+			this.addElement("indicatorText", indicatorText);
 			
 		},
 		
@@ -187,8 +188,8 @@ define([
 			});
 			
 		},
-		drawValueLabel: function(g){
-			g.createRect({
+		drawTextBorder: function(g){
+			return g.createRect({
 				x: 5,
 				y: 5,
 				width: 40,
@@ -197,16 +198,6 @@ define([
 				color: "#CECECE",
 				width: 1
 			});
-			return g.createText({
-				x: 22.5,
-				y: 30,
-				text: this.getElement("scale").getIndicator("indicator").value.toFixed(0),
-				align: "middle"
-			}).setFont({
-				family: "Helvetica",
-				weight: 'bold',
-				size: "12pt"
-			}).setFill(this.font.color ? this.font.color : "black");
 		}
 		
 	});

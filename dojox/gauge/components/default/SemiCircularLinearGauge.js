@@ -8,9 +8,9 @@ define([
 		"../../LinearScaler", 
 		"../../CircularScale", 
 		"../../CircularValueIndicator", 
-		"../../CircularRangeIndicator"
+		"../../TextIndicator"
 		], 
-	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
+	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator){
 
 	/*=====
      var CircularGauge = dojox.gauge.CircularGauge;
@@ -44,9 +44,15 @@ define([
 			// Gauge Foreground (needle cap)
 			this.addElement("foreground", lang.hitch(this, this.drawForeground));
 			
-			// Value Label
-			this.addElement("valueLabel", lang.hitch(this, this.drawValueLabel));
+			// Indicator Text Border
+			this.addElement("indicatorTextBorder", lang.hitch(this, this.drawTextBorder), "leading");
 			
+			// Indicator Text
+			var indicatorText = new TextIndicator();
+			indicatorText.set("indicator", indicator);
+			indicatorText.set("x", 100);
+			indicatorText.set("y", 115);
+			this.addElement("indicatorText", indicatorText);			
 			
 			GaugeUtils.genericCircularGauge(scale, indicator, this._width / 2, 0.76 * this._height, this._radius, 166, 14, null, null, "inside");
 		},
@@ -162,8 +168,8 @@ define([
 			});
 		},
 		
-		drawValueLabel: function(g){
-			g.createRect({
+		drawTextBorder: function(g){
+			return g.createRect({
 				x: this._width / 2 - 12,
 				y: this._height - 20,
 				width: 24,
@@ -172,16 +178,6 @@ define([
 				color: GaugeUtils.brightness(this.innerColor, -20),
 				width: 0.3
 			});
-			return g.createText({
-				x: this._width / 2,
-				y: this._height - 8,
-				text: this.getElement("scale").getIndicator("indicator").value.toFixed(0),
-				align: "middle"
-			}).setFont({
-				family: "Helvetica",
-				weight: 'bold',
-				size: "10pt"
-			}).setFill(this.font.color ? this.font.color : "black");
 		}
 		
 	});

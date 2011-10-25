@@ -34,9 +34,9 @@ define([
 			scale.set("paddingRight", this.padding1+2);
 			scale.set("paddingLeft", this.padding1+4);		
 			//set an empty label function to draw nothing
-			scale.tickLabelFunction = function(t){return null;};	
+			scale.tickLabelFunc = function(t){return null;};	
 			//set an empty shape function to draw nothing
-			scale.tickShapeFunction =  function(scale, group, tickItem){return null;};
+			scale.tickShapeFunc =  function(scale, group, tickItem){return null;};
 			this.addElement("scale", scale);
 			
 			// Segmented Range Indicator example			

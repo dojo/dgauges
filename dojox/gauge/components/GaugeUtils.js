@@ -15,8 +15,8 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 				colors: []
 			};
 			var obj;
-			for (var i = 0; i < entries.length; i++) {
-				if (i % 2 == 0) {
+			for (var i = 0; i < entries.length; i++){
+				if(i % 2 == 0){
 					obj = {
 						offset: entries[i]
 					};
@@ -29,17 +29,17 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 		},
 		
 		_setter: function(obj, attributes, values){
-			for (var i = 0; i < attributes.length; i++) {
+			for (var i = 0; i < attributes.length; i++){
 				obj[attributes[i]] = values[i];
 			}
 		},
 		
-		genericCircularGauge: function(scale, indicator, originX, originY, radius, startAngle, endAngle, orientation, font, labelPosition, tickShapeFunction){
-			var attributes = ["originX", "originY", "radius", "startAngle", "endAngle", "orientation", "font", "labelPosition", "tickShapeFunction"];
-			if (!orientation) {
+		genericCircularGauge: function(scale, indicator, originX, originY, radius, startAngle, endAngle, orientation, font, labelPosition, tickShapeFunc){
+			var attributes = ["originX", "originY", "radius", "startAngle", "endAngle", "orientation", "font", "labelPosition", "tickShapeFunc"];
+			if(!orientation){
 				orientation = "clockwise";
 			}
-			if (!font) {
+			if(!font){
 				font = {
 					family: "Helvetica",
 					style: "normal",
@@ -47,11 +47,11 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 					color: "#555555"
 				};
 			}
-			if (!labelPosition) {
+			if(!labelPosition){
 				labelPosition = "inside";
 			}
-			if (!tickShapeFunction) {
-				tickShapeFunction = function(scale, group, tick){
+			if(!tickShapeFunc){
+				tickShapeFunc = function(scale, group, tick){
 					return group.createLine({
 						x1: tick.isMinor ? 2 : 0,
 						y1: 0,
@@ -64,11 +64,11 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 				};
 			}
 			
-			this._setter(scale, attributes, [originX, originY, radius, startAngle, endAngle, orientation, font, labelPosition, tickShapeFunction]);
+			this._setter(scale, attributes, [originX, originY, radius, startAngle, endAngle, orientation, font, labelPosition, tickShapeFunc]);
 			
 			indicator.set("interactionArea", "gauge");
 			// Needle shape
-			indicator.set("indicatorShapeFunction", function(indicator, group, scale){
+			indicator.set("indicatorShapeFunc", function(indicator, group, scale){
 				return group.createPolyline([0, -5, scale.radius - 2, 0, 0, 5, 0, -5]).setStroke({
 					color: "#333333",
 					width: 0.25

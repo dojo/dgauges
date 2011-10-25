@@ -5,7 +5,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularG
      =====*/	
 
 	return declare("dojox.gauge.CircularValueIndicator", ScaleIndicatorBase, {
-		indicatorShapeFunction: function(indicator, group, scale){
+		indicatorShapeFunc: function(indicator, group, scale){
 			return group.createLine({
 				x1: 0,
 				y1: 0,

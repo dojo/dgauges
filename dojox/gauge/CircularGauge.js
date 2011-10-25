@@ -10,7 +10,7 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 		refreshRendering: function(){
 
 			// Render all elements			
-			for (var key in this._elementsIndex) {
+			for (var key in this._elementsIndex){
 				this._elementsRenderers[key] = this._elementsIndex[key].refreshRendering();
 			}
 			
@@ -26,7 +26,7 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 			var ypos = 0;
 			var h = 0;
 			var w = 0;
-			if (naturalRatio > widgetRatio) {
+			if(naturalRatio > widgetRatio){
 				w = widgetWidth;
 				h = w / naturalRatio;
 				ypos = (widgetHeight - h) / 2;
@@ -41,7 +41,7 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 		},
 		
 		_gaugeToPage: function(px, py){
-			if (this._transformProperties){
+			if(this._transformProperties){
 				var np = domGeom.position(this.domNode, true);
 				return {x: np.x + px * this._transformProperties.scale + this._transformProperties.tx, y: np.y + py * this._transformProperties.scale + this._transformProperties.ty};
 			}else{

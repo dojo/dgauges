@@ -39,15 +39,15 @@ define([
 			scale.set("paddingRight", this.padding1+2);
 			scale.set("paddingLeft", this.padding1+4);		
 			//set an empty label function to draw nothing
-			scale.tickLabelFunction = function(t){return null;};	
+			scale.tickLabelFunc = function(t){return null;};	
 			//set an empty shape function to draw nothing
-			scale.tickShapeFunction =  function(scale, group, tickItem){return null;};
+			scale.tickShapeFunc =  function(scale, group, tickItem){return null;};
 			this.addElement("scale", scale);
 			
 			
 			// Value indicator 1
 			var indicator = new RectangularValueIndicator();			
-			indicator.indicatorShapeFunction = function(indicator, group, scale){
+			indicator.indicatorShapeFunc = function(indicator, group, scale){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
 					color: scale._gauge.colorRange1,
 					width: 0.25
@@ -70,7 +70,7 @@ define([
 			
 			// Value indicator 2
 			indicator = new RectangularValueIndicator();			
-			indicator.indicatorShapeFunction = function(indicator, group, scale){
+			indicator.indicatorShapeFunc = function(indicator, group, scale){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
 					color: scale._gauge.colorRange2,
 					width: 0.25
@@ -94,7 +94,7 @@ define([
 						
 			// Value indicator 3
 			indicator = new RectangularValueIndicator();			
-			indicator.indicatorShapeFunction = function(indicator, group, scale){
+			indicator.indicatorShapeFunc = function(indicator, group, scale){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
 					color: scale._gauge.colorRange3,
 					width: 0.25

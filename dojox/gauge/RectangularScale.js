@@ -19,8 +19,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 			var position;
 			var spos = 0;
 			var length = 0;
-			if (this._contentBox) {
-				if (this._gauge.orientation == "horizontal") {
+			if(this._contentBox){
+				if(this._gauge.orientation == "horizontal"){
 					spos = this._contentBox.x;
 					length = this._contentBox.w;
 				} else {
@@ -39,7 +39,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 			var spos = 0;
 			var epos = 0;
 			
-			if (this._gauge.orientation == "horizontal") {
+			if(this._gauge.orientation == "horizontal"){
 				position = pos.x;
 				spos = this._contentBox.x;
 				epos = this._contentBox.x + this._contentBox.w;
@@ -49,9 +49,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 				epos = this._contentBox.y + this._contentBox.h;
 			}
 			
-			if (position <= spos) {
+			if(position <= spos){
 				value = this.scaler.minimum;
-			} else if (position >= epos) {
+			} else if(position >= epos){
 				value = this.scaler.maximum;
 			} else {
 				value = this.scaler.valueForPosition((position - spos)/(epos - spos));
@@ -62,7 +62,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 		
 		refreshRendering: function(){
 			this.inherited(arguments);
-			if (!this._gfxGroup || !this.scaler) 
+			if(!this._gfxGroup || !this.scaler) 
 				return;
 			
 			this._ticksGroup.clear();
@@ -85,16 +85,16 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 			// Layout ticks
 			var allTicks = this.scaler.computeTicks();
 			
-			for (var i = 0; i < allTicks.length; i++) {
+			for (var i = 0; i < allTicks.length; i++){
 				var tickItem = allTicks[i];
-				renderer = this.tickShapeFunction(this, this._ticksGroup, tickItem);
+				renderer = this.tickShapeFunc(this, this._ticksGroup, tickItem);
 				
-				if (renderer) {
+				if(renderer){
 					var a = this.positionForValue(tickItem.value);
 					var tickSize = this._gauge._computeBoundingBox(renderer).width;
 					
 					var x1 = 0, y1 = 0, angle = 0;
-					if (this._gauge.orientation == "horizontal") {
+					if(this._gauge.orientation == "horizontal"){
 						x1 = a;
 						y1 = this._contentBox.y;
 						angle = 90;
@@ -110,9 +110,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 					}, gfx.matrix.rotateg(angle)]);
 				}
 				
-				labelText = this.tickLabelFunction(tickItem);
+				labelText = this.tickLabelFunc(tickItem);
 				
-				if (labelText) {
+				if(labelText){
 					var tbox = gfx._base._getTextBox(labelText, {
 						font: gfx.makeFontString(gfx.makeParameters(gfx.defaultFont, font))
 					});
@@ -122,9 +122,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 					var xt = x1;
 					var yt = y1;
 					
-					if (this._gauge.orientation == "horizontal") {
+					if(this._gauge.orientation == "horizontal"){
 						xt = x1;
-						if (this.labelPosition == "trailing") {
+						if(this.labelPosition == "trailing"){
 							yt = y1 + tickSize + this.labelGap + th;
 
 						} else {
@@ -132,7 +132,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 						}
 						al = 'middle';
 					} else {
-						if (this.labelPosition == "trailing") {
+						if(this.labelPosition == "trailing"){
 							xt = x1 + tickSize + this.labelGap;
 						} else {
 							xt = x1 - this.labelGap - tw;
@@ -151,7 +151,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 				}
 			}
 			
-			for (var key in this._indicatorsIndex) {
+			for (var key in this._indicatorsIndex){
 				this._indicatorsRenderers[key] = this._indicatorsIndex[key].invalidateRendering();
 			}
 		}

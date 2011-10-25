@@ -36,14 +36,14 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		},
 		
 		valueForPosition: function(angle){
-			if (!this.positionInRange(angle)) {
+			if(!this.positionInRange(angle)){
 			
 				var min1 = _circularGaugeUtil.modAngle(this.startAngle - angle, 360);
 				var min2 = 360 - min1;
 				var max1 = _circularGaugeUtil.modAngle(this.endAngle - angle, 360);
 				var max2 = 360 - max1;
 				var pos;
-				if (Math.min(min1, min2) < Math.min(max1, max2)) {
+				if(Math.min(min1, min2) < Math.min(max1, max2)){
 					pos = 0;
 				} else {
 					pos = 1;
@@ -57,16 +57,16 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		},
 		
 		positionInRange: function(value){
-			if (this.startAngle == this.endAngle) 
+			if(this.startAngle == this.endAngle) 
 				return true;
 			value = _circularGaugeUtil.modAngle(value, 360);
-			if (this._getOrientationNum() == 1) {
-				if (this.startAngle < this.endAngle) 
+			if(this._getOrientationNum() == 1){
+				if(this.startAngle < this.endAngle) 
 					return value >= this.startAngle && value <= this.endAngle;
 				else 
 					return !(value > this.endAngle && value < this.startAngle);
 			} else {
-				if (this.startAngle < this.endAngle) 
+				if(this.startAngle < this.endAngle) 
 					return !(value > this.startAngle && value < this.endAngle);
 				else 
 					return value >= this.endAngle && value <= this.startAngle;
@@ -99,7 +99,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			var ipx = side;
 			var ipy = -Math.tan(angle) * side + oy + Math.tan(angle) * ox;
 			// Verify if intersection is on segment
-			if (ipy >= tfy && ipy <= tfy + th) 
+			if(ipy >= tfy && ipy <= tfy + th) 
 				intersections.push({
 					x: ipx,
 					y: ipy
@@ -110,7 +110,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			ipx = side;
 			ipy = -Math.tan(angle) * side + oy + Math.tan(angle) * ox;
 			// Verify if intersection is on segment
-			if (ipy >= tfy && ipy <= tfy + th) 
+			if(ipy >= tfy && ipy <= tfy + th) 
 				intersections.push({
 					x: ipx,
 					y: ipy
@@ -121,7 +121,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			ipx = -1 / Math.tan(angle) * side + ox + 1 / Math.tan(angle) * oy;
 			ipy = side;
 			// Verify if intersection is on segment
-			if (ipx >= tfx && ipx <= tfx + tw) 
+			if(ipx >= tfx && ipx <= tfx + tw) 
 				intersections.push({
 					x: ipx,
 					y: ipy
@@ -132,18 +132,18 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			ipx = -1 / Math.tan(angle) * side + ox + 1 / Math.tan(angle) * oy;
 			ipy = side;
 			// Verify if intersection is on segment
-			if (ipx >= tfx && ipx <= tfx + tw) 
+			if(ipx >= tfx && ipx <= tfx + tw) 
 				intersections.push({
 					x: ipx,
 					y: ipy
 				});
 			
 			var dif;
-			if (labelPlacement == "inside") {
-				for (var it = 0; it < intersections.length; it++) {
+			if(labelPlacement == "inside"){
+				for (var it = 0; it < intersections.length; it++){
 					var ip = intersections[it];
 					dif = this._distance(ip.x, ip.y, ox, oy) - lrad;
-					if (dif >= 0) {
+					if(dif >= 0){
 						// Place reference intersection point on reference circle
 						tfx = ox + Math.cos(angle) * (lrad - dif) - tw / 2;
 						tfy = oy - Math.sin(angle) * (lrad - dif) - th / 2;
@@ -152,10 +152,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 				}
 			} else // "outside" placement
 			{
-				for (it = 0; it < intersections.length; it++) {
+				for (it = 0; it < intersections.length; it++){
 					ip = intersections[it];
 					dif = this._distance(ip.x, ip.y, ox, oy) - lrad;
-					if (dif <= 0) {
+					if(dif <= 0){
 						// Place reference intersection point on reference circle
 						tfx = ox + Math.cos(angle) * (lrad - dif) - tw / 2;
 						tfy = oy - Math.sin(angle) * (lrad - dif) - th / 2;
@@ -164,7 +164,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 					}
 				}
 			}
-			if (label) {
+			if(label){
 				label.setTransform([{
 					dx: tfx + tw / 2,
 					dy: tfy + th
@@ -173,7 +173,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		},
 		refreshRendering: function(){
 			this.inherited(arguments);
-			if (!this._gfxGroup || !this.scaler) 
+			if(!this._gfxGroup || !this.scaler) 
 				return;
 			
 			// Normalize angles
@@ -190,13 +190,13 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			var allTicks = this.scaler.computeTicks();
 			
 			var tickBB;
-			for (var i = 0; i < allTicks.length; i++) {
+			for (var i = 0; i < allTicks.length; i++){
 				var tickItem = allTicks[i];
-				renderer = this.tickShapeFunction(this, this._ticksGroup, tickItem);
+				renderer = this.tickShapeFunc(this, this._ticksGroup, tickItem);
 				
 				tickBB = this._gauge._computeBoundingBox(renderer);
 				var a;
-				if (tickItem.position) {
+				if(tickItem.position){
 					a = this._positionForTickItem(tickItem);
 				} else {
 					a = this.positionForValue(tickItem.value);
@@ -210,8 +210,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 					dy: 0
 				}]);
 				
-				labelText = this.tickLabelFunction(tickItem);
-				if (labelText) {
+				labelText = this.tickLabelFunc(tickItem);
+				if(labelText){
 					label = this._ticksGroup.createText({
 						x: 0,
 						y: 0,
@@ -219,7 +219,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 						align: "middle"
 					}).setFont(this._getFont()).setFill(this._getFont().color ? this._getFont().color : "black");
 					var rad = this.radius;
-					if (this.labelPosition == "inside") {
+					if(this.labelPosition == "inside"){
 						rad -= (tickBB.width + this.labelGap);
 					} else {
 						rad += this.labelGap;
@@ -228,7 +228,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 				}
 			}
 			
-			for (var key in this._indicatorsIndex) {
+			for (var key in this._indicatorsIndex){
 				this._indicatorsRenderers[key] = this._indicatorsIndex[key].invalidateRendering();
 			}
 			

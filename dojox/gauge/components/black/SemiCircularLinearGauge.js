@@ -33,7 +33,7 @@ define([
 					size: "14pt",
 					color: "#CECECE"
 				});
-				scale.set("tickShapeFunction", function(scale, group, tick){
+				scale.set("tickShapeFunc", function(scale, group, tick){
 					return group.createCircle({
 						r: tick.isMinor ? 2 : 4
 					}).setFill("#CECECE");
@@ -42,7 +42,7 @@ define([
 				var indicator = new CircularValueIndicator();
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
-				indicator.set("indicatorShapeFunction", function(indicator, group, scale) {
+				indicator.set("indicatorShapeFunc", function(indicator, group, scale){
 			
 					return group.createPolyline([0, -12, scale.radius - 2, 0, 0, 12, 0, -12]).setStroke({
 						color: [69,69,69],

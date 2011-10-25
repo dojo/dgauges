@@ -24,7 +24,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 			// computes offsets to move the indicator
 			var dx = 0, dy = 0;
 			var angle = 0;
-			if (this.scale._gauge.orientation == "horizontal") {
+			if(this.scale._gauge.orientation == "horizontal"){
 				dx = pos;
 				dy = this.paddingTop;
 			} else {

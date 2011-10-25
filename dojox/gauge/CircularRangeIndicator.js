@@ -12,7 +12,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 		fill: null,
 		stroke: null,
 		constructor: function(args, node){
-			this.indicatorShapeFunction = null;
+			this.indicatorShapeFunc = null;
 			this.fill = [255, 120, 0];
 			this.stroke = {
 				color: 'black',
@@ -42,7 +42,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var ret = [];
 			var ilen = 0;
 			
-			for (var i = 0; i < colors.length - 1; i++) {
+			for (var i = 0; i < colors.length - 1; i++){
 				ilen = (ratios[i + 1] - ratios[i]) * len;
 				ilen = Math.round(ilen);
 				ret = ret.concat(colorInterpolation(colors[i], colors[i + 1], ilen));
@@ -53,7 +53,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 		alphasInterpolation: function(alphas, positions, len){
 			var ret = [];
 			var ilen = 0;
-			for (var i = 0; i < alphas.length - 1; i++) {
+			for (var i = 0; i < alphas.length - 1; i++){
 				ilen = (positions[i + 1] - positions[i]) * len;
 				ilen = Math.round(ilen);
 				ret = ret.concat(alphaInterpolation(alphas[i], alphas[i + 1], ilen));
@@ -65,7 +65,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var step = (c2 - c1) / (len - 1);
 			var ret = [];
 			var j = 0;
-			for (var i = 0; i < len; i++) {
+			for (var i = 0; i < len; i++){
 				ret.push(c1 + i * step);
 			}
 			
@@ -83,9 +83,9 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var ret = [];
 			var e;
 			var val;
-			for (var i = 0; i < entries.length; i++) {
+			for (var i = 0; i < entries.length; i++){
 				e = entries[i];
-				if (e[attr] == null || isNaN(e[attr])) 
+				if(e[attr] == null || isNaN(e[attr])) 
 					val = i / (entries.length - 1);
 				else 
 					val = e[attr];
@@ -100,7 +100,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var totalAngle;
 			
 			totalAngle = 6.28318530718 - _circularGaugeUtil.computeAngle(startAngleRadians, endAngleRadians, orientation);
-			if (!isNaN(clippingAngleRadians)) {
+			if(!isNaN(clippingAngleRadians)){
 				var deltaAngle = _circularGaugeUtil.computeAngle(startAngleRadians, clippingAngleRadians, orientation);
 				eWeight *= deltaAngle / totalAngle;
 				totalAngle = deltaAngle;
@@ -120,7 +120,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			
 			var angle;
 			var i;
-			if (orientation == "clockwise") 
+			if(orientation == "clockwise") 
 				angleStep = -angleStep;
 			
 			var gp = [];
@@ -128,18 +128,18 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			px = ox + Math.cos(startAngleRadians) * (radius + innerRadius);
 			py = oy - Math.sin(startAngleRadians) * (radius + innerRadius);
 			gp.push(px, py);
-			for (i = 0; i < iterCount; i++) {
+			for (i = 0; i < iterCount; i++){
 				angle = startAngleRadians + i * angleStep;
 				px = ox + Math.cos(angle + angleStep) * (radius + innerRadius + i * innerStep);
 				py = oy - Math.sin(angle + angleStep) * (radius + innerRadius + i * innerStep);
 				gp.push(px, py);
 			}
-			if (isNaN(angle)) 
+			if(isNaN(angle)) 
 				angle = startAngleRadians;
 			px = ox + Math.cos(angle + angleStep) * (radius + outerRadius + (iterCount - 1) * outerStep);
 			py = oy - Math.sin(angle + angleStep) * (radius + outerRadius + (iterCount - 1) * outerStep);
 			gp.push(px, py);
-			for (i = iterCount - 1; i >= 0; i--) {
+			for (i = iterCount - 1; i >= 0; i--){
 				angle = startAngleRadians + i * angleStep;
 				px = ox + Math.cos(angle + angleStep) * (radius + outerRadius + i * outerStep);
 				py = oy - Math.sin(angle + angleStep) * (radius + outerRadius + i * outerStep);

@@ -23,7 +23,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 		getNextValidValue: function(value){
 			var v = Number(value);
 			var nv;
-			if (isNaN(this.snapInterval)) 
+			if(isNaN(this.snapInterval)) 
 				nv = v + (this.maximum - this.minimum) / 10;
 			else 
 				nv = v + this.snapInterval;
@@ -33,7 +33,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 		getPreviousValidValue: function(value){
 			var v = Number(value);
 			var nv;
-			if (isNaN(this.snapInterval)) 
+			if(isNaN(this.snapInterval)) 
 				nv = v - (this.maximum - this.minimum) / 10;
 			else 
 				nv = v - this.snapInterval;
@@ -51,12 +51,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 		buildMinorTickItems: function(){
 			var mt = this.majorTicks;
 			var minorTickCache = [];
-			if (this.maximum > this.minimum) {
+			if(this.maximum > this.minimum){
 				var majorTickCount = Math.floor((this.maximum - this.minimum) / this.getComputedMajorTickInterval()) + 1;
 				var minorTickCount = Math.floor(this.getComputedMajorTickInterval() / this.getComputedMinorTickInterval());
 				var data;
-				for (var i = 0; i < majorTickCount - 1; i++) {
-					for (var j = 1; j < minorTickCount; j++) {
+				for (var i = 0; i < majorTickCount - 1; i++){
+					for (var j = 1; j < minorTickCount; j++){
 						data = new TickItem(this);
 						data.isMinor = true;
 						data.value = mt[i].value + j * this.getComputedMinorTickInterval();
@@ -70,10 +70,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 		
 		buildMajorTickItems: function(){
 			var majorTickCache = [];
-			if (this.maximum > this.minimum) {
+			if(this.maximum > this.minimum){
 				var majorTickCount = Math.floor((this.maximum - this.minimum) / this.getComputedMajorTickInterval()) + 1;
 				var data;
-				for (var i = 0; i < majorTickCount; i++) {
+				for (var i = 0; i < majorTickCount; i++){
 					data = new TickItem(this);
 					data.isMinor = false;
 					data.value = this.minimum + i * this.getComputedMajorTickInterval();
@@ -85,17 +85,17 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 		},
 		
 		getComputedMajorTickInterval: function(){
-			if (!isNaN(this.majorTickInterval)) 
+			if(!isNaN(this.majorTickInterval)) 
 				return this.majorTickInterval;
-			if (isNaN(this._computedMajorTickInterval)) 
+			if(isNaN(this._computedMajorTickInterval)) 
 				this._computedMajorTickInterval = (this.maximum - this.minimum) / 10;
 			return this._computedMajorTickInterval;
 		},
 		
 		getComputedMinorTickInterval: function(){
-			if (!isNaN(this.minorTickInterval)) 
+			if(!isNaN(this.minorTickInterval)) 
 				return this.minorTickInterval;
-			if (isNaN(this._computedMinorTickInterval)) 
+			if(isNaN(this._computedMinorTickInterval)) 
 				this._computedMinorTickInterval = this.getComputedMajorTickInterval() / 5;
 			return this._computedMinorTickInterval;
 		},
@@ -107,11 +107,11 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 		},
 		positionForValue: function(value){
 			var position;
-			if (value == null || isNaN(value) || value <= this.minimum) 
+			if(value == null || isNaN(value) || value <= this.minimum) 
 				position = 0;
-			if (value >= this.maximum) 
+			if(value >= this.maximum) 
 				position = 1;
-			if (isNaN(position)) {
+			if(isNaN(position)){
 				position = (value - this.minimum) / (this.maximum - this.minimum);
 			}
 			return position;
@@ -119,7 +119,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 		valueForPosition: function(position){
 			var range = Math.abs(this.minimum - this.maximum);
 			var value = this.minimum + range * position;
-			if (!isNaN(this.snapInterval) && this.snapInterval > 0) {
+			if(!isNaN(this.snapInterval) && this.snapInterval > 0){
 				value = Math.round((value - this.minimum) / this.snapInterval) * this.snapInterval + this.minimum;
 			}
 			return value;

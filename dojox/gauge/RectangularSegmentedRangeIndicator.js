@@ -45,7 +45,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			this.addInvalidatingProperties(["start", "startWeight", "endWeight", "fill", "stroke","segments","segmentSpacing","ranges"]);
 		},
 
-		_defaultHorizontalShapeFunction: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
 			var length = scale._contentBox.w ;
 			if(this.ranges){				
 				// Configure gradient to represent the ranges
@@ -70,7 +70,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 					fill.colors.push(entry2);
 					rangeStart += this.ranges[i].size;
 				}
-			}else if (fill && fill.colors){
+			}else if(fill && fill.colors){
 				// Configure gradient
 				fill.x1 = startX;
 				fill.y1 = startY;
@@ -132,7 +132,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			return shape;
 		},
 
-		_defaultVerticalShapeFunction: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
 			var length = scale._contentBox.h ;
 			if(this.ranges){				
 				// Configure gradient to represent the ranges
@@ -157,7 +157,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 					fill.colors.push(entry2);
 					rangeStart += this.ranges[i].size
 				}
-			}else if (fill && fill.colors){
+			}else if(fill && fill.colors){
 				// Configure gradient
 				fill.x1 = startX;
 				fill.y1 = startY;
@@ -218,16 +218,16 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			return shape;
 		},
 				
-		indicatorShapeFunction: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		indicatorShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
 			//	summary:
 			//		Constructor.
 			//	description:
 			//		Creates a segmented range indicator.
 			
-			if (this.scale._gauge.orientation == "horizontal"){
-				this._defaultHorizontalShapeFunction(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
+			if(this.scale._gauge.orientation == "horizontal"){
+				this._defaultHorizontalShapeFunc(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
 			}else{
-				this._defaultVerticalShapeFunction(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
+				this._defaultVerticalShapeFunc(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
 			}
 		},
 		
@@ -244,7 +244,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			var startX;
 			var startY;
 			var endPosition;
-			if (this.scale._gauge.orientation == "horizontal"){
+			if(this.scale._gauge.orientation == "horizontal"){
 				startX = spos;
 				startY = this.paddingTop;
 				endPosition = pos;
@@ -253,7 +253,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				startY = spos ;
 				endPosition = pos;			
 			}
-			this.indicatorShapeFunction(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startWeight, this.endWeight, this.fill, this.stroke);
+			this.indicatorShapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startWeight, this.endWeight, this.fill, this.stroke);
 		}
 	})
 });

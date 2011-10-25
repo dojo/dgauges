@@ -31,11 +31,11 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			this._indicatorsRenderers = {};
 			this._gauge = null;
 			this._gfxGroup = null;
-			this.addInvalidatingProperties(["scaler", "font", "labelGap", "labelPosition", "tickShapeFunction", "tickLabelFunction"]);
+			this.addInvalidatingProperties(["scaler", "font", "labelGap", "labelPosition", "tickShapeFunc", "tickLabelFunc"]);
 			
 			var watchedObjects = ["scaler"];
 			
-			for (var i = 0; i < watchedObjects.length; i++) {
+			for (var i = 0; i < watchedObjects.length; i++){
 				this.watch(watchedObjects[i], lang.hitch(this, this._watchObject));
 			}
 		},
@@ -46,8 +46,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			
 			// Get the properties declared by the watched object
 			var props = newValue.watchedProperties;
-			if (props) {
-				for (var i = 0; i < props.length; i++) {
+			if(props){
+				for (var i = 0; i < props.length; i++){
 					newValue.watch(props[i], lang.hitch(this, this.invalidateRendering));
 				}
 			}
@@ -55,10 +55,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 		
 		_getFont: function(){
 			var font = this.font;
-			if (!font) {
+			if(!font){
 				font = this._gauge.font;
 			}
-			if (!font) {
+			if(!font){
 				font = gfx.defaultFont;
 			}
 			return font;
@@ -93,21 +93,21 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			return false;
 		},
 		
-		tickLabelFunction: function(tickItem){
+		tickLabelFunc: function(tickItem){
 			//	summary:
 			//		Customize the text of ticks labels.
 			//		tickItem: TickItem
 			//			The tick item to process.
 			//		returns: String
 			//			The text to be aligned with the tick. If null, the tick has no label.
-			if (tickItem.isMinor) {
+			if(tickItem.isMinor){
 				return null;
 			} else {
 				return String(tickItem.value);
 			}
 		},
 		
-		tickShapeFunction: function(scale, group, tickItem){
+		tickShapeFunc: function(scale, group, tickItem){
 			//	summary:
 			//		Customize the shape of ticks.
 			//		scale: ScaleBase
@@ -162,7 +162,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			//	returns: IndicatorBase
 			//		The removed indicator.
 			var indicator = this._indicatorsIndex[name];
-			if (indicator) {
+			if(indicator){
 				indicator._gfxGroup.removeShape();
 				var idx = this._indicators.indexOf(indicator);
 				this._indicators.splice(idx, 1);
@@ -193,14 +193,14 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			//		of the gauge.
 			//	name: String:
 			//		The name of the indicator to be added.
-			if (this._indicatorsIndex[name] && this._indicatorsIndex[name] != indicator) {
+			if(this._indicatorsIndex[name] && this._indicatorsIndex[name] != indicator){
 				this.removeIndicator(name);
 			}
 			
 			this._indicators.push(indicator);
 			this._indicatorsIndex[name] = indicator;
 			
-			if (!this._ticksGroup) {
+			if(!this._ticksGroup){
 				this._createSubGroups();
 			}
 			
@@ -213,7 +213,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 		},
 		
 		_createSubGroups: function(){
-			if (!this._gfxGroup || this._ticksGroup) {
+			if(!this._gfxGroup || this._ticksGroup){
 				return;
 			}
 			this._bgGroup = this._gfxGroup.createGroup();
@@ -222,7 +222,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 		},
 		
 		refreshRendering: function(){
-			if (!this._ticksGroup) {
+			if(!this._ticksGroup){
 				this._createSubGroups();
 			}
 		}

@@ -28,17 +28,17 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 			var minorInterval;
 			var currentMajorValue;
 			var v;
-			for (var i = 0; i < this.majorTickValues.length; i++) {
+			for (var i = 0; i < this.majorTickValues.length; i++){
 				v = this.majorTickValues[i];
 				ti = new TickItem(this);
 				ti.position = currentIndex * step;
 				ti.value = v;
 				ti.isMinor = false;
 				this.majorTicks.push(ti);
-				if (currentIndex < this.majorTickValues.length - 1) {
+				if(currentIndex < this.majorTickValues.length - 1){
 					currentMajorValue = Number(v);
 					minorInterval = (Number(this.majorTickValues[i + 1]) - currentMajorValue) / (this.minorTickCount + 1);
-					for (var j = 1; j <= this.minorTickCount; j++) {
+					for (var j = 1; j <= this.minorTickCount; j++){
 						ti = new TickItem(this);
 						ti.isMinor = true;
 						ti.position = currentIndex * step + j * minorStep;
@@ -52,11 +52,11 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 		},
 		
 		positionForValue: function(value){
-			if (!this.majorTickValues) {
+			if(!this.majorTickValues){
 				return 0;
 			}
 			
-			if (!this.majorTicks) {
+			if(!this.majorTicks){
 				this.computeTicks();
 			}
 			
@@ -66,7 +66,7 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 		},
 		
 		valueForPosition: function(position){
-			if (this.majorTicks == null) 
+			if(this.majorTicks == null) 
 				return 0;
 			var minmax = this._getMinMax(position, "position");
 			var value = (position - minmax[0].position) / (minmax[1].position - minmax[0].position);
@@ -74,7 +74,7 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 		},
 		
 		_getMinMax: function(v, property){
-			if (!property) {
+			if(!property){
 				property = "value";
 			}
 			var res = [];
@@ -84,17 +84,17 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 			var right = this.majorTicks.length - 1;
 			var center;
 			
-			if (v <= this.majorTicks[0][property] || v >= this.majorTicks[right][property]) {
+			if(v <= this.majorTicks[0][property] || v >= this.majorTicks[right][property]){
 				res[0] = this.majorTicks[0];
 				res[1] = this.majorTicks[right];
 				return res;
 			}
 			
-			while (true) {
+			while (true){
 				center = Math.floor((left + right) / 2);
 				
-				if (this.majorTicks[center][property] <= v) {
-					if (this.majorTicks[center + 1][property] >= v) {
+				if(this.majorTicks[center][property] <= v){
+					if(this.majorTicks[center + 1][property] >= v){
 						res[0] = this.majorTicks[center];
 						res[1] = this.majorTicks[center + 1];
 						return res;
@@ -111,14 +111,14 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 		},
 		
 		getFirstValidValue: function(){
-			if (this.majorTickValues != null) 
+			if(this.majorTickValues != null) 
 				return this.majorTickValues[0];
 			else 
 				return null;
 		},
 		
 		getLastValidValue: function(){
-			if (this.majorTickValues != null) 
+			if(this.majorTickValues != null) 
 				return this.majorTickValues[this.majorTickValues.length - 1];
 			else 
 				return null;
@@ -129,7 +129,7 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 			var minMax = _getMinMax(v + 10e-7);
 			var min = minMax[0].value;
 			var max = minMax[1].value;
-			if (isNaN(this.snapCount)) 
+			if(isNaN(this.snapCount)) 
 				nv = max;
 			else 
 				nv = v + (max - min) / (this.snapCount + 1);
@@ -141,7 +141,7 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 			var minMax = _getMinMax(v - 10e-7);
 			var min = minMax[0].value;
 			var max = minMax[1].value;
-			if (isNaN(this.snapCount)) {
+			if(isNaN(this.snapCount)){
 				nv = min;
 			} else {
 				nv = v - (max - min) / (snapCount + 1);

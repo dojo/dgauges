@@ -64,13 +64,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			dojox.gfx.addRect = function( /*dojox.gfx.Rectangle*/a, /*dojox.gfx.Rectangle*/ b){
 				//	returns:
 				//		a rectangle representing the addition of the two given.
-				if (a === null && b === null) {
+				if(a === null && b === null){
 					return null;
 				}
-				if (a === null && b !== null) {
+				if(a === null && b !== null){
 					return b;
 				}
-				if (b === null) {
+				if(b === null){
 					return a;
 				}
 				var single1 = Math.min(a.x, b.x);
@@ -105,7 +105,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 						width: 0,
 						height: 0
 					};
-					if (this.isIdentity()) {
+					if(this.isIdentity()){
 						return {
 							'x': rect.x,
 							'y': rect.y,
@@ -136,14 +136,14 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 					var cs = this.children;
 					var ncs = this.children.length;
 					var c;
-					for (var i = 0; i < ncs; ++i) {
+					for (var i = 0; i < ncs; ++i){
 						var c = cs[i];
 						var cbb = c.getBoundingBox();
-						if (!cbb) {
+						if(!cbb){
 							continue;
 						}
 						var ct = c.getTransform();
-						if (ct && !ct.isIdentity()) {
+						if(ct && !ct.isIdentity()){
 							cbb = ct.transformRectangle(cbb);
 						}
 						bb = bb ? dojox.gfx.addRect(bb, cbb) : cbb;
@@ -176,7 +176,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			//	height: Number
 			//		The new height of the gauge.
 			var box;
-			switch (arguments.length) {
+			switch (arguments.length){
 				case 0:
 					// do not resize the div, just the surface
 					break;
@@ -195,7 +195,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 					break;
 			}
 			
-			if (box) {
+			if(box){
 				box.w = Math.max(box.w, 0);
 				box.h = Math.max(box.h, 0);
 				this.surface.setDimensions(box.w, box.h);
@@ -214,11 +214,11 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			//		- A function which takes on argument of type GFX Group and return null or a
 			//		GFX element retrievable using the getElementRenderer() method.
 			//		- A ScaleBase subclass, i.e. CircularScale or RectangularScale.
-			if (this._elementsIndex[name] && this._elementsIndex[name] != element) {
+			if(this._elementsIndex[name] && this._elementsIndex[name] != element){
 				this.removeElement(name);
 			}
 			
-			if (lang.isFunction(element)) {
+			if(lang.isFunction(element)){
 				var gfxHolder = {};
 				lang.mixin(gfxHolder, new _Invalidating());
 				gfxHolder._name = name;
@@ -239,7 +239,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 				this._elements.push(element);
 				this._elementsIndex[name] = element;
 				
-				if (element instanceof ScaleBase) {
+				if(element instanceof ScaleBase){
 					this._scales.push(element);
 				}
 			}
@@ -256,12 +256,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			
 			element = this._elementsIndex[name];
 			
-			if (element) {
+			if(element){
 				element._gfxGroup.removeShape();
 				var idx = this._elements.indexOf(element);
 				this._elements.splice(idx, 1);
 				
-				if (element instanceof ScaleBase) {
+				if(element instanceof ScaleBase){
 					var idxs = this._scales.indexOf(element);
 					this._scales.splice(idxs, 1);
 				}

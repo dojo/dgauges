@@ -22,9 +22,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			this.addInvalidatingProperties(["start", "startWeight", "endWeight", "fill", "stroke"]);
 		},
 
-		_defaultHorizontalShapeFunction: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
 			var gp = [startX, startY, endPosition, startY, endPosition, startY + endWeight, startX, startY + startWeight, startX, startY]
-			if (fill && fill.colors){
+			if(fill && fill.colors){
 				// Configure gradient
 				fill.x1 = startX;
 				fill.y1 = startY;
@@ -34,9 +34,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			return group.createPolyline(gp).setFill(fill).setStroke(stroke);
 		},
 
-		_defaultVerticalShapeFunction: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
 			var gp = [startX, startY, startX, endPosition, startX + endWeight, endPosition, startX, startY + startWeight, startX, startY]
-			if (fill && fill.colors){
+			if(fill && fill.colors){
 				// Configure gradient
 				fill.x1 = startX;
 				fill.y1 = startY;
@@ -46,18 +46,18 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			return group.createPolyline(gp).setFill(fill).setStroke(stroke);
 		},
 				
-		_shapeFunction: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
-			if (this.scale._gauge.orientation == "horizontal"){
-				this._defaultHorizontalShapeFunction(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
+		_shapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+			if(this.scale._gauge.orientation == "horizontal"){
+				this._defaultHorizontalShapeFunc(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
 			}else{
-				this._defaultVerticalShapeFunction(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
+				this._defaultVerticalShapeFunc(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
 			}
 		},
 		
 		refreshRendering: function(){
 			this.inherited(arguments);
 			
-			if (this._gfxGroup == null || this.scale == null) {
+			if(this._gfxGroup == null || this.scale == null){
 				return;
 			}
 			// gets position corresponding to the values
@@ -68,7 +68,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			var startX;
 			var startY;
 			var endPosition;
-			if (this.scale._gauge.orientation == "horizontal") {
+			if(this.scale._gauge.orientation == "horizontal"){
 				startX = spos;
 				startY = this.paddingTop;
 				endPosition = pos;
@@ -77,7 +77,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 				startY = spos;
 				endPosition = pos;			
 			}
-			this._shapeFunction(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startWeight, this.endWeight, this.fill, this.stroke);
+			this._shapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startWeight, this.endWeight, this.fill, this.stroke);
 		},
 
 		_mouseDownHandler: function(event){

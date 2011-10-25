@@ -16,7 +16,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		
 		interactionMode: "mouse",
 				
-		_indicatorShapeFunctionFlag: true,
+		_indicatorShapeFuncFlag: true,
 		
 		_interactionAreaFlag: true,
 		
@@ -39,27 +39,27 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 				this._interactionAreaFlag = true;
 			}));
 			
-			this.watch("indicatorShapeFunction", lang.hitch(this, function(){
-				this._indicatorShapeFunctionFlag = true;
+			this.watch("indicatorShapeFunc", lang.hitch(this, function(){
+				this._indicatorShapeFuncFlag = true;
 			}));
 			
-			this.addInvalidatingProperties(["scale", "value", "indicatorShapeFunction", "interactionArea", "interactionMode"]);
+			this.addInvalidatingProperties(["scale", "value", "indicatorShapeFunc", "interactionArea", "interactionMode"]);
 			
 			this._downListeners = [];
 			this._moveAndUpListeners = [];
 		},
 		
 		refreshRendering: function(){
-			if (this._gfxGroup == null || this.scale == null) {
+			if(this._gfxGroup == null || this.scale == null){
 				return;
 			} else {
-				if (this._indicatorShapeFunctionFlag && lang.isFunction(this.indicatorShapeFunction)) {
+				if(this._indicatorShapeFuncFlag && lang.isFunction(this.indicatorShapeFunc)){
 					this._gfxGroup.clear();
-					this.indicatorShapeFunction(this, this._gfxGroup, this.scale);
-					this._indicatorShapeFunctionFlag = false;
+					this.indicatorShapeFunc(this, this._gfxGroup, this.scale);
+					this._indicatorShapeFuncFlag = false;
 				}
 				
-				if (this._interactionAreaFlag) {
+				if(this._interactionAreaFlag){
 					this._interactionAreaFlag = this._connectDownListeners();
 				}
 			}
@@ -80,14 +80,14 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_disconnectDownListeners: function(){
-			for (var i = 0; i < this._downListeners.length; i++) {
+			for (var i = 0; i < this._downListeners.length; i++){
 				connect.disconnect(this._downListeners[i]);
 			}
 			this._downListeners = [];
 		},
 		
 		_disconnectMoveAndUpListeners: function(){
-			for (var i = 0; i < this._moveAndUpListeners.length; i++) {
+			for (var i = 0; i < this._moveAndUpListeners.length; i++){
 				connect.disconnect(this._moveAndUpListeners[i]);
 			}
 			this._moveAndUpListeners = [];
@@ -108,13 +108,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 				downEventName = "ontouchstart";
 			}
 			
-			if (this.interactionMode == "mouse" || this.interactionMode == "touch") {
-				if (this.interactionArea == "indicator") {
+			if(this.interactionMode == "mouse" || this.interactionMode == "touch"){
+				if(this.interactionArea == "indicator"){
 					listener = this._gfxGroup.connect(downEventName, this, this._mouseDownHandler);
 					this._downListeners.push(listener);
 					
-				} else if (this.interactionArea == "gauge") {
-					if (!this.scale || !this.scale._gauge || !this.scale._gauge._gfxGroup) {
+				} else if(this.interactionArea == "gauge"){
+					if(!this.scale || !this.scale._gauge || !this.scale._gauge._gfxGroup){
 						return true;
 					}
 					listener = this.scale._gauge._gfxGroup.connect(downEventName, this, this._mouseDownHandler);
@@ -163,7 +163,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_startEditing: function(eventSource){
-			if (!this.scale || !this.scale._gauge) {
+			if(!this.scale || !this.scale._gauge){
 				return;
 			} else {
 				this.scale._gauge.onStartEditing({
@@ -174,7 +174,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_endEditing: function(eventSource){
-			if (!this.scale || !this.scale._gauge) {
+			if(!this.scale || !this.scale._gauge){
 				return;
 			} else {
 				this.scale._gauge.onEndEditing({

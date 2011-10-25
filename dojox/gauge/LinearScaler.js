@@ -1,4 +1,4 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(lang, declare, TickItem, Stateful){
+define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang, declare, Stateful){
 
     /*=====
      var Stateful = dojo.Stateful;
@@ -57,7 +57,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 				var data;
 				for (var i = 0; i < majorTickCount - 1; i++){
 					for (var j = 1; j < minorTickCount; j++){
-						data = new TickItem(this);
+						data = {scaler: this};
 						data.isMinor = true;
 						data.value = mt[i].value + j * this.getComputedMinorTickInterval();
 						data.position = (Number(data.value) - this.minimum) / (this.maximum - this.minimum);
@@ -74,7 +74,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "./TickItem", "dojo/Stateful"],
 				var majorTickCount = Math.floor((this.maximum - this.minimum) / this.getComputedMajorTickInterval()) + 1;
 				var data;
 				for (var i = 0; i < majorTickCount; i++){
-					data = new TickItem(this);
+					data = {scaler: this};
 					data.isMinor = false;
 					data.value = this.minimum + i * this.getComputedMajorTickInterval();
 					data.position = (Number(data.value) - this.minimum) / (this.maximum - this.minimum);

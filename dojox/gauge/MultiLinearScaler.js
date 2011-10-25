@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, TickItem, Stateful){
+define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
     
 	/*=====
      var Stateful = dojo.Stateful;
@@ -30,7 +30,7 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 			var v;
 			for (var i = 0; i < this.majorTickValues.length; i++){
 				v = this.majorTickValues[i];
-				ti = new TickItem(this);
+				ti = {scaler: this};
 				ti.position = currentIndex * step;
 				ti.value = v;
 				ti.isMinor = false;
@@ -39,7 +39,7 @@ define(["dojo/_base/declare", "./TickItem", "dojo/Stateful"], function(declare, 
 					currentMajorValue = Number(v);
 					minorInterval = (Number(this.majorTickValues[i + 1]) - currentMajorValue) / (this.minorTickCount + 1);
 					for (var j = 1; j <= this.minorTickCount; j++){
-						ti = new TickItem(this);
+						ti = {scaler: this};
 						ti.isMinor = true;
 						ti.position = currentIndex * step + j * minorStep;
 						ti.value = currentMajorValue + minorInterval * j;

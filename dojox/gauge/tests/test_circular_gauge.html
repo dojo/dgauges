@@ -116,6 +116,14 @@
 						gauge.getElement("scale").getIndicator("indicator").set("interactionArea", "gauge");
 					</script>
 				</button>
+				<button data-dojo-type="dijit.form.Button" type="button">
+					Change indicator color
+					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
+						var gauge = dijit.byId("g1"); 
+						gauge.getElement("indicatorText").set("color", "red");
+					</script>
+				</button>
+
 			</div>
 		</div>
 	</body>

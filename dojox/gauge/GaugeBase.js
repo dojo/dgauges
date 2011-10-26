@@ -11,6 +11,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 		//	summary: 
 		//		This class is a base class for the circular and 
 		//		rectangular (horizontal and vertical) gauge components.
+		
 		_elements: null,
 		_scales: null,
 		_elementsIndex: null,

@@ -5,6 +5,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
      =====*/
 	
 	return declare("dojox.gauge.ScaleBase", _Invalidating, {
+		//	summary:
+		//		The ScaleBase class serves as a base class for the circular and rectangular scales.
+
 		scaler: null,
 		_gauge: null,
 		_gfxGroup: null,

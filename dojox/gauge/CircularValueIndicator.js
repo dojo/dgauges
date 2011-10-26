@@ -1,10 +1,13 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularGaugeUtil", "dojo/_base/event"], function(declare, gfx, ScaleIndicatorBase, _circularGaugeUtil, eventUtil){
 
     /*=====
-     var IndicatorBase = dojox.gauge.IndicatorBase;
+     var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
      =====*/	
 
 	return declare("dojox.gauge.CircularValueIndicator", ScaleIndicatorBase, {
+		//	summary:
+		//		The circular value indicator, typically used for creating needles.
+
 		indicatorShapeFunc: function(indicator, group, scale){
 			return group.createLine({
 				x1: 0,

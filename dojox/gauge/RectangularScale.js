@@ -3,6 +3,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
      var ScaleBase = dojox.gauge.ScaleBase;
      =====*/
 	return declare("dojox.gauge.RectangularScale", ScaleBase, {
+		//	summary:
+		//		The rectangular scale. A scaler must be set to use this class.
+
 		paddingLeft: 15,
 		paddingTop: 12,
 		paddingRight: 15,

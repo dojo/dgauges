@@ -5,6 +5,10 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
      =====*/
 	
 	return declare("dojox.gauge.MultiLinearScaler", Stateful, {
+		// Summary:
+		//		The multi-linear scaler.
+		//		Scalers are responsible for tick generation and various data-transform operations.		
+
 		majorTickValues: null,
 		minorTickCount: 4,
 		majorTicks: null,

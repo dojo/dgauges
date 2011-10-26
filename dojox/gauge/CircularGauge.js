@@ -5,6 +5,10 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
      =====*/
 
 	return declare("dojox.gauge.CircularGauge", GaugeBase, {
+		//	summary:
+		//		The base class for circular gauges.
+		//		You can create custom circular or semi-circular gauges by extending this class.
+		//		See dojox.gauge.components.default.CircularLinearGauge.js for an example of circular gauge.
 		_transformProperties: null,
 		
 		refreshRendering: function(){

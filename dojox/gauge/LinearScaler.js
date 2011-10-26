@@ -5,6 +5,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
      =====*/
 
 	return declare("dojox.gauge.LinearScaler", Stateful, {
+		// Summary:
+		//		The linear scaler.
+		//		Scalers are responsible for tick generation and various data-transform operations.		
 		minimum: 0,
 		maximum: 100,
 		snapInterval: 1,

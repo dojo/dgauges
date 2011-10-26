@@ -3,6 +3,10 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
      var GaugeBase = dojox.gauge.GaugeBase;
      =====*/
 	return declare("dojox.gauge.RectangularGauge", GaugeBase, {
+		//	summary:
+		//		The base class for rectangular gauges.
+		//		You can create custom horizontal or vertical gauges by extending this class.
+		//		See dojox.gauge.components.default.HorinzontalLinearGauge.js for an example of rectangular gauge.
 	
 		orientation: "horizontal",
 		

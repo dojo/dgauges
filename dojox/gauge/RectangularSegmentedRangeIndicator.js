@@ -3,6 +3,8 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 	var IndicatorBase = dojox.gauge.IndicatorBase;
 	=====*/
 	return declare("dojox.gauge.RectangularRangeIndicator", IndicatorBase, {
+		//	summary:
+		//		A segmented-style range indicator for rectangular gauges.
 		start: 0,
 		startWeight: 10,
 		endWeight: 10,

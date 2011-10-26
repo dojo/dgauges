@@ -4,6 +4,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 	 var _Invalidating = dojox.widget._Invalidating;
 	 =====*/
 	return declare("dojox.gauge.ScaleIndicatorBase", IndicatorBase, {
+		//	summary:
+		//		The base class for indicators that rely on a scale for their rendering.
+		//		Typically, value indicators and range indicators are subclasses of ScaleIndicatorBase.
+
 		scale: null,
 		value: 0,
 		

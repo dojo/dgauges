@@ -1,8 +1,12 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/event", "dojo/dom-geometry"], function(declare, gfx, ScaleIndicatorBase, eventUtil, domGeom){
 	/*=====
-     var IndicatorBase = dojox.gauge.IndicatorBase;
+     var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
      =====*/
 	return declare("dojox.gauge.RectangularRangeIndicator", ScaleIndicatorBase, {
+		//	summary:
+		//		A RectangularRangeIndicator is used to represent a range of values on a scale.
+		//		Use the addIndicator method of RectangularScale to use it.
+
 		start: 0,
 		startWeight: 10,
 		endWeight: 10,

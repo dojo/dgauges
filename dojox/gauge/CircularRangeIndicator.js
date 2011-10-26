@@ -1,10 +1,13 @@
 define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "dojo/_base/event"], function(declare, ScaleIndicatorBase, _circularGaugeUtil, eventUtil){
 
     /*=====
-     var _Invalidating = dojox.gauge.IndicatorBase;
+     var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
      =====*/
 
 	return declare("dojox.gauge.CircularRangeIndicator", ScaleIndicatorBase, {
+		//	summary:
+		//		A CircularRangeIndicator is used to represent a range of values on a scale.
+		//		Use the addIndicator method of CircularScale to use it.
 		start: 0,
 		radius: NaN,
 		startWeight: 6,

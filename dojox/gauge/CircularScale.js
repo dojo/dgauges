@@ -5,6 +5,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
      =====*/	
 	
 	return declare("dojox.gauge.CircularScale", ScaleBase, {
+		//	summary:
+		//		The circular scale. A scaler must be set to use this class.
+
 		scaler: null,
 		originX: 50,
 		originY: 50,

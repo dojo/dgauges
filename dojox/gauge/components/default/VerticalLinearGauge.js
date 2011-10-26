@@ -78,8 +78,8 @@ define([
                 }]
             });
             ri.set("paddingTop", 15);
-            ri.set("startWeight", 0);
-			ri.set("endWeight", 20);
+            ri.set("startThickness", 0);
+			ri.set("endThickness", 20);
             scale.addIndicator("ri", ri, true);
 			*/
 			

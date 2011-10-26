@@ -7,10 +7,11 @@ define([
 		"../../CircularGauge", 
 		"../../LinearScaler", 
 		"../../CircularScale", 
-		"../../CircularValueIndicator", 
+		"../../CircularValueIndicator",
+		"../../CircularRangeIndicator", 
 		"../../TextIndicator"
 	], 
-	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator){
+	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, TextIndicator){
 
 	/*=====
      var CircularGauge = dojox.gauge.CircularGauge;
@@ -38,6 +39,11 @@ define([
 			// Value indicator
 			var indicator = new CircularValueIndicator();
 			scale.addIndicator("indicator", indicator);
+
+			// Value indicator
+			var indicator2 = new CircularRangeIndicator();
+			indicator2.set("value", 50);
+			scale.addIndicator("indicator2", indicator2);
 			
 			// Gauge Foreground (needle cap)
 			this.addElement("foreground", lang.hitch(this, this.drawForeground));

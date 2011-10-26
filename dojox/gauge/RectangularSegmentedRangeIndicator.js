@@ -6,8 +6,8 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		//	summary:
 		//		A segmented-style range indicator for rectangular gauges.
 		start: 0,
-		startWeight: 10,
-		endWeight: 10,
+		startThickness: 10,
+		endThickness: 10,
 		fill: null,
 		stroke: null,
 		paddingLeft: 0,
@@ -44,10 +44,10 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				width: .2
 			};
 			
-			this.addInvalidatingProperties(["start", "startWeight", "endWeight", "fill", "stroke","segments","segmentSpacing","ranges"]);
+			this.addInvalidatingProperties(["start", "startThickness", "endThickness", "fill", "stroke","segments","segmentSpacing","ranges"]);
 		},
 
-		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			var length = scale._contentBox.w ;
 			if(this.ranges){				
 				// Configure gradient to represent the ranges
@@ -85,8 +85,8 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			var y = startY;
 			var chicklet = (length / this.segments) - this.segmentSpacing;
 			var visibleSegments = Math.abs( (endPosition - startX) / (chicklet+this.segmentSpacing) );
-			var sw = this.startWeight;
-			var inc = (this.endWeight - this.startWeight) /this.segments
+			var sw = this.startThickness;
+			var inc = (this.endThickness - this.startThickness) /this.segments
 			var ew = sw+inc;			
 			var remain = visibleSegments - Math.floor(visibleSegments);
 			
@@ -134,7 +134,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			return shape;
 		},
 
-		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			var length = scale._contentBox.h ;
 			if(this.ranges){				
 				// Configure gradient to represent the ranges
@@ -172,8 +172,8 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			var y = startY;
 			var chicklet = (length / this.segments) - this.segmentSpacing;
 			var visibleSegments = Math.abs( (endPosition - startY) / (chicklet+this.segmentSpacing) );
-			var sw = this.startWeight;
-			var inc = (this.endWeight - this.startWeight) /this.segments
+			var sw = this.startThickness;
+			var inc = (this.endThickness - this.startThickness) /this.segments
 			var ew = sw+inc;			
 			var remain = visibleSegments - Math.floor(visibleSegments);
 			
@@ -220,16 +220,16 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			return shape;
 		},
 				
-		indicatorShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		indicatorShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			//	summary:
 			//		Constructor.
 			//	description:
 			//		Creates a segmented range indicator.
 			
 			if(this.scale._gauge.orientation == "horizontal"){
-				this._defaultHorizontalShapeFunc(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
+				this._defaultHorizontalShapeFunc(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
 			}else{
-				this._defaultVerticalShapeFunc(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
+				this._defaultVerticalShapeFunc(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
 			}
 		},
 		
@@ -255,7 +255,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				startY = spos ;
 				endPosition = pos;			
 			}
-			this.indicatorShapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startWeight, this.endWeight, this.fill, this.stroke);
+			this.indicatorShapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startThickness, this.endThickness, this.fill, this.stroke);
 		}
 	})
 });

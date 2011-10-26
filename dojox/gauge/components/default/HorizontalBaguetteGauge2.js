@@ -123,8 +123,8 @@ define([
 			ri.set("value", 100);
 			ri.set("segments",20);
 			ri.set("paddingTop", this.padding1+2);
-			ri.set("startWeight", 20);
-			ri.set("endWeight", 20);
+			ri.set("startThickness", 20);
+			ri.set("endThickness", 20);
 			ri.set("ranges" , [
 				{color:this.colorRange1, size:22},
 				{color:this.colorRange2, size:18},

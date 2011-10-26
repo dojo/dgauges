@@ -8,8 +8,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		//		Use the addIndicator method of RectangularScale to use it.
 
 		start: 0,
-		startWeight: 10,
-		endWeight: 10,
+		startThickness: 10,
+		endThickness: 10,
 		fill: null,
 		stroke: null,
 		paddingLeft: 10,
@@ -23,11 +23,11 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 				width: .2
 			};
 			
-			this.addInvalidatingProperties(["start", "startWeight", "endWeight", "fill", "stroke"]);
+			this.addInvalidatingProperties(["start", "startThickness", "endThickness", "fill", "stroke"]);
 		},
 
-		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
-			var gp = [startX, startY, endPosition, startY, endPosition, startY + endWeight, startX, startY + startWeight, startX, startY]
+		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
+			var gp = [startX, startY, endPosition, startY, endPosition, startY + endThickness, startX, startY + startThickness, startX, startY]
 			if(fill && fill.colors){
 				// Configure gradient
 				fill.x1 = startX;
@@ -38,8 +38,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			return group.createPolyline(gp).setFill(fill).setStroke(stroke);
 		},
 
-		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
-			var gp = [startX, startY, startX, endPosition, startX + endWeight, endPosition, startX, startY + startWeight, startX, startY]
+		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
+			var gp = [startX, startY, startX, endPosition, startX + endThickness, endPosition, startX, startY + startThickness, startX, startY]
 			if(fill && fill.colors){
 				// Configure gradient
 				fill.x1 = startX;
@@ -50,11 +50,11 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			return group.createPolyline(gp).setFill(fill).setStroke(stroke);
 		},
 				
-		_shapeFunc: function(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke){
+		_shapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			if(this.scale._gauge.orientation == "horizontal"){
-				this._defaultHorizontalShapeFunc(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
+				this._defaultHorizontalShapeFunc(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
 			}else{
-				this._defaultVerticalShapeFunc(indicator, group, scale, startX, startY, endPosition, startWeight, endWeight, fill, stroke);
+				this._defaultVerticalShapeFunc(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
 			}
 		},
 		
@@ -81,7 +81,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 				startY = spos;
 				endPosition = pos;			
 			}
-			this._shapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startWeight, this.endWeight, this.fill, this.stroke);
+			this._shapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startThickness, this.endThickness, this.fill, this.stroke);
 		},
 
 		_mouseDownHandler: function(event){

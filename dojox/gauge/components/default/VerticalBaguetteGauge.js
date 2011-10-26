@@ -52,8 +52,8 @@ define([
             ri.set("start", 0);
             ri.set("value", 100);
             ri.set("paddingLeft", this.padding1+2);
-            ri.set("startWeight", 20);
-			ri.set("endWeight", 20);
+            ri.set("startThickness", 20);
+			ri.set("endThickness", 20);
 			ri.set("ranges" , [
 				{color:'rgb(123,98,149)', size:22},
 				{color:'rgb(224,137,0)', size:18},

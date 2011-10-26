@@ -8,11 +8,25 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 		//	summary:
 		//		A CircularRangeIndicator is used to represent a range of values on a scale.
 		//		Use the addIndicator method of CircularScale to use it.
+		//		It is represented as a donut slice.
+		
+		//	start: Number
+		//		The start value of the range indicator.
 		start: 0,
+		//	radius: Number
+		//		The outer radius in pixels of the range indicator.
 		radius: NaN,
-		startWeight: 6,
-		endWeight: 6,
+		//	startThickness: Number
+		//		The start thickness of the donut slice in pixels. 
+		startThickness: 6,
+		//	endThickness: Number
+		//		The end thickness of the donut slice in pixels. 
+		endThickness: 6,
+		//	fill: Object
+		//		A fill object that will be passed to the setFill method of GFX.
 		fill: null,
+		//	fill: Stroke
+		//		A stroke object that will be passed to the setStroke method of GFX.
 		stroke: null,
 		constructor: function(args, node){
 			this.indicatorShapeFunc = null;
@@ -22,10 +36,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 				width: .2
 			};
 			
-			this.addInvalidatingProperties(["start", "radius", "startWeight", "endWeight", "fill", "stroke"]);
+			this.addInvalidatingProperties(["start", "radius", "startThickness", "endThickness", "fill", "stroke"]);
 		},
 		
-		interpolateColor: function(from, dest, n){
+		_interpolateColor: function(from, dest, n){
 			var fr = (from >> 16) & 0xff;
 			var fg = (from >> 8) & 0xff;
 			var fb = from & 0xff;
@@ -41,30 +55,30 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			return r << 16 | g << 8 | b;
 		},
 		
-		colorsInterpolation: function(colors, ratios, len){
+		_colorsInterpolation: function(colors, ratios, len){
 			var ret = [];
 			var ilen = 0;
 			
 			for (var i = 0; i < colors.length - 1; i++){
 				ilen = (ratios[i + 1] - ratios[i]) * len;
 				ilen = Math.round(ilen);
-				ret = ret.concat(colorInterpolation(colors[i], colors[i + 1], ilen));
+				ret = ret.concat(_colorInterpolation(colors[i], colors[i + 1], ilen));
 			}
 			return ret;
 		},
 		
-		alphasInterpolation: function(alphas, positions, len){
+		_alphasInterpolation: function(alphas, positions, len){
 			var ret = [];
 			var ilen = 0;
 			for (var i = 0; i < alphas.length - 1; i++){
 				ilen = (positions[i + 1] - positions[i]) * len;
 				ilen = Math.round(ilen);
-				ret = ret.concat(alphaInterpolation(alphas[i], alphas[i + 1], ilen));
+				ret = ret.concat(_alphaInterpolation(alphas[i], alphas[i + 1], ilen));
 			}
 			return ret;
 		},
 		
-		alphaInterpolation: function(c1, c2, len){
+		_alphaInterpolation: function(c1, c2, len){
 			var step = (c2 - c1) / (len - 1);
 			var ret = [];
 			var j = 0;
@@ -75,14 +89,14 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			return ret;
 		},
 		
-		colorInterpolation: function(c1, c2, len){
+		_colorInterpolation: function(c1, c2, len){
 			var ret = [];
 			for (var i = 0; i < len; i++) 
-				ret.push(interpolateColor(c1, c2, i / (len - 1)));
+				ret.push(_interpolateColor(c1, c2, i / (len - 1)));
 			return ret;
 		},
 		
-		getEntriesFor: function(entries, attr){
+		_getEntriesFor: function(entries, attr){
 			var ret = [];
 			var e;
 			var val;
@@ -97,7 +111,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			return ret;
 		},
 		
-		drawColorTrack: function(g, ox, oy, radius, orientation, startAngleRadians, endAngleRadians, sWeight, eWeight, fill, stroke, clippingAngleRadians){
+		_drawColorTrack: function(g, ox, oy, radius, orientation, startAngleRadians, endAngleRadians, sWeight, eWeight, fill, stroke, clippingAngleRadians){
 		
 			var angleStep = 0.05;
 			var totalAngle;
@@ -169,11 +183,11 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var orientation = this.scale.orientation;
 			var startAngleRadians = _circularGaugeUtil.toRadians(360 - this.scale.positionForValue(this.start));
 			var endAngleRadians = _circularGaugeUtil.toRadians(360 - this.scale.positionForValue(this.value));
-			var sWeight = this.startWeight;
-			var eWeight = this.endWeight;
+			var sWeight = this.startThickness;
+			var eWeight = this.endThickness;
 			var clippingAngleRadians = NaN;
 			
-			this.drawColorTrack(g, ox, oy, radius, orientation, startAngleRadians, endAngleRadians, sWeight, eWeight, this.fill, this.stroke, clippingAngleRadians);
+			this._drawColorTrack(g, ox, oy, radius, orientation, startAngleRadians, endAngleRadians, sWeight, eWeight, this.fill, this.stroke, clippingAngleRadians);
 		},
 		
 		_mouseDownHandler: function(event){

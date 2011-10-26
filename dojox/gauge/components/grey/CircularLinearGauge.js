@@ -40,7 +40,7 @@ define([
 				var indicator = new CircularValueIndicator();
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
-				indicator.set("indicatorShapeFunc", function(indicator, group, scale){
+				indicator.set("indicatorShapeFunc", function(group){
 			
 					var g1 = group.createGroup().setTransform({
 						xx: 1,

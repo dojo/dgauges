@@ -40,7 +40,7 @@ define([
 			
 			// Value indicator
 			var indicator = new RectangularValueIndicator();			
-			indicator.indicatorShapeFunc = function(indicator, group, scale){
+			indicator.indicatorShapeFunc = function(group){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
 					color: 'blue',
 					width: 0.25

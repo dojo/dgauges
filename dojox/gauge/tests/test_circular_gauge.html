@@ -70,8 +70,8 @@
 					Change needle
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
 						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").getIndicator("indicator").set("indicatorShapeFunc", function(indicator, group, scale){
-						return group.createPolyline([0, -5, scale.radius - 2, 0, 0, 5, 0, -5]).setStroke({
+						gauge.getElement("scale").getIndicator("indicator").set("indicatorShapeFunc", function(group, indicator){
+						return group.createPolyline([0, -5, indicator.scale.radius - 2, 0, 0, 5, 0, -5]).setStroke({
 						color: "#333333",
 						width: 0.25 
 						}).setFill([0, 0, 220]); 

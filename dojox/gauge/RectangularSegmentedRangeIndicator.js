@@ -220,16 +220,16 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			return shape;
 		},
 				
-		indicatorShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
+		indicatorShapeFunc: function(group, indicator, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			//	summary:
 			//		Constructor.
 			//	description:
 			//		Creates a segmented range indicator.
 			
-			if(this.scale._gauge.orientation == "horizontal"){
-				this._defaultHorizontalShapeFunc(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
+			if(indicator.scale._gauge.orientation == "horizontal"){
+				this._defaultHorizontalShapeFunc(indicator, group, indicator.scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
 			}else{
-				this._defaultVerticalShapeFunc(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
+				this._defaultVerticalShapeFunc(indicator, group, indicator.scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
 			}
 		},
 		
@@ -255,7 +255,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				startY = spos ;
 				endPosition = pos;			
 			}
-			this.indicatorShapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startThickness, this.endThickness, this.fill, this.stroke);
+			this.indicatorShapeFunc(this._gfxGroup, this, startX, startY, endPosition, this.startThickness, this.endThickness, this.fill, this.stroke);
 		}
 	})
 });

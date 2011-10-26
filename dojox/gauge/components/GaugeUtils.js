@@ -68,8 +68,8 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 			
 			indicator.set("interactionArea", "gauge");
 			// Needle shape
-			indicator.set("indicatorShapeFunc", function(indicator, group, scale){
-				return group.createPolyline([0, -5, scale.radius - 2, 0, 0, 5, 0, -5]).setStroke({
+			indicator.set("indicatorShapeFunc", function(group, indicator){
+				return group.createPolyline([0, -5, indicator.scale.radius - 2, 0, 0, 5, 0, -5]).setStroke({
 					color: "#333333",
 					width: 0.25
 				}).setFill([240, 30, 40]);

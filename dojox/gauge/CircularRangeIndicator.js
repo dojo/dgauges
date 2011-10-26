@@ -25,7 +25,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 		//	fill: Object
 		//		A fill object that will be passed to the setFill method of GFX.
 		fill: null,
-		//	fill: Stroke
+		//	fill: Object
 		//		A stroke object that will be passed to the setStroke method of GFX.
 		stroke: null,
 		constructor: function(args, node){

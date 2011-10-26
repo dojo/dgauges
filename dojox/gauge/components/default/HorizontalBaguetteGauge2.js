@@ -47,11 +47,11 @@ define([
 			
 			// Value indicator 1
 			var indicator = new RectangularValueIndicator();			
-			indicator.indicatorShapeFunc = function(indicator, group, scale){
+			indicator.indicatorShapeFunc = function(group, indicator){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
-					color: scale._gauge.colorRange1,
+					color: indicator.scale._gauge.colorRange1,
 					width: 0.25
-				}).setFill(scale._gauge.colorRange1);
+				}).setFill(indicator.scale._gauge.colorRange1);
 				
 				return indic;
 			}

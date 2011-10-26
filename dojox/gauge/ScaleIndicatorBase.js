@@ -59,7 +59,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 			} else {
 				if(this._indicatorShapeFuncFlag && lang.isFunction(this.indicatorShapeFunc)){
 					this._gfxGroup.clear();
-					this.indicatorShapeFunc(this, this._gfxGroup, this.scale);
+					this.indicatorShapeFunc(this._gfxGroup, this);
 					this._indicatorShapeFuncFlag = false;
 				}
 				

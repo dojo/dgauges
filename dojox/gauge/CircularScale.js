@@ -8,12 +8,28 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		//	summary:
 		//		The circular scale. A scaler must be set to use this class.
 
+		//	scaler: Object
+		//		The scaler used for tick generation and data-transform operations.
+		//		This property is mandatory for using the scale.
 		scaler: null,
+		//	originX: Number
+		//		The origin x-coordinate of the scale in pixels.
 		originX: 50,
+		//	originY: Number
+		//		The origin y-coordinate of the scale in pixels.
 		originY: 50,
+		//	radius: Number
+		//		The outer radius in pixels of the scale.
 		radius: 50,
+		//	startAngle: Number
+		//		The start angle of the scale in degrees.
 		startAngle: 0,
+		//	endAngle: Number
+		//		The end angle of the scale in degrees.
 		endAngle: 180,
+		//	orientation: String
+		//		The orientation of the scale. Can be "clockwise" or "cclockwise".
+		//		The default value is "clockwise".
 		orientation: "clockwise",
 		
 		constructor: function(args, node){
@@ -28,6 +44,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		},
 		
 		positionForValue: function(value){
+			//	summary:
+			//		Transforms a value into an angle using the associated scaler.
+			//	returns: Number
+			//		An angle in degrees.
 			var totalAngle = _circularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
 			var relativePos = this.scaler.positionForValue(value);
 			return _circularGaugeUtil.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * relativePos, 360);
@@ -39,6 +59,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		},
 		
 		valueForPosition: function(angle){
+			//	summary:
+			//		Transforms an angle in degrees into a value using the associated scaler.
+			//	returns: Number
+			//		The value represented by angle. 
 			if(!this.positionInRange(angle)){
 			
 				var min1 = _circularGaugeUtil.modAngle(this.startAngle - angle, 360);
@@ -60,6 +84,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		},
 		
 		positionInRange: function(value){
+			//	summary:
+			//		Returns true if the value parameter is between the accepted scale positions.
+			//	returns: Boolean
+			//		True if the value parameter is between the accepted scale positions.			
 			if(this.startAngle == this.endAngle) 
 				return true;
 			value = _circularGaugeUtil.modAngle(value, 360);
@@ -174,6 +202,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 				}]);
 			}
 		},
+		
 		refreshRendering: function(){
 			this.inherited(arguments);
 			if(!this._gfxGroup || !this.scaler) 

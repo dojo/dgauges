@@ -8,7 +8,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularG
 		//	summary:
 		//		The circular value indicator, typically used for creating needles.
 
-		indicatorShapeFunc: function(indicator, group, scale){
+		indicatorShapeFunc: function(group){
 			return group.createLine({
 				x1: 0,
 				y1: 0,

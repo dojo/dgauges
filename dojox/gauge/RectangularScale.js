@@ -18,6 +18,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 		},
 		
 		positionForValue: function(value){
+			//	summary:
+			//		Transforms a value into a position using the associated scaler.
+			//	returns: Number
+			//		A position in pixels.
 			var relativePos = 0;
 			var position;
 			var spos = 0;
@@ -37,6 +41,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 		},
 		
 		valueForPosition: function(pos){
+			//	summary:
+			//		Transforms a position in pixels into a value using the associated scaler.
+			//	returns: Number
+			//		The value represented by pos. 
 			var value = this.scaler.minimum;
 			var position = NaN;
 			var spos = 0;

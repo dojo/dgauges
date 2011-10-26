@@ -70,11 +70,11 @@ define([
 			
 			// Value indicator 2
 			indicator = new RectangularValueIndicator();			
-			indicator.indicatorShapeFunc = function(indicator, group, scale){
+			indicator.indicatorShapeFunc = function(group, indicator){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
-					color: scale._gauge.colorRange2,
+					color: indicator.scale._gauge.colorRange2,
 					width: 0.25
-				}).setFill(scale._gauge.colorRange2);
+				}).setFill(indicator.scale._gauge.colorRange2);
 				
 				return indic;
 			}
@@ -94,9 +94,9 @@ define([
 						
 			// Value indicator 3
 			indicator = new RectangularValueIndicator();			
-			indicator.indicatorShapeFunc = function(indicator, group, scale){
+			indicator.indicatorShapeFunc = function(group,indicator){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
-					color: scale._gauge.colorRange3,
+					color: indicator.scale._gauge.colorRange3,
 					width: 0.25
 				}).setFill(scale._gauge.colorRange3);
 				

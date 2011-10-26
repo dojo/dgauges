@@ -8,7 +8,13 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularG
 		//	summary:
 		//		The circular value indicator, typically used for creating needles.
 
-		indicatorShapeFunc: function(group){
+		indicatorShapeFunc: function(group, indicator){
+			//	summary:
+			//		Draws the indicator. The rotation center is at (0, 0).
+			//	group: dojox.gfx.canvas.Group
+			//		A GFX group for drawing. 
+			//	returns: dojox.gfx.canvas.Shape
+			//		A GFX shape retrievable using the getIndicatorRenderer method of the associated scale. 
 			return group.createLine({
 				x1: 0,
 				y1: 0,

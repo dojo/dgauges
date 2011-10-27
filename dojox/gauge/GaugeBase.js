@@ -9,9 +9,21 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 	
 	return declare("dojox.gauge.GaugeBase", [_WidgetBase, _Invalidating], {
 		//	summary: 
-		//		This class is a base class for the circular and 
+		//		This class is the base class for the circular and 
 		//		rectangular (horizontal and vertical) gauge components.
-		
+		//		A gauge is a composition of elements added to the gauge using the addElement method.
+		//		Elements are drawn from back to front in the same order they are added (using addElement).
+		//		An elements can be: 
+		//		- A GFX drawing functions typically used for defining the style of the gauge.
+		//		- A scale: CircularScale or RectangularScale depending on the type of gauge.
+		//		- A text, using the TextIndicator
+		//		Note: Indicator classes (value indicators, range indicators) are sub-elements of scales
+		//		
+		//		To create a custom gauge, subclass CircularGauge or RectangularGauge and
+		//		configure its elements in the constructor.
+	
+		//		Ready to use, predefined gauges are available in dojox.gauge.components.
+		//		They are good examples of gauges built on top of the framework.
 		_elements: null,
 		_scales: null,
 		_elementsIndex: null,
@@ -29,12 +41,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 		//	font: Object
 		//		The font of the gauge used by scales if not overridden.
 		font: null,
-		
-		// TODO: 
-		// - implement value setter, markup attributes management to predefined gauges
-		// - add interactionArea == "none" support
-		// - investigate interaction issues on mobile
-		// - IndicatorBase fix listeners management when interactionArea is changed at runtime, or when addIndicator as not already been called
 		
 		constructor: function(/* Object */args, /* DOMNode */ node){
 			this.font = {
@@ -207,14 +213,15 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 		
 		addElement: function(/* String */name, /* Object */ element){
 			//	summary:
-			//		Adds a drawing function or a scale object to the gauge.
+			//		Adds a element to the gauge.
 			//	name: String
 			//		The name of the element to be added.
 			//	element: Object
 			//		This parameter can be:
 			//		- A function which takes on argument of type GFX Group and return null or a
 			//		GFX element retrievable using the getElementRenderer() method.
-			//		- A ScaleBase subclass, i.e. CircularScale or RectangularScale.
+			//		- A Scale instance, i.e. CircularScale or RectangularScale.
+			//		- A TextIndicator instance.
 			if(this._elementsIndex[name] && this._elementsIndex[name] != element){
 				this.removeElement(name);
 			}
@@ -289,8 +296,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			//	name: String
 			//		The name of the element as defined using addElement.
 			//	returns: Object
-			//		The element renderer which depends on what is returned by the
-			//		drawing function or the scale's refreshRendering() method.
+			//		The element renderer returned by the
+			//		drawing function or by the refreshRendering() method
+			//		in the case of framework classes.
 			return this._elementsRenderers[name];
 		},
 		

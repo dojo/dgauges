@@ -33,7 +33,7 @@ define([
 					size: "14pt",
 					color: "#CECECE"
 				});
-				scale.set("tickShapeFunc", function(scale, group, tick){
+				scale.set("tickShapeFunc", function(group, scale, tick){
 					return group.createCircle({
 						r: tick.isMinor ? 2 : 4
 					}).setFill("#CECECE");

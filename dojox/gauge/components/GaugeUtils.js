@@ -51,7 +51,7 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 				labelPosition = "inside";
 			}
 			if(!tickShapeFunc){
-				tickShapeFunc = function(scale, group, tick){
+				tickShapeFunc = function(group, scale, tick){
 					return group.createLine({
 						x1: tick.isMinor ? 2 : 0,
 						y1: 0,

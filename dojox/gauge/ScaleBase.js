@@ -6,16 +6,14 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 	
 	return declare("dojox.gauge.ScaleBase", _Invalidating, {
 		//	summary:
-		//		The ScaleBase class serves as a base class for the circular and rectangular scales.
+		//		The ScaleBase class is the base class for the circular and rectangular scales.
+		//		A scaler must be set to use this class. A scaler is responsible for  responsible for 
+		//		tick generation and various data-transform operations.	
 
+		//	scaler: Object
+		//		The scaler used for tick generation and data-transform operations.
+		//		This property is mandatory for using the scale.
 		scaler: null,
-		_gauge: null,
-		_gfxGroup: null,
-		_bgGroup: null,
-		_fgGroup: null,
-		_indicators: null,
-		_indicatorsIndex: null,
-		_indicatorsRenderers: null,
 		//	font: Object
 		//		The font used for the ticks labels.
 		//		This is null by default which means this scale use the font defined 
@@ -27,6 +25,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 		//	labelGap: Number
 		//		The label gap between the ticks and their labels. Default value is 1.
 		labelGap: 1,
+		_gauge: null,
+		_gfxGroup: null,
+		_bgGroup: null,
+		_fgGroup: null,
+		_indicators: null,
+		_indicatorsIndex: null,
+		_indicatorsRenderers: null,
 		
 		constructor: function(args, node){
 			this._indicators = [];
@@ -86,20 +91,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			//			The value corresponding to the position.
 		},
 		
-		positionInRange: function(position){
-			//	summary:
-			//		See CircularScale and Rectangular for more informations.
-			//		position: Number
-			//			The position to test.
-			//		returns: Number
-			//			true if position is a valid position according to the scale specifications.
-			return false;
-		},
-		
 		tickLabelFunc: function(tickItem){
 			//	summary:
 			//		Customize the text of ticks labels.
-			//		tickItem: TickItem
+			//		tickItem: Object
 			//			The tick item to process.
 			//		returns: String
 			//			The text to be aligned with the tick. If null, the tick has no label.
@@ -110,14 +105,14 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			}
 		},
 		
-		tickShapeFunc: function(scale, group, tickItem){
+		tickShapeFunc: function(group, scale, tickItem){
 			//	summary:
 			//		Customize the shape of ticks.
 			//		scale: ScaleBase
 			//			The scale being processed.
-			//		group: dojox.gfx.Group
+			//		group: dojox.gfx.canvas.Group
 			//			The GFX group used for drawing the tick.
-			//		tickItem: TickItem
+			//		tickItem: An object containing tick informations.
 			//			The tick item being processed.
 			return group.createLine({
 				x1: 0,

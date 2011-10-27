@@ -41,7 +41,7 @@ define([
 			//set an empty label function to draw nothing
 			scale.tickLabelFunc = function(t){return null;};	
 			//set an empty shape function to draw nothing
-			scale.tickShapeFunc =  function(scale, group, tickItem){return null;};
+			scale.tickShapeFunc =  function(group, scale, tickItem){return null;};
 			this.addElement("scale", scale);
 			
 			

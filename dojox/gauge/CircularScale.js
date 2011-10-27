@@ -8,10 +8,6 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		//	summary:
 		//		The circular scale. A scaler must be set to use this class.
 
-		//	scaler: Object
-		//		The scaler used for tick generation and data-transform operations.
-		//		This property is mandatory for using the scale.
-		scaler: null,
 		//	originX: Number
 		//		The origin x-coordinate of the scale in pixels.
 		originX: 50,
@@ -224,7 +220,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			var tickBB;
 			for (var i = 0; i < allTicks.length; i++){
 				var tickItem = allTicks[i];
-				renderer = this.tickShapeFunc(this, this._ticksGroup, tickItem);
+				renderer = this.tickShapeFunc(this._ticksGroup, this, tickItem);
 				
 				tickBB = this._gauge._computeBoundingBox(renderer);
 				var a;

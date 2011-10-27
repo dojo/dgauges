@@ -98,7 +98,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 			
 			for (var i = 0; i < allTicks.length; i++){
 				var tickItem = allTicks[i];
-				renderer = this.tickShapeFunc(this, this._ticksGroup, tickItem);
+				renderer = this.tickShapeFunc(this._ticksGroup, this, tickItem);
 				
 				if(renderer){
 					var a = this.positionForValue(tickItem.value);

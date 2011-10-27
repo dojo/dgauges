@@ -5,20 +5,37 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
      =====*/
 	
 	return declare("dojox.gauge.MultiLinearScaler", Stateful, {
-		// Summary:
-		//		The multi-linear scaler.
-		//		Scalers are responsible for tick generation and various data-transform operations.		
+		//	summary:
+		//		The multi-linear scaler. This scaler maps numeric values according 
+		//		to the majorTickValues content. 
+		//		This allows display of very large value intervals that are difficult to render 
+		//		with a linear scale. For example, if majorTickValues contains [0, 10, 50, 500, 2000], 
+		//		the scale will show five major ticks with these values. 
+		//		Note that this is not a logarithmic scale, the interpolation is linear between 
+		//		two contiguous major ticks.
+		//		Scalers are responsible for tick generation and various data-transform operations.	
 
+		//	majorTickValues: Array
+		//		An array of Number for creating major ticks.
+		//		This array must be sorted in ascendant order.
 		majorTickValues: null,
+		//	minorTickCount: Array
+		//		The number of minor ticks between two contiguous major ticks.
+		//		The default value is 4.
 		minorTickCount: 4,
+		//	majorTicks:
+		//		The array of generated major ticks. You should not set this
+		//		property when using the scaler.
 		majorTicks: null,
+		//	minorTicks:
+		//		The array of generated minor ticks. You should not set this
+		//		property when using the scaler.
 		minorTicks: null,
 		_snapIntervalPrecision: null,
 		_snapCount: 4,
 		_snapIntervalPrecision: 6,
 		
 		constructor: function(){
-			this.inherited(arguments);
 			this.watchedProperties = ["majorTickValues", "snapCount", "minorTickCount"];
 		},
 				
@@ -130,21 +147,21 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 			return res;
 		},
 		
-		getFirstValidValue: function(){
+		_getFirstValidValue: function(){
 			if(this.majorTickValues != null) 
 				return this.majorTickValues[0];
 			else 
 				return null;
 		},
 		
-		getLastValidValue: function(){
+		_getLastValidValue: function(){
 			if(this.majorTickValues != null) 
 				return this.majorTickValues[this.majorTickValues.length - 1];
 			else 
 				return null;
 		},
 		
-		getNextValidValue: function(v){
+		_getNextValidValue: function(v){
 			var nv;
 			var minMax = _getMinMax(v + 10e-7);
 			var min = minMax[0].value;
@@ -156,7 +173,7 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 			return Math.min(nv, max);
 		},
 		
-		getPreviousValidValue: function(v){
+		_getPreviousValidValue: function(v){
 			var nv;
 			var minMax = _getMinMax(v - 10e-7);
 			var min = minMax[0].value;

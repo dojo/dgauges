@@ -33,7 +33,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		orientation: "clockwise",
 		
 		constructor: function(args, node){
-			this.inherited(arguments);
+
 			this.labelPosition = "inside";
 			
 			this.addInvalidatingProperties(["originX", "originY", "radius", "startAngle", "endAngle", "orientation"]);

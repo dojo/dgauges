@@ -18,7 +18,6 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		_snapIntervalPrecision: 6,
 		
 		constructor: function(){
-			this.inherited(arguments);
 			this.watchedProperties = ["majorTickValues", "snapCount", "minorTickCount"];
 		},
 				

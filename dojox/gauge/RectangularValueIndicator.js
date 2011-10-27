@@ -14,7 +14,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 		paddingBottom: 0,
 		
 		constructor: function(){
-			this.inherited(arguments);
+
 			this.addInvalidatingProperties(["paddingTop", "paddingLeft", "paddingRight", "paddingBottom"]);
 		},
 		

@@ -12,7 +12,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 		paddingBottom: 0,
 		_contentBox: null,		
 		constructor: function(){
-			this.inherited(arguments);
+	
 			this.labelPosition = "leading";
 			this.addInvalidatingProperties(["paddingTop", "paddingLeft", "paddingRight", "paddingBottom"]);
 		},

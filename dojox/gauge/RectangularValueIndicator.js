@@ -23,7 +23,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 
 		
 		constructor: function(){
-			this.inherited(arguments);
+
 			this.addInvalidatingProperties(["paddingTop", "paddingLeft", "paddingRight", "paddingBottom"]);
 		},
 		

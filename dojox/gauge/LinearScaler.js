@@ -39,7 +39,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		minorTicks: null,
 		
 		constructor: function(){
-			this.inherited(arguments);
 			this.watchedProperties = ["minimum", "maximum", "majorTickInterval", "minorTickInterval", "snapInterval"];
 		},
 		

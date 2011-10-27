@@ -106,12 +106,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		tickShapeFunc: function(group, scale, tickItem){
 			//	summary:
 			//		Customize the shape of ticks.
-			//		scale: ScaleBase
-			//			The scale being processed.
 			//		group: dojox.gfx.canvas.Group
 			//			The GFX group used for drawing the tick.
-			//		tickItem: An object containing the tick informations.
-			//			The tick item being processed.
+			//		scale: ScaleBase
+			//			The scale being processed.
+			//		tickItem: Object
+			//			An object containing the tick informations.
 			return group.createLine({
 				x1: 0,
 				y1: 0,
@@ -124,25 +124,25 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		
-		getNextValidValue: function(value){
+		_getNextValidValue: function(value){
 			return null;
 		},
 		
-		getPreviousValidValue: function(value){
+		_getPreviousValidValue: function(value){
 			return null;
 		},
 		
-		getFirstValidValue: function(){
+		_getFirstValidValue: function(){
 			return null;
 		},
 		
-		getLastValidValue: function(){
+		_getLastValidValue: function(){
 			return null;
 		},
 		
 		getIndicatorRenderer: function(name){
 			//	summary:
-			//		Gets the GFX shape an indicator.
+			//		Gets the GFX shape of an indicator.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
 			//	returns: dojox.gfx.canvas.Shape

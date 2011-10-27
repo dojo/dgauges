@@ -28,7 +28,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 		//	stroke: Object
 		//		A stroke object that will be passed to the setStroke method of GFX.
 		stroke: null,
-		constructor: function(args, node){
+		constructor: function(){
 			this.indicatorShapeFunc = null;
 			this.fill = [255, 120, 0];
 			this.stroke = {

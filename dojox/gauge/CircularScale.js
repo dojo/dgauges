@@ -28,7 +28,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		//		The default value is "clockwise".
 		orientation: "clockwise",
 		
-		constructor: function(args, node){
+		constructor: function(){
 
 			this.labelPosition = "inside";
 			

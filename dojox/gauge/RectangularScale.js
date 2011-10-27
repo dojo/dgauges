@@ -6,13 +6,20 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 		//	summary:
 		//		The rectangular scale. A scaler must be set to use this class.
 
+		//	paddingLeft: Number
+		//		The left padding.
 		paddingLeft: 15,
+		//	paddingTop: Number
+		//		The top padding.
 		paddingTop: 12,
+		//	paddingRight: Number
+		//		The right padding.
 		paddingRight: 15,
+		//	paddingBottom: Number
+		//		The bottom padding.
 		paddingBottom: 0,
 		_contentBox: null,		
 		constructor: function(){
-			this.inherited(arguments);
 			this.labelPosition = "leading";
 			this.addInvalidatingProperties(["paddingTop", "paddingLeft", "paddingRight", "paddingBottom"]);
 		},

@@ -8,10 +8,19 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 		//	summary:
 		//		The rectangular value indicator, typically used for creating markers or thumbs.
 
+		//	paddingLeft: Number
+		//		The left padding.
 		paddingLeft: 0,
+		//	paddingTop: Number
+		//		The top padding.
 		paddingTop: 0,
+		//	paddingRight: Number
+		//		The right padding.
 		paddingRight: 0,
+		//	paddingBottom: Number
+		//		The bottom padding.
 		paddingBottom: 0,
+
 		
 		constructor: function(){
 			this.inherited(arguments);

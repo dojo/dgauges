@@ -1,4 +1,4 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invalidating"], function(lang, declare, gfx, _Invalidating){
+define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array", "../widget/_Invalidating"], function(lang, declare, gfx, array, _Invalidating){
     
 	/*=====
      var _Invalidating = dojox.widget._Invalidating;
@@ -33,7 +33,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 		_indicatorsIndex: null,
 		_indicatorsRenderers: null,
 		
-		constructor: function(args, node){
+		constructor: function(){
 			this._indicators = [];
 			this._indicatorsIndex = {};
 			this._indicatorsRenderers = {};
@@ -41,24 +41,22 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			this._gfxGroup = null;
 			this.addInvalidatingProperties(["scaler", "font", "labelGap", "labelPosition", "tickShapeFunc", "tickLabelFunc"]);
 			
-			var watchedObjects = ["scaler"];
-			
-			for (var i = 0; i < watchedObjects.length; i++){
-				this.watch(watchedObjects[i], lang.hitch(this, this._watchObject));
-			}
+			this.watch("scaler", lang.hitch(this, this._watchScaler));
 		},
 		
-		
-		_watchObject: function(name, oldValue, newValue){
-			// TODO: unwatch oldValue properties
-			
+		_watchers: null,
+
+		_watchScaler: function(name, oldValue, newValue){
+			array.forEach(this._watchers, lang.hitch(this, function(entry){
+	        	entry.unwatch();
+	        }));
+
 			// Get the properties declared by the watched object
 			var props = newValue.watchedProperties;
-			if(props){
-				for (var i = 0; i < props.length; i++){
-					newValue.watch(props[i], lang.hitch(this, this.invalidateRendering));
-				}
-			}
+			this._watchers = [];
+			array.forEach(props, lang.hitch(this, function(entry){
+				this._watchers.push(newValue.watch(entry, lang.hitch(this, this.invalidateRendering)));
+			}));
 		},
 		
 		_getFont: function(){

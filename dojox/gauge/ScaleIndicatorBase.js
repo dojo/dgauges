@@ -13,11 +13,14 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		
 		//	interactionArea: String
 		//		How to interact with the indicator using mouse or touch interactions.
-		//		Can be "indicator" or "gauge". The default value is "gauge".
-		//		When the value is "indicator", the indicator shape reacts to mouse and touch events.
-		//		When the value is "gauge", the whole gauge reacts to mouse and touch events.
+		//		Can be "indicator", "gauge" or "none". The default value is "gauge".
+		//		If set to "indicator", the indicator shape reacts to mouse and touch events.
+		//		If set to "gauge", the whole gauge reacts to mouse and touch events.
+		//		If "none", interactions are disabled.
 		interactionArea: "gauge",
-		
+
+		//	interactionMode: String
+		//		Can be "mouse" or "touch".
 		interactionMode: "mouse",
 				
 		_indicatorShapeFuncFlag: true,
@@ -73,7 +76,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 			//	summary:
 			//		Invoked when the value of the indicator changes.
 			//		User can connect an listener on this function: 
-			//				dojo.connect(theIndincator, "valueChanged", dojo.hitch(this, function(){
+			//				dojo.connect(theIndicator, "valueChanged", dojo.hitch(this, function(){
 			//					//do something
 			//				}));
 			on.emit(this, "valueChanged", {

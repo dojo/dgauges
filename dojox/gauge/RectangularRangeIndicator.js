@@ -5,17 +5,39 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 	return declare("dojox.gauge.RectangularRangeIndicator", ScaleIndicatorBase, {
 		//	summary:
 		//		A RectangularRangeIndicator is used to represent a range of values on a scale.
-		//		Use the addIndicator method of RectangularScale to use it.
+		//		For adding this kind of indicator instance to the gauge, use the addIndicator 
+		//		method of RectangularScale.
 
+		//	start: Number
+		//		The start value of the range. Default is 0.
 		start: 0,
+		//	startThickness: Number
+		//		The thickness of the shape at the position defined by the start property.
+		//		Default is 10.
 		startThickness: 10,
+		//	endThickness: Number
+		//		The thickness of the shape at the position defined by the value property.
+		//		Default is 10.
 		endThickness: 10,
+		//	fill: Object
+		//		A fill object that will be passed to the setFill method of GFX.
 		fill: null,
+		//	stroke: Object
+		//		A stroke object that will be passed to the setStroke method of GFX.
 		stroke: null,
+		//	paddingLeft: Number
+		//		The left padding. Not used for horizontal gauges.
 		paddingLeft: 10,
+		//	paddingTop: Number
+		//		The top padding. Not used for vertical gauges.
 		paddingTop: 10,
+		//	paddingRight: Number
+		//		The right padding. Not used for horizontal gauges.
 		paddingRight: 10,
+		//	paddingBottom: Number
+		//		The bottom padding. Not used for vertical gauges.
 		paddingBottom: 10,
+		
 		constructor: function(){
 			this.fill = [255, 120, 0];
 			this.stroke = {

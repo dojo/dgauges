@@ -7,7 +7,9 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		//		The base class for rectangular gauges.
 		//		You can create custom horizontal or vertical gauges by extending this class.
 		//		See dojox.gauge.components.default.HorinzontalLinearGauge.js for an example of rectangular gauge.
-	
+
+		//	orientation: "horizontal"|"vertical"
+		//		The orientation of the gauge. Default is "horizontal".	
 		orientation: "horizontal",
 		
 		// leading, middle and trailing graphical parts
@@ -53,6 +55,20 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		},
 		
 		addElement: function(name, element, location){
+			//	summary:
+			//		Adds a element to the gauge.
+			//	name: String
+			//		The name of the element to be added.
+			//	element: Object
+			//		This parameter can be:
+			//		- A function which takes on argument of type GFX Group and return null or a
+			//		GFX element retrievable using the getElementRenderer() method.
+			//		- A Scale instance, i.e. CircularScale or RectangularScale.
+			//		- A TextIndicator instance.
+			//	location: "leading"|"middle"|"trailing"
+			//		The area to place the element. Leading and trailing areas are fixed size. The
+			//		middle area use the remaining size.
+
 			this.inherited(arguments);
 			
 			var obj = this._elements[this._elements.length - 1];
@@ -73,7 +89,12 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		},
 		
 		removeElement: function(name){
-		
+			//	summary:
+			//		Remove the element defined by name from the gauge.
+			//	name: String
+			//		The name of the element as defined using addElement.
+			//	returns: Object
+			//		A reference to the removed element.		
 			var obj = this.getElement(name);
 			if(obj){
 				if(this._middleParts && this._middleParts.indexOf(obj) >= 0){

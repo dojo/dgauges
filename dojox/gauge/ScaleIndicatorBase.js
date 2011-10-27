@@ -124,7 +124,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 					if(!this.scale || !this.scale._gauge || !this.scale._gauge._gfxGroup){
 						return true;
 					}
-					listener = this.scale._gauge._gfxGroup.connect(downEventName, this, this._mouseDownHandler);
+					listener = this.scale._gauge.surface.connect(downEventName, this, this._mouseDownHandler);
 					this._downListeners.push(listener);
 					listener = this._gfxGroup.connect(downEventName, this, this._mouseDownHandler);
 					this._downListeners.push(listener);
@@ -144,12 +144,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 				moveEventName = "ontouchmove";
 				upEventName = "ontouchend";
 			}
-			listener = this.scale._gauge._gfxGroup.connect(moveEventName, this, this._mouseMoveHandler);
+			listener = this.scale._gauge.surface.connect(moveEventName, this, this._mouseMoveHandler);
 			this._moveAndUpListeners.push(listener);
 			listener = this._gfxGroup.connect(moveEventName, this, this._mouseMoveHandler);
 			this._moveAndUpListeners.push(listener);
 			
-			listener = this.scale._gauge._gfxGroup.connect(upEventName, this, this._mouseUpHandler);
+			listener = this.scale._gauge.surface.connect(upEventName, this, this._mouseUpHandler);
 			this._moveAndUpListeners.push(listener);
 			listener = this._gfxGroup.connect(upEventName, this, this._mouseUpHandler);
 			this._moveAndUpListeners.push(listener);

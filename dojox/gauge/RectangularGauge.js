@@ -19,7 +19,6 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		_baseParts: null,
 		_classParts: null,
 		_layoutInfos: {},
-		
 		constructor: function(args, node){
 		
 			this.orientation = "horizontal";
@@ -156,7 +155,6 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		},
 		
 		refreshRendering: function(){
-		
 			if(this._baseParts){
 				for (var i = 0; i < this._baseParts.length; i++){
 					this._baseParts[i].width = this._widgetBox.w;

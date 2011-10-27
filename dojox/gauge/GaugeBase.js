@@ -29,6 +29,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 		_elementsIndex: null,
 		_elementsRenderers: null,
 		_gfxGroup: null,
+		_mouseShield: null,
 		_widgetBox: null,
 		_node: null,
 
@@ -60,6 +61,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			
 			this.surface = gfx.createSurface(this._node, box.w || 300, box.h || 300);
 			this._widgetBox = box;
+			this._mouseShield = this.surface.createGroup();
 			this._gfxGroup = this.surface.createGroup();
 
 			this._addGroupBoundingBoxSupport();
@@ -207,6 +209,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 				box.h = Math.max(box.h, 0);
 				this.surface.setDimensions(box.w, box.h);
 				this._widgetBox = box;
+				this._mouseShield.clear();
+				this._mouseShield.createRect({x:0,y:0,width:box.w,height:box.h}).setFill([0, 0, 0, 0]);
 			}
 			return this.invalidateRendering();
 		},

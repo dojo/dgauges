@@ -95,7 +95,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			//	summary:
 			//		Customize the text of ticks labels.
 			//		tickItem: Object
-			//			The tick item to process.
+			//			An object containing the tick informations.
 			//		returns: String
 			//			The text to be aligned with the tick. If null, the tick has no label.
 			if(tickItem.isMinor){
@@ -112,7 +112,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			//			The scale being processed.
 			//		group: dojox.gfx.canvas.Group
 			//			The GFX group used for drawing the tick.
-			//		tickItem: An object containing tick informations.
+			//		tickItem: An object containing the tick informations.
 			//			The tick item being processed.
 			return group.createLine({
 				x1: 0,
@@ -144,17 +144,17 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 		
 		getIndicatorRenderer: function(name){
 			//	summary:
-			//		Get the GFX shape an indicator.
+			//		Gets the GFX shape an indicator.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
-			//	returns: GFX shape
+			//	returns: dojox.gfx.canvas.Shape
 			//		The GFX shape of the indicator.
 			return this._indicatorsRenderers[name];
 		},
 		
 		removeIndicator: function(name){
 			//	summary:
-			//		Remove an indicator.
+			//		Removes an indicator.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
 			//	returns: IndicatorBase
@@ -189,7 +189,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "../widget/_Invali
 			//		Add an indicator to the scale. Before calling this function, ensure 
 			//		this scale has already been added to a gauge using the addElement method
 			//		of the gauge.
-			//	name: String:
+			//	behindScale: Boolean
+			//		If true, this indicator is drawn behind the scale. Default value is false.	
+			//	name: String
 			//		The name of the indicator to be added.
 			if(this._indicatorsIndex[name] && this._indicatorsIndex[name] != indicator){
 				this.removeIndicator(name);

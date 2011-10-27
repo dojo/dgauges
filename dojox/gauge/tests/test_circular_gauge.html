@@ -50,6 +50,7 @@
 					Change Scaler Props.
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
 						var gauge = dijit.byId("g1");
+						gauge.getElement("scale").scaler.set("minorTicksEnabled", false);
 						gauge.getElement("scale").scaler.set("minimum", 50);
 						gauge.getElement("scale").scaler.set("maximum", 250);
 						gauge.getElement("scale").scaler.set("majorTickInterval", 20);

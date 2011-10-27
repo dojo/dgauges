@@ -10,10 +10,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		//		a minimum and a maximum.
 		//		Scalers are responsible for tick generation and various data-transform operations.		
 		
-		//	minimum:
+		//	minimum: Number
 		//		The minimum value of the scaler. Default is 0.
 		minimum: 0,
-		//	maximum:
+		//	maximum: Number
 		//		The maximum value of the scaler. Default is 100.
 		maximum: 100,
 		//	snapInterval:
@@ -21,14 +21,15 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		//		during user interaction.
 		//		Default is 1.
 		snapInterval: 1,
-		//	majorTickInterval:
+		//	majorTickInterval: Number
 		//		The interval between two major ticks.
 		majorTickInterval: NaN,
-		//	minorTickInterval:
+		//	minorTickInterval: Number
 		//		The interval between two minor ticks.
 		minorTickInterval: NaN,
-		_computedMajorTickInterval: NaN,
-		_computedMinorTickInterval: NaN,
+		//	minorTicksEnabled: Boolean
+		//		If false, minor ticks are not generated. Default is true.
+		minorTicksEnabled: true,
 		//	majorTicks:
 		//		The array of generated major ticks. You should not set this
 		//		property when using the scaler.
@@ -37,9 +38,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		//		The array of generated minor ticks. You should not set this
 		//		property when using the scaler.
 		minorTicks: null,
+
+		_computedMajorTickInterval: NaN,
+		_computedMinorTickInterval: NaN,
 		
 		constructor: function(){
-			this.watchedProperties = ["minimum", "maximum", "majorTickInterval", "minorTickInterval", "snapInterval"];
+			this.watchedProperties = ["minimum", "maximum", "majorTickInterval", "minorTickInterval", "snapInterval", "minorTicksEnabled"];
 		},
 		
 		_getNextValidValue: function(value){
@@ -136,9 +140,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 			//	returns: Array
 			//		An array containing all ticks (major then minor ticks).
 			this.majorTicks = this._buildMajorTickItems();
-			this.minorTicks = this._buildMinorTickItems();
+			this.minorTicks = this.minorTicksEnabled ? this._buildMinorTickItems() : [];
 			return this.majorTicks.concat(this.minorTicks);
 		},
+		
 		positionForValue: function(value){
 			//	summary:
 			//		Transforms a value into a relative position between 0 and 1.

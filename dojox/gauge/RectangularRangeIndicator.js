@@ -88,7 +88,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			}
 			// gets position corresponding to the values
 			var spos = this.scale.positionForValue(this.start);
-			var pos = this.scale.positionForValue(this.value);
+			var v = isNaN(this._transitionValue) ? this.value : this._transitionValue;
+			var pos = this.scale.positionForValue(v);
 			this._gfxGroup.clear();
 			
 			var startX;

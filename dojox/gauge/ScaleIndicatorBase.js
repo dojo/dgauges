@@ -1,4 +1,4 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect", "dojox/gfx", "./_circularGaugeUtil", "../widget/_Invalidating", "./IndicatorBase"], function(lang, declare, on, connect, gfx, _circularGaugeUtil, _Invalidating, IndicatorBase){
+define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect", "dojo/_base/fx", "dojox/gfx", "./_circularGaugeUtil", "../widget/_Invalidating", "./IndicatorBase"], function(lang, declare, on, connect, fx, gfx, _circularGaugeUtil, _Invalidating, IndicatorBase){
 
 	/*=====
 	 var _Invalidating = dojox.widget._Invalidating;
@@ -22,7 +22,17 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		//	interactionMode: String
 		//		Can be "mouse" or "touch".
 		interactionMode: "mouse",
-				
+
+		//	animationDuration: Number
+		//		The duration of the value change animation in milliseconds. Default is 500.
+		//		The animation occurs on both user interactions and programmatic value changes.
+		//		Set this property to 0 to disable animation.
+		animationDuration: 500,
+
+		//	animationEaser: Object
+		//		The easer function of the value change animation. Default is fx._defaultEasing.
+		animationEaser: null,
+
 		_indicatorShapeFuncFlag: true,
 		
 		_interactionAreaFlag: true,
@@ -30,7 +40,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		_downListeners: null,
 		
 		_moveAndUpListeners: null,
-		
+		_transitionValue: NaN,
+		_preventAnimation: false,
+		_animation: null,
 		constructor: function(){
 		
 			// watches changed happening on the "value" property to call this.valueChanged() function which
@@ -38,6 +50,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 			this.watch("value", lang.hitch(this, function(){
 				this.valueChanged(this);
 			}));
+			this.watch("value", lang.hitch(this, this._startAnimation));
 			
 			this.watch("interactionArea", lang.hitch(this, function(){
 				this._interactionAreaFlag = true;
@@ -54,6 +67,34 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 			
 			this._downListeners = [];
 			this._moveAndUpListeners = [];
+		},
+		
+		_startAnimation: function(prop, oldValue, newValue){
+			if(this.animationDuration == 0){
+				return;
+			}
+			if(this._animation && (this._preventAnimation || oldValue == newValue)){
+				this._animation.stop();
+				return;
+			}
+			this._animation = new fx.Animation({curve: [oldValue, newValue], 
+										duration: this.animationDuration, 
+										easing: this.animationEaser ? this.animationEaser : fx._defaultEasing,
+										onAnimate: lang.hitch(this, this._updateAnimation),
+										onEnd: lang.hitch(this, this._endAnimation),
+										onStop: lang.hitch(this, this._endAnimation)});
+			
+			this._animation.play();
+		},
+		
+		_updateAnimation: function(v){
+			this._transitionValue = v;
+			this.invalidateRendering();
+		},
+		
+		_endAnimation: function(){
+			this._transitionValue = NaN; 
+			this.invalidateRendering();			
 		},
 		
 		refreshRendering: function(){
@@ -161,11 +202,15 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_mouseMoveHandler: function(event){
-		
+			this._preventAnimation = true;
+			if(this._animation){
+				this._animation.stop();
+			}
 		},
 		
 		_mouseUpHandler: function(event){
 			this._disconnectMoveAndUpListeners();
+			this._preventAnimation = false;
 			this._endEditing("mouse");
 		},
 		

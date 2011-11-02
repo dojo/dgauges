@@ -182,7 +182,8 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var radius = isNaN(this.radius) ? this.scale.radius  : this.radius;
 			var orientation = this.scale.orientation;
 			var startAngleRadians = _circularGaugeUtil.toRadians(360 - this.scale.positionForValue(this.start));
-			var endAngleRadians = _circularGaugeUtil.toRadians(360 - this.scale.positionForValue(this.value));
+			var v = isNaN(this._transitionValue) ? this.value : this._transitionValue;
+			var endAngleRadians = _circularGaugeUtil.toRadians(360 - this.scale.positionForValue(v));
 			var sWeight = this.startThickness;
 			var eWeight = this.endThickness;
 			var clippingAngleRadians = NaN;

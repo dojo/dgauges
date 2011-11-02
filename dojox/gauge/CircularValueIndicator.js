@@ -28,8 +28,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularG
 		
 		refreshRendering: function(){
 			this.inherited(arguments);
-			
-			var angle = this.scale.positionForValue(this.value);
+			var v = isNaN(this._transitionValue) ? this.value : this._transitionValue;
+			var angle = this.scale.positionForValue(v);
 			
 			this._gfxGroup.setTransform([{
 				dx: this.scale.originX,
@@ -49,7 +49,6 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularG
 		
 		_mouseMoveHandler: function(event){
 			this.inherited(arguments);
-			
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);
 			var angle = ((Math.atan2(event.pageY - origin.y, event.pageX - origin.x)) * 180) / (Math.PI);
 			this.set("value", this.scale.valueForPosition(angle));			

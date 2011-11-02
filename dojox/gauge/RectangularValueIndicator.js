@@ -30,7 +30,8 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 			this.inherited(arguments);
 
 			// get position corresponding to the value
-			var pos = this.scale.positionForValue(this.value);
+			var v = isNaN(this._transitionValue) ? this.value : this._transitionValue;
+			var pos = this.scale.positionForValue(v);
 			
 			// computes offsets to move the indicator
 			var dx = 0, dy = 0;

@@ -3,6 +3,14 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 	lang.mixin(dojox.gauge.components.GaugeUtils, {
 	
 		brightness: function(col, b){
+			//	summary:
+			//		Adjusts the brightness of a color.
+			//	col: Number
+			//		The base color
+			//	b: Number
+			//		A positive or negative value to adjust the brightness
+			//	returns: Number
+			//		The modified color			
 			var res = lang.mixin(null, col);
 			res.r = Math.max(Math.min(res.r + b, 255), 0);
 			res.g = Math.max(Math.min(res.g + b, 255), 0);
@@ -11,6 +19,12 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 		},
 		
 		createGradient: function(entries){
+			//	summary:
+			//		Creates a gradient object
+			//	entries: Array
+			//		An array of numbers representing colors
+			//	returns: Number
+			//		The modified color			
 			var res = {
 				colors: []
 			};
@@ -35,6 +49,32 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 		},
 		
 		genericCircularGauge: function(scale, indicator, originX, originY, radius, startAngle, endAngle, orientation, font, labelPosition, tickShapeFunc){
+			//	summary:
+			//		A helper method for configuring a circular gauge.
+			//	scale: CircularScale
+			//		A circular scale
+			//	indicator: IndicatorBase
+			//		A circular indicator
+			//	originX: Number
+			//		The x-coordinate of the center of the scale (in pixels) 
+			//	originY: Number
+			//		The y-coordinate of the center of the scale (in pixels)
+			//	radius: Number
+			//		The radius of the scale (in pixels)
+			//	startAngle: Number
+			//		The start angle of the scale (in degrees)
+			//	endAngle: Number
+			//		The end angle of the scale (in degrees)
+			//	orientation: String
+			//		The orientation of the scale, can be "clockwise" or "cclockwise"
+			//	font: Object
+			//		The font used for the gauge
+			//	labelPosition: String
+			//		The position of the labels regarding   
+			//	tickShapeFunc: Object
+			//		A drawing function for the ticks
+			//	returns: Number
+			//		The modified color	
 			var attributes = ["originX", "originY", "radius", "startAngle", "endAngle", "orientation", "font", "labelPosition", "tickShapeFunc"];
 			if(!orientation){
 				orientation = "clockwise";
@@ -74,15 +114,6 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 					width: 0.25
 				}).setFill([240, 30, 40]);
 			});
-			
-			// Map indicator value to label
-			// TO BE REPLACED BY A NEW TextIndicator CLASS
-			//connect.connect(indicator, "valueChanged", lang.hitch(scale, function(ev){
-			//	this._gauge.getElementRenderer("valueLabel").setShape({
-			//		text: ev.target.value.toFixed(0)
-			//	});
-			//}));
-			
 		}
 	});
 	return _GaugeUtils;

@@ -105,8 +105,6 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		},
 		
 		_layoutLabel: function(label, txt, ox, oy, lrad, angle, labelPlacement){
-			// summary: 
-			//		Places the label on the side of the tick.
 			var font = this._getFont();
 			var box = gfx._base._getTextBox(txt, {
 				font: gfx.makeFontString(gfx.makeParameters(gfx.defaultFont, font))

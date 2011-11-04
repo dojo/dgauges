@@ -21,7 +21,7 @@ define(["dojo/_base/declare", "dojox/gauge/RectangularGauge", "dojox/gauge/Linea
             var high = new RectangularRangeIndicator({
                 start: 0,
                 value: this.high,
-                interactionMode: "mouse",
+                interactionMode: "none",
                 fill: color.fromHsv(0, 0, 90),
                 stroke: null,
                 paddingTop: 0,
@@ -71,8 +71,9 @@ define(["dojo/_base/declare", "dojox/gauge/RectangularGauge", "dojox/gauge/Linea
                 interactionMode: "none",
                 value: this.target
             });
-            target.indicatorShapeFunction = function(indicator, group, scale){
-                return group.createLine({
+			
+			target.indicatorShapeFunc = function(group){
+				return group.createLine({
                     x1: 0,
                     y1: 0,
                     x2: 0,
@@ -82,6 +83,7 @@ define(["dojo/_base/declare", "dojox/gauge/RectangularGauge", "dojox/gauge/Linea
                     width: 3
                 }).setFill([250, 0, 0]);
             };
+
             this._scale.addIndicator("target", target);
             
             this.addInvalidatingProperties(["target", "value", "low", "medium", "high"]);

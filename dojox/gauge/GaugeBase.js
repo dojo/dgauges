@@ -1,6 +1,6 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
+define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_base/connect", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
 		"dojo/_base/event", "dojox/gfx", "../widget/_Invalidating","./ScaleBase"], 
-	function(lang, declare, connect, WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase){
+	function(lang, declare, domGeom, connect, WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase){
 	
     /*=====
      var _WidgetBase = dijit._WidgetBase;
@@ -173,8 +173,48 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			
 			this.surface.destroy();
 		},
-		
-		resize: function(/* Number */width, /* Number */ height){
+
+		resize: function(width, height){
+			//	summary:
+			//		Resize the chart to the dimensions of width and height.
+			//	description:
+			//		Resize the chart and its surface to the width and height dimensions.
+			//		If no width/height or box is provided, resize the surface to the marginBox of the chart.
+			//	width: Number
+			//		The new width of the chart.
+			//	height: Number
+			//		The new height of the chart.
+			//	returns: dojox.charting.Chart
+			//		A reference to the current chart for functional chaining.
+			var box;
+			switch(arguments.length){
+				// case 0, do not resize the div, just the surface
+				case 1:
+					// argument, override node box
+					box = lang.mixin({}, width);
+					domGeom.setMarginBox(this._node, box);
+					break;
+				case 2:
+					box = {w: width, h: height};
+					// argument, override node box
+					domGeom.setMarginBox(this._node, box);
+					break;
+			}
+			// in all cases take back the computed box
+			box = domGeom.getMarginBox(this._node);
+			this._widgetBox = box;
+			var d = this.surface.getDimensions();
+			if(d.width != box.w || d.height != box.h){
+				// and set it on the surface
+				this.surface.setDimensions(box.w, box.h);
+				this._mouseShield.clear();
+				this._mouseShield.createRect({x:0,y:0,width:box.w,height:box.h}).setFill([0, 0, 0, 0]);
+				return this.invalidateRendering();
+			}else{
+				return this;
+			}
+		},		
+		resize0: function(/* Number */width, /* Number */ height){
 			//	summary:
 			//		Resize the gauge to the dimensions of width and height.
 			//	description:
@@ -185,6 +225,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 			//	height: Number
 			//		The new height of the gauge.
 			var box;
+			debugger;
+			console.log(this.id, width, height);
 			switch (arguments.length){
 				case 0:
 					// do not resize the div, just the surface
@@ -211,6 +253,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/connect", "dijit/re
 				this._widgetBox = box;
 				this._mouseShield.clear();
 				this._mouseShield.createRect({x:0,y:0,width:box.w,height:box.h}).setFill([0, 0, 0, 0]);
+				
 			}
 			return this.invalidateRendering();
 		},

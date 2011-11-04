@@ -10,7 +10,6 @@ define(["dojo/_base/declare", "dojox/gauge/RectangularGauge", "dojox/gauge/Linea
             var scaler = new LinearScaler({
                 maximum: this.high
             });
-            
             this._scale = new RectangularScale({
                 scaler: scaler,
                 labelPosition: "trailing",
@@ -26,8 +25,8 @@ define(["dojo/_base/declare", "dojox/gauge/RectangularGauge", "dojox/gauge/Linea
                 fill: color.fromHsv(0, 0, 90),
                 stroke: null,
                 paddingTop: 0,
-                startWeight: 30,
-                endWeight: 30
+                startThickness: 30,
+                endThickness: 30
             });
             this._scale.addIndicator("high", high);
             
@@ -38,8 +37,8 @@ define(["dojo/_base/declare", "dojox/gauge/RectangularGauge", "dojox/gauge/Linea
                 fill: color.fromHsv(0, 0, 60),
                 stroke: null,
                 paddingTop: 0,
-                startWeight: 30,
-                endWeight: 30
+                startThickness: 30,
+                endThickness: 30
             });
             this._scale.addIndicator("medium", medium);
             
@@ -50,8 +49,8 @@ define(["dojo/_base/declare", "dojox/gauge/RectangularGauge", "dojox/gauge/Linea
                 fill: color.fromHsv(0, 0, 40),
                 stroke: null,
                 paddingTop: 0,
-                startWeight: 30,
-                endWeight: 30
+                startThickness: 30,
+                endThickness: 30
             });
             this._scale.addIndicator("low", low);
             
@@ -62,8 +61,8 @@ define(["dojo/_base/declare", "dojox/gauge/RectangularGauge", "dojox/gauge/Linea
                 fill: [0, 0, 0],
                 stroke: null,
                 paddingTop: 10,
-                startWeight: 10,
-                endWeight: 10
+                startThickness: 10,
+                endThickness: 10
             });
             this._scale.addIndicator("measure", measure);
             

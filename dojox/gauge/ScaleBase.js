@@ -43,6 +43,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			
 			this.watch("scaler", lang.hitch(this, this._watchScaler));
 		},
+
+		postscript: function(mixin){
+			this.inherited(arguments);
+			if(mixin && mixin.scaler){
+				this._watchScaler("scaler", null, mixin.scaler);
+			}
+		},
 		
 		_watchers: null,
 

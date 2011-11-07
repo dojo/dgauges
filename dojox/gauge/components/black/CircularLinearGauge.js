@@ -20,9 +20,9 @@ define([
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 				var scale = new CircularScale();
 				scale.set("scaler", scaler);
-				scale.set("originX", 186.90962);
-				scale.set("originY", 184.71219);
 				scale.set("radius", 149.82183);
+				scale.set("originX", 186.9446);
+				scale.set("originY", 184.74838);
 				scale.set("startAngle", 130.16044);
 				scale.set("endAngle", 50.25444);
 				scale.set("orientation", "clockwise");

@@ -11,7 +11,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "../../CircularGauge", "../../L
             var scale = new CircularScale();
             scale.set("scaler", scaler);
             scale.set("originX", 186.46999);
-            scale.set("originY", 184.71315);
+            scale.set("originY", 184.74814);			
             scale.set("radius", 149.82183);
             scale.set("startAngle", -180);
             scale.set("endAngle", 0);

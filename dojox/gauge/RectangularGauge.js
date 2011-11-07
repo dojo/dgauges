@@ -127,7 +127,7 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 				h: 0
 			};
 			var bbox = null;
-			for (var i = 0; i < elements.length; i++){
+			for(var i = 0; i < elements.length; i++){
 				bbox = this._computeBoundingBox(elements[i]._gfxGroup);
 				if(!bbox) 
 					continue;
@@ -156,7 +156,7 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		
 		refreshRendering: function(){
 			if(this._baseParts){
-				for (var i = 0; i < this._baseParts.length; i++){
+				for(var i = 0; i < this._baseParts.length; i++){
 					this._baseParts[i].width = this._widgetBox.w;
 					this._baseParts[i].height = this._widgetBox.h;
 					this._elementsRenderers[this._baseParts[i]._name] = this._baseParts[i].refreshRendering();
@@ -164,13 +164,13 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 			}
 			
 			if(this._leadingParts){
-				for (var i = 0; i < this._leadingParts.length; i++){
+				for(var i = 0; i < this._leadingParts.length; i++){
 					this._elementsRenderers[this._leadingParts[i]._name] = this._leadingParts[i].refreshRendering();
 				}
 			}
 			
 			if(this._trailingParts){
-				for (var i = 0; i < this._trailingParts.length; i++){
+				for(var i = 0; i < this._trailingParts.length; i++){
 					this._elementsRenderers[this._trailingParts[i]._name] = this._trailingParts[i].refreshRendering();
 				}
 			}
@@ -197,19 +197,19 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 				};
 			
 			// translates middle part
-			for (var i = 0; i < this._middleParts.length; i++){
+			for(var i = 0; i < this._middleParts.length; i++){
 				this._middleParts[i]._gfxGroup.setTransform([dojox.gfx.matrix.translate(middleBoundingBox.x, middleBoundingBox.y)]);
 			}
 			
 			// translates trailing part
 			if(this._trailingParts){
-				for (var i = 0; i < this._trailingParts.length; i++){
+				for(var i = 0; i < this._trailingParts.length; i++){
 					this._trailingParts[i]._gfxGroup.setTransform(dojox.gfx.matrix.translate(this._widgetBox.w - trailingBoundingBox.w, 0));
 				}
 			}
 			
 			// Render remaining elements (scales, ...)			
-			for (var i = 0; i < this._classParts.length; i++){
+			for(var i = 0; i < this._classParts.length; i++){
 				this._elementsRenderers[this._classParts[i]._name] = this._classParts[i].refreshRendering();
 			}
 		}

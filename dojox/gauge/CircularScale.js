@@ -165,7 +165,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			
 			var dif;
 			if(labelPlacement == "inside"){
-				for (var it = 0; it < intersections.length; it++){
+				for(var it = 0; it < intersections.length; it++){
 					var ip = intersections[it];
 					dif = this._distance(ip.x, ip.y, ox, oy) - lrad;
 					if(dif >= 0){
@@ -177,7 +177,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 				}
 			} else // "outside" placement
 			{
-				for (it = 0; it < intersections.length; it++){
+				for(it = 0; it < intersections.length; it++){
 					ip = intersections[it];
 					dif = this._distance(ip.x, ip.y, ox, oy) - lrad;
 					if(dif <= 0){
@@ -216,7 +216,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			var allTicks = this.scaler.computeTicks();
 			
 			var tickBB;
-			for (var i = 0; i < allTicks.length; i++){
+			for(var i = 0; i < allTicks.length; i++){
 				var tickItem = allTicks[i];
 				renderer = this.tickShapeFunc(this._ticksGroup, this, tickItem);
 				
@@ -254,7 +254,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 				}
 			}
 			
-			for (var key in this._indicatorsIndex){
+			for(var key in this._indicatorsIndex){
 				this._indicatorsRenderers[key] = this._indicatorsIndex[key].invalidateRendering();
 			}
 			

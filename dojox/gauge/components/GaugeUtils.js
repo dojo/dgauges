@@ -1,7 +1,6 @@
 define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, lang, on){
 	var _GaugeUtils = declare("dojox.gauge.components.GaugeUtils", null, {});
 	lang.mixin(dojox.gauge.components.GaugeUtils, {
-	
 		brightness: function(col, b){
 			//	summary:
 			//		Adjusts the brightness of a color.
@@ -29,7 +28,7 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 				colors: []
 			};
 			var obj;
-			for (var i = 0; i < entries.length; i++){
+			for(var i = 0; i < entries.length; i++){
 				if(i % 2 == 0){
 					obj = {
 						offset: entries[i]
@@ -43,7 +42,7 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 		},
 		
 		_setter: function(obj, attributes, values){
-			for (var i = 0; i < attributes.length; i++){
+			for(var i = 0; i < attributes.length; i++){
 				obj[attributes[i]] = values[i];
 			}
 		},

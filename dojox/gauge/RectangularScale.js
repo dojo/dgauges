@@ -103,7 +103,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 			// Layout ticks
 			var allTicks = this.scaler.computeTicks();
 			
-			for (var i = 0; i < allTicks.length; i++){
+			for(var i = 0; i < allTicks.length; i++){
 				var tickItem = allTicks[i];
 				renderer = this.tickShapeFunc(this._ticksGroup, this, tickItem);
 				
@@ -169,7 +169,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 				}
 			}
 			
-			for (var key in this._indicatorsIndex){
+			for(var key in this._indicatorsIndex){
 				this._indicatorsRenderers[key] = this._indicatorsIndex[key].invalidateRendering();
 			}
 		}

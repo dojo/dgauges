@@ -81,8 +81,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 				var majorTickCount = Math.floor((this.maximum - this.minimum) / this.getComputedMajorTickInterval()) + 1;
 				var minorTickCount = Math.floor(this.getComputedMajorTickInterval() / this.getComputedMinorTickInterval());
 				var data;
-				for (var i = 0; i < majorTickCount - 1; i++){
-					for (var j = 1; j < minorTickCount; j++){
+				for(var i = 0; i < majorTickCount - 1; i++){
+					for(var j = 1; j < minorTickCount; j++){
 						data = {scaler: this};
 						data.isMinor = true;
 						data.value = mt[i].value + j * this.getComputedMinorTickInterval();
@@ -99,7 +99,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 			if(this.maximum > this.minimum){
 				var majorTickCount = Math.floor((this.maximum - this.minimum) / this.getComputedMajorTickInterval()) + 1;
 				var data;
-				for (var i = 0; i < majorTickCount; i++){
+				for(var i = 0; i < majorTickCount; i++){
 					data = {scaler: this};
 					data.isMinor = false;
 					data.value = this.minimum + i * this.getComputedMajorTickInterval();

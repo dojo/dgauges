@@ -53,7 +53,7 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 			var minorInterval;
 			var currentMajorValue;
 			var v;
-			for (var i = 0; i < this.majorTickValues.length; i++){
+			for(var i = 0; i < this.majorTickValues.length; i++){
 				v = this.majorTickValues[i];
 				ti = {scaler: this};
 				ti.position = currentIndex * step;
@@ -63,7 +63,7 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 				if(currentIndex < this.majorTickValues.length - 1){
 					currentMajorValue = Number(v);
 					minorInterval = (Number(this.majorTickValues[i + 1]) - currentMajorValue) / (this.minorTickCount + 1);
-					for (var j = 1; j <= this.minorTickCount; j++){
+					for(var j = 1; j <= this.minorTickCount; j++){
 						ti = {scaler: this};
 						ti.isMinor = true;
 						ti.position = currentIndex * step + j * minorStep;

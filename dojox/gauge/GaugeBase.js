@@ -145,7 +145,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 					var cs = this.children;
 					var ncs = this.children.length;
 					var c;
-					for (var i = 0; i < ncs; ++i){
+					for(var i = 0; i < ncs; ++i){
 						var c = cs[i];
 						var cbb = c.getBoundingBox();
 						if(!cbb){

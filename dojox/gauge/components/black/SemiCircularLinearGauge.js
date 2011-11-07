@@ -1,9 +1,17 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "../../CircularGauge", "../../LinearScaler", "../../CircularScale", "../../CircularValueIndicator", "../../CircularRangeIndicator"], function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
+define(["dojo/_base/lang", "dojo/_base/declare", 
+		"../../CircularGauge", 
+		"../../LinearScaler", 
+		"../../CircularScale", 
+		"../../CircularValueIndicator", 
+		"../../CircularRangeIndicator",
+		"../DefaultPropertiesMixin"
+		],
+		 function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
     /*=====
      var _CircularGauge = ibm_ilog.gauge.CircularGauge;
      =====*/
-    return declare("dojox.gauge.components.black.SemiCircularLinearGauge", CircularGauge, {
+    return declare("dojox.gauge.components.black.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
     
         constructor: function(args, node){
             var scaler = new LinearScaler();

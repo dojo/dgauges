@@ -5,15 +5,16 @@ define([
 		"../../LinearScaler", 
 		"../../CircularScale", 
 		"../../CircularValueIndicator", 
-		"../../CircularRangeIndicator"
+		"../../CircularRangeIndicator",
+		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
+	function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
      var _CircularGauge = ibm_ilog.gauge.CircularGauge;
      =====*/
      
-		return declare("dojox.gauge.components.black.CircularLinearGauge", CircularGauge, {
+		return declare("dojox.gauge.components.black.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 
 			constructor: function(args, node){
 				var scaler = new LinearScaler();

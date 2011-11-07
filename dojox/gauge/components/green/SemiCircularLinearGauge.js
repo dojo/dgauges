@@ -8,15 +8,16 @@ define([
 		"../../LinearScaler", 
 		"../../CircularScale", 
 		"../../CircularValueIndicator", 
-		"../../CircularRangeIndicator"
+		"../../CircularRangeIndicator",
+		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
+	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
      var CircularGauge = dojox.gauge.CircularGauge;
      =====*/
      
-		return declare("dojox.gauge.components.green.SemiCircularLinearGauge", CircularGauge, {
+		return declare("dojox.gauge.components.green.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 
 			constructor: function(args, node){
 				var scaler = new LinearScaler();

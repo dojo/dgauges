@@ -8,15 +8,16 @@ define([
 		"../../LinearScaler", 
 		"../../CircularScale", 
 		"../../CircularValueIndicator", 
-		"../../TextIndicator"
+		"../../TextIndicator",
+		"../DefaultPropertiesMixin"
 		], 
-	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator){
+	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
      var CircularGauge = dojox.gauge.CircularGauge;
      =====*/
 	
-	return declare("dojox.gauge.components.default.SemiCircularLinearGauge", CircularGauge, {
+	return declare("dojox.gauge.components.default.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 		_radius: 88,
 		_width: 200,
 		_height: 123,

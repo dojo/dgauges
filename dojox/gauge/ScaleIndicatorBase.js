@@ -8,7 +8,11 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		//		The base class for indicators that rely on a scale for their rendering.
 		//		Typically, value indicators and range indicators are subclasses of ScaleIndicatorBase.
 
+		//	summary:
+		//		The scale associated with this indicator.
 		scale: null,
+		//	summary:
+		//		The value of the indicator. Default is 0.
 		value: 0,
 		
 		//	interactionArea: String
@@ -128,14 +132,14 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_disconnectDownListeners: function(){
-			for (var i = 0; i < this._downListeners.length; i++){
+			for(var i = 0; i < this._downListeners.length; i++){
 				connect.disconnect(this._downListeners[i]);
 			}
 			this._downListeners = [];
 		},
 		
 		_disconnectMoveAndUpListeners: function(){
-			for (var i = 0; i < this._moveAndUpListeners.length; i++){
+			for(var i = 0; i < this._moveAndUpListeners.length; i++){
 				connect.disconnect(this._moveAndUpListeners[i]);
 			}
 			this._moveAndUpListeners = [];

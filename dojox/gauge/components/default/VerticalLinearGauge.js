@@ -9,15 +9,16 @@ define([
 		"../../RectangularScale", 
 		"../../RectangularValueIndicator", 
 		"../../RectangularRangeIndicator",
-		"../../TextIndicator"
+		"../../TextIndicator",
+		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, RectangularRangeIndicator, TextIndicator){
+	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, RectangularRangeIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
      var RectangularGauge = dojox.gauge.RectangularGauge;
      =====*/
 	
-	return declare("dojox.gauge.components.default.VerticalLinearGauge", RectangularGauge, {
+	return declare("dojox.gauge.components.default.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 		constructor: function(){
 		
 			this.orientation = "vertical";

@@ -11,11 +11,9 @@ define([
 	function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var _CircularGauge = ibm_ilog.gauge.CircularGauge;
-     =====*/
-     
+	var _CircularGauge = ibm_ilog.gauge.CircularGauge;
+	=====*/
 		return declare("dojox.gauge.components.black.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
-
 			constructor: function(args, node){
 				var scaler = new LinearScaler();
 				this.addElement("background", lang.hitch(this, this.drawBackground));

@@ -15,17 +15,13 @@ define([
 	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, RectangularRangeIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var RectangularGauge = dojox.gauge.RectangularGauge;
-     =====*/
+	var RectangularGauge = dojox.gauge.RectangularGauge;
+	=====*/
 	
 	return declare("dojox.gauge.components.default.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 		constructor: function(){
 		
 			this.orientation = "vertical";
-			
-			// Does not work using 'set'...
-			//this.set("orientation", "vertical");
-			
 			
 			// Base colors
 			this.outerColor = new Color("#C9DFF2");
@@ -35,7 +31,7 @@ define([
 			this.addElement("background", lang.hitch(this, this.drawBackground));
 			
 			
-			// Scaler			
+			// Scaler
 			var scaler = new LinearScaler();
 			
 			// Scale
@@ -61,31 +57,7 @@ define([
 			indicator.set("paddingLeft", 45);
 			indicator.set("interactionArea", "gauge");
 			scale.addIndicator("indicator", indicator);
-			
-			// Range  Indicator example
-            /*
-			var ri = new RectangularRangeIndicator();
-            ri.set("interactionArea", "gauge");
-            ri.set("start", 0);
-            ri.set("value", 100);
-            ri.set("fill", {
-                type: "linear",
-                colors: [{
-                    offset: 0,
-                    color: "green"
-                }, {
-                    offset: 1,
-                    color: "red"
-                }]
-            });
-            ri.set("paddingTop", 15);
-            ri.set("startThickness", 0);
-			ri.set("endThickness", 20);
-            scale.addIndicator("ri", ri, true);
-			*/
-			
-			// Gauge Foreground (needle cap)
-			//this.addElement("foreground", lang.hitch(this, this.drawForeground));
+
 			
 			// Indicator Text Border
 			this.addElement("indicatorTextBorder", lang.hitch(this, this.drawTextBorder), "leading");
@@ -96,7 +68,6 @@ define([
 			indicatorText.set("x", 22.5);
 			indicatorText.set("y", 30);
 			this.addElement("indicatorText", indicatorText);
-			
 		},
 		
 		drawBackground: function(g, w, h){
@@ -200,6 +171,5 @@ define([
 				width: 1
 			});
 		}
-		
 	});
 });

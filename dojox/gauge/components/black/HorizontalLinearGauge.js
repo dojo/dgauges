@@ -10,15 +10,15 @@ define([
 	function(lang, declare, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var RectangularGauge = dojox.gauge.RectangularGauge;
-     =====*/
-     
+	var RectangularGauge = dojox.gauge.RectangularGauge;
+	=====*/
+
 		return declare("dojox.gauge.components.black.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 
 			constructor: function(args, node){
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 
-				// Scaler			
+				// Scaler
 				var scaler = new LinearScaler();
 				
 				// Scale
@@ -97,7 +97,6 @@ define([
 				});
 				g.createPath().moveTo(4, 25).vLineTo(14).smoothCurveTo(4, 4, 18, 4).hLineTo(w - 16).smoothCurveTo(w - 4, 4, w - 4, 16).closePath().setFill([255,255,255,0.05]);
 			}
-
 		});
 	}
 );

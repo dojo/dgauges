@@ -14,8 +14,8 @@ define([
 	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var CircularGauge = dojox.gauge.CircularGauge;
-     =====*/
+	var CircularGauge = dojox.gauge.CircularGauge;
+	=====*/
 	
 	return declare("dojox.gauge.components.default.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 		_radius: 88,
@@ -180,7 +180,6 @@ define([
 				width: 0.3
 			});
 		}
-		
 	});
 });
 

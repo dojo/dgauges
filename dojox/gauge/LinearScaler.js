@@ -1,8 +1,8 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang, declare, Stateful){
 
-    /*=====
-     var Stateful = dojo.Stateful;
-     =====*/
+	/*=====
+	var Stateful = dojo.Stateful;
+	=====*/
 
 	return declare("dojox.gauge.LinearScaler", Stateful, {
 		//	summary:
@@ -49,20 +49,22 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		_getNextValidValue: function(value){
 			var v = Number(value);
 			var nv;
-			if(isNaN(this.snapInterval)) 
+			if (isNaN(this.snapInterval)){
 				nv = v + (this.maximum - this.minimum) / 10;
-			else 
+			}else{
 				nv = v + this.snapInterval;
+			}
 			return Math.max(nv, this.minimum);
 		},
 		
 		_getPreviousValidValue: function(value){
 			var v = Number(value);
 			var nv;
-			if(isNaN(this.snapInterval)) 
+			if (isNaN(this.snapInterval)){
 				nv = v - (this.maximum - this.minimum) / 10;
-			else 
+			}else{
 				nv = v - this.snapInterval;
+			}
 			return Math.max(nv, this.minimum);
 		},
 		
@@ -115,10 +117,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 			//		The computed or user defined major tick interval.
 			//	returns: Number
 			//		The major tick interval used for ticks generation.
-			if(!isNaN(this.majorTickInterval)) 
+			if(!isNaN(this.majorTickInterval)){
 				return this.majorTickInterval;
-			if(isNaN(this._computedMajorTickInterval)) 
+			}
+			if(isNaN(this._computedMajorTickInterval)){
 				this._computedMajorTickInterval = (this.maximum - this.minimum) / 10;
+			}
 			return this._computedMajorTickInterval;
 		},
 		
@@ -127,10 +131,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 			//		The computed or user defined minor tick interval.
 			//	returns: Number
 			//		The minor tick interval used for ticks generation.
-			if(!isNaN(this.minorTickInterval)) 
+			if(!isNaN(this.minorTickInterval)){
 				return this.minorTickInterval;
-			if(isNaN(this._computedMinorTickInterval)) 
+			}
+			if(isNaN(this._computedMinorTickInterval)){
 				this._computedMinorTickInterval = this.getComputedMajorTickInterval() / 5;
+			}
 			return this._computedMinorTickInterval;
 		},
 		
@@ -152,15 +158,18 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 			//	returns: Number
 			//		The position between 0 and 1.
 			var position;
-			if(value == null || isNaN(value) || value <= this.minimum) 
+			if(value == null || isNaN(value) || value <= this.minimum){
 				position = 0;
-			if(value >= this.maximum) 
+			}
+			if(value >= this.maximum){
 				position = 1;
+			}
 			if(isNaN(position)){
 				position = (value - this.minimum) / (this.maximum - this.minimum);
 			}
 			return position;
 		},
+		
 		valueForPosition: function(position){
 			//	summary:
 			//		Transforms a relative position (between 0 and 1) into a value.

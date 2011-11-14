@@ -39,12 +39,11 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 			if(this.scale._gauge.orientation == "horizontal"){
 				dx = pos;
 				dy = this.paddingTop;
-			} else {
+			}else{
 				dx = this.paddingLeft;
 				dy = pos;
 				angle = 90;
 			}
-			
 			
 			// translate the indicator
 			
@@ -68,6 +67,6 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 			
 			var np = domGeom.position(this.scale._gauge.domNode, true);
 			this.set("value", this.scale.valueForPosition({x: event.pageX - np.x, y: event.pageY - np.y}));
-		}		
+		}
 	})
 });

@@ -10,8 +10,8 @@ define([
 	function(lang, declare, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var RectangularGauge = dojox.gauge.RectangularGauge;
-     =====*/
+	var RectangularGauge = dojox.gauge.RectangularGauge;
+	=====*/
      
 		return declare("dojox.gauge.components.black.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 
@@ -20,7 +20,7 @@ define([
 				
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 
-				// Scaler			
+				// Scaler
 				var scaler = new LinearScaler();
 				
 				// Scale
@@ -48,7 +48,6 @@ define([
 				indicator.set("value", scaler.minimum);
 				indicator.set("paddingLeft", 18);
 				indicator.set("indicatorShapeFunc", function(group){
-
 					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill([164,164,164]).setStroke({
 						color: [69,69,69],
 						width: 1,

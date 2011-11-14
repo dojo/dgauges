@@ -14,9 +14,9 @@ define([
 	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var CircularGauge = dojox.gauge.CircularGauge;
-     =====*/
-     
+	var CircularGauge = dojox.gauge.CircularGauge;
+	=====*/
+
 		return declare("dojox.gauge.components.grey.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 
 			constructor: function(args, node){
@@ -137,7 +137,6 @@ define([
 					]
 				});
 			},
-
 
 			drawForeground: function(g){
 				g.setTransform({
@@ -324,7 +323,6 @@ define([
 					]
 				});
 			}
-
 		});
 	}
 );

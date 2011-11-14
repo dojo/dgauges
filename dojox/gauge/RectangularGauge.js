@@ -1,7 +1,7 @@
 define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, GaugeBase, ScaleBase){
 	/*=====
-     var GaugeBase = dojox.gauge.GaugeBase;
-     =====*/
+	var GaugeBase = dojox.gauge.GaugeBase;
+	=====*/
 	return declare("dojox.gauge.RectangularGauge", GaugeBase, {
 		//	summary:
 		//		The base class for rectangular gauges.
@@ -74,14 +74,14 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 			
 			if(location == 'middle'){
 				this._middleParts.push(obj);
-			} else if(location == 'leading'){
+			}else if(location == 'leading'){
 				this._leadingParts.push(obj);
-			} else if(location == 'trailing'){
+			}else if(location == 'trailing'){
 				this._trailingParts.push(obj);
-			} else {
+			}else{
 				if(obj._isGFX){
 					this._baseParts.push(obj);
-				} else {
+				}else{
 					this._classParts.push(obj);
 				}
 			}
@@ -98,13 +98,13 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 			if(obj){
 				if(this._middleParts && this._middleParts.indexOf(obj) >= 0){
 					this._middleParts.splice(this._middleParts.indexOf(obj), 1);
-				} else if(this._leadingParts && this._leadingParts.indexOf(obj) >= 0){
+				}else if(this._leadingParts && this._leadingParts.indexOf(obj) >= 0){
 					this._leadingParts.splice(this._leadingParts.indexOf(obj), 1);
-				} else if(this._trailingParts && this._trailingParts.indexOf(obj) >= 0){
+				}else if(this._trailingParts && this._trailingParts.indexOf(obj) >= 0){
 					this._trailingParts.splice(this._trailingParts.indexOf(obj), 1);
-				} else if(this._baseParts && this._baseParts.indexOf(obj) >= 0){
+				}else if(this._baseParts && this._baseParts.indexOf(obj) >= 0){
 					this._baseParts.splice(this._baseParts.indexOf(obj), 1);
-				} else if(this._classParts && this._classParts.indexOf(obj) >= 0){
+				}else if(this._classParts && this._classParts.indexOf(obj) >= 0){
 					this._classParts.splice(this._classParts.indexOf(obj), 1);
 				}
 			}
@@ -113,13 +113,14 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		},
 		
 		_computeArrayBoundingBox: function(elements){
-			if(elements.length == 0) 
+			if(elements.length == 0){
 				return {
 					x: 0,
 					y: 0,
 					w: 0,
 					h: 0
 				};
+			}
 			var res = {
 				x: -Infinity,
 				y: -Infinity,
@@ -129,8 +130,9 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 			var bbox = null;
 			for(var i = 0; i < elements.length; i++){
 				bbox = this._computeBoundingBox(elements[i]._gfxGroup);
-				if(!bbox) 
+				if(!bbox){
 					continue;
+				}
 				if(res.x < bbox.x){
 					res.x = bbox.x;
 				}
@@ -184,17 +186,18 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 				middleBoundingBox.y = 0;
 				middleBoundingBox.w = this._widgetBox.w - leadingBoundingBox.w - trailingBoundingBox.w;
 				middleBoundingBox.h = this._widgetBox.h;
-			} else {
+			}else{
 				middleBoundingBox.x = 0;
 				middleBoundingBox.y = leadingBoundingBox.y + leadingBoundingBox.h;
 				middleBoundingBox.w = this._widgetBox.w; 
 				middleBoundingBox.h = this._widgetBox.h - leadingBoundingBox.h - trailingBoundingBox.h;
 			}
-				this._layoutInfos = {
-					leading: leadingBoundingBox,
-					middle: middleBoundingBox,
-					trailing: trailingBoundingBox
-				};
+			
+			this._layoutInfos = {
+				leading: leadingBoundingBox,
+				middle: middleBoundingBox,
+				trailing: trailingBoundingBox
+			};
 			
 			// translates middle part
 			for(var i = 0; i < this._middleParts.length; i++){
@@ -208,7 +211,7 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 				}
 			}
 			
-			// Render remaining elements (scales, ...)			
+			// Render remaining elements (scales, ...)
 			for(var i = 0; i < this._classParts.length; i++){
 				this._elementsRenderers[this._classParts[i]._name] = this._classParts[i].refreshRendering();
 			}

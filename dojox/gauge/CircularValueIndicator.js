@@ -1,8 +1,8 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularGaugeUtil", "dojo/_base/event"], function(declare, gfx, ScaleIndicatorBase, _circularGaugeUtil, eventUtil){
 
-    /*=====
-     var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
-     =====*/	
+	/*=====
+	var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
+	=====*/	
 
 	return declare("dojox.gauge.CircularValueIndicator", ScaleIndicatorBase, {
 		//	summary:
@@ -51,7 +51,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "./_circularG
 			this.inherited(arguments);
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);
 			var angle = ((Math.atan2(event.pageY - origin.y, event.pageX - origin.x)) * 180) / (Math.PI);
-			this.set("value", this.scale.valueForPosition(angle));			
+			this.set("value", this.scale.valueForPosition(angle));
 		}
 	});
 });

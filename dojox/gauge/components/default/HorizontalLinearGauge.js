@@ -14,8 +14,8 @@ define([
 	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var RectangularGauge = dojox.gauge.RectangularGauge;
-     =====*/
+	var RectangularGauge = dojox.gauge.RectangularGauge;
+	=====*/
 	
 	return declare("dojox.gauge.components.default.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 		constructor: function(args, node){
@@ -166,6 +166,5 @@ define([
 				width: 1
 			});
 		}
-		
 	});
 });

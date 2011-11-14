@@ -15,8 +15,8 @@ define([
 	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var CircularGauge = dojox.gauge.CircularGauge;
-     =====*/
+	var CircularGauge = dojox.gauge.CircularGauge;
+	=====*/
 	
 	return declare("dojox.gauge.components.default.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 		_radius: 100,
@@ -29,7 +29,7 @@ define([
 			// Draw background
 			this.addElement("background", lang.hitch(this, this.drawBackground));
 			
-			// Scaler			
+			// Scaler
 			var scaler = new LinearScaler();
 			
 			// Scale
@@ -57,10 +57,6 @@ define([
 			this.addElement("indicatorText", indicatorText);
 			
 			GaugeUtils.genericCircularGauge(scale, indicator, this._radius, this._radius, 0.65 * this._radius, 130, 50, null, null, "outside");
-			
-			//GaugeUtils.bindAttributes(this, scaler, {minimum: parseFloat, maximum: parseFloat});
-			//lang.mixin(this, GaugePropertiesMixin);
-			
 		},
 		
 		drawBackground: function(g){

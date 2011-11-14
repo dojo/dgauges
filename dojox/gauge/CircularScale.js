@@ -60,7 +60,6 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			//	returns: Number
 			//		The value represented by angle. 
 			if(!this.positionInRange(angle)){
-			
 				var min1 = _circularGaugeUtil.modAngle(this.startAngle - angle, 360);
 				var min2 = 360 - min1;
 				var max1 = _circularGaugeUtil.modAngle(this.endAngle - angle, 360);
@@ -68,10 +67,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 				var pos;
 				if(Math.min(min1, min2) < Math.min(max1, max2)){
 					pos = 0;
-				} else {
+				}else{
 					pos = 1;
 				}
-			} else {
+			}else{
 				var relativeAngle = _circularGaugeUtil.modAngle(this._getOrientationNum() * (angle - this.startAngle), 360);
 				var totalAngle = _circularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
 				pos = relativeAngle / totalAngle;
@@ -83,20 +82,23 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			//	summary:
 			//		Returns true if the value parameter is between the accepted scale positions.
 			//	returns: Boolean
-			//		True if the value parameter is between the accepted scale positions.			
-			if(this.startAngle == this.endAngle) 
+			//		True if the value parameter is between the accepted scale positions.
+			if(this.startAngle == this.endAngle){
 				return true;
+			}
 			value = _circularGaugeUtil.modAngle(value, 360);
 			if(this._getOrientationNum() == 1){
-				if(this.startAngle < this.endAngle) 
+				if(this.startAngle < this.endAngle){
 					return value >= this.startAngle && value <= this.endAngle;
-				else 
+				}else{
 					return !(value > this.endAngle && value < this.startAngle);
-			} else {
-				if(this.startAngle < this.endAngle) 
+				}
+			}else{
+				if(this.startAngle < this.endAngle){
 					return !(value > this.startAngle && value < this.endAngle);
-				else 
+				}else{
 					return value >= this.endAngle && value <= this.startAngle;
+				}
 			}
 		},
 		
@@ -124,45 +126,46 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			var ipx = side;
 			var ipy = -Math.tan(angle) * side + oy + Math.tan(angle) * ox;
 			// Verify if intersection is on segment
-			if(ipy >= tfy && ipy <= tfy + th) 
+			if(ipy >= tfy && ipy <= tfy + th){
 				intersections.push({
 					x: ipx,
 					y: ipy
 				});
+			}
 			
 			// Intersection with bottom segment
 			side = tfx + tw;
 			ipx = side;
 			ipy = -Math.tan(angle) * side + oy + Math.tan(angle) * ox;
 			// Verify if intersection is on segment
-			if(ipy >= tfy && ipy <= tfy + th) 
+			if(ipy >= tfy && ipy <= tfy + th){
 				intersections.push({
 					x: ipx,
 					y: ipy
 				});
-			
+			}
 			// Intersection with left segment
 			side = tfy;
 			ipx = -1 / Math.tan(angle) * side + ox + 1 / Math.tan(angle) * oy;
 			ipy = side;
 			// Verify if intersection is on segment
-			if(ipx >= tfx && ipx <= tfx + tw) 
+			if(ipx >= tfx && ipx <= tfx + tw){
 				intersections.push({
 					x: ipx,
 					y: ipy
 				});
-			
+			}
 			// Intersection with right segment
 			side = tfy + th;
 			ipx = -1 / Math.tan(angle) * side + ox + 1 / Math.tan(angle) * oy;
 			ipy = side;
 			// Verify if intersection is on segment
-			if(ipx >= tfx && ipx <= tfx + tw) 
+			if(ipx >= tfx && ipx <= tfx + tw){
 				intersections.push({
 					x: ipx,
 					y: ipy
 				});
-			
+			}
 			var dif;
 			if(labelPlacement == "inside"){
 				for(var it = 0; it < intersections.length; it++){
@@ -175,8 +178,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 						break;
 					}
 				}
-			} else // "outside" placement
-			{
+			}else{// "outside" placement
 				for(it = 0; it < intersections.length; it++){
 					ip = intersections[it];
 					dif = this._distance(ip.x, ip.y, ox, oy) - lrad;
@@ -199,8 +201,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 		
 		refreshRendering: function(){
 			this.inherited(arguments);
-			if(!this._gfxGroup || !this.scaler) 
+			if(!this._gfxGroup || !this.scaler){
 				return;
+			}
 			
 			// Normalize angles
 			this.startAngle = _circularGaugeUtil.modAngle(this.startAngle, 360);
@@ -224,7 +227,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 				var a;
 				if(tickItem.position){
 					a = this._positionForTickItem(tickItem);
-				} else {
+				}else{
 					a = this.positionForValue(tickItem.value);
 				}
 				
@@ -247,7 +250,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 					var rad = this.radius;
 					if(this.labelPosition == "inside"){
 						rad -= (tickBB.width + this.labelGap);
-					} else {
+					}else{
 						rad += this.labelGap;
 					}
 					this._layoutLabel(label, labelText, this.originX, this.originY, rad, _circularGaugeUtil.toRadians(360 - a), this.labelPosition);
@@ -257,7 +260,6 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			for(var key in this._indicatorsIndex){
 				this._indicatorsRenderers[key] = this._indicatorsIndex[key].invalidateRendering();
 			}
-			
 		}
 	});
 });

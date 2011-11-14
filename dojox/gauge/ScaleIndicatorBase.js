@@ -104,7 +104,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		refreshRendering: function(){
 			if(this._gfxGroup == null || this.scale == null){
 				return;
-			} else {
+			}else{
 				if(this._indicatorShapeFuncFlag && lang.isFunction(this.indicatorShapeFunc)){
 					this._gfxGroup.clear();
 					this.indicatorShapeFunc(this._gfxGroup, this);
@@ -165,7 +165,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 					listener = this._gfxGroup.connect(downEventName, this, this._mouseDownHandler);
 					this._downListeners.push(listener);
 					
-				} else if(this.interactionArea == "gauge"){
+				}else if(this.interactionArea == "gauge"){
 					if(!this.scale || !this.scale._gauge || !this.scale._gauge._gfxGroup){
 						return true;
 					}
@@ -221,7 +221,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		_startEditing: function(eventSource){
 			if(!this.scale || !this.scale._gauge){
 				return;
-			} else {
+			}else{
 				this.scale._gauge.onStartEditing({
 					eventSource: eventSource,
 					indicator: this
@@ -232,7 +232,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		_endEditing: function(eventSource){
 			if(!this.scale || !this.scale._gauge){
 				return;
-			} else {
+			}else{
 				this.scale._gauge.onEndEditing({
 					eventSource: eventSource,
 					indicator: this

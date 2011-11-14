@@ -1,7 +1,7 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/event", "dojo/dom-geometry"], function(declare, gfx, ScaleIndicatorBase, eventUtil, domGeom){
 	/*=====
-     var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
-     =====*/
+	var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
+	=====*/
 	return declare("dojox.gauge.RectangularRangeIndicator", ScaleIndicatorBase, {
 		//	summary:
 		//		A RectangularRangeIndicator is used to represent a range of values on a scale.
@@ -99,10 +99,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 				startX = spos;
 				startY = this.paddingTop;
 				endPosition = pos;
-			} else {
+			}else{
 				startX = this.paddingLeft;
 				startY = spos;
-				endPosition = pos;			
+				endPosition = pos;
 			}
 			this._shapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startThickness, this.endThickness, this.fill, this.stroke);
 		},
@@ -122,6 +122,6 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			
 			var np = domGeom.position(this.scale._gauge.domNode, true);
 			this.set("value", this.scale.valueForPosition({x: event.pageX - np.x, y: event.pageY - np.y}));
-		}			
+		}
 	})
 });

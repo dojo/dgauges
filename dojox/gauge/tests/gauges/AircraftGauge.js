@@ -88,23 +88,22 @@ function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValu
 				tickShapeFunc: function(group, scale, tick){
 					var x1, x2, color, width = 1;
 					// Strong red tick
-					if (tick.value == 0.5 || tick.value == 8) {
+					if (tick.value == 0.5 || tick.value == 8){
 						x1 = -2;
 						x2 = 14;
 						color = "#FB0F00";
 						width = 2;
+					}else if(tick.isMinor){
+						// minor ticks
+						x1 = 2;
+						x2 = 8;
+							color = "#EFEFEF";
+					}else{
+						// Major tick
+						x1 = 0;
+						x2 = 12;
+						color = "#EFEFEF";
 					}
-					else // Minor tick
-						if (tick.isMinor) {
-							x1 = 2;
-							x2 = 8;
-							color = "#EFEFEF";
-						}// Major tick
-						else {
-							x1 = 0;
-							x2 = 12;
-							color = "#EFEFEF";
-						}
 					
 					return group.createLine({
 						x1: x1,
@@ -214,7 +213,6 @@ function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValu
 				width: 4,
 				height: 50
 			}).setFill("#EFEFEF");
-			
 		}
 	});
 });

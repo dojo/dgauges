@@ -15,27 +15,31 @@ define([
 	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, RectangularRangeIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var RectangularGauge = dojox.gauge.RectangularGauge;
-     =====*/
+	var RectangularGauge = dojox.gauge.RectangularGauge;
+	=====*/
 	
 	return declare("dojox.gauge.components.default.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
+		//	borderColor:
+		//		The border color. Default is "#C9DFF2".
+		borderColor: "#C9DFF2",
+		//	fillColor:
+		//		The background color. Default is "#FCFCFF".
+		fillColor: "#FCFCFF",
+		//	indicatorColor:
+		//		The indicator fill color. Default is "#F01E28".
+		indicatorColor: "#F01E28",
 		constructor: function(){
-		
 			this.orientation = "vertical";
-			
-			// Does not work using 'set'...
-			//this.set("orientation", "vertical");
-			
-			
 			// Base colors
-			this.outerColor = new Color("#C9DFF2");
-			this.innerColor = new Color("#FCFCFF");
+			this.borderColor = new Color(this.borderColor);
+			this.fillColor = new Color(this.fillColor);
+			this.indicatorColor = new Color(this.indicatorColor);
 			
 			// Draw background
 			this.addElement("background", lang.hitch(this, this.drawBackground));
 			
 			
-			// Scaler			
+			// Scaler
 			var scaler = new LinearScaler();
 			
 			// Scale
@@ -50,42 +54,18 @@ define([
 			// Value indicator
 			indicator = new RectangularValueIndicator();
 			
-			indicator.indicatorShapeFunc = function(group){
+			indicator.indicatorShapeFunc = lang.hitch(this, function(group){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
 					color: 'blue',
 					width: 0.25
-				}).setFill([250, 0, 0]);
+				}).setFill(this.indicatorColor);
 				
 				return indic;
-			}
+			});
 			indicator.set("paddingLeft", 45);
 			indicator.set("interactionArea", "gauge");
 			scale.addIndicator("indicator", indicator);
-			
-			// Range  Indicator example
-            /*
-			var ri = new RectangularRangeIndicator();
-            ri.set("interactionArea", "gauge");
-            ri.set("start", 0);
-            ri.set("value", 100);
-            ri.set("fill", {
-                type: "linear",
-                colors: [{
-                    offset: 0,
-                    color: "green"
-                }, {
-                    offset: 1,
-                    color: "red"
-                }]
-            });
-            ri.set("paddingTop", 15);
-            ri.set("startThickness", 0);
-			ri.set("endThickness", 20);
-            scale.addIndicator("ri", ri, true);
-			*/
-			
-			// Gauge Foreground (needle cap)
-			//this.addElement("foreground", lang.hitch(this, this.drawForeground));
+
 			
 			// Indicator Text Border
 			this.addElement("indicatorTextBorder", lang.hitch(this, this.drawTextBorder), "leading");
@@ -96,14 +76,13 @@ define([
 			indicatorText.set("x", 22.5);
 			indicatorText.set("y", 30);
 			this.addElement("indicatorText", indicatorText);
-			
 		},
 		
 		drawBackground: function(g, w, h){
 			w = 49;
 			var gap = 0;
 			var cr = 3;
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, -20), 0.1, GaugeUtils.brightness(this.outerColor, -40)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, -20), 0.1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: 0,
 				y: 0,
@@ -120,7 +99,7 @@ define([
 				color: "#A5A5A5",
 				width: 0.2
 			});
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 70), 1, GaugeUtils.brightness(this.outerColor, -50)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -50)]);
 			gap = 4;
 			cr = 2
 			g.createRect({
@@ -138,7 +117,7 @@ define([
 			}, entries));
 			gap = 6;
 			cr = 1
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 60), 1, GaugeUtils.brightness(this.outerColor, -40)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 60), 1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -155,7 +134,7 @@ define([
 			
 			gap = 7;
 			cr = 0
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 70), 1, GaugeUtils.brightness(this.outerColor, -40)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -171,7 +150,7 @@ define([
 			}, entries));
 			gap = 5;
 			cr = 0
-			var entries = GaugeUtils.createGradient([0, [255, 255, 255, 220], 0.8, GaugeUtils.brightness(this.innerColor, -5), 1, GaugeUtils.brightness(this.innerColor, -30)]);
+			var entries = GaugeUtils.createGradient([0, [255, 255, 255, 220], 0.8, GaugeUtils.brightness(this.fillColor, -5), 1, GaugeUtils.brightness(this.fillColor, -30)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -184,7 +163,7 @@ define([
 				cy: h / 2,
 				r: h
 			}, entries)).setStroke({
-				color: GaugeUtils.brightness(this.innerColor, -40),
+				color: GaugeUtils.brightness(this.fillColor, -40),
 				width: 0.4
 			});
 			
@@ -200,6 +179,5 @@ define([
 				width: 1
 			});
 		}
-		
 	});
 });

@@ -1,35 +1,43 @@
 define([
 		"dojo/_base/lang", 
 		"dojo/_base/declare", 
-		"dojo/on", 
 		"dojo/_base/Color", 
 		"../GaugeUtils", 
 		"../../CircularGauge", 
 		"../../LinearScaler", 
 		"../../CircularScale", 
 		"../../CircularValueIndicator",
-		"../../CircularRangeIndicator", 
 		"../../TextIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, TextIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var CircularGauge = dojox.gauge.CircularGauge;
-     =====*/
+	var CircularGauge = dojox.gauge.CircularGauge;
+	=====*/
 	
 	return declare("dojox.gauge.components.default.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 		_radius: 100,
+		//	borderColor:
+		//		The border color. Default is "#C9DFF2".
+		borderColor: "#C9DFF2",
+		//	fillColor:
+		//		The background color. Default is "#FCFCFF".
+		fillColor: "#FCFCFF",
+		//	indicatorColor:
+		//		The indicator fill color. Default is "#F01E28".
+		indicatorColor: "#F01E28",
 		constructor: function(){
 			
 			// Base colors
-			this.outerColor = new Color("#C9DFF2");
-			this.innerColor = new Color("#FCFCFF");
-			
+			this.borderColor = new Color(this.borderColor);
+			this.fillColor = new Color(this.fillColor);
+			this.indicatorColor = new Color(this.indicatorColor);
+
 			// Draw background
 			this.addElement("background", lang.hitch(this, this.drawBackground));
 			
-			// Scaler			
+			// Scaler
 			var scaler = new LinearScaler();
 			
 			// Scale
@@ -40,11 +48,6 @@ define([
 			// Value indicator
 			var indicator = new CircularValueIndicator();
 			scale.addIndicator("indicator", indicator);
-
-			// Value indicator
-			var indicator2 = new CircularRangeIndicator();
-			indicator2.set("value", 50);
-			scale.addIndicator("indicator2", indicator2);
 			
 			// Gauge Foreground (needle cap)
 			this.addElement("foreground", lang.hitch(this, this.drawForeground));
@@ -57,17 +60,13 @@ define([
 			this.addElement("indicatorText", indicatorText);
 			
 			GaugeUtils.genericCircularGauge(scale, indicator, this._radius, this._radius, 0.65 * this._radius, 130, 50, null, null, "outside");
-			
-			//GaugeUtils.bindAttributes(this, scaler, {minimum: parseFloat, maximum: parseFloat});
-			//lang.mixin(this, GaugePropertiesMixin);
-			
 		},
 		
 		drawBackground: function(g){
 			var r = this._radius;
 			var w = 2 * r;
 			var h = w;
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 70), 1, GaugeUtils.brightness(this.outerColor, -40)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createEllipse({
 				cx: r,
 				cy: r,
@@ -84,7 +83,7 @@ define([
 				width: 0.2
 			});
 			
-			entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 70), 1, GaugeUtils.brightness(this.outerColor, -50)]);
+			entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -50)]);
 			g.createEllipse({
 				cx: r,
 				cy: r,
@@ -98,7 +97,7 @@ define([
 				y2: h
 			}, entries));
 			
-			entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 60), 1, GaugeUtils.brightness(this.outerColor, -40)]);
+			entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 60), 1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createEllipse({
 				cx: r,
 				cy: r,
@@ -112,7 +111,7 @@ define([
 				y2: h
 			}, entries));
 			
-			entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 70), 1, GaugeUtils.brightness(this.outerColor, -40)]);
+			entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createEllipse({
 				cx: r,
 				cy: r,
@@ -126,7 +125,7 @@ define([
 				y2: h
 			}, entries));
 			
-			entries = GaugeUtils.createGradient([0, [255, 255, 255, 220], 0.8, GaugeUtils.brightness(this.innerColor, -5), 1, GaugeUtils.brightness(this.innerColor, -30)]);
+			entries = GaugeUtils.createGradient([0, [255, 255, 255, 220], 0.8, GaugeUtils.brightness(this.fillColor, -5), 1, GaugeUtils.brightness(this.fillColor, -30)]);
 			g.createEllipse({
 				cx: r,
 				cy: r,
@@ -138,7 +137,7 @@ define([
 				cy: r,
 				r: r
 			}, entries)).setStroke({
-				color: GaugeUtils.brightness(this.innerColor, -40),
+				color: GaugeUtils.brightness(this.fillColor, -40),
 				width: 0.4
 			});
 			
@@ -146,7 +145,7 @@ define([
 		
 		drawForeground: function(g){
 			var r = 0.07 * this._radius;
-			var entries = GaugeUtils.createGradient([0, this.outerColor, 1, GaugeUtils.brightness(this.outerColor, -20)]);
+			var entries = GaugeUtils.createGradient([0, this.borderColor, 1, GaugeUtils.brightness(this.borderColor, -20)]);
 			g.createEllipse({
 				cx: this._radius,
 				cy: this._radius,
@@ -158,7 +157,7 @@ define([
 				cy: 0.96 * this._radius,
 				r: r
 			}, entries)).setStroke({
-				color: GaugeUtils.brightness(this.innerColor, -50),
+				color: GaugeUtils.brightness(this.fillColor, -50),
 				width: 0.4
 			});
 		}

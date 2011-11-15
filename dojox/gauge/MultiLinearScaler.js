@@ -1,8 +1,7 @@
 define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
-    
 	/*=====
-     var Stateful = dojo.Stateful;
-     =====*/
+	var Stateful = dojo.Stateful;
+	=====*/
 	
 	return declare("dojox.gauge.MultiLinearScaler", Stateful, {
 		//	summary:
@@ -103,8 +102,9 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 			//		A relative position to transform.
 			//	returns: Number
 			//		The transformed value.
-			if(this.majorTicks == null) 
+			if(this.majorTicks == null){
 				return 0;
+			}
 			var minmax = this._getMinMax(position, "position");
 			var value = (position - minmax[0].position) / (minmax[1].position - minmax[0].position);
 			return minmax[0].value + value * (minmax[1].value - minmax[0].value);
@@ -135,11 +135,11 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 						res[0] = this.majorTicks[center];
 						res[1] = this.majorTicks[center + 1];
 						return res;
-					} else {
+					}else{
 						left = center + 1;
 						continue;
 					}
-				} else {
+				}else{
 					right = center;
 					continue;
 				}
@@ -148,17 +148,19 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		},
 		
 		_getFirstValidValue: function(){
-			if(this.majorTickValues != null) 
+			if(this.majorTickValues != null){
 				return this.majorTickValues[0];
-			else 
+			}else{
 				return null;
+			}
 		},
 		
 		_getLastValidValue: function(){
-			if(this.majorTickValues != null) 
+			if(this.majorTickValues != null){
 				return this.majorTickValues[this.majorTickValues.length - 1];
-			else 
+			}else{
 				return null;
+			}
 		},
 		
 		_getNextValidValue: function(v){
@@ -166,10 +168,11 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 			var minMax = _getMinMax(v + 10e-7);
 			var min = minMax[0].value;
 			var max = minMax[1].value;
-			if(isNaN(this.snapCount)) 
+			if(isNaN(this.snapCount)){
 				nv = max;
-			else 
+			}else{
 				nv = v + (max - min) / (this.snapCount + 1);
+			}
 			return Math.min(nv, max);
 		},
 		
@@ -180,11 +183,10 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 			var max = minMax[1].value;
 			if(isNaN(this.snapCount)){
 				nv = min;
-			} else {
+			}else{
 				nv = v - (max - min) / (snapCount + 1);
 			}
 			return Math.max(nv, min);
 		}
-		
 	});
 });

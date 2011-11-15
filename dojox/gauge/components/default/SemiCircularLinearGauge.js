@@ -1,7 +1,6 @@
 define([
 		"dojo/_base/lang", 
 		"dojo/_base/declare", 
-		"dojo/on", 
 		"dojo/_base/Color", 
 		"../GaugeUtils", 
 		"../../CircularGauge", 
@@ -11,26 +10,36 @@ define([
 		"../../TextIndicator",
 		"../DefaultPropertiesMixin"
 		], 
-	function(lang, declare, on, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
-     var CircularGauge = dojox.gauge.CircularGauge;
-     =====*/
+	var CircularGauge = dojox.gauge.CircularGauge;
+	=====*/
 	
 	return declare("dojox.gauge.components.default.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 		_radius: 88,
 		_width: 200,
 		_height: 123,
-		constructor: function(args, node){
+		//	borderColor:
+		//		The border color. Default is "#C9DFF2".
+		borderColor: "#C9DFF2",
+		//	fillColor:
+		//		The background color. Default is "#FCFCFF".
+		fillColor: "#FCFCFF",
+		//	indicatorColor:
+		//		The indicator fill color. Default is "#F01E28".
+		indicatorColor: "#F01E28",
+		constructor: function(){
 			
 			// Base colors
-			this.outerColor = new Color("#C9DFF2");
-			this.innerColor = new Color("#FCFCFF");
-			
+			this.borderColor = new Color(this.borderColor);
+			this.fillColor = new Color(this.fillColor);
+			this.indicatorColor = new Color(this.indicatorColor);
+
 			// Draw background
 			this.addElement("background", lang.hitch(this, this.drawBackground));
 			
-			// Scaler			
+			// Scaler
 			var scaler = new LinearScaler();
 			
 			// Scale
@@ -63,7 +72,7 @@ define([
 			var h = this._height;
 			var gap = 0;
 			var cr = 3;
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, -20), 0.1, GaugeUtils.brightness(this.outerColor, -40)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, -20), 0.1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: 0,
 				y: 0,
@@ -80,7 +89,7 @@ define([
 				color: "#A5A5A5",
 				width: 0.2
 			});
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 70), 1, GaugeUtils.brightness(this.outerColor, -50)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -50)]);
 			gap = 4;
 			cr = 2
 			g.createRect({
@@ -98,7 +107,7 @@ define([
 			}, entries));
 			gap = 6;
 			cr = 1
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 60), 1, GaugeUtils.brightness(this.outerColor, -40)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 60), 1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -115,7 +124,7 @@ define([
 			
 			gap = 7;
 			cr = 0
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.outerColor, 70), 1, GaugeUtils.brightness(this.outerColor, -40)]);
+			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -131,7 +140,7 @@ define([
 			}, entries));
 			gap = 5;
 			cr = 0			
-			var entries = GaugeUtils.createGradient([0, [255, 255, 255, 220], 0.8, GaugeUtils.brightness(this.innerColor, -5), 1, GaugeUtils.brightness(this.innerColor, -30)]);
+			var entries = GaugeUtils.createGradient([0, [255, 255, 255, 220], 0.8, GaugeUtils.brightness(this.fillColor, -5), 1, GaugeUtils.brightness(this.fillColor, -30)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -144,7 +153,7 @@ define([
 				cy: h/2,
 				r: h
 			}, entries)).setStroke({
-				color: GaugeUtils.brightness(this.innerColor, -40),
+				color: GaugeUtils.brightness(this.fillColor, -40),
 				width: 0.4
 			});
 			
@@ -152,7 +161,7 @@ define([
 		
 		drawForeground: function(g){
 			var r = 0.07 * this._radius;
-			var entries = GaugeUtils.createGradient([0, this.outerColor, 1, GaugeUtils.brightness(this.outerColor, -20)]);
+			var entries = GaugeUtils.createGradient([0, this.borderColor, 1, GaugeUtils.brightness(this.borderColor, -20)]);
 			g.createEllipse({
 				cx: this._width / 2,
 				cy: 0.76 * this._height,
@@ -164,7 +173,7 @@ define([
 				cy: this._height * 0.76 - 5,
 				r: r
 			}, entries)).setStroke({
-				color: GaugeUtils.brightness(this.innerColor, -50),
+				color: GaugeUtils.brightness(this.fillColor, -50),
 				width: 0.4
 			});
 		},
@@ -176,11 +185,10 @@ define([
 				width: 24,
 				height: 14
 			}).setStroke({
-				color: GaugeUtils.brightness(this.innerColor, -20),
+				color: GaugeUtils.brightness(this.fillColor, -20),
 				width: 0.3
 			});
 		}
-		
 	});
 });
 

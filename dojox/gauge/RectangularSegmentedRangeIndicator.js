@@ -49,9 +49,9 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 
 		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			var length = scale._contentBox.w ;
-			if(this.ranges){				
+			if(this.ranges){
 				// Configure gradient to represent the ranges
-				fill = {type:"linear", colors:[]};				
+				fill = {type:"linear", colors:[]};
 				fill.x1 = startX;
 				fill.y1 = startY;
 				fill.x2 = startX + length;
@@ -89,7 +89,6 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			var inc = (this.endThickness - this.startThickness) /this.segments
 			var ew = sw+inc;			
 			var remain = visibleSegments - Math.floor(visibleSegments);
-			
 			
 			for(i = 0; i < Math.floor(visibleSegments); i++){
 				var path = group.createPath();
@@ -129,14 +128,14 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				ew = sw+( (ew-sw)*remain );
 				var gp = [x, y, x+(chicklet*remain), y, x+(chicklet*remain), y  + ew, x, y + sw, x, y]
 				shape = group.createPolyline(gp).setFill(fill).setStroke(stroke);
-			}		
+			}
 			
 			return shape;
 		},
 
 		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			var length = scale._contentBox.h ;
-			if(this.ranges){				
+			if(this.ranges){
 				// Configure gradient to represent the ranges
 				fill = {type:"linear", colors:[]};				
 				fill.x1 = startX;
@@ -165,7 +164,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				fill.y1 = startY;
 				fill.x2 = startX;
 				fill.y2 = startY + length;
-			}			
+			}
 			
 			var shape, i,gp,radius;
 			var x = startX;
@@ -201,7 +200,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 						path.lineTo(x + ew, y + chicklet);
 						path.lineTo(x+ sw, y );
 						path.lineTo(x, y);
-					}	
+					}
 				}
 
 				path.setFill(fill).setStroke(stroke);
@@ -213,9 +212,9 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			// draw the remaining segment part
 			if(remain > 0){
 				ew = sw+( (ew-sw)*remain );
-				var gp = [x, y, x, y+(chicklet*remain), x+ ew, y+(chicklet*remain), x+ sw, y , x, y]
+				var gp = [x, y, x, y+(chicklet*remain), x+ ew, y+(chicklet*remain), x+ sw, y , x, y];
 				shape = group.createPolyline(gp).setFill(fill).setStroke(stroke);
-			}					
+			}
 			
 			return shape;
 		},

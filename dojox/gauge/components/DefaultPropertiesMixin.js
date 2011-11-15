@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, lang, on){
+define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/Color"], function(declare, lang, Color){
 	return declare("dojox.gauge.components.DefaultPropertiesMixin", null, {
 		//	minimum: Number
 		//		The minimum value of the scaler. Default is 0.
@@ -38,10 +38,10 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 		interactionMode: "mouse",
 
 		//	animationDuration: Number
-		//		The duration of the value change animation in milliseconds. Default is 500.
+		//		The duration of the value change animation in milliseconds. Default is 0.
 		//		The animation occurs on both user interactions and programmatic value changes.
 		//		Set this property to 0 to disable animation.
-		animationDuration: 500,
+		animationDuration: 0,
 
 		_setMinimumAttr: function(v){
 			this.getElement("scale").scaler.minimum = v;
@@ -72,10 +72,18 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 		},
 		_setAnimationDurationAttr: function(v){
 			this.getElement("scale").getIndicator("indicator").animationDuration = v;
-		}	
-
-
-
-		
+		},
+		_setBorderColorAttr: function(v){
+			this.borderColor = new Color(v);
+			this.invalidateRendering();
+		},
+		_setFillColorAttr: function(v){
+			this.fillColor = new Color(v);
+			this.invalidateRendering();
+		},
+		_setIndicatorColorAttr: function(v){
+			this.indicatorColor = new Color(v);
+			this.invalidateRendering();
+		}
 	});
 });

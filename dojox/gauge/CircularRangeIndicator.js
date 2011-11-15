@@ -1,8 +1,8 @@
 define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "dojo/_base/event"], function(declare, ScaleIndicatorBase, _circularGaugeUtil, eventUtil){
 
-    /*=====
-     var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
-     =====*/
+	/*=====
+	var ScaleIndicatorBase = dojox.gauge.ScaleIndicatorBase;
+	=====*/
 
 	return declare("dojox.gauge.CircularRangeIndicator", ScaleIndicatorBase, {
 		//	summary:
@@ -81,18 +81,17 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 		_alphaInterpolation: function(c1, c2, len){
 			var step = (c2 - c1) / (len - 1);
 			var ret = [];
-			var j = 0;
 			for(var i = 0; i < len; i++){
 				ret.push(c1 + i * step);
 			}
-			
 			return ret;
 		},
 		
 		_colorInterpolation: function(c1, c2, len){
 			var ret = [];
-			for(var i = 0; i < len; i++) 
+			for (var i = 0; i < len; i++){
 				ret.push(_interpolateColor(c1, c2, i / (len - 1)));
+			}
 			return ret;
 		},
 		
@@ -102,10 +101,12 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var val;
 			for(var i = 0; i < entries.length; i++){
 				e = entries[i];
-				if(e[attr] == null || isNaN(e[attr])) 
+				if(e[attr] == null || isNaN(e[attr])) {
 					val = i / (entries.length - 1);
-				else 
+				}
+				else{
 					val = e[attr];
+				}
 				ret.push(val);
 			}
 			return ret;
@@ -137,8 +138,9 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			
 			var angle;
 			var i;
-			if(orientation == "clockwise") 
+			if(orientation == "clockwise"){
 				angleStep = -angleStep;
+			}
 			
 			var gp = [];
 			
@@ -151,8 +153,9 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 				py = oy - Math.sin(angle + angleStep) * (radius + innerRadius + i * innerStep);
 				gp.push(px, py);
 			}
-			if(isNaN(angle)) 
+			if(isNaN(angle)){
 				angle = startAngleRadians;
+			}
 			px = ox + Math.cos(angle + angleStep) * (radius + outerRadius + (iterCount - 1) * outerStep);
 			py = oy - Math.sin(angle + angleStep) * (radius + outerRadius + (iterCount - 1) * outerStep);
 			gp.push(px, py);
@@ -191,7 +194,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			this._drawColorTrack(g, ox, oy, radius, orientation, startAngleRadians, endAngleRadians, sWeight, eWeight, this.fill, this.stroke, clippingAngleRadians);
 		},
 		
-		_mouseDownHandler: function(event){
+		_onMouseDown: function(event){
 			this.inherited(arguments);
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);
 			var angle = ((Math.atan2(event.pageY - origin.y, event.pageX - origin.x)) * 180) / (Math.PI);
@@ -201,12 +204,12 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			eventUtil.stop(event);
 		},
 		
-		_mouseMoveHandler: function(event){
+		_onMouseMove: function(event){
 			this.inherited(arguments);
 			
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);
 			var angle = ((Math.atan2(event.pageY - origin.y, event.pageX - origin.x)) * 180) / (Math.PI);
-			this.set("value", this.scale.valueForPosition(angle));			
-		}		
+			this.set("value", this.scale.valueForPosition(angle));
+		}
 	});
 });

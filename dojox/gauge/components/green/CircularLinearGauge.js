@@ -19,7 +19,7 @@ define([
      
 		return declare("dojox.gauge.components.green.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 
-			constructor: function(args, node){
+			constructor: function(){
 				var scaler = new LinearScaler();
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 				var scale = new CircularScale();

@@ -12,7 +12,6 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 		_transformProperties: null,
 		
 		refreshRendering: function(){
-
 			// Render all elements			
 			for(var key in this._elementsIndex){
 				this._elementsRenderers[key] = this._elementsIndex[key].refreshRendering();
@@ -34,7 +33,7 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 				w = widgetWidth;
 				h = w / naturalRatio;
 				ypos = (widgetHeight - h) / 2;
-			} else {
+			}else{
 				h = widgetHeight;
 				w = h * naturalRatio;
 				xpos = (widgetWidth - w) / 2;

@@ -2,10 +2,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 		"dojo/_base/event", "dojox/gfx", "../widget/_Invalidating","./ScaleBase"], 
 	function(lang, declare, domGeom, connect, WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase){
 	
-    /*=====
-     var _WidgetBase = dijit._WidgetBase;
-     var _Invalidating = dojox.widget._Invalidating;
-     =====*/
+	/*=====
+	var _WidgetBase = dijit._WidgetBase;
+	var _Invalidating = dojox.widget._Invalidating;
+	=====*/
 	
 	return declare("dojox.gauge.GaugeBase", [_WidgetBase, _Invalidating], {
 		//	summary: 
@@ -97,16 +97,16 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 			dojo.extend(dojox.gfx.matrix.Matrix2D, {
 				isIdentity: function(){
 					// summary:
-					//        Indicates whether this transform corresponds to the identity operation.
+					//		Indicates whether this transform corresponds to the identity operation.
 					return this.xy === 0 && this.yx === 0 && this.xx === 1 && this.yy === 1 && this.dx === 0 && this.dy === 0;
 				},
 				transformRectangle: function(/* dojox.gfx.Rectangle */rect){
 					// summary:
-					//        Applies the transformation to a rectangle.
+					//		Applies the transformation to a rectangle.
 					// description:
-					//        The method applies the transformation on all corners of the
-					//        rectangle and returns the smallest rectangle enclosing the 4 transformed
-					//        points.            
+					//		The method applies the transformation on all corners of the
+					//		rectangle and returns the smallest rectangle enclosing the 4 transformed
+					//		points.
 					rect = rect ||
 					{
 						x: 0,
@@ -213,49 +213,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 			}else{
 				return this;
 			}
-		},		
-		resize0: function(/* Number */width, /* Number */ height){
-			//	summary:
-			//		Resize the gauge to the dimensions of width and height.
-			//	description:
-			//		Resize the gauge and its surface to the width and height dimensions.
-			//		If no width/height or box is provided, resize the surface to the marginBox of the gauge.
-			//	width: Number
-			//		The new width of the gauge.
-			//	height: Number
-			//		The new height of the gauge.
-			var box;
-			debugger;
-			console.log(this.id, width, height);
-			switch (arguments.length){
-				case 0:
-					// do not resize the div, just the surface
-					break;
-				case 1:
-					// one argument, override node box
-					box = lang.mixin({}, width);
-					html.getMarginBox(this._node, box);
-					break;
-				case 2:
-					// two arguments, override node box
-					box = {
-						w: width,
-						h: height
-					};
-					html.getMarginBox(this._node, box);
-					break;
-			}
-			
-			if(box){
-				box.w = Math.max(box.w, 0);
-				box.h = Math.max(box.h, 0);
-				this.surface.setDimensions(box.w, box.h);
-				this._widgetBox = box;
-				this._mouseShield.clear();
-				this._mouseShield.createRect({x:0,y:0,width:box.w,height:box.h}).setFill([0, 0, 0, 0]);
-				
-			}
-			return this.invalidateRendering();
 		},
 		
 		addElement: function(/* String */name, /* Object */ element){
@@ -287,7 +244,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 				};
 				this._elements.push(gfxHolder);
 				this._elementsIndex[name] = gfxHolder;
-			} else {
+			}else{
 				element._name = name;
 				element._gfxGroup = this._gfxGroup.createGroup();
 				element._gauge = this;
@@ -358,7 +315,5 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 			// summary:
 			//		Event dispatched on interaction end (keyboard, mouse or gesture).
 		}
-		
-		
 	})
 });

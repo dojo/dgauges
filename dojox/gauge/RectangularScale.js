@@ -1,7 +1,7 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx, ScaleBase){
 	/*=====
-     var ScaleBase = dojox.gauge.ScaleBase;
-     =====*/
+	var ScaleBase = dojox.gauge.ScaleBase;
+	=====*/
 	return declare("dojox.gauge.RectangularScale", ScaleBase, {
 		//	summary:
 		//		The rectangular scale. A scaler must be set to use this class.
@@ -37,7 +37,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 				if(this._gauge.orientation == "horizontal"){
 					spos = this._contentBox.x;
 					length = this._contentBox.w;
-				} else {
+				}else{
 					spos = this._contentBox.y;
 					length = this._contentBox.h;
 				}
@@ -61,7 +61,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 				position = pos.x;
 				spos = this._contentBox.x;
 				epos = this._contentBox.x + this._contentBox.w;
-			} else {
+			}else{
 				position = pos.y;
 				spos = this._contentBox.y;
 				epos = this._contentBox.y + this._contentBox.h;
@@ -69,9 +69,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 			
 			if(position <= spos){
 				value = this.scaler.minimum;
-			} else if(position >= epos){
+			}else if(position >= epos){
 				value = this.scaler.maximum;
-			} else {
+			}else {
 				value = this.scaler.valueForPosition((position - spos)/(epos - spos));
 			}
 			return value;
@@ -116,8 +116,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 						x1 = a;
 						y1 = this._contentBox.y;
 						angle = 90;
-					}
-					else {
+					}else{
 						x1 = this._contentBox.x;
 						y1 = a;
 					}
@@ -144,15 +143,14 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 						xt = x1;
 						if(this.labelPosition == "trailing"){
 							yt = y1 + tickSize + this.labelGap + th;
-
-						} else {
+						}else{
 							yt = y1 - this.labelGap;
 						}
 						al = 'middle';
-					} else {
+					}else{
 						if(this.labelPosition == "trailing"){
 							xt = x1 + tickSize + this.labelGap;
-						} else {
+						}else{
 							xt = x1 - this.labelGap - tw;
 						}
 						yt = y1 + th / 2;

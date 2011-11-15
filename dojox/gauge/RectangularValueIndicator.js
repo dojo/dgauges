@@ -39,12 +39,11 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 			if(this.scale._gauge.orientation == "horizontal"){
 				dx = pos;
 				dy = this.paddingTop;
-			} else {
+			}else{
 				dx = this.paddingLeft;
 				dy = pos;
 				angle = 90;
 			}
-			
 			
 			// translate the indicator
 			
@@ -54,7 +53,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 			}, gfx.matrix.rotateg(angle)]);
 		},
 		
-		_mouseDownHandler: function(event){
+		_onMouseDown: function(event){
 			this.inherited(arguments);
 			var np = domGeom.position(this.scale._gauge.domNode, true);
 			this.set("value", this.scale.valueForPosition({x: event.pageX - np.x, y: event.pageY - np.y}));
@@ -63,11 +62,11 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 			eventUtil.stop(event);
 		},
 		
-		_mouseMoveHandler: function(event){
+		_onMouseMove: function(event){
 			this.inherited(arguments);
 			
 			var np = domGeom.position(this.scale._gauge.domNode, true);
 			this.set("value", this.scale.valueForPosition({x: event.pageX - np.x, y: event.pageY - np.y}));
-		}		
+		}
 	})
 });

@@ -1,8 +1,7 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array", "../widget/_Invalidating"], function(lang, declare, gfx, array, _Invalidating){
-    
 	/*=====
-     var _Invalidating = dojox.widget._Invalidating;
-     =====*/
+	var _Invalidating = dojox.widget._Invalidating;
+	=====*/
 	
 	return declare("dojox.gauge.ScaleBase", _Invalidating, {
 		//	summary:
@@ -55,8 +54,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 
 		_watchScaler: function(name, oldValue, newValue){
 			array.forEach(this._watchers, lang.hitch(this, function(entry){
-	        	entry.unwatch();
-	        }));
+				entry.unwatch();
+			}));
 
 			// Get the properties declared by the watched object
 			var props = newValue.watchedProperties;
@@ -105,7 +104,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			//			The text to be aligned with the tick. If null, the tick has no label.
 			if(tickItem.isMinor){
 				return null;
-			} else {
+			}else{
 				return String(tickItem.value);
 			}
 		},
@@ -231,7 +230,5 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 				this._createSubGroups();
 			}
 		}
-		
-		
 	});
 });

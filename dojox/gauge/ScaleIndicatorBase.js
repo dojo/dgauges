@@ -28,10 +28,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		interactionMode: "mouse",
 
 		//	animationDuration: Number
-		//		The duration of the value change animation in milliseconds. Default is 500.
+		//		The duration of the value change animation in milliseconds. Default is 0.
 		//		The animation occurs on both user interactions and programmatic value changes.
 		//		Set this property to 0 to disable animation.
-		animationDuration: 500,
+		animationDuration: 0,
 
 		//	animationEaser: Object
 		//		The easer function of the value change animation. Default is fx._defaultEasing.
@@ -104,7 +104,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		refreshRendering: function(){
 			if(this._gfxGroup == null || this.scale == null){
 				return;
-			} else {
+			}else{
 				if(this._indicatorShapeFuncFlag && lang.isFunction(this.indicatorShapeFunc)){
 					this._gfxGroup.clear();
 					this.indicatorShapeFunc(this._gfxGroup, this);
@@ -162,16 +162,16 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 			
 			if(this.interactionMode == "mouse" || this.interactionMode == "touch"){
 				if(this.interactionArea == "indicator"){
-					listener = this._gfxGroup.connect(downEventName, this, this._mouseDownHandler);
+					listener = this._gfxGroup.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
 					
-				} else if(this.interactionArea == "gauge"){
+				}else if(this.interactionArea == "gauge"){
 					if(!this.scale || !this.scale._gauge || !this.scale._gauge._gfxGroup){
 						return true;
 					}
-					listener = this.scale._gauge.surface.connect(downEventName, this, this._mouseDownHandler);
+					listener = this.scale._gauge.surface.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
-					listener = this._gfxGroup.connect(downEventName, this, this._mouseDownHandler);
+					listener = this._gfxGroup.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
 				}
 			}
@@ -189,30 +189,30 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 				moveEventName = "ontouchmove";
 				upEventName = "ontouchend";
 			}
-			listener = this.scale._gauge.surface.connect(moveEventName, this, this._mouseMoveHandler);
+			listener = this.scale._gauge.surface.connect(moveEventName, this, this._onMouseMove);
 			this._moveAndUpListeners.push(listener);
-			listener = this._gfxGroup.connect(moveEventName, this, this._mouseMoveHandler);
+			listener = this._gfxGroup.connect(moveEventName, this, this._onMouseMove);
 			this._moveAndUpListeners.push(listener);
 			
-			listener = this.scale._gauge.surface.connect(upEventName, this, this._mouseUpHandler);
+			listener = this.scale._gauge.surface.connect(upEventName, this, this._onMouseUp);
 			this._moveAndUpListeners.push(listener);
-			listener = this._gfxGroup.connect(upEventName, this, this._mouseUpHandler);
+			listener = this._gfxGroup.connect(upEventName, this, this._onMouseUp);
 			this._moveAndUpListeners.push(listener);
 		},
 		
-		_mouseDownHandler: function(event){
+		_onMouseDown: function(event){
 			this._connectMoveAndUpListeners();
 			this._startEditing("mouse");
 		},
 		
-		_mouseMoveHandler: function(event){
+		_onMouseMove: function(event){
 			this._preventAnimation = true;
 			if(this._animation){
 				this._animation.stop();
 			}
 		},
 		
-		_mouseUpHandler: function(event){
+		_onMouseUp: function(event){
 			this._disconnectMoveAndUpListeners();
 			this._preventAnimation = false;
 			this._endEditing("mouse");
@@ -221,7 +221,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		_startEditing: function(eventSource){
 			if(!this.scale || !this.scale._gauge){
 				return;
-			} else {
+			}else{
 				this.scale._gauge.onStartEditing({
 					eventSource: eventSource,
 					indicator: this
@@ -232,7 +232,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		_endEditing: function(eventSource){
 			if(!this.scale || !this.scale._gauge){
 				return;
-			} else {
+			}else{
 				this.scale._gauge.onEndEditing({
 					eventSource: eventSource,
 					indicator: this

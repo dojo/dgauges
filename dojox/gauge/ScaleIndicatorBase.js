@@ -28,10 +28,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		interactionMode: "mouse",
 
 		//	animationDuration: Number
-		//		The duration of the value change animation in milliseconds. Default is 500.
+		//		The duration of the value change animation in milliseconds. Default is 0.
 		//		The animation occurs on both user interactions and programmatic value changes.
 		//		Set this property to 0 to disable animation.
-		animationDuration: 500,
+		animationDuration: 0,
 
 		//	animationEaser: Object
 		//		The easer function of the value change animation. Default is fx._defaultEasing.

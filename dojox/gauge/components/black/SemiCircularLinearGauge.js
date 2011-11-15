@@ -1,4 +1,4 @@
-define(["dojo/_base/lang", "dojo/_base/declare", 
+define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color", 
 		"../../CircularGauge", 
 		"../../LinearScaler", 
 		"../../CircularScale", 
@@ -6,14 +6,22 @@ define(["dojo/_base/lang", "dojo/_base/declare",
 		"../../CircularRangeIndicator",
 		"../DefaultPropertiesMixin"
 		],
-		 function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
+		 function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
 	var _CircularGauge = ibm_ilog.gauge.CircularGauge;
 	=====*/
 	return declare("dojox.gauge.components.black.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
-	
+		//	borderColor:
+		//		The border color. Default is "#000000".
+		borderColor: "#000000",
+		//	fillColor:
+		//		The background color. Default is "#000000".
+		fillColor: "#000000",
 		constructor: function(){
+			// Base colors
+			this.borderColor = new Color(this.borderColor);
+			this.fillColor = new Color(this.fillColor);
 			var scaler = new LinearScaler();
 			this.addElement("background", lang.hitch(this, this.drawBackground));
 			var scale = new CircularScale();
@@ -54,7 +62,7 @@ define(["dojo/_base/lang", "dojo/_base/declare",
 		drawBackground: function(g){
 			g.createPath({
 				path: "M372.8838 205.5688 C372.9125 204.4538 372.93 194.135 372.94 185.6062 C372.4475 83.0063 289.1138 -0 186.4063 0.035 C83.7 0.0713 0.4225 83.1325 0 185.7325 C0.01 194.2175 0.0275 204.4638 0.0563 205.5763 C0.235 212.3488 5.7763 217.7462 12.5525 217.7462 L360.3888 217.7462 C367.1663 217.7462 372.71 212.3438 372.8838 205.5688"
-			}).setFill([0, 0, 0, 1]);
+			}).setFill(this.borderColor);
 			g.createPath({
 				path: "M358.6738 203.9965 C358.7188 202.3627 358.7463 188.224 358.745 186.579 L358.745 186.4627 C358.7138 91.3165 281.5575 14.2127 186.4113 14.244 C91.2675 14.2777 14.1625 91.4327 14.1938 186.579 C14.1938 186.6177 14.2213 202.4015 14.2663 203.9965 L358.6738 203.9965 Z"
 			}).setFill({
@@ -68,7 +76,7 @@ define(["dojo/_base/lang", "dojo/_base/declare",
 					color: [100, 100, 100]
 				}, {
 					offset: 1,
-					color: "black"
+					color: this.fillColor
 				}]
 			});
 			g.createPath({
@@ -81,7 +89,7 @@ define(["dojo/_base/lang", "dojo/_base/declare",
 				y2: 14.24398,
 				colors: [{
 					offset: 0,
-					color: "black"
+					color: this.fillColor
 				}, {
 					offset: 1,
 					color: [200, 200, 200]
@@ -96,7 +104,7 @@ define(["dojo/_base/lang", "dojo/_base/declare",
 			var g1 = g.createGroup();
 			g1.createPath({
 				path: "M214.9406 185.3295 C214.9456 201.0533 202.2044 213.8033 186.4806 213.8095 C170.7544 213.8145 158.0044 201.072 157.9994 185.3495 L157.9994 185.3295 C157.9931 169.6057 170.7369 156.8557 186.4619 156.8495 C202.1844 156.8445 214.9356 169.587 214.9406 185.3108 L214.9406 185.3295 Z"
-			}).setFill("black");
+			}).setFill(this.borderColor);
 			g1.createPath({
 				path: "M211.3563 185.329 C211.36 199.074 200.2238 210.2177 186.4787 210.2228 C172.735 210.2277 161.59 199.0902 161.585 185.3465 L161.585 185.329 C161.58 171.5852 172.7175 160.4402 186.4613 160.4352 C200.2063 160.4303 211.3513 171.569 211.3563 185.3128 L211.3563 185.329 Z"
 			}).setFill({
@@ -110,7 +118,7 @@ define(["dojo/_base/lang", "dojo/_base/declare",
 					color: [100, 100, 100]
 				}, {
 					offset: 1,
-					color: "black"
+					color: this.fillColor
 				}]
 			});
 			g1.createPath({
@@ -123,7 +131,7 @@ define(["dojo/_base/lang", "dojo/_base/declare",
 				y2: 160.43524,
 				colors: [{
 					offset: 0,
-					color: "black"
+					color: this.fillColor
 				}, {
 					offset: 1,
 					color: [150, 150, 150]

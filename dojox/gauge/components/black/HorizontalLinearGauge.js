@@ -1,21 +1,31 @@
 define([
 		"dojo/_base/lang", 
 		"dojo/_base/declare",
+		"dojo/_base/Color",
 		"../../RectangularGauge", 
 		"../../LinearScaler", 
 		"../../RectangularScale", 
 		"../../RectangularValueIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 
 	/*=====
 	var RectangularGauge = dojox.gauge.RectangularGauge;
 	=====*/
 
 		return declare("dojox.gauge.components.black.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
-
+			//	borderColor:
+			//		The border color. Default is "#000000".
+			borderColor: "#000000",
+			//	fillColor:
+			//		The background color. Default is "#000000".
+			fillColor: "#000000",
 			constructor: function(){
+				// Base colors
+				this.borderColor = new Color(this.borderColor);
+				this.fillColor = new Color(this.fillColor);
+
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 
 				// Scaler
@@ -66,7 +76,7 @@ define([
 					width: w,
 					height: 50,
 					r: 15
-				}).setFill("black");
+				}).setFill(this.borderColor);
 				g.createRect({
 					x: 4,
 					y: 4,
@@ -81,7 +91,7 @@ define([
 					y2: 30,
 					colors: [
 						{offset: 0, color: [100,100,100]},
-						{offset: 1, color: "black"}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g.createPath().moveTo(4, 25).vLineTo(14).smoothCurveTo(4, 4, 18, 4).hLineTo(w - 16).smoothCurveTo(w - 4, 4, w - 4, 16).closePath().setFill({
@@ -92,7 +102,7 @@ define([
 					y2: 20,
 					colors: [
 						{offset: 0, color: [150,150,150]},
-						{offset: 1, color: "black"}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g.createPath().moveTo(4, 25).vLineTo(14).smoothCurveTo(4, 4, 18, 4).hLineTo(w - 16).smoothCurveTo(w - 4, 4, w - 4, 16).closePath().setFill([255,255,255,0.05]);

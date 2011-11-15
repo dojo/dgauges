@@ -1,22 +1,30 @@
 define([
 		"dojo/_base/lang", 
 		"dojo/_base/declare",
+		"dojo/_base/Color",
 		"../../RectangularGauge", 
 		"../../LinearScaler", 
 		"../../RectangularScale", 
 		"../../RectangularValueIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 
 	/*=====
 	var RectangularGauge = dojox.gauge.RectangularGauge;
 	=====*/
-     
 		return declare("dojox.gauge.components.black.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
-
+			//	borderColor:
+			//		The border color. Default is "#000000".
+			borderColor: "#000000",
+			//	fillColor:
+			//		The background color. Default is "#000000".
+			fillColor: "#000000",
 			constructor: function(){
 				this.orientation = "vertical";
+				// Base colors
+				this.borderColor = new Color(this.borderColor);
+				this.fillColor = new Color(this.fillColor);
 				
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 
@@ -67,7 +75,7 @@ define([
 					width: 50,
 					height: h,
 					r: 15
-				}).setFill("black");
+				}).setFill(this.borderColor);
 				g.createRect({
 					x: 4,
 					y: 4,
@@ -82,7 +90,7 @@ define([
 					y2: 0,
 					colors: [
 						{offset: 0, color: [100,100,100]},
-						{offset: 1, color: "black"}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g.createPath().moveTo(25, 4).hLineTo(36).smoothCurveTo(46, 4, 46, 18).vLineTo(h - 20).smoothCurveTo(46, h - 4, 36, h - 4).closePath().setFill({
@@ -93,7 +101,7 @@ define([
 					y2: 0,
 					colors: [
 						{offset: 0, color: [150,150,150]},
-						{offset: 1, color: "black"}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g.createPath().moveTo(25, 4).hLineTo(36).smoothCurveTo(46, 4, 46, 18).vLineTo(h - 20).smoothCurveTo(46, h - 4, 36, h - 4).closePath().setFill([255,255,255,0.05]);

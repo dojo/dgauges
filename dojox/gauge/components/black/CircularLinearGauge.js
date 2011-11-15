@@ -1,6 +1,7 @@
 define([
 		"dojo/_base/lang", 
 		"dojo/_base/declare", 
+		"dojo/_base/Color", 
 		"../../CircularGauge", 
 		"../../LinearScaler", 
 		"../../CircularScale", 
@@ -8,13 +9,23 @@ define([
 		"../../CircularRangeIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
-	/*=====
-	var _CircularGauge = ibm_ilog.gauge.CircularGauge;
-	=====*/
+		/*=====
+		var _CircularGauge = ibm_ilog.gauge.CircularGauge;
+		=====*/
 		return declare("dojox.gauge.components.black.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
+			//	borderColor:
+			//		The border color. Default is "#000000".
+			borderColor: "#000000",
+			//	fillColor:
+			//		The background color. Default is "#000000".
+			fillColor: "#000000",
 			constructor: function(){
+				// Base colors
+				this.borderColor = new Color(this.borderColor);
+				this.fillColor = new Color(this.fillColor);
+				
 				var scaler = new LinearScaler();
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 				var scale = new CircularScale();
@@ -56,7 +67,7 @@ define([
 			drawBackground: function(g){
 				g.createPath({
 					path: "M372.9962 186.58 C373.0312 289.5712 289.57 373.0888 186.5787 373.1237 C83.5887 373.16 0.07 289.6975 0.035 186.7062 L0.035 186.58 C-0 83.5888 83.4625 0.0712 186.4524 0.0362 C289.4425 -0 372.9611 83.4625 372.9962 186.4525 L372.9962 186.58 Z"
-				}).setFill([0,0,0,1]);
+				}).setFill(this.borderColor);
 				g.createPath({
 					path: "M358.7902 186.5795 C358.8253 281.7258 281.7202 358.8808 186.574 358.9145 C91.4277 358.9471 14.2715 281.842 14.239 186.6957 L14.239 186.5795 C14.2077 91.4332 91.3127 14.2782 186.4565 14.2445 C281.6027 14.2132 358.759 91.317 358.7902 186.4633 L358.7902 186.5795 Z"
 				}).setFill({
@@ -67,7 +78,7 @@ define([
 					y2: 221.04652,
 					colors: [
 						{offset: 0, color: [100,100,100]},
-						{offset: 1, color: "black"}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g.createPath({
@@ -79,7 +90,7 @@ define([
 					x2: 14.28899,
 					y2: 14.24451,
 					colors: [
-						{offset: 0, color: "black"},
+						{offset: 0, color: this.fillColor},
 						{offset: 1, color: [200,200,200]}
 					]
 				});
@@ -92,7 +103,7 @@ define([
 				var g1 = g.createGroup();
 				g1.createPath({
 					path: "M214.9859 185.33 C214.9909 201.0537 202.2496 213.8037 186.5259 213.81 C170.7996 213.815 158.0496 201.0725 158.0446 185.35 L158.0446 185.33 C158.0384 169.6062 170.7821 156.8562 186.5071 156.85 C202.2296 156.845 214.9809 169.5875 214.9859 185.3113 L214.9859 185.33 Z"
-				}).setFill([0,0,0,1]);
+				}).setFill(this.borderColor);
 				g1.createPath({
 					path: "M211.4015 185.3295 C211.4052 199.0745 200.2689 210.2183 186.524 210.2232 C172.7802 210.2282 161.6352 199.0908 161.6302 185.347 L161.6302 185.3295 C161.6252 171.5858 172.7628 160.4408 186.5065 160.4358 C200.2515 160.4308 211.3965 171.5695 211.4015 185.3133 L211.4015 185.3295 Z"
 				}).setFill({
@@ -103,7 +114,7 @@ define([
 					y2: 185.32952,
 					colors: [
 						{offset: 0, color: [100,100,100]},
-						{offset: 1, color: "black"}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g1.createPath({
@@ -115,7 +126,7 @@ define([
 					x2: 161.63772,
 					y2: 160.43577,
 					colors: [
-						{offset: 0, color: "black"},
+						{offset: 0, color: this.fillColor},
 						{offset: 1, color: [150,150,150]}
 					]
 				});

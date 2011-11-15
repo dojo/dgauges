@@ -129,23 +129,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			});
 		},
 		
-		
-		_getNextValidValue: function(value){
-			return null;
-		},
-		
-		_getPreviousValidValue: function(value){
-			return null;
-		},
-		
-		_getFirstValidValue: function(){
-			return null;
-		},
-		
-		_getLastValidValue: function(){
-			return null;
-		},
-		
 		getIndicatorRenderer: function(name){
 			//	summary:
 			//		Gets the GFX shape of an indicator.

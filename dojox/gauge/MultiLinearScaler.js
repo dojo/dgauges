@@ -145,48 +145,6 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 				}
 			}
 			return res;
-		},
-		
-		_getFirstValidValue: function(){
-			if(this.majorTickValues != null){
-				return this.majorTickValues[0];
-			}else{
-				return null;
-			}
-		},
-		
-		_getLastValidValue: function(){
-			if(this.majorTickValues != null){
-				return this.majorTickValues[this.majorTickValues.length - 1];
-			}else{
-				return null;
-			}
-		},
-		
-		_getNextValidValue: function(v){
-			var nv;
-			var minMax = _getMinMax(v + 10e-7);
-			var min = minMax[0].value;
-			var max = minMax[1].value;
-			if(isNaN(this.snapCount)){
-				nv = max;
-			}else{
-				nv = v + (max - min) / (this.snapCount + 1);
-			}
-			return Math.min(nv, max);
-		},
-		
-		_getPreviousValidValue: function(v){
-			var nv;
-			var minMax = _getMinMax(v - 10e-7);
-			var min = minMax[0].value;
-			var max = minMax[1].value;
-			if(isNaN(this.snapCount)){
-				nv = min;
-			}else{
-				nv = v - (max - min) / (snapCount + 1);
-			}
-			return Math.max(nv, min);
 		}
 	});
 });

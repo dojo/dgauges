@@ -45,36 +45,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		constructor: function(){
 			this.watchedProperties = ["minimum", "maximum", "majorTickInterval", "minorTickInterval", "snapInterval", "minorTicksEnabled"];
 		},
-		
-		_getNextValidValue: function(value){
-			var v = Number(value);
-			var nv;
-			if (isNaN(this.snapInterval)){
-				nv = v + (this.maximum - this.minimum) / 10;
-			}else{
-				nv = v + this.snapInterval;
-			}
-			return Math.max(nv, this.minimum);
-		},
-		
-		_getPreviousValidValue: function(value){
-			var v = Number(value);
-			var nv;
-			if (isNaN(this.snapInterval)){
-				nv = v - (this.maximum - this.minimum) / 10;
-			}else{
-				nv = v - this.snapInterval;
-			}
-			return Math.max(nv, this.minimum);
-		},
-		
-		_getFirstValidValue: function(){
-			return this.minimum;
-		},
-		
-		_getLastValidValue: function(){
-			return this.maximum;
-		},
 
 		_buildMinorTickItems: function(){
 			var mt = this.majorTicks;

@@ -124,6 +124,17 @@
 						console.log(gauge.maximum);
 					</script>
 				</button>
+				<button data-dojo-type="dijit.form.Button" type="button">
+					Change background colors
+					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
+						var gauge = dijit.byId("g1"); 
+						gauge.set("borderColor", "#FF7800");
+						gauge.set("fillColor", "#FFFF00");
+						gauge = dijit.byId("g2"); 
+						gauge.set("borderColor", "#FF7800");
+						gauge.set("fillColor", "#FFFF00");
+					</script>
+				</button>				
 			</div>
 		</div>
 	</body>

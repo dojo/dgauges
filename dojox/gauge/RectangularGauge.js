@@ -19,7 +19,7 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		_baseParts: null,
 		_classParts: null,
 		_layoutInfos: {},
-		constructor: function(args, node){
+		constructor: function(){
 		
 			this.orientation = "horizontal";
 			

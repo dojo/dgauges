@@ -15,7 +15,7 @@ define([
 
 		return declare("dojox.gauge.components.black.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 
-			constructor: function(args, node){
+			constructor: function(){
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 
 				// Scaler

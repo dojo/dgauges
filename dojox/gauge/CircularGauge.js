@@ -12,7 +12,6 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 		_transformProperties: null,
 		
 		refreshRendering: function(){
-
 			// Render all elements			
 			for(var key in this._elementsIndex){
 				this._elementsRenderers[key] = this._elementsIndex[key].refreshRendering();

@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, lang, on){
+define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/Color"], function(declare, lang, Color){
 	return declare("dojox.gauge.components.DefaultPropertiesMixin", null, {
 		//	minimum: Number
 		//		The minimum value of the scaler. Default is 0.
@@ -72,10 +72,14 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 		},
 		_setAnimationDurationAttr: function(v){
 			this.getElement("scale").getIndicator("indicator").animationDuration = v;
-		}	
-
-
-
-		
+		},
+		_setBorderColorAttr: function(v){
+			this.borderColor = new Color(v);
+			this.invalidateRendering();
+		},
+		_setFillColorAttr: function(v){
+			this.fillColor = new Color(v);
+			this.invalidateRendering();
+		}
 	});
 });

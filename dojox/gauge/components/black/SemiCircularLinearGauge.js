@@ -13,7 +13,7 @@ define(["dojo/_base/lang", "dojo/_base/declare",
 	=====*/
 	return declare("dojox.gauge.components.black.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 	
-		constructor: function(args, node){
+		constructor: function(){
 			var scaler = new LinearScaler();
 			this.addElement("background", lang.hitch(this, this.drawBackground));
 			var scale = new CircularScale();

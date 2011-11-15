@@ -15,7 +15,7 @@ define([
      
 		return declare("dojox.gauge.components.black.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 
-			constructor: function(args, node){
+			constructor: function(){
 				this.orientation = "vertical";
 				
 				this.addElement("background", lang.hitch(this, this.drawBackground));

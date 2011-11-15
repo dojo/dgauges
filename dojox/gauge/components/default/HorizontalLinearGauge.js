@@ -24,10 +24,15 @@ define([
 		//	fillColor:
 		//		The background color. Default is "#FCFCFF".
 		fillColor: "#FCFCFF",
+		//	indicatorColor:
+		//		The indicator fill color. Default is "#F01E28".
+		indicatorColor: "#F01E28",
 		constructor: function(){
+			
 			// Base colors
 			this.borderColor = new Color(this.borderColor);
 			this.fillColor = new Color(this.fillColor);
+			this.indicatorColor = new Color(this.indicatorColor);
 			
 			// Draw background
 			this.addElement("background", lang.hitch(this, this.drawBackground));
@@ -46,14 +51,14 @@ define([
 			
 			// Value indicator
 			var indicator = new RectangularValueIndicator();			
-			indicator.indicatorShapeFunc = function(group){
+			indicator.indicatorShapeFunc = lang.hitch(this, function(group){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
 					color: 'blue',
 					width: 0.25
-				}).setFill([250, 0, 0]);
+				}).setFill(this.indicatorColor);
 				
 				return indic;
-			}
+			});
 			indicator.set("paddingTop", 5);
 			indicator.set("interactionArea", "gauge");
 			scale.addIndicator("indicator", indicator);

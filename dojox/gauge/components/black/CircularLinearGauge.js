@@ -21,10 +21,14 @@ define([
 			//	fillColor:
 			//		The background color. Default is "#000000".
 			fillColor: "#000000",
+			//	indicatorColor:
+			//		The indicator fill color. Default is "#A4A4A4".
+			indicatorColor: "#A4A4A4",
 			constructor: function(){
 				// Base colors
 				this.borderColor = new Color(this.borderColor);
 				this.fillColor = new Color(this.fillColor);
+				this.indicatorColor = new Color(this.indicatorColor);
 				
 				var scaler = new LinearScaler();
 				this.addElement("background", lang.hitch(this, this.drawBackground));
@@ -52,14 +56,14 @@ define([
 				var indicator = new CircularValueIndicator();
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
-				indicator.set("indicatorShapeFunc", function(group, indicator){
+				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group, indicator){
 					
 					return group.createPolyline([0, -12, indicator.scale.radius - 2, 0, 0, 12, 0, -12]).setStroke({
-						color: [70,70,70],
+						color: [70, 70, 70],
 						width: 1
-					}).setFill([164,164,164]);
+					}).setFill(this.indicatorColor);
 
-				});
+				}));
 				scale.addIndicator("indicator", indicator);
 				this.addElement("foreground", lang.hitch(this, this.drawForeground));
 			},

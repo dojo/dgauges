@@ -80,6 +80,10 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/Color"], function(d
 		_setFillColorAttr: function(v){
 			this.fillColor = new Color(v);
 			this.invalidateRendering();
+		},
+		_setIndicatorColorAttr: function(v){
+			this.indicatorColor = new Color(v);
+			this.invalidateRendering();
 		}
 	});
 });

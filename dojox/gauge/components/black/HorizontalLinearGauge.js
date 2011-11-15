@@ -21,10 +21,14 @@ define([
 			//	fillColor:
 			//		The background color. Default is "#000000".
 			fillColor: "#000000",
+			//	indicatorColor:
+			//		The indicator fill color. Default is "#A4A4A4".
+			indicatorColor: "#A4A4A4",
 			constructor: function(){
 				// Base colors
 				this.borderColor = new Color(this.borderColor);
 				this.fillColor = new Color(this.fillColor);
+				this.indicatorColor = new Color(this.indicatorColor);
 
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 
@@ -56,16 +60,16 @@ define([
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
 				indicator.set("paddingTop", 30);
-				indicator.set("indicatorShapeFunc", function(group, indicator){
-					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill([164,164,164]).setStroke({
-						color: [69,69,69],
+				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group, indicator){
+					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill(this.indicatorColor).setStroke({
+						color: [70, 70, 70],
 						width: 1,
 						style: "Solid",
 						cap: "butt",
 						join: 20.0
 					});
 
-				});
+				}));
 				scale.addIndicator("indicator", indicator);
 			},
 

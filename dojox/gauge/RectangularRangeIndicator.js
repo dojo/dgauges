@@ -107,7 +107,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			this._shapeFunc(this, this._gfxGroup, this.scale, startX, startY, endPosition, this.startThickness, this.endThickness, this.fill, this.stroke);
 		},
 
-		_mouseDownHandler: function(event){
+		_onMouseDown: function(event){
 			this.inherited(arguments);
 
 			var np = domGeom.position(this.scale._gauge.domNode, true);
@@ -117,7 +117,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 			eventUtil.stop(event);
 		},
 		
-		_mouseMoveHandler: function(event){
+		_onMouseMove: function(event){
 			this.inherited(arguments);
 			
 			var np = domGeom.position(this.scale._gauge.domNode, true);

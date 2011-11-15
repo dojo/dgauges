@@ -194,7 +194,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			this._drawColorTrack(g, ox, oy, radius, orientation, startAngleRadians, endAngleRadians, sWeight, eWeight, this.fill, this.stroke, clippingAngleRadians);
 		},
 		
-		_mouseDownHandler: function(event){
+		_onMouseDown: function(event){
 			this.inherited(arguments);
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);
 			var angle = ((Math.atan2(event.pageY - origin.y, event.pageX - origin.x)) * 180) / (Math.PI);
@@ -204,7 +204,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			eventUtil.stop(event);
 		},
 		
-		_mouseMoveHandler: function(event){
+		_onMouseMove: function(event){
 			this.inherited(arguments);
 			
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);

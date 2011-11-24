@@ -41,7 +41,7 @@ define([
 
 					var l = indicator.scale.radius - 2;
 					return group.createPath().moveTo(0, 0).smoothCurveTo(l / 2, -10, l, 0).lineTo(l, 0).smoothCurveTo(l / 2, 10, 0, 0).closePath().setStroke({
-						color: [208, 208, 208],
+						color: [121,126,134],
 						width: 1,
 						join: 10
 					}).setFill({
@@ -130,7 +130,6 @@ define([
 					join: 4.0
 				});
 			}
-
 		});
 	}
 );

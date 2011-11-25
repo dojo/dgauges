@@ -44,7 +44,7 @@ define([
 				scale.set("paddingLeft", 15);
 				scale.set("font", {
 					family: "Helvetica",
-					weight: 'bold',
+					weight: "bold",
 					size: "7pt",
 					color: "#CECECE"
 				});

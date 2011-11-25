@@ -44,7 +44,7 @@ define([
 				scale.set("paddingLeft", 17);
 				scale.set("font", {
 					family: "Helvetica",
-					weight: 'bold',
+					weight: "bold",
 					size: "7pt"
 				});
 				scale.set("tickShapeFunc", function(group, scale, tick){

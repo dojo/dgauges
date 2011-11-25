@@ -32,7 +32,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			this.indicatorShapeFunc = null;
 			this.fill = [255, 120, 0];
 			this.stroke = {
-				color: 'black',
+				color: "black",
 				width: .2
 			};
 			

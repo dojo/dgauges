@@ -32,7 +32,7 @@ define([
 				scale.set("labelGap", 2);
 				scale.set("font", {
 					family: "Helvetica",
-					weight: 'bold',
+					weight: "bold",
 					size: "6pt",
 					color: "black"
 				});

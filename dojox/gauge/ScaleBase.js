@@ -124,7 +124,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 				x2: tickItem.isMinor ? 6 : 10,
 				y2: 0
 			}).setStroke({
-				color: 'black',
+				color: "black",
 				width: 0.5
 			});
 		},

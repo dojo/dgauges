@@ -40,7 +40,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 			scale.set("labelGap", 8);
 			scale.set("font", {
 				family: "Helvetica",
-				weight: 'bold',
+				weight: "bold",
 				size: "14pt",
 				color: "#CECECE"
 			});

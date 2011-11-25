@@ -56,7 +56,7 @@ define([
 			
 			indicator.indicatorShapeFunc = lang.hitch(this, function(group){
 				var indic = group.createPolyline([0, 0, 10, 0, 0, 10, -10, 0, 0, 0]).setStroke({
-					color: 'blue',
+					color: "blue",
 					width: 0.25
 				}).setFill(this.indicatorColor);
 				

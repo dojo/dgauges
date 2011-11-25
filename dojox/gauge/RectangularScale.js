@@ -135,7 +135,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 					});
 					var tw = tbox.w;
 					var th = tbox.h;
-					var al = 'start';
+					var al = "start";
 					var xt = x1;
 					var yt = y1;
 					
@@ -146,7 +146,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 						}else{
 							yt = y1 - this.labelGap;
 						}
-						al = 'middle';
+						al = "middle";
 					}else{
 						if(this.labelPosition == "trailing"){
 							xt = x1 + tickSize + this.labelGap;

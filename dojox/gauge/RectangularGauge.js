@@ -72,11 +72,11 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 			
 			var obj = this._elements[this._elements.length - 1];
 			
-			if(location == 'middle'){
+			if(location == "middle"){
 				this._middleParts.push(obj);
-			}else if(location == 'leading'){
+			}else if(location == "leading"){
 				this._leadingParts.push(obj);
-			}else if(location == 'trailing'){
+			}else if(location == "trailing"){
 				this._trailingParts.push(obj);
 			}else{
 				if(obj._isGFX){

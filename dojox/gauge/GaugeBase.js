@@ -47,8 +47,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 			this.font = {
 				family: "Helvetica",
 				style: "normal",
-				variant: 'small-caps',
-				weight: 'bold',
+				variant: "small-caps",
+				weight: "bold",
 				size: "10pt",
 				color: "black"
 			};
@@ -116,10 +116,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 					};
 					if(this.isIdentity()){
 						return {
-							'x': rect.x,
-							'y': rect.y,
-							'width': rect.width,
-							'height': rect.height
+							"x": rect.x,
+							"y": rect.y,
+							"width": rect.width,
+							"height": rect.height
 						};
 					}
 					var m = dojox.gfx.matrix;

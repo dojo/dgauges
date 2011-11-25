@@ -83,7 +83,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "dojo/on", 
 			}
 			if(!this._textCreated){
 				this._gfxGroup.clear();
-				this._textInstance = this._createText(this._gfxGroup, this._getFont(), this.color, "", this.x, this.y, this.align);
+				var font = this._getFont();
+				this._textInstance = this._createText(this._gfxGroup, font, font.color ? font.color : this.color, "", this.x, this.y, this.align);
 				this._textCreated = true;
 			}
 			this._textInstance.setShape({

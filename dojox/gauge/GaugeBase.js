@@ -67,6 +67,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 			this._addGroupBoundingBoxSupport();
 		},
 		
+		_setCursor: function(type){
+			if (this._node)
+				this._node.style.cursor = type;
+		},
 		
 		_addGroupBoundingBoxSupport: function(){
 		

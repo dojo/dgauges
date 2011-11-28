@@ -66,7 +66,8 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 			//		- A TextIndicator instance.
 			//	location: "leading"|"middle"|"trailing"
 			//		The area to place the element. Leading and trailing areas are fixed size. The
-			//		middle area use the remaining size.
+			//		middle area use the remaining size. If not specified, the element's refreshRendering 
+			//		is called with the whole gauge size as argument.
 
 			this.inherited(arguments);
 			

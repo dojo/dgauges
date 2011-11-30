@@ -44,6 +44,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 				color: "black",
 				width: .2
 			};
+			this.interactionMode = "none";
 			
 			this.addInvalidatingProperties(["start", "startThickness", "endThickness", "fill", "stroke"]);
 		},

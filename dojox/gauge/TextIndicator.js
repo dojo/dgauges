@@ -29,6 +29,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "dojo/on", 
 			
 			this.watch("indicator", lang.hitch(this, this._indicatorChanged));
 		},
+
+		postscript: function(mixin){
+			this.inherited(arguments);
+			if(mixin && mixin.indicator){
+				this._indicatorChanged("indicator", null, mixin.indicator);
+			}
+		},
 		
 		_resetText: function(){
 			this._textCreated = false;
@@ -46,7 +53,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "dojo/on", 
 		
 		_getFont: function(){
 			var font = this.font;
-			if(!font){
+			if(!font && this._gauge){
 				font = this._gauge.font;
 			}
 			if(!font){

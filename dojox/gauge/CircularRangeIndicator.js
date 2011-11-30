@@ -35,6 +35,7 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 				color: "black",
 				width: .2
 			};
+			this.interactionMode = "none";
 			
 			this.addInvalidatingProperties(["start", "radius", "startThickness", "endThickness", "fill", "stroke"]);
 		},

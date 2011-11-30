@@ -232,7 +232,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		
 		_onMouseDown: function(event){
 			this._connectMoveAndUpListeners();
-			this._startEditing("mouse");
+			this._startEditing();
 		},
 		
 		_onMouseMove: function(event){
@@ -245,26 +245,24 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		_onMouseUp: function(event){
 			this._disconnectMoveAndUpListeners();
 			this._preventAnimation = false;
-			this._endEditing("mouse");
+			this._endEditing();
 		},
 		
-		_startEditing: function(eventSource){
+		_startEditing: function(){
 			if(!this.scale || !this.scale._gauge){
 				return;
 			}else{
 				this.scale._gauge.onStartEditing({
-					eventSource: eventSource,
 					indicator: this
 				});
 			}
 		},
 		
-		_endEditing: function(eventSource){
+		_endEditing: function(){
 			if(!this.scale || !this.scale._gauge){
 				return;
 			}else{
 				this.scale._gauge.onEndEditing({
-					eventSource: eventSource,
 					indicator: this
 				});
 			}

@@ -41,9 +41,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		constructor: function(){
 			this.fill = [255, 120, 0];
 			this.stroke = {
-				color: 'black',
+				color: "black",
 				width: .2
 			};
+			this.interactionMode = "none";
 			
 			this.addInvalidatingProperties(["start", "startThickness", "endThickness", "fill", "stroke"]);
 		},

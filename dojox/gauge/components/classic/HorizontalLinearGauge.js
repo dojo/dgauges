@@ -14,16 +14,16 @@ define([
 	var RectangularGauge = dojox.gauge.RectangularGauge;
 	=====*/
 
-		return declare("dojox.gauge.components.black.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
+		return declare("dojox.gauge.components.classic.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 			//	borderColor:
-			//		The border color. Default is "#000000".
-			borderColor: "#000000",
+			//		The border color. Default is "#797E86".
+			borderColor: [121,126,134],
 			//	fillColor:
-			//		The background color. Default is "#000000".
-			fillColor: "#000000",
+			//		The background color. Default is "#9498A1".
+			fillColor: [148,152,161],
 			//	indicatorColor:
-			//		The indicator fill color. Default is "#A4A4A4".
-			indicatorColor: "#A4A4A4",
+			//		The indicator fill color. Default is "#FFFFFF".
+			indicatorColor: "#FFFFFF",
 			constructor: function(){
 				// Base colors
 				this.borderColor = new Color(this.borderColor);
@@ -41,18 +41,17 @@ define([
 				scale.set("labelPosition", "leading");
 				scale.set("paddingLeft", 30);
 				scale.set("paddingRight", 30);
-				scale.set("paddingTop", 34);
+				scale.set("paddingTop", 32);
 				scale.set("labelGap", 8);
 				scale.set("font", {
 					family: "Helvetica",
 					weight: "bold",
-					size: "7pt",
-					color: "#CECECE"
+					size: "7pt"
 				});
 				scale.set("tickShapeFunc", function(group, scale, tick){
 					return group.createCircle({
-						r: tick.isMinor ? 0.5 : 3
-					}).setFill("#CECECE");
+						r: tick.isMinor ? 0.5 : 2
+					}).setFill("black");
 				});
 				this.addElement("scale", scale);
 				
@@ -61,8 +60,9 @@ define([
 				indicator.set("value", scaler.minimum);
 				indicator.set("paddingTop", 30);
 				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group, indicator){
+					
 					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill(this.indicatorColor).setStroke({
-						color: [70, 70, 70],
+						color: [121,126,134],
 						width: 1,
 						style: "Solid",
 						cap: "butt",
@@ -79,37 +79,59 @@ define([
 					y: 0,
 					width: w,
 					height: 50,
-					r: 15
+					r: 8
 				}).setFill(this.borderColor);
 				g.createRect({
-					x: 4,
-					y: 4,
-					width: w - 8,
-					height: 42,
-					r: 12
+					x: 2,
+					y: 2,
+					width: w - 4,
+					height: 32,
+					r: 6
 				}).setFill({
 					type: "linear",
 					x1: 0,
-					y1: 50,
+					y1: 2,
 					x2: 0,
-					y2: 30,
+					y2: 15,
 					colors: [
-						{offset: 0, color: [100,100,100]},
-						{offset: 1, color: this.fillColor}
+						{offset: 0, color: [235,235,235]},
+						{offset: 1, color: this.borderColor}
 					]
 				});
-				g.createPath().moveTo(4, 25).vLineTo(14).smoothCurveTo(4, 4, 18, 4).hLineTo(w - 16).smoothCurveTo(w - 4, 4, w - 4, 16).closePath().setFill({
+				g.createRect({
+					x: 6,
+					y: 6,
+					width: w - 12,
+					height: 38,
+					r: 5
+				}).setFill({
 					type: "linear",
 					x1: 0,
-					y1: 0,
+					y1: 6,
 					x2: 0,
-					y2: 20,
+					y2: 38,
 					colors: [
-						{offset: 0, color: [150,150,150]},
+						{offset: 0, color: [220,220,220]},
 						{offset: 1, color: this.fillColor}
 					]
 				});
-				g.createPath().moveTo(4, 25).vLineTo(14).smoothCurveTo(4, 4, 18, 4).hLineTo(w - 16).smoothCurveTo(w - 4, 4, w - 4, 16).closePath().setFill([255,255,255,0.05]);
+				g.createRect({
+					x: 7,
+					y: 7,
+					width: w - 14,
+					height: 36,
+					r: 3
+				}).setFill({
+					type: "linear",
+					x1: 0,
+					y1: 7,
+					x2: 0,
+					y2: 36,
+					colors: [
+						{offset: 0, color: this.fillColor},
+						{offset: 1, color: [220,220,220]}
+					]
+				});
 			}
 		});
 	}

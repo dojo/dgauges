@@ -44,11 +44,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 		font: null,
 		
 		constructor: function(/* Object */args, /* DOMNode */ node){
+			this._addGroupBoundingBoxSupport();
 			this.font = {
 				family: "Helvetica",
 				style: "normal",
-				variant: 'small-caps',
-				weight: 'bold',
+				variant: "small-caps",
+				weight: "bold",
 				size: "10pt",
 				color: "black"
 			};
@@ -58,15 +59,20 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 			this._elementsRenderers = {};
 			this._node = WidgetRegistry.byId(node);
 			var box = html.getMarginBox(node);
-			
-			this.surface = gfx.createSurface(this._node, box.w || 300, box.h || 300);
+
+			this.surface = gfx.createSurface(this._node, box.w || 1, box.h || 1);
 			this._widgetBox = box;
+			
 			this._mouseShield = this.surface.createGroup();
 			this._gfxGroup = this.surface.createGroup();
 
-			this._addGroupBoundingBoxSupport();
+			
 		},
 		
+		_setCursor: function(type){
+			if (this._node)
+				this._node.style.cursor = type;
+		},
 		
 		_addGroupBoundingBoxSupport: function(){
 		
@@ -116,10 +122,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 					};
 					if(this.isIdentity()){
 						return {
-							'x': rect.x,
-							'y': rect.y,
-							'width': rect.width,
-							'height': rect.height
+							"x": rect.x,
+							"y": rect.y,
+							"width": rect.width,
+							"height": rect.height
 						};
 					}
 					var m = dojox.gfx.matrix;

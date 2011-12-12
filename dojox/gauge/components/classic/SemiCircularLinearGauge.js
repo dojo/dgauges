@@ -1,6 +1,7 @@
 define([
 		"dojo/_base/lang", 
-		"dojo/_base/declare", 
+		"dojo/_base/declare",
+		"dojo/_base/Color", 
 		"../../CircularGauge", 
 		"../../LinearScaler", 
 		"../../CircularScale", 
@@ -8,15 +9,27 @@ define([
 		"../../CircularRangeIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
-	 var _CircularGauge = ibm_ilog.gauge.CircularGauge;
+	 var CircularGauge = dojox.gauge.CircularGauge;
 	 =====*/
 
 		return declare("dojox.gauge.components.classic.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
-
+			//	borderColor:
+			//		The border color. Default is "#797E86".
+			borderColor: [121,126,134],
+			//	fillColor:
+			//		The background color. Default is "#9498A1".
+			fillColor: [148,152,161],
+			//	indicatorColor:
+			//		The indicator fill color. Default is "#FFFFFF".
+			indicatorColor: "#FFFFFF",
 			constructor: function(){
+				this.borderColor = new Color(this.borderColor);
+				this.fillColor = new Color(this.fillColor);
+				this.indicatorColor = new Color(this.indicatorColor);
+				
 				var scaler = new LinearScaler();
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 				var scale = new CircularScale();
@@ -30,18 +43,18 @@ define([
 				scale.set("labelGap", 2);
 				scale.set("font", {
 					family: "Helvetica",
-					weight: 'bold',
+					weight: "bold",
 					size: "6pt"
 				});
 				this.addElement("scale", scale);
 				var indicator = new CircularValueIndicator();
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
-				indicator.set("indicatorShapeFunc", function(group, indicator){
+				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group, indicator){
 
 					var l = indicator.scale.radius - 2;
 					return group.createPath().moveTo(0, 0).smoothCurveTo(l / 2, -10, l, 0).lineTo(l, 0).smoothCurveTo(l / 2, 10, 0, 0).closePath().setStroke({
-						color: [208, 208, 208],
+						color: this.borderColor,
 						width: 1,
 						join: 10
 					}).setFill({
@@ -52,11 +65,11 @@ define([
 						y2: 0,
 						colors: [
 							{offset: 0, color: [208,208,208]},
-							{offset: 1, color: "white"}
+							{offset: 1, color: this.indicatorColor}
 						]
 					});
 
-				});
+				}));
 				scale.addIndicator("indicator", indicator);
 				this.addElement("foreground", lang.hitch(this, this.drawForeground));
 			},
@@ -75,7 +88,7 @@ define([
 					y2: 29.8873,
 					colors: [
 						{offset: 0, color: [235,235,235]},
-						{offset: 1, color: [121,126,134]}
+						{offset: 1, color: this.borderColor}
 					]
 				});
 				g.createPath({
@@ -88,7 +101,7 @@ define([
 					y2: 98.4202,
 					colors: [
 						{offset: 0, color: "white"},
-						{offset: 1, color: [148,152,161]}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g.createPath({
@@ -101,7 +114,7 @@ define([
 					y2: 97.4202,
 					colors: [
 						{offset: 0, color: "white"},
-						{offset: 1, color: [148,152,161]}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 			},
@@ -130,7 +143,6 @@ define([
 					join: 4.0
 				});
 			}
-
 		});
 	}
 );

@@ -40,7 +40,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			//		Creates a segmented range indicator.
 			this.fill = [255, 120, 0];
 			this.stroke = {
-				color: 'black',
+				color: "black",
 				width: .2
 			};
 			

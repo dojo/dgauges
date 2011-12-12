@@ -1,6 +1,7 @@
 define([
 		"dojo/_base/lang", 
-		"dojo/_base/declare", 
+		"dojo/_base/declare",
+		"dojo/_base/Color", 
 		"../../CircularGauge", 
 		"../../LinearScaler", 
 		"../../CircularScale", 
@@ -8,15 +9,27 @@ define([
 		"../../CircularRangeIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
-	 var _CircularGauge = ibm_ilog.gauge.CircularGauge;
+	 var CircularGauge = dojox.gauge.CircularGauge;
 	 =====*/
 
 		return declare("dojox.gauge.components.classic.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
-
+			//	borderColor:
+			//		The border color. Default is "#797E86".
+			borderColor: [121,126,134],
+			//	fillColor:
+			//		The background color. Default is "#9498A1".
+			fillColor: [148,152,161],
+			//	indicatorColor:
+			//		The indicator fill color. Default is "#FFFFFF".
+			indicatorColor: "#FFFFFF",
 			constructor: function(){
+				this.borderColor = new Color(this.borderColor);
+				this.fillColor = new Color(this.fillColor);
+				this.indicatorColor = new Color(this.indicatorColor);
+				
 				var scaler = new LinearScaler();
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 				var scale = new CircularScale();
@@ -30,18 +43,18 @@ define([
 				scale.set("labelGap", 2);
 				scale.set("font", {
 					family: "Helvetica",
-					weight: 'bold',
+					weight: "bold",
 					size: "6pt"
 				});
 				this.addElement("scale", scale);
 				var indicator = new CircularValueIndicator();
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
-				indicator.set("indicatorShapeFunc", function(group, indicator){
+				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group, indicator){
 
 					var l = indicator.scale.radius - 2;
 					return group.createPath().moveTo(0, 0).smoothCurveTo(l / 2, -10, l, 0).lineTo(l, 0).smoothCurveTo(l / 2, 10, 0, 0).closePath().setStroke({
-						color: [208, 208, 208],
+						color: this.borderColor,
 						width: 1,
 						join: 10
 					}).setFill({
@@ -52,11 +65,11 @@ define([
 						y2: 0,
 						colors: [
 							{offset: 0, color: [208,208,208]},
-							{offset: 1, color: "white"}
+							{offset: 1, color: this.indicatorColor}
 						]
 					});
 
-				});
+				}));
 				scale.addIndicator("indicator", indicator);
 				this.addElement("foreground", lang.hitch(this, this.drawForeground));
 			},
@@ -64,7 +77,7 @@ define([
 			drawBackground: function(g){
 				g.createPath({
 					path: "M81.9213 6.4012 C36.7458 6.4012 0 43.1469 0 88.3225 C0 133.498 36.7458 170.2438 81.9213 170.2438 C127.0968 170.2438 163.8426 133.498 163.8425 88.3225 C163.8425 43.147 127.0968 6.4012 81.9213 6.4012 ZM81.9213 14.6771 C122.6195 14.6771 155.5666 47.6241 155.5666 88.3225 C155.5667 129.0207 122.6195 161.9678 81.9213 161.9678 C41.223 161.9678 8.2759 129.0207 8.2759 88.3225 C8.2759 47.6242 41.223 14.6771 81.9213 14.6771 Z"
-				}).setFill([121,126,134]);
+				}).setFill(this.borderColor);
 				g.createPath({
 					path: "M131.7007 23.859 C123.1609 16.836 112.7669 11.9131 100.5479 9.0902 C61.2014 0 20.5795 20.6702 9.8522 55.1976 C9.3592 56.9339 12.7501 58.0358 13.6957 55.5238 C24.6274 24.4073 64.5764 6.1932 100.6316 14.523 C118.2575 18.5951 131.7906 27.3347 141.2184 40.7415 C143.0075 43.6629 146.9334 42.1265 145.2492 39.0652 C141.4153 33.222 136.9106 28.1434 131.7007 23.859 Z"
 				}).setFill({
@@ -75,7 +88,7 @@ define([
 					y2: 31.97231,
 					colors: [
 						{offset: 0, color: [235,235,235]},
-						{offset: 1, color: [121,126,134]}
+						{offset: 1, color: this.borderColor}
 					]
 				});
 				g.createPath({
@@ -88,7 +101,7 @@ define([
 					y2: 140.45474,
 					colors: [
 						{offset: 0, color: [235,235,235]},
-						{offset: 1, color: [121,126,134]}
+						{offset: 1, color: this.borderColor}
 					]
 				});
 				g.createPath({
@@ -101,7 +114,7 @@ define([
 					y2: 162.51695,
 					colors: [
 						{offset: 0, color: "white"},
-						{offset: 1, color: [148,152,161]}
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g.createPath({

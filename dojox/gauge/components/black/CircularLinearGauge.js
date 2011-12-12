@@ -11,9 +11,10 @@ define([
 	], 
 	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
-		/*=====
-		var _CircularGauge = ibm_ilog.gauge.CircularGauge;
-		=====*/
+	/*=====
+	 var CircularGauge = dojox.gauge.CircularGauge;
+	 =====*/
+
 		return declare("dojox.gauge.components.black.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 			//	borderColor:
 			//		The border color. Default is "#000000".
@@ -43,7 +44,7 @@ define([
 				scale.set("labelGap", 8);
 				scale.set("font", {
 					family: "Helvetica",
-					weight: 'bold',
+					weight: "bold",
 					size: "14pt",
 					color: "#CECECE"
 				});

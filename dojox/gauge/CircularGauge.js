@@ -12,7 +12,10 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase", "
 		_transformProperties: null,
 		
 		refreshRendering: function(){
-			// Render all elements			
+			if(this._widgetBox.w <= 0 || this._widgetBox.h <= 0){
+				return;
+			}
+			
 			for(var key in this._elementsIndex){
 				this._elementsRenderers[key] = this._elementsIndex[key].refreshRendering();
 			}

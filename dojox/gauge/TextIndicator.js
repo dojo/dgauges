@@ -29,6 +29,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "dojo/on", 
 			
 			this.watch("indicator", lang.hitch(this, this._indicatorChanged));
 		},
+
+		postscript: function(mixin){
+			this.inherited(arguments);
+			if(mixin && mixin.indicator){
+				this._indicatorChanged("indicator", null, mixin.indicator);
+			}
+		},
 		
 		_resetText: function(){
 			this._textCreated = false;
@@ -46,7 +53,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "dojo/on", 
 		
 		_getFont: function(){
 			var font = this.font;
-			if(!font){
+			if(!font && this._gauge){
 				font = this._gauge.font;
 			}
 			if(!font){
@@ -83,7 +90,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "dojo/on", 
 			}
 			if(!this._textCreated){
 				this._gfxGroup.clear();
-				this._textInstance = this._createText(this._gfxGroup, this._getFont(), this.color, "", this.x, this.y, this.align);
+				var font = this._getFont();
+				this._textInstance = this._createText(this._gfxGroup, font, font.color ? font.color : this.color, "", this.x, this.y, this.align);
 				this._textCreated = true;
 			}
 			this._textInstance.setShape({

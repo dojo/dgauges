@@ -66,17 +66,18 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 			//		- A TextIndicator instance.
 			//	location: "leading"|"middle"|"trailing"
 			//		The area to place the element. Leading and trailing areas are fixed size. The
-			//		middle area use the remaining size.
+			//		middle area use the remaining size. If not specified, the element's refreshRendering 
+			//		is called with the whole gauge size as argument.
 
 			this.inherited(arguments);
 			
 			var obj = this._elements[this._elements.length - 1];
 			
-			if(location == 'middle'){
+			if(location == "middle"){
 				this._middleParts.push(obj);
-			}else if(location == 'leading'){
+			}else if(location == "leading"){
 				this._leadingParts.push(obj);
-			}else if(location == 'trailing'){
+			}else if(location == "trailing"){
 				this._trailingParts.push(obj);
 			}else{
 				if(obj._isGFX){
@@ -157,6 +158,9 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		},
 		
 		refreshRendering: function(){
+			if(this._widgetBox.w <= 0 || this._widgetBox.h <= 0){
+				return;
+			}
 			if(this._baseParts){
 				for(var i = 0; i < this._baseParts.length; i++){
 					this._baseParts[i].width = this._widgetBox.w;

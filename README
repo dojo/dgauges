@@ -1,2 +1,23 @@
-Candidate Gauges Framework for Dojo 1.8
-http://www.dojotoolkit.org
+-------------------------------------------------------------------------------
+dojox.gauge
+-------------------------------------------------------------------------------
+Project state: stable
+-------------------------------------------------------------------------------
+Credits:
+	Damien Mandrioli
+	Philippe Toussaint
+	Romain Raugi
+	Emmanuel Tissandier
+	Christophe Jolif
+	Eric Durocher
+-------------------------------------------------------------------------------
+Project description:
+Candidate gauges framework for Dojo 1.8+
+-------------------------------------------------------------------------------
+Dependencies:
+Dojo Core, Dijit, dojox.color, dojox.widget, dojox.gfx
+-------------------------------------------------------------------------------
+Documentation:
+When available, will reside at:
+    http://docs.dojocampus.org/dojox/gauge
+-------------------------------------------------------------------------------

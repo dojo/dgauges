@@ -1,3 +1,4 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<title>Dojo Gauge Test</title>
@@ -89,8 +90,8 @@
 					Listen for events
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
 						var gauge = dijit.byId("g1");
-						gauge.on("startEditing", function(e){console.log(e);});
-						gauge.on("endEditing", function(e){console.log(e);});
+						gauge.on("startEditing", function(event){console.log(event.indicator.value);});
+						gauge.on("endEditing", function(event){console.log(event.indicator.value);});
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">

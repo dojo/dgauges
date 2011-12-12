@@ -124,26 +124,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 				x2: tickItem.isMinor ? 6 : 10,
 				y2: 0
 			}).setStroke({
-				color: 'black',
+				color: "black",
 				width: 0.5
 			});
-		},
-		
-		
-		_getNextValidValue: function(value){
-			return null;
-		},
-		
-		_getPreviousValidValue: function(value){
-			return null;
-		},
-		
-		_getFirstValidValue: function(){
-			return null;
-		},
-		
-		_getLastValidValue: function(){
-			return null;
 		},
 		
 		getIndicatorRenderer: function(name){

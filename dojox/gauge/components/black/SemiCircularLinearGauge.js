@@ -5,12 +5,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 		"../../CircularValueIndicator", 
 		"../../CircularRangeIndicator",
 		"../DefaultPropertiesMixin"
-		],
-		 function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
+	],
+	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
-	var _CircularGauge = ibm_ilog.gauge.CircularGauge;
-	=====*/
+	 var CircularGauge = dojox.gauge.CircularGauge;
+	 =====*/
+
 	return declare("dojox.gauge.components.black.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 		//	borderColor:
 		//		The border color. Default is "#000000".
@@ -40,7 +41,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 			scale.set("labelGap", 8);
 			scale.set("font", {
 				family: "Helvetica",
-				weight: 'bold',
+				weight: "bold",
 				size: "14pt",
 				color: "#CECECE"
 			});

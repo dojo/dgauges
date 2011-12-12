@@ -43,10 +43,16 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		
 		_downListeners: null,
 		
+		_cursorListeners: null,
+		
 		_moveAndUpListeners: null,
+		
 		_transitionValue: NaN,
+		
 		_preventAnimation: false,
+		
 		_animation: null,
+		
 		constructor: function(){
 		
 			// watches changed happening on the "value" property to call this.valueChanged() function which
@@ -71,6 +77,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 			
 			this._downListeners = [];
 			this._moveAndUpListeners = [];
+			this._cursorListeners = [];
 		},
 		
 		_startAnimation: function(prop, oldValue, newValue){
@@ -148,10 +155,31 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		_disconnectListeners: function(){
 			this._disconnectDownListeners();
 			this._disconnectMoveAndUpListeners();
+			this._disconnectCursorListeners();
 		},
 		
+		_connectCursorListeners: function(target){
+			var listener = target.connect("onmouseover", this, function(){
+				this.scale._gauge._setCursor("pointer");
+			});
+			this._cursorListeners.push(listener);
+			listener = target.connect("onmouseout", this, function(event){
+					this.scale._gauge._setCursor("");
+				}
+			);
+			this._cursorListeners.push(listener);
+		},
+		
+		_disconnectCursorListeners: function(){
+			for(var i = 0; i < this._cursorListeners.length; i++){
+				connect.disconnect(this._cursorListeners[i]);
+			}
+			this._cursorListeners = [];
+		},
+
 		_connectDownListeners: function(){
 			this._disconnectDownListeners();
+			this._disconnectCursorListeners();
 			var listener = null;
 			var downEventName;
 			if(this.interactionMode == "mouse"){
@@ -164,6 +192,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 				if(this.interactionArea == "indicator"){
 					listener = this._gfxGroup.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
+					this._connectCursorListeners(this._gfxGroup);
 					
 				}else if(this.interactionArea == "gauge"){
 					if(!this.scale || !this.scale._gauge || !this.scale._gauge._gfxGroup){
@@ -173,6 +202,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 					this._downListeners.push(listener);
 					listener = this._gfxGroup.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
+					this._connectCursorListeners(this.scale._gauge._gfxGroup);
 				}
 			}
 			return false;
@@ -202,7 +232,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		
 		_onMouseDown: function(event){
 			this._connectMoveAndUpListeners();
-			this._startEditing("mouse");
+			this._startEditing();
 		},
 		
 		_onMouseMove: function(event){
@@ -215,26 +245,24 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		_onMouseUp: function(event){
 			this._disconnectMoveAndUpListeners();
 			this._preventAnimation = false;
-			this._endEditing("mouse");
+			this._endEditing();
 		},
 		
-		_startEditing: function(eventSource){
+		_startEditing: function(){
 			if(!this.scale || !this.scale._gauge){
 				return;
 			}else{
 				this.scale._gauge.onStartEditing({
-					eventSource: eventSource,
 					indicator: this
 				});
 			}
 		},
 		
-		_endEditing: function(eventSource){
+		_endEditing: function(){
 			if(!this.scale || !this.scale._gauge){
 				return;
 			}else{
 				this.scale._gauge.onEndEditing({
-					eventSource: eventSource,
 					indicator: this
 				});
 			}

@@ -12,7 +12,7 @@ define([
 	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
-	 var _CircularGauge = ibm_ilog.gauge.CircularGauge;
+	 var CircularGauge = dojox.gauge.CircularGauge;
 	 =====*/
 
 		return declare("dojox.gauge.components.classic.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {

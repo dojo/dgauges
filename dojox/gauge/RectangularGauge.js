@@ -158,6 +158,9 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 		},
 		
 		refreshRendering: function(){
+			if(this._widgetBox.w <= 0 || this._widgetBox.h <= 0){
+				return;
+			}
 			if(this._baseParts){
 				for(var i = 0; i < this._baseParts.length; i++){
 					this._baseParts[i].width = this._widgetBox.w;

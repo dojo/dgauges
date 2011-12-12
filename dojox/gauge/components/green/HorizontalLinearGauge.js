@@ -2,28 +2,29 @@ define([
 		"dojo/_base/lang", 
 		"dojo/_base/declare",
 		"dojo/_base/Color",
+		"../GaugeUtils",
 		"../../RectangularGauge", 
 		"../../LinearScaler", 
 		"../../RectangularScale", 
 		"../../RectangularValueIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, Color, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 
 	/*=====
 	var RectangularGauge = dojox.gauge.RectangularGauge;
 	=====*/
 
-		return declare("dojox.gauge.components.classic.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
+		return declare("dojox.gauge.components.green.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 			//	borderColor:
-			//		The border color. Default is "#797E86".
-			borderColor: [121,126,134],
+			//		The border color. Default is "#323232".
+			borderColor: [50,50,50],
 			//	fillColor:
-			//		The background color. Default is "#9498A1".
-			fillColor: [148,152,161],
+			//		The background color. Default is "#6DB713".
+			fillColor: [109,183,19],
 			//	indicatorColor:
-			//		The indicator fill color. Default is "#FFFFFF".
-			indicatorColor: "#FFFFFF",
+			//		The indicator fill color. Default is "#000000".
+			indicatorColor: [0,0,0],
 			constructor: function(){
 				// Base colors
 				this.borderColor = new Color(this.borderColor);
@@ -41,61 +42,51 @@ define([
 				scale.set("labelPosition", "leading");
 				scale.set("paddingLeft", 30);
 				scale.set("paddingRight", 30);
-				scale.set("paddingTop", 32);
-				scale.set("labelGap", 8);
+				scale.set("paddingTop", 28);
+				scale.set("labelGap", 2);
 				scale.set("font", {
 					family: "Helvetica",
 					weight: "bold",
 					size: "7pt"
-				});
-				scale.set("tickShapeFunc", function(group, scale, tick){
-					return group.createCircle({
-						r: tick.isMinor ? 0.5 : 2
-					}).setFill("black");
 				});
 				this.addElement("scale", scale);
 				
 				var indicator = new RectangularValueIndicator();
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
-				indicator.set("paddingTop", 30);
+				indicator.set("paddingTop", 32);
 				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group, indicator){
-					
-					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill(this.indicatorColor).setStroke({
-						color: [121,126,134],
-						width: 1,
-						style: "Solid",
-						cap: "butt",
-						join: 20.0
-					});
+
+					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill(this.indicatorColor);
 
 				}));
 				scale.addIndicator("indicator", indicator);
 			},
 
 			drawBackground: function(g, w, h){
+				var lighterFillColor = GaugeUtils.brightness(new Color(this.fillColor), 100);
 				g.createRect({
 					x: 0,
 					y: 0,
 					width: w,
 					height: 50,
-					r: 8
+					r: 10
 				}).setFill(this.borderColor);
 				g.createRect({
-					x: 2,
-					y: 2,
-					width: w - 4,
-					height: 32,
-					r: 6
+					x: 3,
+					y: 3,
+					width: w - 6,
+					height: 44,
+					r: 7
 				}).setFill({
 					type: "linear",
 					x1: 0,
 					y1: 2,
 					x2: 0,
-					y2: 15,
+					y2: 30,
 					colors: [
-						{offset: 0, color: [235,235,235]},
-						{offset: 1, color: this.borderColor}
+						{offset: 0, color: lighterFillColor},
+						{offset: 1, color: this.fillColor}
 					]
 				});
 				g.createRect({
@@ -111,25 +102,9 @@ define([
 					x2: 0,
 					y2: 38,
 					colors: [
-						{offset: 0, color: [220,220,220]},
-						{offset: 1, color: this.fillColor}
-					]
-				});
-				g.createRect({
-					x: 7,
-					y: 7,
-					width: w - 14,
-					height: 36,
-					r: 3
-				}).setFill({
-					type: "linear",
-					x1: 0,
-					y1: 7,
-					x2: 0,
-					y2: 36,
-					colors: [
-						{offset: 0, color: this.fillColor},
-						{offset: 1, color: [220,220,220]}
+						{offset: 0, color: [226,226,221]},
+						{offset: 0.5, color: [239,239,236]},
+						{offset: 1, color: "white"}
 					]
 				});
 			}

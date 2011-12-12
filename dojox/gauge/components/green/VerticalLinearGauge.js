@@ -2,28 +2,28 @@ define([
 		"dojo/_base/lang", 
 		"dojo/_base/declare",
 		"dojo/_base/Color",
+		"../GaugeUtils",
 		"../../RectangularGauge", 
 		"../../LinearScaler", 
 		"../../RectangularScale", 
 		"../../RectangularValueIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, Color, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 
 	/*=====
 	var RectangularGauge = dojox.gauge.RectangularGauge;
 	=====*/
-	
-		return declare("dojox.gauge.components.black.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
+		return declare("dojox.gauge.components.green.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 			//	borderColor:
-			//		The border color. Default is "#000000".
-			borderColor: "#000000",
+			//		The border color. Default is "#323232".
+			borderColor: [50,50,50],
 			//	fillColor:
-			//		The background color. Default is "#000000".
-			fillColor: "#000000",
+			//		The background color. Default is "#6DB713".
+			fillColor: [109,183,19],
 			//	indicatorColor:
-			//		The indicator fill color. Default is "#A4A4A4".
-			indicatorColor: "#A4A4A4",
+			//		The indicator fill color. Default is "#000000".
+			indicatorColor: [0,0,0],
 			constructor: function(){
 				this.orientation = "vertical";
 				// Base colors
@@ -43,16 +43,11 @@ define([
 				scale.set("paddingTop", 30);
 				scale.set("paddingBottom", 30);
 				scale.set("paddingLeft", 15);
+				scale.set("labelGap", 2);
 				scale.set("font", {
 					family: "Helvetica",
 					weight: "bold",
-					size: "7pt",
-					color: "#CECECE"
-				});
-				scale.set("tickShapeFunc", function(group, scale, tick){
-					return group.createCircle({
-						r: tick.isMinor ? 0.5 : 3
-					}).setFill("#CECECE");
+					size: "7pt"
 				});
 				this.addElement("scale", scale);
 				
@@ -61,55 +56,57 @@ define([
 				indicator.set("value", scaler.minimum);
 				indicator.set("paddingLeft", 18);
 				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group){
-					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill(this.indicatorColor).setStroke({
-						color: [69,69,69],
-						width: 1,
-						style: "Solid",
-						cap: "butt",
-						join: 20.0
-					});
+
+					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill(this.indicatorColor);
 
 				}));
 				scale.addIndicator("indicator", indicator);
 			},
 
 			drawBackground: function(g, w, h){
+				var lighterFillColor = GaugeUtils.brightness(new Color(this.fillColor), 100);
 				g.createRect({
 					x: 0,
 					y: 0,
 					width: 50,
 					height: h,
-					r: 15
+					r: 10
 				}).setFill(this.borderColor);
 				g.createRect({
-					x: 4,
-					y: 4,
-					width: 42,
-					height: h - 8,
-					r: 12
+					x: 3,
+					y: 3,
+					width: 44,
+					height: h - 6,
+					r: 7
 				}).setFill({
 					type: "linear",
-					x1: 5,
+					x1: 6,
 					y1: 0,
-					x2: 20,
+					x2: 38,
 					y2: 0,
 					colors: [
-						{offset: 0, color: [100,100,100]},
+						{offset: 0, color: lighterFillColor},
 						{offset: 1, color: this.fillColor}
 					]
 				});
-				g.createPath().moveTo(25, 4).hLineTo(36).smoothCurveTo(46, 4, 46, 18).vLineTo(h - 20).smoothCurveTo(46, h - 4, 36, h - 4).closePath().setFill({
+				g.createRect({
+					x: 6,
+					y: 6,
+					width: 38,
+					height: h - 12,
+					r: 6
+				}).setFill({
 					type: "linear",
-					x1: 70,
+					x1: 7,
 					y1: 0,
-					x2: 25,
+					x2: 36,
 					y2: 0,
 					colors: [
-						{offset: 0, color: [150,150,150]},
-						{offset: 1, color: this.fillColor}
+						{offset: 0, color: [226,226,221]},
+						{offset: 0.5, color: [239,239,236]},
+						{offset: 1, color: "white"}
 					]
 				});
-				g.createPath().moveTo(25, 4).hLineTo(36).smoothCurveTo(46, 4, 46, 18).vLineTo(h - 20).smoothCurveTo(46, h - 4, 36, h - 4).closePath().setFill([255,255,255,0.05]);
 			}
 
 		});

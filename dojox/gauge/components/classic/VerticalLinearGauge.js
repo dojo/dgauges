@@ -98,23 +98,6 @@ define([
 					]
 				});
 				g.createRect({
-					x: 2,
-					y: h - 34,
-					width: 46,
-					height: 32,
-					r: 6
-				}).setFill({
-					type: "linear",
-					x1: 0,
-					y1: h - 17,
-					x2: 0,
-					y2: h - 2,
-					colors: [
-						{offset: 0, color: this.borderColor},
-						{offset: 1, color: [235,235,235]}
-					]
-				});
-				g.createRect({
 					x: 6,
 					y: 6,
 					width: 38,

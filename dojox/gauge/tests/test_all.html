@@ -31,10 +31,16 @@
 					 "dojox/gauge/components/black/VerticalLinearGauge",
 					 "dojox/gauge/components/classic/CircularLinearGauge", 
 					 "dojox/gauge/components/classic/SemiCircularLinearGauge",
+					 "dojox/gauge/components/classic/HorizontalLinearGauge", 
+					 "dojox/gauge/components/classic/VerticalLinearGauge",
 					 "dojox/gauge/components/green/CircularLinearGauge", 
 					 "dojox/gauge/components/green/SemiCircularLinearGauge",
+					 "dojox/gauge/components/green/HorizontalLinearGauge", 
+					 "dojox/gauge/components/green/VerticalLinearGauge",
 					 "dojox/gauge/components/grey/CircularLinearGauge", 
-					 "dojox/gauge/components/grey/SemiCircularLinearGauge"]);
+					 "dojox/gauge/components/grey/SemiCircularLinearGauge",
+					 "dojox/gauge/components/grey/HorizontalLinearGauge", 
+					 "dojox/gauge/components/grey/VerticalLinearGauge"]);
 		</script>
 	</head>
 	<body class="claro">
@@ -90,9 +96,13 @@
 						</div>
 					</div>
 					<div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; width:50px" splitter="true" region="right">
-					</div>
+				    <div data-dojo-type="dojox.gauge.components.classic.VerticalLinearGauge">
+						</div>
+          </div>
 					<div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; height:50px" splitter="true" region="bottom">
-					</div>
+				    <div data-dojo-type="dojox.gauge.components.classic.HorizontalLinearGauge">
+						</div>
+          </div>
 				</div>
 			</div>
 			<div data-dojo-type="dijit.layout.ContentPane" title="Green">
@@ -106,8 +116,12 @@
 						</div>
 					</div>
 					<div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; width:50px" splitter="true" region="right">
+						<div data-dojo-type="dojox.gauge.components.green.VerticalLinearGauge">
+						</div>
 					</div>
 					<div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; height:50px" splitter="true" region="bottom">
+						<div data-dojo-type="dojox.gauge.components.green.HorizontalLinearGauge">
+						</div>
 					</div>
 				</div>
 			</div>			
@@ -122,8 +136,12 @@
 						</div>
 					</div>
 					<div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; width:50px" splitter="true" region="right">
+						<div data-dojo-type="dojox.gauge.components.grey.VerticalLinearGauge">
+						</div>
 					</div>
 					<div data-dojo-type="dijit.layout.ContentPane" style="background-color: #fafafa; height:50px" splitter="true" region="bottom">
+						<div data-dojo-type="dojox.gauge.components.grey.HorizontalLinearGauge">
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+<title>Dojo Unified 2D Graphics</title>
+<style type="text/css">
+	@import "../../../dojo/resources/dojo.css";
+	@import "../../../dijit/tests/css/dijitTests.css";
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../../../dojo/dojo.js" djConfig="isDebug: true"></script>
+<!--<script type="text/javascript" src="../matrix.js"></script>-->
+<!--<script type="text/javascript" src="../util.js"></script>-->
+<!--<script type="text/javascript" src="../shape.js"></script>-->
+<!--<script type="text/javascript" src="../path.js"></script>-->
+<!--<script type="text/javascript" src="../vml.js"></script>-->
+<!--<script type="text/javascript" src="../svg.js"></script>-->
+<!--<script type="text/javascript" src="../silverlight.js"></script>-->
+<script type="text/javascript">
+dojo.require("dojox.gfx");
+
+var surface = null;
+var g1 = null;
+var g2 = null;
+var r1 = null;
+
+createSurface = function(){
+	surface = dojox.gfx.createSurface("test", 500, 500);
+	surface.whenLoaded(makeShapes);
+};
+
+polar = function(ox, oy, r, a){
+	return [ox + Math.cos(a) * r, oy - Math.sin(a) * r];
+};
+
+makeShapes = function(surface){
+	g1 = surface.createGroup();
+	var pts = [];
+	var ox = 100;
+	var oy = 100;
+	var r = 50;
+	var path = g1.createPath().setFill("#FF0000").setStroke("#0000FF");
+	path.moveTo(150, 100);
+	for (var i = 0; i < 2*Math.PI; i+=0.01){
+		path.lineTo(polar(ox, oy, r, i));
+	}
+	path.closePath();
+	path.setTransform({xx:3, yy:3});
+};
+
+switchRect = function(){
+	var radio = document.getElementsByName("switch");
+	if(radio[0].checked){
+		surface.add(r1);
+	}else if(radio[1].checked){
+		g1.add(r1);
+	}else if(radio[2].checked){
+		g2.add(r1);
+	}
+};
+
+dojo.addOnLoad(createSurface);
+
+</script>
+</head>
+<body>
+<div id="test"></div>
+</body>
+</html>

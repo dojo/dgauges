@@ -13,24 +13,23 @@ define([
 	/*=====
 	var RectangularGauge = dojox.gauge.RectangularGauge;
 	=====*/
-	
-		return declare("dojox.gauge.components.black.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
+
+		return declare("dojox.gauge.components.grey.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 			//	borderColor:
-			//		The border color. Default is "#000000".
-			borderColor: "#000000",
+			//		The border color. Default is "#9498A1".
+			borderColor: [148,152,161],
 			//	fillColor:
-			//		The background color. Default is "#000000".
-			fillColor: "#000000",
+			//		The background color. Default is "#9498A1".
+			fillColor: [148,152,161],
 			//	indicatorColor:
-			//		The indicator fill color. Default is "#A4A4A4".
-			indicatorColor: "#A4A4A4",
+			//		The indicator fill color. Default is "#3F3F3F".
+			indicatorColor: [63,63,63],
 			constructor: function(){
-				this.orientation = "vertical";
 				// Base colors
 				this.borderColor = new Color(this.borderColor);
 				this.fillColor = new Color(this.fillColor);
 				this.indicatorColor = new Color(this.indicatorColor);
-				
+
 				this.addElement("background", lang.hitch(this, this.drawBackground));
 
 				// Scaler
@@ -39,30 +38,26 @@ define([
 				// Scale
 				var scale = new RectangularScale();
 				scale.set("scaler", scaler);
-				scale.set("labelPosition", "trailing");
-				scale.set("paddingTop", 30);
-				scale.set("paddingBottom", 30);
-				scale.set("paddingLeft", 15);
+				scale.set("labelPosition", "leading");
+				scale.set("paddingLeft", 30);
+				scale.set("paddingRight", 30);
+				scale.set("paddingTop", 28);
+				scale.set("labelGap", 8);
 				scale.set("font", {
 					family: "Helvetica",
 					weight: "bold",
-					size: "7pt",
-					color: "#CECECE"
-				});
-				scale.set("tickShapeFunc", function(group, scale, tick){
-					return group.createCircle({
-						r: tick.isMinor ? 0.5 : 3
-					}).setFill("#CECECE");
+					size: "7pt"
 				});
 				this.addElement("scale", scale);
 				
 				var indicator = new RectangularValueIndicator();
 				indicator.set("interactionArea", "gauge");
 				indicator.set("value", scaler.minimum);
-				indicator.set("paddingLeft", 18);
-				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group){
+				indicator.set("paddingTop", 32);
+				indicator.set("indicatorShapeFunc", lang.hitch(this, function(group, indicator){
+
 					return group.createPolyline([0, 0, -10, -20, 10, -20, 0, 0]).setFill(this.indicatorColor).setStroke({
-						color: [69,69,69],
+						color: [70, 70, 70],
 						width: 1,
 						style: "Solid",
 						cap: "butt",
@@ -77,41 +72,39 @@ define([
 				g.createRect({
 					x: 0,
 					y: 0,
-					width: 50,
-					height: h,
-					r: 15
+					width: w,
+					height: 50,
+					r: 13.5
 				}).setFill(this.borderColor);
 				g.createRect({
-					x: 4,
-					y: 4,
-					width: 42,
-					height: h - 8,
-					r: 12
+					x: 2,
+					y: 2,
+					width: w - 4,
+					height: 46,
+					r: 11.5
 				}).setFill({
 					type: "linear",
-					x1: 5,
-					y1: 0,
-					x2: 20,
-					y2: 0,
+					x1: 0,
+					y1: -2,
+					x2: 0,
+					y2: 60,
 					colors: [
-						{offset: 0, color: [100,100,100]},
-						{offset: 1, color: this.fillColor}
+						{offset: 0, color: this.fillColor},
+						{offset: 1, color: "white"}
 					]
 				});
-				g.createPath().moveTo(25, 4).hLineTo(36).smoothCurveTo(46, 4, 46, 18).vLineTo(h - 20).smoothCurveTo(46, h - 4, 36, h - 4).closePath().setFill({
+				g.createPath().moveTo(2, 25).vLineTo(12).smoothCurveTo(2, 2, 16, 2).hLineTo(w - 12).smoothCurveTo(w - 2, 2, w - 2, 16).closePath().setFill({
 					type: "linear",
-					x1: 70,
-					y1: 0,
-					x2: 25,
-					y2: 0,
+					x1: 0,
+					y1: -5,
+					x2: 0,
+					y2: 40,
 					colors: [
-						{offset: 0, color: [150,150,150]},
+						{offset: 0, color: "white"},
 						{offset: 1, color: this.fillColor}
 					]
 				});
-				g.createPath().moveTo(25, 4).hLineTo(36).smoothCurveTo(46, 4, 46, 18).vLineTo(h - 20).smoothCurveTo(46, h - 4, 36, h - 4).closePath().setFill([255,255,255,0.05]);
 			}
-
 		});
 	}
 );

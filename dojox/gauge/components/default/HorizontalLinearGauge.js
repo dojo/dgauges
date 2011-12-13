@@ -3,7 +3,7 @@ define([
 		"dojo/_base/declare", 
 		"dojo/_base/connect", 
 		"dojo/_base/Color", 
-		"../GaugeUtils", 
+		"../gaugeUtils", 
 		"../../RectangularGauge", 
 		"../../LinearScaler", 
 		"../../RectangularScale", 
@@ -11,7 +11,7 @@ define([
 		"../../TextIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, connect, Color, GaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, TextIndicator, DefaultPropertiesMixin){
+	function(lang, declare, connect, Color, gaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, TextIndicator, DefaultPropertiesMixin){
 
 	/*=====
 	var RectangularGauge = dojox.gauge.RectangularGauge;
@@ -79,7 +79,7 @@ define([
 			h = 49;
 			var gap = 0;
 			var cr = 3;
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, -20), 0.1, GaugeUtils.brightness(this.borderColor, -40)]);
+			var entries = gaugeUtils.createGradient([0, gaugeUtils.brightness(this.borderColor, -20), 0.1, gaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: 0,
 				y: 0,
@@ -96,7 +96,7 @@ define([
 				color: "#A5A5A5",
 				width: 0.2
 			});
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -50)]);
+			var entries = gaugeUtils.createGradient([0, gaugeUtils.brightness(this.borderColor, 70), 1, gaugeUtils.brightness(this.borderColor, -50)]);
 			gap = 4;
 			cr = 2
 			g.createRect({
@@ -114,7 +114,7 @@ define([
 			}, entries));
 			gap = 6;
 			cr = 1
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 60), 1, GaugeUtils.brightness(this.borderColor, -40)]);
+			var entries = gaugeUtils.createGradient([0, gaugeUtils.brightness(this.borderColor, 60), 1, gaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -131,7 +131,7 @@ define([
 			
 			gap = 7;
 			cr = 0
-			var entries = GaugeUtils.createGradient([0, GaugeUtils.brightness(this.borderColor, 70), 1, GaugeUtils.brightness(this.borderColor, -40)]);
+			var entries = gaugeUtils.createGradient([0, gaugeUtils.brightness(this.borderColor, 70), 1, gaugeUtils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -147,7 +147,7 @@ define([
 			}, entries));
 			gap = 5;
 			cr = 0
-			var entries = GaugeUtils.createGradient([0, [255, 255, 255, 220], 0.8, GaugeUtils.brightness(this.fillColor, -5), 1, GaugeUtils.brightness(this.fillColor, -30)]);
+			var entries = gaugeUtils.createGradient([0, [255, 255, 255, 220], 0.8, gaugeUtils.brightness(this.fillColor, -5), 1, gaugeUtils.brightness(this.fillColor, -30)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -160,7 +160,7 @@ define([
 				cy: 0,
 				r: w
 			}, entries)).setStroke({
-				color: GaugeUtils.brightness(this.fillColor, -40),
+				color: gaugeUtils.brightness(this.fillColor, -40),
 				width: 0.4
 			});
 			

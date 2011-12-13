@@ -2,14 +2,14 @@ define([
 		"dojo/_base/lang",
 		"dojo/_base/declare",
 		"dojo/_base/Color",
-		"../GaugeUtils",
+		"../gaugeUtils",
 		"../../CircularGauge",
 		"../../LinearScaler",
 		"../../CircularScale",
 		"../../CircularValueIndicator",
 		"../../CircularRangeIndicator"
 	], 
-	function(lang, declare, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
+	function(lang, declare, Color, gaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
 
 	/*=====
 	 var CircularGauge = dojox.gauge.CircularGauge;
@@ -61,7 +61,7 @@ define([
 			},
 
 			drawBackground: function(g){
-				var lighterFillColor = GaugeUtils.brightness(new Color(this.fillColor), 100);
+				var lighterFillColor = gaugeUtils.brightness(new Color(this.fillColor), 100);
 				g.createPath({
 					path: "M260.7431 100.826 C260.7431 172.7911 202.3367 200.1975 130.3716 200.1975 C58.4065 200.1975 -0 172.7911 -0 100.826 C-0 28.8609 58.4065 0.4545 130.3716 0.4545 C202.3367 0.4545 260.7431 28.8609 260.7431 100.826 Z"
 				}).setFill(this.borderColor);

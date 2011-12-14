@@ -62,11 +62,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_bas
 
 			this.surface = gfx.createSurface(this._node, box.w || 1, box.h || 1);
 			this._widgetBox = box;
-			
-			this._mouseShield = this.surface.createGroup();
-			this._gfxGroup = this.surface.createGroup();
-
-			
+			// _baseGroup is a workaround for http://bugs.dojotoolkit.org/ticket/14471
+			this._baseGroup = this.surface.createGroup();
+			this._mouseShield = this._baseGroup.createGroup();
+			this._gfxGroup = this._baseGroup.createGroup();
 		},
 		
 		_setCursor: function(type){

@@ -1,6 +1,6 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dojo/_base/connect", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
+define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
 		"dojo/_base/event", "dojox/gfx", "../widget/_Invalidating","./ScaleBase"], 
-	function(lang, declare, domGeom, connect, WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase){
+	function(lang, declare, domGeom,  WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase){
 	
 	/*=====
 	var _WidgetBase = dijit._WidgetBase;

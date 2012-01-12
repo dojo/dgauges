@@ -2,14 +2,14 @@ define([
 		"dojo/_base/lang",
 		"dojo/_base/declare",
 		"dojo/_base/Color",
-		"../GaugeUtils",
+		"../gaugeUtils",
 		"../../CircularGauge",
 		"../../LinearScaler",
 		"../../CircularScale",
 		"../../CircularValueIndicator",
 		"../../CircularRangeIndicator"
 	], 
-	function(lang, declare, Color, GaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
+	function(lang, declare, Color, gaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
 
 	/*=====
 	 var CircularGauge = dojox.gauge.CircularGauge;
@@ -58,7 +58,7 @@ define([
 			},
 
 			drawBackground: function(g){
-				var lighterFillColor = GaugeUtils.brightness(new Color(this.fillColor), 100);
+				var lighterFillColor = gaugeUtils.brightness(new Color(this.fillColor), 100);
 				g.createEllipse({
 					cx: 132.2528,
 					cy: 133.617,

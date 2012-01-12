@@ -1,4 +1,4 @@
-define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "dojo/on", "dojox/gfx", "./IndicatorBase"], function(lang, declare, array, on, gfx, IndicatorBase){
+define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base/array", "dojo/on", "dojox/gfx", "./IndicatorBase"], function(lang, declare, has, array, on, gfx, IndicatorBase){
 
 	/*=====
 	var IndicatorBase = dojox.gauge.IndicatorBase;
@@ -88,7 +88,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/array", "dojo/on", 
 			if(this.labelFunc){
 				text = this.labelFunc(text);
 			}
-			if(!this._textCreated){
+			var iOsVersion = has("iphone");
+			// Workaround for a bug on iOS version < 5.0: Recreate the text every time
+			if(!this._textCreated || (iOsVersion != undefined && iOsVersion < 5)){
 				this._gfxGroup.clear();
 				var font = this._getFont();
 				this._textInstance = this._createText(this._gfxGroup, font, font.color ? font.color : this.color, "", this.x, this.y, this.align);

@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
-dojox.gauge
+dojox.dgauges
 -------------------------------------------------------------------------------
 Project state: stable
 -------------------------------------------------------------------------------
@@ -12,12 +12,12 @@ Credits:
 	Eric Durocher
 -------------------------------------------------------------------------------
 Project description:
-Candidate gauges framework for Dojo 1.8+
+Gauges framework for Dojo 1.8+
 -------------------------------------------------------------------------------
 Dependencies:
 Dojo Core, Dijit, dojox.color, dojox.widget, dojox.gfx
 -------------------------------------------------------------------------------
 Documentation:
 When available, will reside at:
-    http://docs.dojocampus.org/dojox/gauge
+    http://docs.dojocampus.org/dojox/dgauges
 -------------------------------------------------------------------------------

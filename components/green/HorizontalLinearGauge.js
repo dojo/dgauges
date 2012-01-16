@@ -2,14 +2,14 @@ define([
 		"dojo/_base/lang", 
 		"dojo/_base/declare",
 		"dojo/_base/Color",
-		"../gaugeUtils",
+		"../utils",
 		"../../RectangularGauge", 
 		"../../LinearScaler", 
 		"../../RectangularScale", 
 		"../../RectangularValueIndicator",
 		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, Color, gaugeUtils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
+	function(lang, declare, Color, utils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 
 	/*=====
 	var RectangularGauge = dojox.dgauges.RectangularGauge;
@@ -64,7 +64,7 @@ define([
 			},
 
 			drawBackground: function(g, w, h){
-				var lighterFillColor = gaugeUtils.brightness(new Color(this.fillColor), 100);
+				var lighterFillColor = utils.brightness(new Color(this.fillColor), 100);
 				g.createRect({
 					x: 0,
 					y: 0,

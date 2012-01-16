@@ -1,6 +1,6 @@
 define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, lang, on){
-	var _gaugeUtils = declare("dojox.dgauges.components.gaugeUtils", null, {});
-	lang.mixin(_gaugeUtils, {
+	var utils = declare("dojox.dgauges.components.utils", null, {});
+	lang.mixin(utils, {
 		brightness: function(col, b){
 			//	summary:
 			//		Adjusts the brightness of a color.
@@ -115,5 +115,4 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 			});
 		}
 	});
-	return _gaugeUtils;
 });

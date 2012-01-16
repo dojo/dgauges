@@ -2,14 +2,14 @@ define([
 		"dojo/_base/lang",
 		"dojo/_base/declare",
 		"dojo/_base/Color",
-		"../gaugeUtils",
+		"../utils",
 		"../../CircularGauge",
 		"../../LinearScaler",
 		"../../CircularScale",
 		"../../CircularValueIndicator",
 		"../../CircularRangeIndicator"
 	], 
-	function(lang, declare, Color, gaugeUtils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
+	function(lang, declare, Color, utils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
 
 	/*=====
 	 var CircularGauge = dojox.dgauges.CircularGauge;
@@ -53,7 +53,7 @@ define([
 
 					var l = indicator.scale.radius - 2;
 					group.createPath().moveTo(0, 0).lineTo(0, -5).lineTo(l, 0).lineTo(0, 0).closePath().setFill(this.indicatorColor);
-					var lighterColor = gaugeUtils.brightness(new Color(this.indicatorColor), 70);
+					var lighterColor = utils.brightness(new Color(this.indicatorColor), 70);
 					group.createPath().moveTo(0, 0).lineTo(0, 5).lineTo(l, 0).lineTo(0, 0).closePath().setFill(lighterColor);
 					return group;
 

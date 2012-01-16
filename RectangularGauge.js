@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, GaugeBase, ScaleBase){
+define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(declare, GaugeBase, matrix){
 	/*=====
 	var GaugeBase = dojox.dgauges.GaugeBase;
 	=====*/
@@ -205,13 +205,13 @@ define(["dojo/_base/declare", "./GaugeBase", "./ScaleBase"], function(declare, G
 			
 			// translates middle part
 			for(var i = 0; i < this._middleParts.length; i++){
-				this._middleParts[i]._gfxGroup.setTransform([dojox.gfx.matrix.translate(middleBoundingBox.x, middleBoundingBox.y)]);
+				this._middleParts[i]._gfxGroup.setTransform([matrix.translate(middleBoundingBox.x, middleBoundingBox.y)]);
 			}
 			
 			// translates trailing part
 			if(this._trailingParts){
 				for(var i = 0; i < this._trailingParts.length; i++){
-					this._trailingParts[i]._gfxGroup.setTransform(dojox.gfx.matrix.translate(this._widgetBox.w - trailingBoundingBox.w, 0));
+					this._trailingParts[i]._gfxGroup.setTransform(matrix.translate(this._widgetBox.w - trailingBoundingBox.w, 0));
 				}
 			}
 			

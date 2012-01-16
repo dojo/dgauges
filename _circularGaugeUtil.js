@@ -1,5 +1,5 @@
 define(["dojo/_base/declare", "dojo/_base/lang"], function(declare, lang){
-	var _circularGaugeUtil = {
+	return {
 		computeTotalAngle: function(start, end, orientation){
 			if(start == end){
 				return 360;
@@ -61,5 +61,4 @@ define(["dojo/_base/declare", "dojo/_base/lang"], function(declare, lang){
 			return rad * 180 / Math.PI;
 		}
 	}
-	return _circularGaugeUtil;
 });

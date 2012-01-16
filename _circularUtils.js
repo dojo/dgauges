@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojo/_base/lang"], function(declare, lang){
+define([], function(){
 	return {
 		computeTotalAngle: function(start, end, orientation){
 			if(start == end){

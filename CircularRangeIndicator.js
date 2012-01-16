@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "dojo/_base/event"], function(declare, ScaleIndicatorBase, _circularGaugeUtil, eventUtil){
+define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/_base/event"], function(declare, ScaleIndicatorBase, _circularUtils, eventUtil){
 
 	/*=====
 	var ScaleIndicatorBase = dojox.dgauges.ScaleIndicatorBase;
@@ -118,9 +118,9 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var angleStep = 0.05;
 			var totalAngle;
 			
-			totalAngle = 6.28318530718 - _circularGaugeUtil.computeAngle(startAngleRadians, endAngleRadians, orientation);
+			totalAngle = 6.28318530718 - _circularUtils.computeAngle(startAngleRadians, endAngleRadians, orientation);
 			if(!isNaN(clippingAngleRadians)){
-				var deltaAngle = _circularGaugeUtil.computeAngle(startAngleRadians, clippingAngleRadians, orientation);
+				var deltaAngle = _circularUtils.computeAngle(startAngleRadians, clippingAngleRadians, orientation);
 				eWeight *= deltaAngle / totalAngle;
 				totalAngle = deltaAngle;
 			}
@@ -185,9 +185,9 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularGaugeUtil", "d
 			var oy = this.scale.originY;
 			var radius = isNaN(this.radius) ? this.scale.radius  : this.radius;
 			var orientation = this.scale.orientation;
-			var startAngleRadians = _circularGaugeUtil.toRadians(360 - this.scale.positionForValue(this.start));
+			var startAngleRadians = _circularUtils.toRadians(360 - this.scale.positionForValue(this.start));
 			var v = isNaN(this._transitionValue) ? this.value : this._transitionValue;
-			var endAngleRadians = _circularGaugeUtil.toRadians(360 - this.scale.positionForValue(v));
+			var endAngleRadians = _circularUtils.toRadians(360 - this.scale.positionForValue(v));
 			var sWeight = this.startThickness;
 			var eWeight = this.endThickness;
 			var clippingAngleRadians = NaN;

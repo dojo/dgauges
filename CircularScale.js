@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"], function(declare, gfx, ScaleBase, _circularGaugeUtil){
+define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], function(declare, gfx, ScaleBase, _circularUtils){
 	
     /*=====
      var ScaleBase = dojox.dgauges.ScaleBase;
@@ -44,14 +44,14 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			//		Transforms a value into an angle using the associated scaler.
 			//	returns: Number
 			//		An angle in degrees.
-			var totalAngle = _circularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
+			var totalAngle = _circularUtils.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
 			var relativePos = this.scaler.positionForValue(value);
-			return _circularGaugeUtil.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * relativePos, 360);
+			return _circularUtils.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * relativePos, 360);
 		},
 		
 		_positionForTickItem: function(tickItem){
-			var totalAngle = _circularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
-			return _circularGaugeUtil.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * tickItem.position, 360);
+			var totalAngle = _circularUtils.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
+			return _circularUtils.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * tickItem.position, 360);
 		},
 		
 		valueForPosition: function(angle){
@@ -60,9 +60,9 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			//	returns: Number
 			//		The value represented by angle. 
 			if(!this.positionInRange(angle)){
-				var min1 = _circularGaugeUtil.modAngle(this.startAngle - angle, 360);
+				var min1 = _circularUtils.modAngle(this.startAngle - angle, 360);
 				var min2 = 360 - min1;
-				var max1 = _circularGaugeUtil.modAngle(this.endAngle - angle, 360);
+				var max1 = _circularUtils.modAngle(this.endAngle - angle, 360);
 				var max2 = 360 - max1;
 				var pos;
 				if(Math.min(min1, min2) < Math.min(max1, max2)){
@@ -71,8 +71,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 					pos = 1;
 				}
 			}else{
-				var relativeAngle = _circularGaugeUtil.modAngle(this._getOrientationNum() * (angle - this.startAngle), 360);
-				var totalAngle = _circularGaugeUtil.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
+				var relativeAngle = _circularUtils.modAngle(this._getOrientationNum() * (angle - this.startAngle), 360);
+				var totalAngle = _circularUtils.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
 				pos = relativeAngle / totalAngle;
 			}
 			return this.scaler.valueForPosition(pos);
@@ -86,7 +86,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			if(this.startAngle == this.endAngle){
 				return true;
 			}
-			value = _circularGaugeUtil.modAngle(value, 360);
+			value = _circularUtils.modAngle(value, 360);
 			if(this._getOrientationNum() == 1){
 				if(this.startAngle < this.endAngle){
 					return value >= this.startAngle && value <= this.endAngle;
@@ -206,8 +206,8 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 			}
 			
 			// Normalize angles
-			this.startAngle = _circularGaugeUtil.modAngle(this.startAngle, 360);
-			this.endAngle = _circularGaugeUtil.modAngle(this.endAngle, 360);
+			this.startAngle = _circularUtils.modAngle(this.startAngle, 360);
+			this.endAngle = _circularUtils.modAngle(this.endAngle, 360);
 			
 			this._ticksGroup.clear();
 			
@@ -253,7 +253,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularGaugeUtil"
 					}else{
 						rad += this.labelGap;
 					}
-					this._layoutLabel(label, labelText, this.originX, this.originY, rad, _circularGaugeUtil.toRadians(360 - a), this.labelPosition);
+					this._layoutLabel(label, labelText, this.originX, this.originY, rad, _circularUtils.toRadians(360 - a), this.labelPosition);
 				}
 			}
 			

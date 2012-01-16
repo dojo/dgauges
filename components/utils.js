@@ -115,4 +115,5 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 			});
 		}
 	});
+	return utils;
 });

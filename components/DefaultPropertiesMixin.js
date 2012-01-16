@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/Color"], function(declare, lang, Color){
+define(["dojo/_base/declare", "dojo/_base/Color"], function(declare, Color){
 	return declare("dojox.dgauges.components.DefaultPropertiesMixin", null, {
 		//	minimum: Number
 		//		The minimum value of the scaler. Default is 0.

@@ -1,5 +1,13 @@
-define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, lang, on){
-	var utils = declare("dojox.dgauges.components.utils", null, {});
+define(["dojo/_base/lang"], function(lang){
+	var utils = {};
+
+	/*=====
+	dojox.dgauges.components.utils = {
+		// summary: Gauges utilities.
+	};
+	var utils = dojox.dgauges.components.utils;
+	=====*/
+
 	lang.mixin(utils, {
 		brightness: function(col, b){
 			//	summary:
@@ -115,5 +123,6 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/on"], function(declare, l
 			});
 		}
 	});
+
 	return utils;
 });

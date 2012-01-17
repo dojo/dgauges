@@ -1,4 +1,4 @@
-define([], function(){
+define(function(){
 	return {
 		computeTotalAngle: function(start, end, orientation){
 			if(start == end){

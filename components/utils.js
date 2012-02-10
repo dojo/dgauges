@@ -72,13 +72,13 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 			//		The start angle of the scale (in degrees)
 			//	endAngle: Number
 			//		The end angle of the scale (in degrees)
-			//	orientation: String
+			//	orientation: String?
 			//		The orientation of the scale, can be "clockwise" or "cclockwise"
-			//	font: Object
+			//	font: Object?
 			//		The font used for the gauge
-			//	labelPosition: String
+			//	labelPosition: String?
 			//		The position of the labels regarding   
-			//	tickShapeFunc: Object
+			//	tickShapeFunc: Object?
 			//		A drawing function for the ticks
 			//	returns: Number
 			//		The modified color	

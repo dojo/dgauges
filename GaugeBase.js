@@ -181,16 +181,16 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 
 		resize: function(width, height){
 			//	summary:
-			//		Resize the chart to the dimensions of width and height.
+			//		Resize the gauge to the dimensions of width and height.
 			//	description:
-			//		Resize the chart and its surface to the width and height dimensions.
-			//		If no width/height or box is provided, resize the surface to the marginBox of the chart.
+			//		Resize the gauge and its surface to the width and height dimensions.
+			//		If no width/height or box is provided, resize the surface to the marginBox of the gauge.
 			//	width: Number
-			//		The new width of the chart.
+			//		The new width of the gauge.
 			//	height: Number
-			//		The new height of the chart.
-			//	returns: dojox.charting.Chart
-			//		A reference to the current chart for functional chaining.
+			//		The new height of the gauge.
+			//	returns: dojox.dgauges.GaugeBase
+			//		A reference to the current gauge for functional chaining.
 			var box;
 			switch(arguments.length){
 				// case 0, do not resize the div, just the surface

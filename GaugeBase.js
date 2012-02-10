@@ -169,7 +169,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		_computeBoundingBox: function(/* Object */element){
-			return element.getBoundingBox();
+			return element ? element.getBoundingBox() : {x:0, y:0, width:0, height:0};
 		},
 		
 		destroy: function(){

@@ -230,15 +230,15 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 				}else{
 					a = this.positionForValue(tickItem.value);
 				}
-				
-				renderer.setTransform([{
-					dx: this.originX,
-					dy: this.originY
-				}, gfx.matrix.rotateg(a), {
-					dx: this.radius - tickBB.width - 2 * tickBB.x,
-					dy: 0
-				}]);
-				
+				if (renderer){
+					renderer.setTransform([{
+						dx: this.originX,
+						dy: this.originY
+					}, gfx.matrix.rotateg(a), {
+						dx: this.radius - tickBB.width - 2 * tickBB.x,
+						dy: 0
+					}]);
+				}
 				labelText = this.tickLabelFunc(tickItem);
 				if(labelText){
 					label = this._ticksGroup.createText({

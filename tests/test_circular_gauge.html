@@ -33,109 +33,145 @@
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Set 15
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").getIndicator("indicator").set("value", 15, "hello");
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").getIndicator("indicator").set("value", 15, "hello");
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Change Scale Props.
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").set("startAngle", 0);
-						gauge.getElement("scale").set("endAngle", 180);
-						gauge.getElement("scale").set("orientation", "cclockwise");
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").set("startAngle", 0);
+								gauge.getElement("scale").set("endAngle", 180);
+								gauge.getElement("scale").set("orientation", "cclockwise");
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Change Scaler Props.
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").scaler.set("minorTicksEnabled", false);
-						gauge.getElement("scale").scaler.set("minimum", 50);
-						gauge.getElement("scale").scaler.set("maximum", 250);
-						gauge.getElement("scale").scaler.set("majorTickInterval", 20);
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").scaler.set("minorTicksEnabled", false);
+								gauge.getElement("scale").scaler.set("minimum", 50);
+								gauge.getElement("scale").scaler.set("maximum", 250);
+								gauge.getElement("scale").scaler.set("majorTickInterval", 20);
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Add range indicator
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						var ri = new dojox.dgauges.CircularRangeIndicator();
-						ri.set("start", 60);
-						ri.set("value", 100);
-						ri.set("radius", 60);
-						gauge.getElement("scale").addIndicator("ri", ri, false);
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								var ri = new dojox.dgauges.CircularRangeIndicator();
+								ri.set("start", 60);
+								ri.set("value", 100);
+								ri.set("radius", 60);
+								gauge.getElement("scale").addIndicator("ri", ri, false);
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Change needle
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").getIndicator("indicator").set("indicatorShapeFunc", function(group, indicator){
-						return group.createPolyline([0, -5, indicator.scale.radius - 2, 0, 0, 5, 0, -5]).setStroke({
-						color: "#333333", 
-						width: 0.25 
-						}).setFill([0, 0, 220]);  
-						}); 
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").getIndicator("indicator").set("indicatorShapeFunc", 
+									function(group, indicator){
+										return group.createPolyline([0, -5, indicator.scale.radius - 2, 0, 0, 5, 0, -5]).setStroke({
+											color: "#333333", 
+											width: 0.25}).setFill([0, 0, 220]);
+									});  
+							}
+						); 
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Remove needle
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").removeIndicator("indicator");
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").removeIndicator("indicator");
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Listen for events
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.on("startEditing", function(event){console.log(event.indicator.value);});
-						gauge.on("endEditing", function(event){console.log(event.indicator.value);});
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.on("startEditing", function(event){console.log(event.indicator.value);});
+								gauge.on("endEditing", function(event){console.log(event.indicator.value);});
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					No interaction
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").getIndicator("indicator").set("interactionMode", "none");
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").getIndicator("indicator").set("interactionMode", "none");
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Indicator interaction
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1"); 
-						gauge.getElement("scale").getIndicator("indicator").set("interactionMode", "mouse"); 
-						gauge.getElement("scale").getIndicator("indicator").set("interactionArea", "indicator");
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").getIndicator("indicator").set("interactionMode", "mouse"); 
+								gauge.getElement("scale").getIndicator("indicator").set("interactionArea", "indicator");
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Gauge interaction
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1"); 
-						gauge.getElement("scale").getIndicator("indicator").set("interactionMode", "mouse"); 
-						gauge.getElement("scale").getIndicator("indicator").set("interactionArea", "gauge");
-					</script>
-				</button>
-				<button data-dojo-type="dijit.form.Button" type="button">
-					Change indicator color
-					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1"); 
-						gauge.getElement("indicatorText").set("color", "red");
-						console.log(gauge.maximum);
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").getIndicator("indicator").set("interactionMode", "mouse"); 
+								gauge.getElement("scale").getIndicator("indicator").set("interactionArea", "gauge");
+							}
+						);
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
 					Change background colors
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1"); 
-						gauge.set("borderColor", "#FF7800");
-						gauge.set("fillColor", "#FFFF00");
-						gauge = dijit.byId("g2"); 
-						gauge.set("borderColor", "#FF7800");
-						gauge.set("fillColor", "#FFFF00");
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.set("borderColor", "#FF7800");
+								gauge.set("fillColor", "#FFFF00");
+								gauge = registry.byId("g2"); 
+								gauge.set("borderColor", "#FF7800");
+								gauge.set("fillColor", "#FFFF00");
+							}
+						);
 					</script>
-				</button>				
+				</button>
 			</div>
 		</div>
 	</body>

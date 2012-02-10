@@ -230,7 +230,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 				}else{
 					a = this.positionForValue(tickItem.value);
 				}
-				if (renderer){
+				if(renderer){
 					renderer.setTransform([{
 						dx: this.originX,
 						dy: this.originY

@@ -55,6 +55,17 @@
 					</script>
 				</button>
 				<button data-dojo-type="dijit.form.Button" type="button">
+					Change tick stroke
+					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
+						require(["dijit/registry"],
+							function(registry) {
+								var gauge = registry.byId("g1");
+								gauge.getElement("scale").set("tickStroke", {color:"#999999", width:1});
+							}
+						);
+					</script>
+				</button>				
+				<button data-dojo-type="dijit.form.Button" type="button">
 					Change Scaler Props.
 					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
 						require(["dijit/registry"],

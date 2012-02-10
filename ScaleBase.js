@@ -25,6 +25,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		//	labelGap: Number
 		//		The label gap between the ticks and their labels. Default value is 1.
 		labelGap: 1,
+		//	tickStroke: Object
+		//		The GFX stroke used by the default tickShapeFunc implementation.
+		tickStroke: null,
 		_gauge: null,
 		_gfxGroup: null,
 		_bgGroup: null,
@@ -39,7 +42,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			this._indicatorsRenderers = {};
 			this._gauge = null;
 			this._gfxGroup = null;
-			this.addInvalidatingProperties(["scaler", "font", "labelGap", "labelPosition", "tickShapeFunc", "tickLabelFunc"]);
+			this.tickStroke = {color: "black", width: 0.5};
+			
+			this.addInvalidatingProperties(["scaler", "font", "labelGap", "labelPosition", "tickShapeFunc", "tickLabelFunc", "tickStroke"]);
 			
 			this.watch("scaler", lang.hitch(this, this._watchScaler));
 		},
@@ -124,10 +129,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 				y1: 0,
 				x2: tickItem.isMinor ? 6 : 10,
 				y2: 0
-			}).setStroke({
-				color: "black",
-				width: 0.5
-			});
+			}).setStroke(this.tickStroke);
 		},
 		
 		getIndicatorRenderer: function(name){

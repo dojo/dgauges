@@ -1,4 +1,4 @@
-define(["dojo/_base/lang"], function(lang){
+define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 	var utils = {};
 
 	/*=====
@@ -99,15 +99,20 @@ define(["dojo/_base/lang"], function(lang){
 			}
 			if(!tickShapeFunc){
 				tickShapeFunc = function(group, scale, tick){
+					var stroke = scale.tickStroke;
+					var majorStroke;
+					var minorStroke;
+					if (stroke){
+						majorStroke = {color:stroke.color ? stroke.color : "#000000", width:stroke.width ? stroke.width : 0.5};
+						var col = new Color(stroke.color).toRgb();
+						minorStroke = {color:stroke.color ? utils.brightness({r:col[0], g:col[1], b:col[2]},51) : "#000000", width:stroke.width ? stroke.width * 0.6 : 0.3};
+					}
 					return group.createLine({
 						x1: tick.isMinor ? 2 : 0,
 						y1: 0,
 						x2: tick.isMinor ? 8 : 10,
 						y2: 0
-					}).setStroke({
-						color: tick.isMinor ? "black" : "#333333",
-						width: tick.isMinor ? 0.25 : 0.45
-					});
+					}).setStroke(tick.isMinor ? minorStroke : majorStroke);
 				};
 			}
 			

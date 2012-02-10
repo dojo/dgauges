@@ -102,7 +102,7 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 					var stroke = scale.tickStroke;
 					var majorStroke;
 					var minorStroke;
-					if (stroke){
+					if(stroke){
 						majorStroke = {color:stroke.color ? stroke.color : "#000000", width:stroke.width ? stroke.width : 0.5};
 						var col = new Color(stroke.color).toRgb();
 						minorStroke = {color:stroke.color ? utils.brightness({r:col[0], g:col[1], b:col[2]},51) : "#000000", width:stroke.width ? stroke.width * 0.6 : 0.3};

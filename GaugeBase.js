@@ -69,7 +69,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		_setCursor: function(type){
-			if (this._node)
+			if(this._node)
 				this._node.style.cursor = type;
 		},
 		

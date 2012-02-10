@@ -35,30 +35,6 @@
 				<div id="g2" dojoType="dojox.dgauges.components.default.HorizontalLinearGauge">
 				</div>
 			</div>
-			<div dojoType="dijit.layout.ContentPane" splitter="true" region="top" style="height:100;">
-				<button data-dojo-type="dijit.form.Button" type="button">
-					Set 15
-					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").getIndicator("indicator").set("value", 15);
-					</script>
-				</button>
-				<button data-dojo-type="dijit.form.Button" type="button">
-					Change Scaler Props.
-					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").scaler.set("minimum", 50);
-						gauge.getElement("scale").scaler.set("maximum", 250);
-					</script>
-				</button>
-				<button data-dojo-type="dijit.form.Button" type="button">
-					Change Scale Props.
-					<script type="dojo/method" data-dojo-event="onClick" data-dojo-args="evt">
-						var gauge = dijit.byId("g1");
-						gauge.getElement("scale").set("font", {family: "Helvetica",	size: "10pt", color:"#00AA00"});
-					</script>
-				</button>
-			</div>
 		</div>
 	</body>
 </html>

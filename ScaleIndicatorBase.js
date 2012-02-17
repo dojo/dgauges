@@ -18,9 +18,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		
 		//	interactionArea: String
 		//		How to interact with the indicator using mouse or touch interactions.
-		//		Can be "indicator", "gauge" or "none". The default value is "gauge".
+		//		Can be "indicator", "gauge", "area" or "none". The default value is "gauge".
 		//		If set to "indicator", the indicator shape reacts to mouse and touch events.
 		//		If set to "gauge", the whole gauge reacts to mouse and touch events.
+		//		If set to "area", the whole bounding box of the widget reacts to mouse and touch events.
 		//		If "none", interactions are disabled.
 		interactionArea: "gauge",
 
@@ -200,12 +201,23 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 					if(!this.scale || !this.scale._gauge || !this.scale._gauge._gfxGroup){
 						return true;
 					}
-					listener = this.scale._gauge._baseGroup.connect(downEventName, this, this._onMouseDown);
+					listener = this.scale._gauge._gfxGroup.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
 					listener = this._gfxGroup.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
 					if (this.interactionMode == "mouse") {
 						this._connectCursorListeners(this.scale._gauge._gfxGroup);
+					}
+				}else if(this.interactionArea == "area"){
+					if(!this.scale || !this.scale._gauge || !this.scale._gauge._baseGroup){
+						return true;
+					}
+					listener = this.scale._gauge._baseGroup.connect(downEventName, this, this._onMouseDown);
+					this._downListeners.push(listener);
+					listener = this._gfxGroup.connect(downEventName, this, this._onMouseDown);
+					this._downListeners.push(listener);
+					if (this.interactionMode == "mouse") {
+						this._connectCursorListeners(this.scale._gauge._baseGroup);
 					}
 				}
 			}

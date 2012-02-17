@@ -193,8 +193,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 				if(this.interactionArea == "indicator"){
 					listener = this._gfxGroup.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
-					this._connectCursorListeners(this._gfxGroup);
-					
+					if (this.interactionMode == "mouse") {
+						this._connectCursorListeners(this._gfxGroup);
+					}
 				}else if(this.interactionArea == "gauge"){
 					if(!this.scale || !this.scale._gauge || !this.scale._gauge._gfxGroup){
 						return true;
@@ -203,7 +204,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 					this._downListeners.push(listener);
 					listener = this._gfxGroup.connect(downEventName, this, this._onMouseDown);
 					this._downListeners.push(listener);
-					this._connectCursorListeners(this.scale._gauge._gfxGroup);
+					if (this.interactionMode == "mouse") {
+						this._connectCursorListeners(this.scale._gauge._gfxGroup);
+					}
 				}
 			}
 			return false;

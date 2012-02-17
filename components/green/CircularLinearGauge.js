@@ -7,15 +7,16 @@ define([
 		"../../LinearScaler",
 		"../../CircularScale",
 		"../../CircularValueIndicator",
-		"../../CircularRangeIndicator"
+		"../../CircularRangeIndicator",
+		"../DefaultPropertiesMixin"
 	], 
-	function(lang, declare, Color, utils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator){
+	function(lang, declare, Color, utils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 
 	/*=====
 	 var CircularGauge = dojox.dgauges.CircularGauge;
 	 =====*/
 
-		return declare("dojox.dgauges.components.green.CircularLinearGauge", CircularGauge, {
+		return declare("dojox.dgauges.components.green.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 			//	borderColor:
 			//		The border color. Default is "#323232".
 			borderColor: [50,50,50],

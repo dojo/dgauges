@@ -69,7 +69,7 @@ function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValu
 				startThickness:10,
 				endThickness: 30,
 				fill: "green",
-				interactionMode: "none",
+				interactionMode: "none"
 			});
 			scale.addIndicator("rangeIndicator", rangeIndicator, true);
 			

@@ -63,7 +63,7 @@ function(lang, declare, CircularGauge, LinearScaler, CircularScale, CircularValu
 				value: 23,
 				radius: 68,
 				fill: "#0BCD2F",
-				interactionMode: "none",
+				interactionMode: "none"
 			});
 			scale.addIndicator("rangeIndicator", rangeIndicator, true);
 			

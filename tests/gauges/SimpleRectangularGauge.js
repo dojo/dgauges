@@ -71,7 +71,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/dgauges/RectangularGauge
 				y: 30,
 				indicator: indicator,
 				labelFunc: function(v){
-					return v + " °C"
+					return v + " Â°C"
 				}
 			});
 			
@@ -81,7 +81,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/dgauges/RectangularGauge
 				y: 30,
 				indicator: indicator,
 				labelFunc: function(v){
-					return ((9 / 5) * v + 32).toFixed() + " °F"
+					return ((9 / 5) * v + 32).toFixed() + " Â°F"
 				}
 			});
 			this.addElement("leadingText", leadingText, "leading");

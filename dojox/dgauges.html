@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>dojox.dgauges</title>
+  <link rel="stylesheet" href="../css/dojo.css" type="text/css" />
+  <link rel="stylesheet" href="../css/jsdoc.css" type="text/css" />
+  <link rel="stylesheet" href="../themes/dtk/dtk.css" type="text/css" />
+  </head>
+<body>
+    <div style="width: 100%; height: 100%;">
+      <div id="treeHeader" region="top">
+        dojox.dgauges
+      </div>
+      <div region="bottom" style="height:18px;background-color:#f2f2f2;border-top:1px solid #dedede;padding:0 2px 4px 48px;position:relative;overflow:hidden;">
+        <span style="position:absolute;top:3px;left:3px;font-size:small;">Legend: </span>
+        <img src="../css/icons/16x16/array.png" align="middle" title="Array" alt="Array" border="0" />
+        <img src="../css/icons/16x16/boolean.png" align="middle" title="Boolean" alt="Boolean" border="0" />
+        <img src="../css/icons/16x16/constructor.png" align="middle" title="Constructor" alt="Constructor" border="0" />
+        <img src="../css/icons/16x16/date.png" align="middle" title="Date" alt="Date" border="0" />
+        <img src="../css/icons/16x16/domnode.png" align="middle" title="DomNode" alt="DomNode" border="0" />
+        <img src="../css/icons/16x16/error.png" align="middle" title="Error" alt="Error" border="0" />
+        <img src="../css/icons/16x16/function.png" align="middle" title="Function" alt="Function" border="0" />
+        <img src="../css/icons/16x16/namespace.png" align="middle" title="Namespace" alt="Namespace" border="0" />
+        <img src="../css/icons/16x16/number.png" align="middle" title="Number" alt="Number" border="0" />
+        <img src="../css/icons/16x16/object.png" align="middle" title="Object" alt="Object" border="0" />
+        <img src="../css/icons/16x16/regexp.png" align="middle" title="RegExp" alt="RegExp" border="0" />
+        <img src="../css/icons/16x16/singleton.png" align="middle" title="Singleton" alt="Singleton" border="0" />
+        <img src="../css/icons/16x16/string.png" align="middle" title="String" alt="String" border="0" />
+      </div>
+      <div region="center">
+       <div class="sidebar unit size1of4 lastUnit infoCenterHeader" >
+         <div class="apisidebar">
+           <div class="apisidebarwrapper">
+             <ul class="jsdoc-navigation">
+<li class="namespaceIcon"><a class="jsdoc-link" href="../dojox/dgauges.html">dgauges</a>
+<ul class="jsdoc-children"><li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/CircularGauge.html">CircularGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/CircularRangeIndicator.html">CircularRangeIndicator</a>
+<ul class="jsdoc-children"><li class="objectIcon"><a class="jsdoc-link" href="../dojox/dgauges/CircularRangeIndicator/scale.html">scale</a></li>
+</ul>
+</li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/CircularScale.html">CircularScale</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/CircularValueIndicator.html">CircularValueIndicator</a></li>
+<li class="objectIcon"><a class="jsdoc-link" href="../dojox/dgauges/components.html">components</a>
+<ul class="jsdoc-children"><li class="objectIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/black.html">black</a>
+<ul class="jsdoc-children"><li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/black/CircularLinearGauge.html">CircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/black/HorizontalLinearGauge.html">HorizontalLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/black/SemiCircularLinearGauge.html">SemiCircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/black/VerticalLinearGauge.html">VerticalLinearGauge</a></li>
+</ul>
+</li>
+<li class="objectIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/classic.html">classic</a>
+<ul class="jsdoc-children"><li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/classic/CircularLinearGauge.html">CircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/classic/HorizontalLinearGauge.html">HorizontalLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/classic/SemiCircularLinearGauge.html">SemiCircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/classic/VerticalLinearGauge.html">VerticalLinearGauge</a></li>
+</ul>
+</li>
+<li class="objectIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/default.html">default</a>
+<ul class="jsdoc-children"><li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/default/CircularLinearGauge.html">CircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/default/HorizontalLinearGauge.html">HorizontalLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/default/SemiCircularLinearGauge.html">SemiCircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/default/VerticalLinearGauge.html">VerticalLinearGauge</a></li>
+</ul>
+</li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/DefaultPropertiesMixin.html">DefaultPropertiesMixin</a></li>
+<li class="objectIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/green.html">green</a>
+<ul class="jsdoc-children"><li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/green/CircularLinearGauge.html">CircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/green/HorizontalLinearGauge.html">HorizontalLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/green/SemiCircularLinearGauge.html">SemiCircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/green/VerticalLinearGauge.html">VerticalLinearGauge</a></li>
+</ul>
+</li>
+<li class="objectIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/grey.html">grey</a>
+<ul class="jsdoc-children"><li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/grey/CircularLinearGauge.html">CircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/grey/HorizontalLinearGauge.html">HorizontalLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/grey/SemiCircularLinearGauge.html">SemiCircularLinearGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/grey/VerticalLinearGauge.html">VerticalLinearGauge</a></li>
+</ul>
+</li>
+<li class="objectIcon"><a class="jsdoc-link" href="../dojox/dgauges/components/utils.html">utils</a></li>
+</ul>
+</li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/GaugeBase.html">GaugeBase</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/IndicatorBase.html">IndicatorBase</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/LinearScaler.html">LinearScaler</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/LogScaler.html">LogScaler</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/MultiLinearScaler.html">MultiLinearScaler</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/RectangularGauge.html">RectangularGauge</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/RectangularRangeIndicator.html">RectangularRangeIndicator</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/RectangularScale.html">RectangularScale</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/RectangularValueIndicator.html">RectangularValueIndicator</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/ScaleBase.html">ScaleBase</a></li>
+<li class="constructorIcon"><a class="jsdoc-link" href="../dojox/dgauges/ScaleIndicatorBase.html">ScaleIndicatorBase</a></li>
+</ul>
+</li>
+</ul>
+
+           </div>
+         </div>
+       </div>
+       <div role="main" class="main-content">
+        <div class="unit size3of4 firstUnit">
+          <a name="skip-navbar_top"></a>
+          <div class="jsdoc-permalink" style="display:none;">../dojox/dgauges.html</div><h1 class="jsdoc-title objectIcon36">dojox.dgauges</h1><div class="jsdoc-prototype">Object &raquo; dojox.dgauges</div><div class="jsdoc-children"><div class="jsdoc-field-list"><h2 class="jsdoc-summary-heading">Property Summary <span class="jsdoc-summary-toggle"></span></h2><div class="jsdoc-summary-list"><ul><li class="objectIcon public  even"><a class="inline-link" href="#components">components</a></li></ul></div><h2 class="jsdoc-summary-heading">Method Summary <span class="jsdoc-summary-toggle"></span></h2><div class="jsdoc-summary-list"><ul><li class="functionIcon public  odd"><a class="inline-link" href="#CircularGauge">CircularGauge</a><span class="parameters">()</span> <span>The base class for circular gauges.
+	You can create custom circular or semi-circular gauges by extending this class.
+	See dojox.dgauges.components.default.CircularLinearGauge.js for an example of circular gauge.</span></li><li class="functionIcon public  even"><a class="inline-link" href="#CircularRangeIndicator">CircularRangeIndicator</a><span class="parameters">()</span> <span>A CircularRangeIndicator is used to represent a range of values on a scale.
+	Use the addIndicator method of CircularScale to use it.
+	It is represented as a donut slice.</span></li><li class="functionIcon public  odd"><a class="inline-link" href="#CircularScale">CircularScale</a><span class="parameters">()</span> <span>The circular scale. A scaler must be set to use this class.</span></li><li class="functionIcon public  even"><a class="inline-link" href="#CircularValueIndicator">CircularValueIndicator</a><span class="parameters">()</span> <span>The circular value indicator, typically used for creating needles.</span></li><li class="functionIcon public  odd"><a class="inline-link" href="#GaugeBase">GaugeBase</a><span class="parameters">(args, node)</span> <span>This class is the base class for the circular and
+	rectangular (horizontal and vertical) gauge components.
+	A gauge is a composition of elements added to the gauge using the addElement method.
+	Elements are drawn from back to front in the same order they are added (using addElement).
+	An elements can be:
+	- A GFX drawing functions typically used for defining the style of the gauge.
+	- A scale: CircularScale or RectangularScale depending on the type of gauge.
+	- A text, using the TextIndicator
+	Note: Indicator classes (value indicators, range indicators) are sub-elements of scales
+	
+	To create a custom gauge, subclass CircularGauge or RectangularGauge and
+	configure its elements in the constructor.</span></li><li class="functionIcon public  even"><a class="inline-link" href="#IndicatorBase">IndicatorBase</a><span class="parameters">()</span> <span>The base class for indicators. Basically, an indicator is used to render a value.</span></li><li class="functionIcon public  odd"><a class="inline-link" href="#LinearScaler">LinearScaler</a><span class="parameters">()</span> <span>The linear scaler. This scaler creates major and minor ticks regularly between
+	a minimum and a maximum.
+	Scalers are responsible for tick generation and various data-transform operations.</span></li><li class="functionIcon public  even"><a class="inline-link" href="#LogScaler">LogScaler</a><span class="parameters">()</span> <span>The LogScaler maps numeric values evenly
+	between a minimum and a maximum value along a gauge scale.
+	If no multiplier is specified, the scale will place
+	a tick on each power of 10 value (1, 10, 100, 1000, and so on) between
+	the minimum and maximum values.</span></li><li class="functionIcon public  odd"><a class="inline-link" href="#MultiLinearScaler">MultiLinearScaler</a><span class="parameters">()</span> <span>The multi-linear scaler. This scaler maps numeric values according
+	to the majorTickValues content.
+	This allows display of very large value intervals that are difficult to render
+	with a linear scale. For example, if majorTickValues contains [0, 10, 50, 500, 2000],
+	the scale will show five major ticks with these values.
+	Note that this is not a logarithmic scale, the interpolation is linear between
+	two contiguous major ticks.
+	Scalers are responsible for tick generation and various data-transform operations.</span></li><li class="functionIcon public  even"><a class="inline-link" href="#RectangularGauge">RectangularGauge</a><span class="parameters">()</span> <span>The base class for rectangular gauges.
+	You can create custom horizontal or vertical gauges by extending this class.
+	See dojox.dgauges.components.default.HorinzontalLinearGauge.js for an example of rectangular gauge.</span></li><li class="functionIcon public  odd"><a class="inline-link" href="#RectangularRangeIndicator">RectangularRangeIndicator</a><span class="parameters">()</span> <span>A segmented-style range indicator for rectangular gauges.</span></li><li class="functionIcon public  even"><a class="inline-link" href="#RectangularScale">RectangularScale</a><span class="parameters">()</span> <span>The rectangular scale. A scaler must be set to use this class.</span></li><li class="functionIcon public  odd"><a class="inline-link" href="#RectangularValueIndicator">RectangularValueIndicator</a><span class="parameters">()</span> <span>The rectangular value indicator, typically used for creating markers or thumbs.</span></li><li class="functionIcon public  even"><a class="inline-link" href="#ScaleBase">ScaleBase</a><span class="parameters">(mixin)</span> <span>The ScaleBase class is the base class for the circular and rectangular scales.
+	A scaler must be set to use this class. A scaler is responsible for  responsible for
+	tick generation and various data-transform operations.</span></li><li class="functionIcon public  odd"><a class="inline-link" href="#ScaleIndicatorBase">ScaleIndicatorBase</a><span class="parameters">(mixin)</span> <span>This type of indicator is used to render text.
+	To render an arbitrary text, set the value property.
+	To render the value of a value indicator or a range indicator, set the indicator property.
+	Setting the indicator property takes precedence on setting the value property.
+	When the indicator property is set, the text is automatically updated on value changes.</span></li></ul></div><h2 class="jsdoc-summary-heading">Attached Objects <span class="jsdoc-summary-toggle"></span></h2><div class="jsdoc-summary-list"><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/CircularGauge.html">dojox.dgauges.CircularGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/CircularGauge/_widgetBox.html">dojox.dgauges.CircularGauge._widgetBox</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/GaugeBase.html">dojox.dgauges.GaugeBase</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/CircularRangeIndicator.html">dojox.dgauges.CircularRangeIndicator</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/CircularRangeIndicator/scale.html">dojox.dgauges.CircularRangeIndicator.scale</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/ScaleIndicatorBase.html">dojox.dgauges.ScaleIndicatorBase</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/CircularScale.html">dojox.dgauges.CircularScale</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/ScaleBase.html">dojox.dgauges.ScaleBase</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/CircularValueIndicator.html">dojox.dgauges.CircularValueIndicator</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/GaugeBase/_node/style.html">dojox.dgauges.GaugeBase._node.style</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/IndicatorBase.html">dojox.dgauges.IndicatorBase</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/LinearScaler.html">dojox.dgauges.LinearScaler</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/LogScaler.html">dojox.dgauges.LogScaler</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/MultiLinearScaler.html">dojox.dgauges.MultiLinearScaler</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/RectangularGauge.html">dojox.dgauges.RectangularGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/RectangularRangeIndicator.html">dojox.dgauges.RectangularRangeIndicator</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/RectangularScale.html">dojox.dgauges.RectangularScale</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/RectangularScale/_contentBox.html">dojox.dgauges.RectangularScale._contentBox</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/RectangularScale/_gauge/_layoutInfos.html">dojox.dgauges.RectangularScale._gauge._layoutInfos</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/RectangularValueIndicator.html">dojox.dgauges.RectangularValueIndicator</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/components.html">dojox.dgauges.components</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/DefaultPropertiesMixin.html">dojox.dgauges.components.DefaultPropertiesMixin</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/components/black.html">dojox.dgauges.components.black</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/black/CircularLinearGauge.html">dojox.dgauges.components.black.CircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/black/HorizontalLinearGauge.html">dojox.dgauges.components.black.HorizontalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/black/SemiCircularLinearGauge.html">dojox.dgauges.components.black.SemiCircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/black/VerticalLinearGauge.html">dojox.dgauges.components.black.VerticalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/components/classic.html">dojox.dgauges.components.classic</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/classic/CircularLinearGauge.html">dojox.dgauges.components.classic.CircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/classic/HorizontalLinearGauge.html">dojox.dgauges.components.classic.HorizontalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/classic/SemiCircularLinearGauge.html">dojox.dgauges.components.classic.SemiCircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/classic/VerticalLinearGauge.html">dojox.dgauges.components.classic.VerticalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/components/default.html">dojox.dgauges.components.default</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/default/CircularLinearGauge.html">dojox.dgauges.components.default.CircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/default/HorizontalLinearGauge.html">dojox.dgauges.components.default.HorizontalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/default/SemiCircularLinearGauge.html">dojox.dgauges.components.default.SemiCircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/default/VerticalLinearGauge.html">dojox.dgauges.components.default.VerticalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/components/green.html">dojox.dgauges.components.green</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/green/CircularLinearGauge.html">dojox.dgauges.components.green.CircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/green/HorizontalLinearGauge.html">dojox.dgauges.components.green.HorizontalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/green/SemiCircularLinearGauge.html">dojox.dgauges.components.green.SemiCircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/green/VerticalLinearGauge.html">dojox.dgauges.components.green.VerticalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/components/grey.html">dojox.dgauges.components.grey</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/grey/CircularLinearGauge.html">dojox.dgauges.components.grey.CircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/grey/HorizontalLinearGauge.html">dojox.dgauges.components.grey.HorizontalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/grey/SemiCircularLinearGauge.html">dojox.dgauges.components.grey.SemiCircularLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="constructor"><a class="jsdoc-link" href="../dojox/dgauges/components/grey/VerticalLinearGauge.html">dojox.dgauges.components.grey.VerticalLinearGauge</a></span></div></div><div class="jsdoc-field"><div class="jsdoc-title"><span class="object"><a class="jsdoc-link" href="../dojox/dgauges/components/utils.html">dojox.dgauges.components.utils</a></span></div></div></div></div></div><div class="jsdoc-children"><div class="jsdoc-fields"><h2>Properties</h2><div class="jsdoc-field public  even"><div class="jsdoc-title"><a name="components"></a><span class="objectIcon">components</span></div></div><h2>Methods</h2><div class="jsdoc-field public  odd"><div class="jsdoc-title"><a name="CircularGauge"></a><span class="functionIcon">CircularGauge</span></div><div class="jsdoc-summary">The base class for circular gauges.
+	You can create custom circular or semi-circular gauges by extending this class.
+	See dojox.dgauges.components.default.CircularLinearGauge.js for an example of circular gauge.</div></div><div class="jsdoc-field public  even"><div class="jsdoc-title"><a name="CircularRangeIndicator"></a><span class="functionIcon">CircularRangeIndicator</span></div><div class="jsdoc-summary">A CircularRangeIndicator is used to represent a range of values on a scale.
+	Use the addIndicator method of CircularScale to use it.
+	It is represented as a donut slice.</div></div><div class="jsdoc-field public  odd"><div class="jsdoc-title"><a name="CircularScale"></a><span class="functionIcon">CircularScale</span></div><div class="jsdoc-summary">The circular scale. A scaler must be set to use this class.</div></div><div class="jsdoc-field public  even"><div class="jsdoc-title"><a name="CircularValueIndicator"></a><span class="functionIcon">CircularValueIndicator</span></div><div class="jsdoc-summary">The circular value indicator, typically used for creating needles.</div></div><div class="jsdoc-field public  odd"><div class="jsdoc-title"><a name="GaugeBase"></a><span class="functionIcon">GaugeBase</span></div><div class="jsdoc-summary">This class is the base class for the circular and
+	rectangular (horizontal and vertical) gauge components.
+	A gauge is a composition of elements added to the gauge using the addElement method.
+	Elements are drawn from back to front in the same order they are added (using addElement).
+	An elements can be:
+	- A GFX drawing functions typically used for defining the style of the gauge.
+	- A scale: CircularScale or RectangularScale depending on the type of gauge.
+	- A text, using the TextIndicator
+	Note: Indicator classes (value indicators, range indicators) are sub-elements of scales
+	
+	To create a custom gauge, subclass CircularGauge or RectangularGauge and
+	configure its elements in the constructor.</div><table class="jsdoc-parameters"><tr><th>Parameter</th><th>Type</th><th>Description</th></tr><tr><td class="jsdoc-param-name">args</td><td class="jsdoc-param-type">Object</td><td class="jsdoc-param-description"></td></tr><tr><td class="jsdoc-param-name">node</td><td class="jsdoc-param-type">DOMNode</td><td class="jsdoc-param-description"></td></tr></table></div><div class="jsdoc-field public  even"><div class="jsdoc-title"><a name="IndicatorBase"></a><span class="functionIcon">IndicatorBase</span></div><div class="jsdoc-summary">The base class for indicators. Basically, an indicator is used to render a value.</div></div><div class="jsdoc-field public  odd"><div class="jsdoc-title"><a name="LinearScaler"></a><span class="functionIcon">LinearScaler</span></div><div class="jsdoc-summary">The linear scaler. This scaler creates major and minor ticks regularly between
+	a minimum and a maximum.
+	Scalers are responsible for tick generation and various data-transform operations.</div></div><div class="jsdoc-field public  even"><div class="jsdoc-title"><a name="LogScaler"></a><span class="functionIcon">LogScaler</span></div><div class="jsdoc-summary">The LogScaler maps numeric values evenly
+	between a minimum and a maximum value along a gauge scale.
+	If no multiplier is specified, the scale will place
+	a tick on each power of 10 value (1, 10, 100, 1000, and so on) between
+	the minimum and maximum values.</div></div><div class="jsdoc-field public  odd"><div class="jsdoc-title"><a name="MultiLinearScaler"></a><span class="functionIcon">MultiLinearScaler</span></div><div class="jsdoc-summary">The multi-linear scaler. This scaler maps numeric values according
+	to the majorTickValues content.
+	This allows display of very large value intervals that are difficult to render
+	with a linear scale. For example, if majorTickValues contains [0, 10, 50, 500, 2000],
+	the scale will show five major ticks with these values.
+	Note that this is not a logarithmic scale, the interpolation is linear between
+	two contiguous major ticks.
+	Scalers are responsible for tick generation and various data-transform operations.</div></div><div class="jsdoc-field public  even"><div class="jsdoc-title"><a name="RectangularGauge"></a><span class="functionIcon">RectangularGauge</span></div><div class="jsdoc-summary">The base class for rectangular gauges.
+	You can create custom horizontal or vertical gauges by extending this class.
+	See dojox.dgauges.components.default.HorinzontalLinearGauge.js for an example of rectangular gauge.</div></div><div class="jsdoc-field public  odd"><div class="jsdoc-title"><a name="RectangularRangeIndicator"></a><span class="functionIcon">RectangularRangeIndicator</span></div><div class="jsdoc-summary"><p>Creates a segmented range indicator.</p>
+</div></div><div class="jsdoc-field public  even"><div class="jsdoc-title"><a name="RectangularScale"></a><span class="functionIcon">RectangularScale</span></div><div class="jsdoc-summary">The rectangular scale. A scaler must be set to use this class.</div></div><div class="jsdoc-field public  odd"><div class="jsdoc-title"><a name="RectangularValueIndicator"></a><span class="functionIcon">RectangularValueIndicator</span></div><div class="jsdoc-summary">The rectangular value indicator, typically used for creating markers or thumbs.</div></div><div class="jsdoc-field public  even"><div class="jsdoc-title"><a name="ScaleBase"></a><span class="functionIcon">ScaleBase</span></div><div class="jsdoc-summary">The ScaleBase class is the base class for the circular and rectangular scales.
+	A scaler must be set to use this class. A scaler is responsible for  responsible for
+	tick generation and various data-transform operations.</div><table class="jsdoc-parameters"><tr><th>Parameter</th><th>Type</th><th>Description</th></tr><tr><td class="jsdoc-param-name">mixin</td><td class="jsdoc-param-type"></td><td class="jsdoc-param-description"></td></tr></table></div><div class="jsdoc-field public  odd"><div class="jsdoc-title"><a name="ScaleIndicatorBase"></a><span class="functionIcon">ScaleIndicatorBase</span></div><div class="jsdoc-summary">This type of indicator is used to render text.
+	To render an arbitrary text, set the value property.
+	To render the value of a value indicator or a range indicator, set the indicator property.
+	Setting the indicator property takes precedence on setting the value property.
+	When the indicator property is set, the text is automatically updated on value changes.</div><table class="jsdoc-parameters"><tr><th>Parameter</th><th>Type</th><th>Description</th></tr><tr><td class="jsdoc-param-name">mixin</td><td class="jsdoc-param-type"></td><td class="jsdoc-param-description"></td></tr></table></div></div></div>
+        </div>
+       </div>
+      </div>
+  </div>
+</body>
+</html>

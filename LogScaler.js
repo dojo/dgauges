@@ -35,6 +35,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 			if(this._computedMaximum > this._computedMinimum){
 				var start = Math.max(0, Math.floor(Math.log(this._computedMinimum + 0.000000001) / Math.LN10));
 				var end = Math.max(0, Math.floor(Math.log(this._computedMaximum + 0.000000001) / Math.LN10));
+				var data;
 				for(var i = start; i <= end; i += this._computedMultiplier){
 					data = {};
 					data.value = Math.pow(10, i);

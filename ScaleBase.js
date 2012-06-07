@@ -3,7 +3,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 	return declare("dojox.dgauges.ScaleBase", _Invalidating, {
 		//	summary:
 		//		The ScaleBase class is the base class for the circular and rectangular scales.
-		//		A scaler must be set to use this class. A scaler is responsible for  responsible for 
+		//		A scaler must be set to use this class. A scaler is responsible for
 		//		tick generation and various data-transform operations.	
 
 		//	scaler: Object

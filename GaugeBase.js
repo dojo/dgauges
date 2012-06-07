@@ -265,7 +265,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 			//	returns: Object
 			//		A reference to the removed element.
 			
-			element = this._elementsIndex[name];
+			var element = this._elementsIndex[name];
 			
 			if(element){
 				element._gfxGroup.removeShape();

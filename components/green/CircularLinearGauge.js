@@ -15,13 +15,13 @@ define([
 			//	summary:
 			//		A circular gauge widget.
 
-			//	borderColor:
+			//	borderColor: Object|Array|int
 			//		The border color. Default is "#323232".
 			borderColor: [50,50,50],
-			//	fillColor:
+			//	fillColor: Object|Array|int
 			//		The fill color. Default is "#6DB713".
 			fillColor: [109,183,19],
-			//	indicatorColor:
+			//	indicatorColor: Object|Array|int
 			//		The indicator fill color. Default is "#000000".
 			indicatorColor: [0,0,0],
 			constructor: function(args, node){

@@ -11,13 +11,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 		//	summary:
 		//		A semi circular gauge widget.
 
-		//	borderColor:
+		//	borderColor: Object|Array|int
 		//		The border color. Default is "#000000".
 		borderColor: "#000000",
-		//	fillColor:
+		//	fillColor: Object|Array|int
 		//		The background color. Default is "#000000".
 		fillColor: "#000000",
-		//	indicatorColor:
+		//	indicatorColor: Object|Array|int
 		//		The indicator fill color. Default is "#A4A4A4".
 		indicatorColor: "#A4A4A4",
 		constructor: function(){

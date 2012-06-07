@@ -18,13 +18,13 @@ define([
 		_radius: 88,
 		_width: 200,
 		_height: 123,
-		//	borderColor:
+		//	borderColor: Object|Array|int
 		//		The border color. Default is "#C9DFF2".
 		borderColor: "#C9DFF2",
-		//	fillColor:
+		//	fillColor: Object|Array|int
 		//		The background color. Default is "#FCFCFF".
 		fillColor: "#FCFCFF",
-		//	indicatorColor:
+		//	indicatorColor: Object|Array|int
 		//		The indicator fill color. Default is "#F01E28".
 		indicatorColor: "#F01E28",
 		constructor: function(){

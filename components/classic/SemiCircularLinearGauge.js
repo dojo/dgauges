@@ -14,13 +14,13 @@ define([
 			//	summary:
 			//		A semi circular gauge widget.
 
-			//	borderColor:
+			//	borderColor: Object|Array|int
 			//		The border color. Default is "#797E86".
 			borderColor: [121,126,134],
-			//	fillColor:
+			//	fillColor: Object|Array|int
 			//		The background color. Default is "#9498A1".
 			fillColor: [148,152,161],
-			//	indicatorColor:
+			//	indicatorColor: Object|Array|int
 			//		The indicator fill color. Default is "#FFFFFF".
 			indicatorColor: "#FFFFFF",
 			constructor: function(){

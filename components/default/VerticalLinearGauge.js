@@ -84,7 +84,7 @@ define([
 				width: w,
 				height: h,
 				r: cr
-			}).setFill(dojo.mixin({
+			}).setFill(lang.mixin({
 				type: "linear",
 				x1: 0,
 				y1: 0,
@@ -103,7 +103,7 @@ define([
 				width: w - 2 * gap,
 				height: h - 2 * gap,
 				r: cr
-			}).setFill(dojo.mixin({
+			}).setFill(lang.mixin({
 				type: "linear",
 				x1: 0,
 				y1: 0,
@@ -119,7 +119,7 @@ define([
 				width: w - 2 * gap,
 				height: h - 2 * gap,
 				r: cr
-			}).setFill(dojo.mixin({
+			}).setFill(lang.mixin({
 				type: "linear",
 				x1: 0,
 				y1: 0,
@@ -136,7 +136,7 @@ define([
 				width: w - 2 * gap,
 				height: h - 2 * gap,
 				r: cr
-			}).setFill(dojo.mixin({
+			}).setFill(lang.mixin({
 				type: "linear",
 				x1: w,
 				y1: 0,
@@ -152,7 +152,7 @@ define([
 				width: w - 2 * gap,
 				height: h - 2 * gap,
 				r: cr
-			}).setFill(dojo.mixin({
+			}).setFill(lang.mixin({
 				type: "radial",
 				cx: 0,
 				cy: h / 2,

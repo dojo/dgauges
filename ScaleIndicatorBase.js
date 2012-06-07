@@ -54,7 +54,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		constructor: function(){
 		
 			// watches changed happening on the "value" property to call this.valueChanged() function which
-			// can be listen by user with dojo.connect
+			// can be listen by user with connect.connect
 			this.watch("value", lang.hitch(this, function(){
 				this.valueChanged(this);
 			}));
@@ -126,7 +126,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 			//	summary:
 			//		Invoked when the value of the indicator changes.
 			//		User can connect an listener on this function: 
-			//				dojo.connect(theIndicator, "valueChanged", dojo.hitch(this, function(){
+			//				connect.connect(theIndicator, "valueChanged", lang.hitch(this, function(){
 			//					//do something
 			//				}));
 			on.emit(this, "valueChanged", {

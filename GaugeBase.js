@@ -93,7 +93,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 				};
 			};
 			
-			dojo.extend(dojox.gfx.matrix.Matrix2D, {
+			lang.extend(dojox.gfx.matrix.Matrix2D, {
 				isIdentity: function(){
 					// summary:
 					//		Indicates whether this transform corresponds to the identity operation.
@@ -138,7 +138,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 					return r;
 				}
 			});
-			dojo.extend(dojox.gfx.Group, {
+			lang.extend(dojox.gfx.Group, {
 				getBoundingBox: function(){
 					var bb = null;
 					var cs = this.children;

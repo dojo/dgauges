@@ -1,6 +1,7 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
-		"dojo/_base/event", "dojox/gfx", "dojox/widget/_Invalidating","./ScaleBase"],
-	function(lang, declare, domGeom,  WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase){
+		"dojo/_base/event", "dojox/gfx", "dojox/widget/_Invalidating","./ScaleBase", "dojox/gfx/matrix", "dojox/gfx/canvas"],
+	function(lang, // lang.extend
+		declare, domGeom,  WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase, matrix, canvas){
 	return declare("dojox.dgauges.GaugeBase", [_WidgetBase, _Invalidating], {
 		//	summary: 
 		//		This class is the base class for the circular and 
@@ -12,12 +13,11 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		//		- A scale: CircularScale or RectangularScale depending on the type of gauge.
 		//		- A text, using the TextIndicator
 		//		Note: Indicator classes (value indicators, range indicators) are sub-elements of scales
-		//		
 		//		To create a custom gauge, subclass CircularGauge or RectangularGauge and
 		//		configure its elements in the constructor.
-	
 		//		Ready to use, predefined gauges are available in dojox.dgauges.components.
 		//		They are good examples of gauges built on top of the framework.
+		
 		_elements: null,
 		_scales: null,
 		_elementsIndex: null,
@@ -93,7 +93,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 				};
 			};
 			
-			lang.extend(dojox.gfx.matrix.Matrix2D, {
+			lang.extend(matrix.Matrix2D, {
 				isIdentity: function(){
 					// summary:
 					//		Indicates whether this transform corresponds to the identity operation.
@@ -138,7 +138,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 					return r;
 				}
 			});
-			lang.extend(dojox.gfx.Group, {
+			lang.extend(canvas.Group, {
 				getBoundingBox: function(){
 					var bb = null;
 					var cs = this.children;

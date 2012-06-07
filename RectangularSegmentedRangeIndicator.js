@@ -2,6 +2,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 	return declare("dojox.dgauges.RectangularRangeIndicator", IndicatorBase, {
 		//	summary:
 		//		A segmented-style range indicator for rectangular gauges.
+		
 		start: 0,
 		startThickness: 10,
 		endThickness: 10,

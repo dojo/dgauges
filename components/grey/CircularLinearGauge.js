@@ -12,6 +12,9 @@ define([
 	], 
 	function(lang, declare, Color, utils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 		return declare("dojox.dgauges.components.grey.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
+			//	summary:
+			//		A circular gauge widget.
+
 			//	borderColor:
 			//		The border color. Default is "#9498A1".
 			borderColor: [148,152,161],

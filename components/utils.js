@@ -1,11 +1,12 @@
 define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
-	var utils = {};
+	// module:
+	//		dojox/dgauges/components/utils
+	// summary:
+	//		Gauge utilities.
+	// tags:
+	//		public
 
-	/*=====
-	dojox.dgauges.components.utils = {
-		// summary: Gauges utilities.
-	};
-	=====*/
+	var utils = {};
 
 	lang.mixin(utils, {
 		brightness: function(col, b){

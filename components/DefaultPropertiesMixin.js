@@ -1,5 +1,8 @@
 define(["dojo/_base/declare", "dojo/_base/Color"], function(declare, Color){
 	return declare("dojox.dgauges.components.DefaultPropertiesMixin", null, {
+		//	summary:
+		//		This class defines default properties of predefined gauges.
+
 		//	minimum: Number
 		//		The minimum value of the scaler. Default is 0.
 		minimum: 0,

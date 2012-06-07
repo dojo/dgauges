@@ -7,11 +7,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 		"../DefaultPropertiesMixin"
 	],
 	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
-
-	/*=====
-	 var CircularGauge = dojox.dgauges.CircularGauge;
-	 =====*/
-
 	return declare("dojox.dgauges.components.black.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 		//	borderColor:
 		//		The border color. Default is "#000000".

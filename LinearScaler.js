@@ -1,9 +1,4 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang, declare, Stateful){
-
-	/*=====
-	var Stateful = dojo.Stateful;
-	=====*/
-
 	return declare("dojox.dgauges.LinearScaler", Stateful, {
 		//	summary:
 		//		The linear scaler. This scaler creates major and minor ticks regularly between 

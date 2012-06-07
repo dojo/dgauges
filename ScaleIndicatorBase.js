@@ -1,9 +1,5 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect", "dojo/_base/fx", "dojox/gfx", "dojox/widget/_Invalidating", "./IndicatorBase"],
 	function(lang, declare, on, connect, fx, gfx, _Invalidating, IndicatorBase){
-
-	/*=====
-	 var _Invalidating = dojox.widget._Invalidating;
-	 =====*/
 	return declare("dojox.dgauges.ScaleIndicatorBase", IndicatorBase, {
 		//	summary:
 		//		The base class for indicators that rely on a scale for their rendering.

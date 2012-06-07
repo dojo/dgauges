@@ -12,11 +12,6 @@ define([
 		"../DefaultPropertiesMixin"
 	], 
 	function(lang, declare, connect, Color, utils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, TextIndicator, DefaultPropertiesMixin){
-
-	/*=====
-	var RectangularGauge = dojox.dgauges.RectangularGauge;
-	=====*/
-	
 	return declare("dojox.dgauges.components.default.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 		//	borderColor:
 		//		The border color. Default is "#C9DFF2".
@@ -96,7 +91,7 @@ define([
 				color: "#A5A5A5",
 				width: 0.2
 			});
-			var entries = utils.createGradient([0, utils.brightness(this.borderColor, 70), 1, utils.brightness(this.borderColor, -50)]);
+			entries = utils.createGradient([0, utils.brightness(this.borderColor, 70), 1, utils.brightness(this.borderColor, -50)]);
 			gap = 4;
 			cr = 2
 			g.createRect({
@@ -114,7 +109,7 @@ define([
 			}, entries));
 			gap = 6;
 			cr = 1
-			var entries = utils.createGradient([0, utils.brightness(this.borderColor, 60), 1, utils.brightness(this.borderColor, -40)]);
+			entries = utils.createGradient([0, utils.brightness(this.borderColor, 60), 1, utils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -131,7 +126,7 @@ define([
 			
 			gap = 7;
 			cr = 0
-			var entries = utils.createGradient([0, utils.brightness(this.borderColor, 70), 1, utils.brightness(this.borderColor, -40)]);
+			entries = utils.createGradient([0, utils.brightness(this.borderColor, 70), 1, utils.brightness(this.borderColor, -40)]);
 			g.createRect({
 				x: gap,
 				y: gap,
@@ -147,7 +142,7 @@ define([
 			}, entries));
 			gap = 5;
 			cr = 0
-			var entries = utils.createGradient([0, [255, 255, 255, 220], 0.8, utils.brightness(this.fillColor, -5), 1, utils.brightness(this.fillColor, -30)]);
+			entries = utils.createGradient([0, [255, 255, 255, 220], 0.8, utils.brightness(this.fillColor, -5), 1, utils.brightness(this.fillColor, -30)]);
 			g.createRect({
 				x: gap,
 				y: gap,

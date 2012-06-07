@@ -1,9 +1,5 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array", "dojox/widget/_Invalidating"],
 	function(lang, declare, gfx, array, _Invalidating){
-	/*=====
-	var _Invalidating = dojox.widget._Invalidating;
-	=====*/
-	
 	return declare("dojox.dgauges.ScaleBase", _Invalidating, {
 		//	summary:
 		//		The ScaleBase class is the base class for the circular and rectangular scales.

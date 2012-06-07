@@ -11,11 +11,6 @@ define([
 		"../DefaultPropertiesMixin"
 	], 
 	function(lang, declare, Color, utils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator, DefaultPropertiesMixin){
-
-	/*=====
-	var CircularGauge = dojox.dgauges.CircularGauge;
-	=====*/
-	
 	return declare("dojox.dgauges.components.default.CircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
 		_radius: 100,
 		//	borderColor:

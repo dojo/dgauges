@@ -1,9 +1,4 @@
 define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase"], function(declare, domGeom, gfx, GaugeBase){
-
-    /*=====
-     var GaugeBase = dojox.dgauges.GaugeBase;
-     =====*/
-
 	return declare("dojox.dgauges.CircularGauge", GaugeBase, {
 		//	summary:
 		//		The base class for circular gauges.

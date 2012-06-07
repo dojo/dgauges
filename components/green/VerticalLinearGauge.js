@@ -10,10 +10,6 @@ define([
 		"../DefaultPropertiesMixin"
 	], 
 	function(lang, declare, Color, utils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
-
-	/*=====
-	var RectangularGauge = dojox.dgauges.RectangularGauge;
-	=====*/
 		return declare("dojox.dgauges.components.green.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
 			//	borderColor:
 			//		The border color. Default is "#323232".

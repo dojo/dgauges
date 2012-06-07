@@ -1,10 +1,5 @@
 define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/event", "dojo/dom-geometry"],
 	function(declare, ScaleIndicatorBase, gfx, eventUtil, domGeom){
-
-	/*=====
-     var ScaleIndicatorBase = dojox.dgauges.ScaleIndicatorBase;
-     =====*/
-	
 	return declare("dojox.dgauges.RectangularValueIndicator", ScaleIndicatorBase, {
 		//	summary:
 		//		The rectangular value indicator, typically used for creating markers or thumbs.

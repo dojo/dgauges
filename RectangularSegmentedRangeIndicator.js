@@ -1,7 +1,4 @@
 define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], function(declare, on, gfx, IndicatorBase){
-	/*=====
-	var IndicatorBase = dojox.dgauges.IndicatorBase;
-	=====*/
 	return declare("dojox.dgauges.RectangularRangeIndicator", IndicatorBase, {
 		//	summary:
 		//		A segmented-style range indicator for rectangular gauges.
@@ -49,6 +46,8 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 
 		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			var length = scale._contentBox.w ;
+			var shape, i, gp, radius;
+			
 			if(this.ranges){
 				// Configure gradient to represent the ranges
 				fill = {type:"linear", colors:[]};
@@ -59,7 +58,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				
 				var rangeStart = 0;
 				
-				for(var i = 0; i < this.ranges.length; i++){
+				for(i = 0; i < this.ranges.length; i++){
 					var entry1 = {
 						color:this.ranges[i].color,
 						offset: scale.scaler.positionForValue(rangeStart)
@@ -80,7 +79,6 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				fill.y2 = startY;
 			}
 			
-			var shape, i,gp,radius;
 			var x = startX;
 			var y = startY;
 			var chicklet = (length / this.segments) - this.segmentSpacing;
@@ -126,7 +124,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			// draw the remaining segment part
 			if(remain > 0){
 				ew = sw+( (ew-sw)*remain );
-				var gp = [x, y, x+(chicklet*remain), y, x+(chicklet*remain), y  + ew, x, y + sw, x, y]
+				gp = [x, y, x+(chicklet*remain), y, x+(chicklet*remain), y  + ew, x, y + sw, x, y]
 				shape = group.createPolyline(gp).setFill(fill).setStroke(stroke);
 			}
 			
@@ -135,6 +133,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 
 		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			var length = scale._contentBox.h ;
+			var shape, i,gp,radius;
 			if(this.ranges){
 				// Configure gradient to represent the ranges
 				fill = {type:"linear", colors:[]};				
@@ -145,7 +144,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				
 				var rangeStart = 0;
 				
-				for(var i = 0; i < this.ranges.length; i++){
+				for(i = 0; i < this.ranges.length; i++){
 					var entry1 = {
 						color:this.ranges[i].color,
 						offset: scale.scaler.positionForValue(rangeStart)
@@ -166,7 +165,6 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				fill.y2 = startY + length;
 			}
 			
-			var shape, i,gp,radius;
 			var x = startX;
 			var y = startY;
 			var chicklet = (length / this.segments) - this.segmentSpacing;
@@ -212,7 +210,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 			// draw the remaining segment part
 			if(remain > 0){
 				ew = sw+( (ew-sw)*remain );
-				var gp = [x, y, x, y+(chicklet*remain), x+ ew, y+(chicklet*remain), x+ sw, y , x, y];
+				gp = [x, y, x, y+(chicklet*remain), x+ ew, y+(chicklet*remain), x+ sw, y , x, y];
 				shape = group.createPolyline(gp).setFill(fill).setStroke(stroke);
 			}
 			

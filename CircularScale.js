@@ -1,9 +1,4 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], function(declare, gfx, ScaleBase, _circularUtils){
-	
-    /*=====
-     var ScaleBase = dojox.dgauges.ScaleBase;
-     =====*/	
-	
 	return declare("dojox.dgauges.CircularScale", ScaleBase, {
 		//	summary:
 		//		The circular scale. A scaler must be set to use this class.

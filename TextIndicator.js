@@ -1,9 +1,5 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base/array", "dojo/on", "dojox/gfx", "./IndicatorBase"],
 	function(lang, declare, has, array, on, gfx, IndicatorBase){
-
-	/*=====
-	var IndicatorBase = dojox.dgauges.IndicatorBase;
-	=====*/
 	return declare("dojox.dgauges.ScaleIndicatorBase", IndicatorBase, {
 		//	summary:
 		//		This type of indicator is used to render text.
@@ -67,13 +63,13 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base
 		_textInstance: null,
 		
 		_createText: function(group, font, color, text, x, y, align){
-			var text = group.createText({
+			var gfxText = group.createText({
 				x: x,
 				y: y,
 				text: text,
 				align: align
 			}).setFont(font).setFill(color);
-			return text;
+			return gfxText;
 		},
 		
 		refreshRendering: function(){
@@ -90,7 +86,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base
 				text = this.labelFunc(text);
 			}
 			var iOsVersion = has("iphone");
-			// Workaround for a bug on iOS version < 5.0: Recreate the text every time
+			// Workaround for a bug on iOS version < 5.0: Recreate the text every times
 			if(!this._textCreated || (iOsVersion != undefined && iOsVersion < 5)){
 				this._gfxGroup.clear();
 				var font = this._getFont();

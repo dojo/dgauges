@@ -1,7 +1,4 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx, ScaleBase){
-	/*=====
-	var ScaleBase = dojox.dgauges.ScaleBase;
-	=====*/
 	return declare("dojox.dgauges.RectangularScale", ScaleBase, {
 		//	summary:
 		//		The rectangular scale. A scaler must be set to use this class.

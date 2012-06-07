@@ -5,7 +5,6 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 	dojox.dgauges.components.utils = {
 		// summary: Gauges utilities.
 	};
-	var utils = dojox.dgauges.components.utils;
 	=====*/
 
 	lang.mixin(utils, {

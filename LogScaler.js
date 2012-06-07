@@ -1,8 +1,4 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang, declare, Stateful){
-
-	/*=====
-	 var Stateful = dojo.Stateful;
-	 =====*/
 	return declare("dojox.dgauges.LogScaler", Stateful, {
 		//	summary:
 		//		The LogScaler maps numeric values evenly

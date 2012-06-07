@@ -1,12 +1,6 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
 		"dojo/_base/event", "dojox/gfx", "dojox/widget/_Invalidating","./ScaleBase"],
 	function(lang, declare, domGeom,  WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase){
-	
-	/*=====
-	var _WidgetBase = dijit._WidgetBase;
-	var _Invalidating = dojox.widget._Invalidating;
-	=====*/
-	
 	return declare("dojox.dgauges.GaugeBase", [_WidgetBase, _Invalidating], {
 		//	summary: 
 		//		This class is the base class for the circular and 
@@ -151,7 +145,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 					var ncs = this.children.length;
 					var c;
 					for(var i = 0; i < ncs; ++i){
-						var c = cs[i];
+						c = cs[i];
 						var cbb = c.getBoundingBox();
 						if(!cbb){
 							continue;

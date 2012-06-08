@@ -77,6 +77,16 @@ define([
 		},
 		
 		drawBackground: function(g, w, h){
+			// summary:
+			//		Draws the background shape of the gauge.
+			// g: dojox/gfx/canvas.Group
+			//		The group used to draw the background. 
+			// w: Number
+			//		The width of the gauge.
+			// h: Number
+			//		The height of the gauge.
+			// tags:
+			//		protected
 			w = 49;
 			var gap = 0;
 			var cr = 3;
@@ -167,6 +177,10 @@ define([
 			
 		},
 		drawTextBorder: function(g){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			return g.createRect({
 				x: 5,
 				y: 5,

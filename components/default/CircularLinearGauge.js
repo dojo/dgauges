@@ -62,6 +62,12 @@ define([
 		},
 		
 		drawBackground: function(g){
+			// summary:
+			//		Draws the background shape of the gauge.
+			// g: dojox/gfx/canvas.Group
+			//		The group used to draw the background. 
+			// tags:
+			//		protected
 			var r = this._radius;
 			var w = 2 * r;
 			var h = w;
@@ -143,6 +149,12 @@ define([
 		},
 		
 		drawForeground: function(g){
+			// summary:
+			//		Draws the foreground shape of the gauge.
+			// g: dojox/gfx/canvas.Group
+			//		The group used to draw the foreground. 
+			// tags:
+			//		protected
 			var r = 0.07 * this._radius;
 			var entries = utils.createGradient([0, this.borderColor, 1, utils.brightness(this.borderColor, -20)]);
 			g.createEllipse({

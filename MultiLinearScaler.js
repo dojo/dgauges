@@ -37,7 +37,7 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		computeTicks: function(){
 			// summary:
 			//		Creates or re-creates the ticks for this scaler.
-			//	returns: Array
+			// returns: Array
 			//		An array containing all ticks (major then minor ticks).			
 			this.majorTicks = [];
 			this.minorTicks = [];
@@ -74,9 +74,9 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		positionForValue: function(value){
 			// summary:
 			//		Transforms a value into a relative position between 0 and 1.
-			//	value: Number
+			// value: Number
 			//		A value to transform.
-			//	returns: Number
+			// returns: Number
 			//		The position between 0 and 1.			
 			if(!this.majorTickValues){
 				return 0;
@@ -94,9 +94,9 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		valueForPosition: function(position){
 			// summary:
 			//		Transforms a relative position (between 0 and 1) into a value.
-			//	value: Number
+			// value: Number
 			//		A relative position to transform.
-			//	returns: Number
+			// returns: Number
 			//		The transformed value.
 			if(this.majorTicks == null){
 				return 0;

@@ -66,8 +66,13 @@ define([
 				scale.addIndicator("indicator", indicator);
 				this.addElement("foreground", lang.hitch(this, this.drawForeground));
 			},
-
 			drawBackground: function(g){
+				// summary:
+				//		Draws the background shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the background. 
+				// tags:
+				//		protected
 				g.createPath({
 					path: "M372.9962 186.58 C373.0312 289.5712 289.57 373.0888 186.5787 373.1237 C83.5887 373.16 0.07 289.6975 0.035 186.7062 L0.035 186.58 C-0 83.5888 83.4625 0.0712 186.4524 0.0362 C289.4425 -0 372.9611 83.4625 372.9962 186.4525 L372.9962 186.58 Z"
 				}).setFill(this.borderColor);
@@ -103,6 +108,12 @@ define([
 			},
 
 			drawForeground: function(g){
+				// summary:
+				//		Draws the foreground shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the foreground. 
+				// tags:
+				//		protected
 				var g1 = g.createGroup();
 				g1.createPath({
 					path: "M214.9859 185.33 C214.9909 201.0537 202.2496 213.8037 186.5259 213.81 C170.7996 213.815 158.0496 201.0725 158.0446 185.35 L158.0446 185.33 C158.0384 169.6062 170.7821 156.8562 186.5071 156.85 C202.2296 156.845 214.9809 169.5875 214.9859 185.3113 L214.9859 185.33 Z"

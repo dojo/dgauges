@@ -59,6 +59,12 @@ define([
 			},
 
 			drawBackground: function(g){
+				// summary:
+				//		Draws the background shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the background. 
+				// tags:
+				//		protected
 				g.createEllipse({
 					cx: 73.5,
 					cy: 73.75,
@@ -97,6 +103,12 @@ define([
 			},
 
 			drawForeground: function(g){
+				// summary:
+				//		Draws the foreground shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the foreground. 
+				// tags:
+				//		protected
 				g.createEllipse({
 					cx: 73.3,
 					cy: 73.8,

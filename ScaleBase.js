@@ -133,7 +133,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			//		Gets the GFX shape of an indicator.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
-			//	returns: dojox.gfx.canvas.Shape
+			// returns: dojox.gfx.canvas.Shape
 			//		The GFX shape of the indicator.
 			return this._indicatorsRenderers[name];
 		},
@@ -143,7 +143,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			//		Removes an indicator.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
-			//	returns: IndicatorBase
+			// returns: IndicatorBase
 			//		The removed indicator.
 			var indicator = this._indicatorsIndex[name];
 			if(indicator){
@@ -165,7 +165,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			//		Get an indicator instance.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
-			//	returns: IndicatorBase
+			// returns: IndicatorBase
 			//		The indicator associated with the name parameter.
 			return this._indicatorsIndex[name];
 		},

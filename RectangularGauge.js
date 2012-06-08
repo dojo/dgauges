@@ -90,7 +90,7 @@ define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(decla
 			//		Remove the element defined by name from the gauge.
 			//	name: String
 			//		The name of the element as defined using addElement.
-			//	returns: Object
+			// returns: Object
 			//		A reference to the removed element.		
 			var obj = this.getElement(name);
 			if(obj){

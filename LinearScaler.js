@@ -80,7 +80,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		getComputedMajorTickInterval: function(){
 			// summary:
 			//		The computed or user defined major tick interval.
-			//	returns: Number
+			// returns: Number
 			//		The major tick interval used for ticks generation.
 			if(!isNaN(this.majorTickInterval)){
 				return this.majorTickInterval;
@@ -94,7 +94,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		getComputedMinorTickInterval: function(){
 			// summary:
 			//		The computed or user defined minor tick interval.
-			//	returns: Number
+			// returns: Number
 			//		The minor tick interval used for ticks generation.
 			if(!isNaN(this.minorTickInterval)){
 				return this.minorTickInterval;
@@ -108,7 +108,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		computeTicks: function(){
 			// summary:
 			//		Creates or re-creates the ticks for this scaler.
-			//	returns: Array
+			// returns: Array
 			//		An array containing all ticks (major then minor ticks).
 			this.majorTicks = this._buildMajorTickItems();
 			this.minorTicks = this.minorTicksEnabled ? this._buildMinorTickItems() : [];
@@ -118,9 +118,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		positionForValue: function(value){
 			// summary:
 			//		Transforms a value into a relative position between 0 and 1.
-			//	value: Number
+			// value: Number
 			//		A value to transform.
-			//	returns: Number
+			// returns: Number
 			//		The position between 0 and 1.
 			var position;
 			if(value == null || isNaN(value) || value <= this.minimum){
@@ -138,9 +138,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		valueForPosition: function(position){
 			// summary:
 			//		Transforms a relative position (between 0 and 1) into a value.
-			//	value: Number
+			// value: Number
 			//		A relative position to transform.
-			//	returns: Number
+			// returns: Number
 			//		The transformed value between minimum and maximum.
 			var range = Math.abs(this.minimum - this.maximum);
 			var value = this.minimum + range * position;

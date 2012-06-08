@@ -64,6 +64,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 		},
 		
 		drawBackground: function(g){
+			// summary:
+			//		Draws the background shape of the gauge.
+			// g: dojox/gfx/canvas.Group
+			//		The group used to draw the background. 
+			// tags:
+			//		protected
 			g.createPath({
 				path: "M372.8838 205.5688 C372.9125 204.4538 372.93 194.135 372.94 185.6062 C372.4475 83.0063 289.1138 -0 186.4063 0.035 C83.7 0.0713 0.4225 83.1325 0 185.7325 C0.01 194.2175 0.0275 204.4638 0.0563 205.5763 C0.235 212.3488 5.7763 217.7462 12.5525 217.7462 L360.3888 217.7462 C367.1663 217.7462 372.71 212.3438 372.8838 205.5688"
 			}).setFill(this.borderColor);
@@ -105,6 +111,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 		},
 		
 		drawForeground: function(g){
+			// summary:
+			//		Draws the foreground shape of the gauge.
+			// g: dojox/gfx/canvas.Group
+			//		The group used to draw the foreground. 
+			// tags:
+			//		protected
 			var g1 = g.createGroup();
 			g1.createPath({
 				path: "M214.9406 185.3295 C214.9456 201.0533 202.2044 213.8033 186.4806 213.8095 C170.7544 213.8145 158.0044 201.072 157.9994 185.3495 L157.9994 185.3295 C157.9931 169.6057 170.7369 156.8557 186.4619 156.8495 C202.1844 156.8445 214.9356 169.587 214.9406 185.3108 L214.9406 185.3295 Z"

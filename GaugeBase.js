@@ -27,7 +27,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		_widgetBox: null,
 		_node: null,
 
-		//	value: Number
+		// value: Number
 		//		A convenient way for setting the value of the first indicator of the first
 		//		scale declared in the gauge. It must be changed using the set method.
 		//		For other indicators, you have to set their value explicitly.
@@ -70,7 +70,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		_addGroupBoundingBoxSupport: function(){
 		
 			dojox.gfx.addRect = function( /*dojox.gfx.Rectangle*/a, /*dojox.gfx.Rectangle*/ b){
-				//	returns:
+				// returns:
 				//		a rectangle representing the addition of the two given.
 				if(a === null && b === null){
 					return null;
@@ -183,7 +183,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 			//		The new width of the gauge.
 			//	height: Number
 			//		The new height of the gauge.
-			//	returns: dojox.dgauges.GaugeBase
+			// returns: dojox.dgauges.GaugeBase
 			//		A reference to the current gauge for functional chaining.
 			var box;
 			switch(arguments.length){
@@ -262,7 +262,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 			//		Remove the element defined by name from the gauge.
 			//	name: String
 			//		The name of the element as defined using addElement.
-			//	returns: Object
+			// returns: Object
 			//		A reference to the removed element.
 			
 			var element = this._elementsIndex[name];
@@ -288,7 +288,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 			//		Get the given element, by name.
 			//	name: String
 			//		The name of the element as defined using addElement.
-			//	returns: Object
+			// returns: Object
 			//		The element.
 			return this._elementsIndex[name];
 		},
@@ -298,7 +298,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 			//		Get the given element renderer, by name.
 			//	name: String
 			//		The name of the element as defined using addElement.
-			//	returns: Object
+			// returns: Object
 			//		The element renderer returned by the
 			//		drawing function or by the refreshRendering() method
 			//		in the case of framework classes.

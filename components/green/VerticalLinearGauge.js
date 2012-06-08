@@ -63,6 +63,16 @@ define([
 			},
 
 			drawBackground: function(g, w, h){
+				// summary:
+				//		Draws the background shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the background. 
+				// w: Number
+				//		The width of the gauge.
+				// h: Number
+				//		The height of the gauge.
+				// tags:
+				//		protected
 				var lighterFillColor = utils.brightness(new Color(this.fillColor), 100);
 				g.createRect({
 					x: 0,

@@ -75,7 +75,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		computeTicks: function(){
 			// summary:
 			//		Creates or re-creates the ticks for this scaler.
-			//	returns: Array
+			// returns: Array
 			//		An array containing ticks.
 			this.majorTicks = this._buildMajorTickItems();
 			return this.majorTicks.concat();
@@ -84,9 +84,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		positionForValue: function(value){
 			// summary:
 			//		Transforms a value into a relative position between 0 and 1.
-			//	value: Number
+			// value: Number
 			//		A value to transform.
-			//	returns: Number
+			// returns: Number
 			//		The position between 0 and 1.
 			
 			if(this._computedMaximum < this._computedMinimum || value <= this._computedMinimum || value < 1 || isNaN(value)){
@@ -104,11 +104,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		valueForPosition: function(position){
 			// summary:
 			//		Transforms a relative position (between 0 and 1) into a value.
-			//	value: Number
+			// position: Number
 			//		A relative position to transform.
-			//	returns: Number
+			// returns: Number
 			//		The transformed value between minimum and maximum.
-			// limit positions, return the extremum
 			var sv = Math.log(this._computedMinimum) / Math.LN10;
 			var ev = Math.log(this._computedMaximum) / Math.LN10;
 			return Math.pow(10, sv + position * (ev - sv));

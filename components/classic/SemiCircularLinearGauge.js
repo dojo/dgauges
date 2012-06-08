@@ -73,6 +73,12 @@ define([
 			},
 
 			drawBackground: function(g){
+				// summary:
+				//		Draws the background shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the background. 
+				// tags:
+				//		protected
 				g.createPath({
 					path: "M82.4061 4.2361 C36.9308 4.2361 0 41.1357 0 86.6111 C0 92.8402 0.719 98.9014 2.0311 104.7361 L162.75 104.7361 C164.0621 98.9014 164.7812 92.8402 164.7812 86.6111 C164.7812 41.1357 127.8816 4.2361 82.4061 4.2361 Z"
 				}).setFill([121,126,134,1]);
@@ -118,6 +124,12 @@ define([
 			},
 
 			drawForeground: function(g){
+				// summary:
+				//		Draws the foreground shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the foreground. 
+				// tags:
+				//		protected
 				g.createEllipse({
 					cx: 82.2187,
 					cy: 86.0486,

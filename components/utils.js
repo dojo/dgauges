@@ -16,7 +16,7 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 			//		The base color
 			//	b: Number
 			//		A positive or negative value to adjust the brightness
-			//	returns: Number
+			// returns: Number
 			//		The modified color			
 			var res = lang.mixin(null, col);
 			res.r = Math.max(Math.min(res.r + b, 255), 0);
@@ -30,7 +30,7 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 			//		Creates a gradient object
 			//	entries: Array
 			//		An array of numbers representing colors
-			//	returns: Number
+			// returns: Number
 			//		The modified color			
 			var res = {
 				colors: []
@@ -80,7 +80,7 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 			//		The position of the labels regarding   
 			//	tickShapeFunc: Object?
 			//		A drawing function for the ticks
-			//	returns: Number
+			// returns: Number
 			//		The modified color	
 			var attributes = ["originX", "originY", "radius", "startAngle", "endAngle", "orientation", "font", "labelPosition", "tickShapeFunc"];
 			if(!orientation){

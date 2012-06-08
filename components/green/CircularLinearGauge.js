@@ -57,6 +57,12 @@ define([
 			},
 
 			drawBackground: function(g){
+				// summary:
+				//		Draws the background shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the background. 
+				// tags:
+				//		protected
 				var lighterFillColor = utils.brightness(new Color(this.fillColor), 100);
 				g.createEllipse({
 					cx: 132.2528,
@@ -113,6 +119,12 @@ define([
 			},
 
 			drawForeground: function(g){
+				// summary:
+				//		Draws the foreground shape of the gauge.
+				// g: dojox/gfx/canvas.Group
+				//		The group used to draw the foreground. 
+				// tags:
+				//		protected
 				var g1 = g.createGroup();
 				g1.createEllipse({
 					cx: 132,

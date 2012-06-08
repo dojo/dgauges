@@ -37,7 +37,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		positionForValue: function(value){
 			// summary:
 			//		Transforms a value into an angle using the associated scaler.
-			//	returns: Number
+			// returns: Number
 			//		An angle in degrees.
 			var totalAngle = _circularUtils.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
 			var relativePos = this.scaler.positionForValue(value);
@@ -52,7 +52,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		valueForPosition: function(angle){
 			// summary:
 			//		Transforms an angle in degrees into a value using the associated scaler.
-			//	returns: Number
+			// returns: Number
 			//		The value represented by angle. 
 			if(!this.positionInRange(angle)){
 				var min1 = _circularUtils.modAngle(this.startAngle - angle, 360);
@@ -76,7 +76,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		positionInRange: function(value){
 			// summary:
 			//		Returns true if the value parameter is between the accepted scale positions.
-			//	returns: Boolean
+			// returns: Boolean
 			//		True if the value parameter is between the accepted scale positions.
 			if(this.startAngle == this.endAngle){
 				return true;

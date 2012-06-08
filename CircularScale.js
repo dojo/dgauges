@@ -3,22 +3,22 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		// summary:
 		//		The circular scale. A scaler must be set to use this class.
 
-		//	originX: Number
+		// originX: Number
 		//		The origin x-coordinate of the scale in pixels.
 		originX: 50,
-		//	originY: Number
+		// originY: Number
 		//		The origin y-coordinate of the scale in pixels.
 		originY: 50,
-		//	radius: Number
+		// radius: Number
 		//		The outer radius in pixels of the scale.
 		radius: 50,
-		//	startAngle: Number
+		// startAngle: Number
 		//		The start angle of the scale in degrees.
 		startAngle: 0,
-		//	endAngle: Number
+		// endAngle: Number
 		//		The end angle of the scale in degrees.
 		endAngle: 180,
-		//	orientation: String
+		// orientation: String
 		//		The orientation of the scale. Can be "clockwise" or "cclockwise".
 		//		The default value is "clockwise".
 		orientation: "clockwise",

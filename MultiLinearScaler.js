@@ -10,19 +10,19 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		//		two contiguous major ticks.
 		//		Scalers are responsible for tick generation and various data-transform operations.	
 
-		//	majorTickValues: Array
+		// majorTickValues: Array
 		//		An array of Number for creating major ticks.
 		//		This array must be sorted in ascendant order.
 		majorTickValues: null,
-		//	minorTickCount: Array
+		// minorTickCount: Array
 		//		The number of minor ticks between two contiguous major ticks.
 		//		The default value is 4.
 		minorTickCount: 4,
-		//	majorTicks:
+		// majorTicks:
 		//		The array of generated major ticks. You should not set this
 		//		property when using the scaler.
 		majorTicks: null,
-		//	minorTicks:
+		// minorTicks:
 		//		The array of generated minor ticks. You should not set this
 		//		property when using the scaler.
 		minorTicks: null,

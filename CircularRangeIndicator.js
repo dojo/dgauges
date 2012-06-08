@@ -6,22 +6,22 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		//		Use the addIndicator method of CircularScale to use it.
 		//		It is represented as a donut slice.
 		
-		//	start: Number
+		// start: Number
 		//		The start value of the range indicator.
 		start: 0,
-		//	radius: Number
+		// radius: Number
 		//		The outer radius in pixels of the range indicator.
 		radius: NaN,
-		//	startThickness: Number
+		// startThickness: Number
 		//		The start thickness of the donut slice in pixels. 
 		startThickness: 6,
-		//	endThickness: Number
+		// endThickness: Number
 		//		The end thickness of the donut slice in pixels. 
 		endThickness: 6,
-		//	fill: Object
+		// fill: Object
 		//		A fill object that will be passed to the setFill method of GFX.
 		fill: null,
-		//	stroke: Object
+		// stroke: Object
 		//		A stroke object that will be passed to the setStroke method of GFX.
 		stroke: null,
 		constructor: function(){

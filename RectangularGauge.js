@@ -5,7 +5,7 @@ define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(decla
 		//		You can create custom horizontal or vertical gauges by extending this class.
 		//		See dojox.dgauges.components.default.HorinzontalLinearGauge.js for an example of rectangular gauge.
 
-		//	orientation: "horizontal"|"vertical"
+		// orientation: "horizontal"|"vertical"
 		//		The orientation of the gauge. Default is "horizontal".	
 		orientation: "horizontal",
 		
@@ -53,15 +53,15 @@ define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(decla
 		addElement: function(name, element, location){
 			// summary:
 			//		Adds a element to the gauge.
-			//	name: String
+			// name: String
 			//		The name of the element to be added.
-			//	element: Object
+			// element: Object
 			//		This parameter can be:
 			//		- A function which takes on argument of type GFX Group and return null or a
 			//		GFX element retrievable using the getElementRenderer() method.
 			//		- A Scale instance, i.e. CircularScale or RectangularScale.
 			//		- A TextIndicator instance.
-			//	location: "leading"|"middle"|"trailing"
+			// location: "leading"|"middle"|"trailing"
 			//		The area to place the element. Leading and trailing areas are fixed size. The
 			//		middle area use the remaining size. If not specified, the element's refreshRendering 
 			//		is called with the whole gauge size as argument.
@@ -88,7 +88,7 @@ define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(decla
 		removeElement: function(name){
 			// summary:
 			//		Remove the element defined by name from the gauge.
-			//	name: String
+			// name: String
 			//		The name of the element as defined using addElement.
 			// returns: Object
 			//		A reference to the removed element.		

@@ -34,7 +34,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		constructor: function(){
 			// summary:
 			//		Constructor.
-			//	description:
+			// description:
 			//		Creates a segmented range indicator.
 			this.fill = [255, 120, 0];
 			this.stroke = {
@@ -229,7 +229,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		indicatorShapeFunc: function(group, indicator, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			// summary:
 			//		Constructor.
-			//	description:
+			// description:
 			//		Creates a segmented range indicator.
 			
 			if(indicator.scale._gauge.orientation == "horizontal"){

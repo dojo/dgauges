@@ -13,13 +13,13 @@ define([
 			// summary:
 			//		A horizontal gauge widget.
 
-			//	borderColor: Object|Array|int
+			// borderColor: Object|Array|int
 			//		The border color. Default is "#000000".
 			borderColor: "#000000",
-			//	fillColor: Object|Array|int
+			// fillColor: Object|Array|int
 			//		The background color. Default is "#000000".
 			fillColor: "#000000",
-			//	indicatorColor: Object|Array|int
+			// indicatorColor: Object|Array|int
 			//		The indicator fill color. Default is "#A4A4A4".
 			indicatorColor: "#A4A4A4",
 			constructor: function(){

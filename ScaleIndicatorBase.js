@@ -12,7 +12,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		//		The value of the indicator. Default is 0.
 		value: 0,
 		
-		//	interactionArea: String
+		// interactionArea: String
 		//		How to interact with the indicator using mouse or touch interactions.
 		//		Can be "indicator", "gauge", "area" or "none". The default value is "gauge".
 		//		If set to "indicator", the indicator shape reacts to mouse and touch events.
@@ -21,17 +21,17 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		//		If "none", interactions are disabled.
 		interactionArea: "gauge",
 
-		//	interactionMode: String
+		// interactionMode: String
 		//		Can be "mouse" or "touch".
 		interactionMode: "mouse",
 
-		//	animationDuration: Number
+		// animationDuration: Number
 		//		The duration of the value change animation in milliseconds. Default is 0.
 		//		The animation occurs on both user interactions and programmatic value changes.
 		//		Set this property to 0 to disable animation.
 		animationDuration: 0,
 
-		//	animationEaser: Object
+		// animationEaser: Object
 		//		The easer function of the value change animation. Default is fx._defaultEasing.
 		animationEaser: null,
 

@@ -6,33 +6,33 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		//		For adding this kind of indicator instance to the gauge, use the addIndicator 
 		//		method of RectangularScale.
 
-		//	start: Number
+		// start: Number
 		//		The start value of the range. Default is 0.
 		start: 0,
-		//	startThickness: Number
+		// startThickness: Number
 		//		The thickness of the shape at the position defined by the start property.
 		//		Default is 10.
 		startThickness: 10,
-		//	endThickness: Number
+		// endThickness: Number
 		//		The thickness of the shape at the position defined by the value property.
 		//		Default is 10.
 		endThickness: 10,
-		//	fill: Object
+		// fill: Object
 		//		A fill object that will be passed to the setFill method of GFX.
 		fill: null,
-		//	stroke: Object
+		// stroke: Object
 		//		A stroke object that will be passed to the setStroke method of GFX.
 		stroke: null,
-		//	paddingLeft: Number
+		// paddingLeft: Number
 		//		The left padding. Not used for horizontal gauges.
 		paddingLeft: 10,
-		//	paddingTop: Number
+		// paddingTop: Number
 		//		The top padding. Not used for vertical gauges.
 		paddingTop: 10,
-		//	paddingRight: Number
+		// paddingRight: Number
 		//		The right padding. Not used for horizontal gauges.
 		paddingRight: 10,
-		//	paddingBottom: Number
+		// paddingBottom: Number
 		//		The bottom padding. Not used for vertical gauges.
 		paddingBottom: 10,
 		

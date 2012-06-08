@@ -33,7 +33,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		//		For other indicators, you have to set their value explicitly.
 		value: 0,
 		
-		//	font: Object
+		// font: Object
 		//		The font of the gauge used by scales if not overridden.
 		font: null,
 		
@@ -187,12 +187,12 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		resize: function(width, height){
 			// summary:
 			//		Resize the gauge to the dimensions of width and height.
-			//	description:
+			// description:
 			//		Resize the gauge and its surface to the width and height dimensions.
 			//		If no width/height or box is provided, resize the surface to the marginBox of the gauge.
-			//	width: Number
+			// width: Number
 			//		The new width of the gauge.
-			//	height: Number
+			// height: Number
 			//		The new height of the gauge.
 			// returns: dojox.dgauges.GaugeBase
 			//		A reference to the current gauge for functional chaining.
@@ -228,9 +228,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		addElement: function(/* String */name, /* Object */ element){
 			// summary:
 			//		Adds a element to the gauge.
-			//	name: String
+			// name: String
 			//		The name of the element to be added.
-			//	element: Object
+			// element: Object
 			//		This parameter can be:
 			//		- A function which takes on argument of type GFX Group and return null or a
 			//		GFX element retrievable using the getElementRenderer() method.
@@ -271,7 +271,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		removeElement: function(/* String */name){
 			// summary:
 			//		Remove the element defined by name from the gauge.
-			//	name: String
+			// name: String
 			//		The name of the element as defined using addElement.
 			// returns: Object
 			//		A reference to the removed element.
@@ -297,7 +297,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		getElement: function(/* String */name){
 			// summary:
 			//		Get the given element, by name.
-			//	name: String
+			// name: String
 			//		The name of the element as defined using addElement.
 			// returns: Object
 			//		The element.
@@ -307,7 +307,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		getElementRenderer: function(/* String */name){
 			// summary:
 			//		Get the given element renderer, by name.
-			//	name: String
+			// name: String
 			//		The name of the element as defined using addElement.
 			// returns: Object
 			//		The element renderer returned by the

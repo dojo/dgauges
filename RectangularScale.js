@@ -3,16 +3,16 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 		// summary:
 		//		The rectangular scale. A scaler must be set to use this class.
 
-		//	paddingLeft: Number
+		// paddingLeft: Number
 		//		The left padding.
 		paddingLeft: 15,
-		//	paddingTop: Number
+		// paddingTop: Number
 		//		The top padding.
 		paddingTop: 12,
-		//	paddingRight: Number
+		// paddingRight: Number
 		//		The right padding.
 		paddingRight: 15,
-		//	paddingBottom: Number
+		// paddingBottom: Number
 		//		The bottom padding.
 		paddingBottom: 0,
 		_contentBox: null,		

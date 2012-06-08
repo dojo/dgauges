@@ -5,31 +5,31 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		//		a minimum and a maximum.
 		//		Scalers are responsible for tick generation and various data-transform operations.		
 		
-		//	minimum: Number
+		// minimum: Number
 		//		The minimum value of the scaler. Default is 0.
 		minimum: 0,
-		//	maximum: Number
+		// maximum: Number
 		//		The maximum value of the scaler. Default is 100.
 		maximum: 100,
-		//	snapInterval:
+		// snapInterval:
 		//		Specifies the increment value to be used as snap values on this scale 
 		//		during user interaction.
 		//		Default is 1.
 		snapInterval: 1,
-		//	majorTickInterval: Number
+		// majorTickInterval: Number
 		//		The interval between two major ticks.
 		majorTickInterval: NaN,
-		//	minorTickInterval: Number
+		// minorTickInterval: Number
 		//		The interval between two minor ticks.
 		minorTickInterval: NaN,
-		//	minorTicksEnabled: Boolean
+		// minorTicksEnabled: Boolean
 		//		If false, minor ticks are not generated. Default is true.
 		minorTicksEnabled: true,
-		//	majorTicks:
+		// majorTicks:
 		//		The array of generated major ticks. You should not set this
 		//		property when using the scaler.
 		majorTicks: null,
-		//	minorTicks:
+		// minorTicks:
 		//		The array of generated minor ticks. You should not set this
 		//		property when using the scaler.
 		minorTicks: null,

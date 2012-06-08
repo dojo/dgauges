@@ -7,16 +7,16 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		//		a tick on each power of 10 value (1, 10, 100, 1000, and so on) between
 		//		the minimum and maximum values.
 		
-		//	minimum: Number
+		// minimum: Number
 		//		The minimum value of the scaler. Default is 0.
 		minimum: 0,
-		//	maximum: Number
+		// maximum: Number
 		//		The maximum value of the scaler. Default is 1000.
 		maximum: 1000,
-		//	multiplier: Number
+		// multiplier: Number
 		//		The interval between two major ticks.
 		multiplier: 10,
-		//	majorTicks:
+		// majorTicks:
 		//		The array of generated major ticks. You should not set this
 		//		property when using the scaler.
 		majorTicks: null,

@@ -6,22 +6,22 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		//		A scaler must be set to use this class. A scaler is responsible for
 		//		tick generation and various data-transform operations.	
 
-		//	scaler: Object
+		// scaler: Object
 		//		The scaler used for tick generation and data-transform operations.
 		//		This property is mandatory for using the scale.
 		scaler: null,
-		//	font: Object
+		// font: Object
 		//		The font used for the ticks labels.
 		//		This is null by default which means this scale use the font defined 
 		//		on the gauge.
 		font: null,
-		//	labelPosition: String
+		// labelPosition: String
 		//		See CircularScale and RectangularScale for valid values.
 		labelPosition: null,
-		//	labelGap: Number
+		// labelGap: Number
 		//		The label gap between the ticks and their labels. Default value is 1.
 		labelGap: 1,
-		//	tickStroke: Object
+		// tickStroke: Object
 		//		The GFX stroke used by the default tickShapeFunc implementation.
 		tickStroke: null,
 		_gauge: null,
@@ -139,7 +139,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		getIndicatorRenderer: function(name){
 			// summary:
 			//		Gets the GFX shape of an indicator.
-			//	name: String
+			// name: String
 			//		The name of the indicator as defined using addIndicator.
 			// returns: dojox.gfx.canvas.Shape
 			//		The GFX shape of the indicator.
@@ -149,7 +149,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		removeIndicator: function(name){
 			// summary:
 			//		Removes an indicator.
-			//	name: String
+			// name: String
 			//		The name of the indicator as defined using addIndicator.
 			// returns: IndicatorBase
 			//		The removed indicator.
@@ -171,7 +171,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		getIndicator: function(name){
 			// summary:
 			//		Get an indicator instance.
-			//	name: String
+			// name: String
 			//		The name of the indicator as defined using addIndicator.
 			// returns: IndicatorBase
 			//		The indicator associated with the name parameter.
@@ -183,9 +183,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			//		Add an indicator to the scale. Before calling this function, ensure 
 			//		this scale has already been added to a gauge using the addElement method
 			//		of the gauge.
-			//	behindScale: Boolean
+			// behindScale: Boolean
 			//		If true, this indicator is drawn behind the scale. Default value is false.	
-			//	name: String
+			// name: String
 			//		The name of the indicator to be added.
 			if(this._indicatorsIndex[name] && this._indicatorsIndex[name] != indicator){
 				this.removeIndicator(name);

@@ -42,6 +42,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 
 		_buildMinorTickItems: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var mt = this.majorTicks;
 			var minorTickCache = [];
 			if(this.maximum > this.minimum){
@@ -62,6 +66,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		_buildMajorTickItems: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var majorTickCache = [];
 			if(this.maximum > this.minimum){
 				var majorTickCount = Math.floor((this.maximum - this.minimum) / this.getComputedMajorTickInterval()) + 1;

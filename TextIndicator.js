@@ -35,6 +35,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base
 		},
 		
 		_resetText: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this._textCreated = false;
 			this.invalidateRendering();
 		},
@@ -42,6 +46,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base
 		_valueWatcher: null,
 		
 		_indicatorChanged: function(name, oldValue, newValue){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(this._valueWatcher){
 				this._valueWatcher.unwatch();
 			}
@@ -49,6 +57,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base
 		},
 		
 		_getFont: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var font = this.font;
 			if(!font && this._gauge){
 				font = this._gauge.font;
@@ -63,6 +75,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base
 		_textInstance: null,
 		
 		_createText: function(group, font, color, text, x, y, align){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var gfxText = group.createText({
 				x: x,
 				y: y,

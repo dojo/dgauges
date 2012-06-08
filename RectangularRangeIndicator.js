@@ -48,6 +48,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		},
 
 		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var gp = [startX, startY, endPosition, startY, endPosition, startY + endThickness, startX, startY + startThickness, startX, startY]
 			if(fill && fill.colors){
 				// Configure gradient
@@ -60,6 +64,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		},
 
 		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var gp = [startX, startY, startX, endPosition, startX + endThickness, endPosition, startX, startY + startThickness, startX, startY]
 			if(fill && fill.colors){
 				// Configure gradient
@@ -72,6 +80,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		},
 				
 		_shapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(this.scale._gauge.orientation == "horizontal"){
 				this._defaultHorizontalShapeFunc(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);
 			}else{
@@ -107,6 +119,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		},
 
 		_onMouseDown: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this.inherited(arguments);
 
 			var np = domGeom.position(this.scale._gauge.domNode, true);
@@ -117,6 +133,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		},
 		
 		_onMouseMove: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this.inherited(arguments);
 			
 			var np = domGeom.position(this.scale._gauge.domNode, true);

@@ -63,12 +63,19 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		_setCursor: function(type){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(this._node)
 				this._node.style.cursor = type;
 		},
 		
 		_addGroupBoundingBoxSupport: function(){
-		
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			dojox.gfx.addRect = function( /*dojox.gfx.Rectangle*/a, /*dojox.gfx.Rectangle*/ b){
 				// returns:
 				//		a rectangle representing the addition of the two given.
@@ -163,6 +170,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		_computeBoundingBox: function(/* Object */element){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			return element ? element.getBoundingBox() : {x:0, y:0, width:0, height:0};
 		},
 		

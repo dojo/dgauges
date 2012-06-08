@@ -33,6 +33,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		},
 		
 		_onMouseDown: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this.inherited(arguments);
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);
 			var angle = ((Math.atan2(event.pageY - origin.y, event.pageX - origin.x)) * 180) / (Math.PI);
@@ -43,6 +47,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		},
 		
 		_onMouseMove: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this.inherited(arguments);
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);
 			var angle = ((Math.atan2(event.pageY - origin.y, event.pageX - origin.x)) * 180) / (Math.PI);

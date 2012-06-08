@@ -107,6 +107,10 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		},
 		
 		_getMinMax: function(v, property){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(!property){
 				property = "value";
 			}

@@ -46,6 +46,10 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		},
 
 		_defaultHorizontalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var length = scale._contentBox.w ;
 			var shape, i, gp, radius;
 			
@@ -133,6 +137,10 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		},
 
 		_defaultVerticalShapeFunc: function(indicator, group, scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var length = scale._contentBox.h ;
 			var shape, i,gp,radius;
 			if(this.ranges){

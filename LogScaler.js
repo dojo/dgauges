@@ -27,6 +27,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 			this.watchedProperties = ["minimum", "maximum", "multiplier"];
 		},
 		_buildMajorTickItems: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var majorTickCache = [];
 			this._computedMinimum = this.getComputedMinimum();
 			this._computedMaximum = this.getComputedMaximum();

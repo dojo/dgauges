@@ -55,6 +55,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		_watchers: null,
 
 		_watchScaler: function(name, oldValue, newValue){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			array.forEach(this._watchers, lang.hitch(this, function(entry){
 				entry.unwatch();
 			}));
@@ -68,6 +72,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		_getFont: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var font = this.font;
 			if(!font){
 				font = this._gauge.font;
@@ -199,6 +207,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		_createSubGroups: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(!this._gfxGroup || this._ticksGroup){
 				return;
 			}

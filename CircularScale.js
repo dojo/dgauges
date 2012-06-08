@@ -31,6 +31,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		},
 		
 		_getOrientationNum: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			return this.orientation == "cclockwise" ? -1 : 1;
 		},
 		
@@ -45,6 +49,10 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		},
 		
 		_positionForTickItem: function(tickItem){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var totalAngle = _circularUtils.computeTotalAngle(this.startAngle, this.endAngle, this.orientation);
 			return _circularUtils.modAngle(this.startAngle + this._getOrientationNum() * totalAngle * tickItem.position, 360);
 		},
@@ -98,10 +106,18 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		},
 		
 		_distance: function(x1, y1, x2, y2){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 		},
 		
 		_layoutLabel: function(label, txt, ox, oy, lrad, angle, labelPlacement){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var font = this._getFont();
 			var box = gfx._base._getTextBox(txt, {
 				font: gfx.makeFontString(gfx.makeParameters(gfx.defaultFont, font))

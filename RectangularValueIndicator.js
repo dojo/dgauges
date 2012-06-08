@@ -50,6 +50,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 		},
 		
 		_onMouseDown: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this.inherited(arguments);
 			var np = domGeom.position(this.scale._gauge.domNode, true);
 			this.set("value", this.scale.valueForPosition({x: event.pageX - np.x, y: event.pageY - np.y}));
@@ -59,6 +63,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "dojox/gfx", "dojo/_base/e
 		},
 		
 		_onMouseMove: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this.inherited(arguments);
 			
 			var np = domGeom.position(this.scale._gauge.domNode, true);

@@ -79,6 +79,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_startAnimation: function(prop, oldValue, newValue){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(this.animationDuration == 0){
 				return;
 			}
@@ -97,11 +101,19 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_updateAnimation: function(v){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this._transitionValue = v;
 			this.invalidateRendering();
 		},
 		
 		_endAnimation: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this._transitionValue = NaN; 
 			this.invalidateRendering();			
 		},
@@ -137,6 +149,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_disconnectDownListeners: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			for(var i = 0; i < this._downListeners.length; i++){
 				connect.disconnect(this._downListeners[i]);
 			}
@@ -144,6 +160,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_disconnectMoveAndUpListeners: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			for(var i = 0; i < this._moveAndUpListeners.length; i++){
 				connect.disconnect(this._moveAndUpListeners[i]);
 			}
@@ -151,12 +171,20 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_disconnectListeners: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this._disconnectDownListeners();
 			this._disconnectMoveAndUpListeners();
 			this._disconnectCursorListeners();
 		},
 		
 		_connectCursorListeners: function(target){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var listener = target.connect("onmouseover", this, function(){
 				this.scale._gauge._setCursor("pointer");
 			});
@@ -169,6 +197,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_disconnectCursorListeners: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			for(var i = 0; i < this._cursorListeners.length; i++){
 				connect.disconnect(this._cursorListeners[i]);
 			}
@@ -176,6 +208,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 
 		_connectDownListeners: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this._disconnectDownListeners();
 			this._disconnectCursorListeners();
 			var listener = null;
@@ -221,6 +257,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_connectMoveAndUpListeners: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var listener = null;
 			var moveEventName;
 			var upEventName;
@@ -243,11 +283,19 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_onMouseDown: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this._connectMoveAndUpListeners();
 			this._startEditing();
 		},
 		
 		_onMouseMove: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this._preventAnimation = true;
 			if(this._animation){
 				this._animation.stop();
@@ -255,12 +303,20 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_onMouseUp: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this._disconnectMoveAndUpListeners();
 			this._preventAnimation = false;
 			this._endEditing();
 		},
 		
 		_startEditing: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(!this.scale || !this.scale._gauge){
 				return;
 			}else{
@@ -271,6 +327,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		_endEditing: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(!this.scale || !this.scale._gauge){
 				return;
 			}else{

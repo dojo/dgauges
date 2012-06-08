@@ -37,6 +37,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_interpolateColor: function(from, dest, n){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var fr = (from >> 16) & 0xff;
 			var fg = (from >> 8) & 0xff;
 			var fb = from & 0xff;
@@ -53,6 +57,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_colorsInterpolation: function(colors, ratios, len){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var ret = [];
 			var ilen = 0;
 			
@@ -65,6 +73,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_alphasInterpolation: function(alphas, positions, len){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var ret = [];
 			var ilen = 0;
 			for(var i = 0; i < alphas.length - 1; i++){
@@ -76,6 +88,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_alphaInterpolation: function(c1, c2, len){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var step = (c2 - c1) / (len - 1);
 			var ret = [];
 			for(var i = 0; i < len; i++){
@@ -85,6 +101,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_colorInterpolation: function(c1, c2, len){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var ret = [];
 			for (var i = 0; i < len; i++){
 				ret.push(_interpolateColor(c1, c2, i / (len - 1)));
@@ -93,6 +113,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_getEntriesFor: function(entries, attr){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var ret = [];
 			var e;
 			var val;
@@ -110,7 +134,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_drawColorTrack: function(g, ox, oy, radius, orientation, startAngleRadians, endAngleRadians, sWeight, eWeight, fill, stroke, clippingAngleRadians){
-		
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			var angleStep = 0.05;
 			var totalAngle;
 			
@@ -192,6 +219,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_onMouseDown: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this.inherited(arguments);
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);
 			var angle = ((Math.atan2(event.pageY - origin.y, event.pageX - origin.x)) * 180) / (Math.PI);
@@ -202,6 +233,10 @@ define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/
 		},
 		
 		_onMouseMove: function(event){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			this.inherited(arguments);
 			
 			var origin = this.scale._gauge._gaugeToPage(this.scale.originX, this.scale.originY);

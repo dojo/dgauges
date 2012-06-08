@@ -111,6 +111,10 @@ define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(decla
 		},
 		
 		_computeArrayBoundingBox: function(elements){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(elements.length == 0){
 				return {
 					x: 0,

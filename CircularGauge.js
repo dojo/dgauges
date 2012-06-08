@@ -43,6 +43,10 @@ define(["dojo/_base/declare", "dojo/dom-geometry", "dojox/gfx", "./GaugeBase"], 
 		},
 		
 		_gaugeToPage: function(px, py){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
 			if(this._transformProperties){
 				var np = domGeom.position(this.domNode, true);
 				return {x: np.x + px * this._transformProperties.scale + this._transformProperties.tx, y: np.y + py * this._transformProperties.scale + this._transformProperties.ty};

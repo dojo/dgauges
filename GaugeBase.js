@@ -318,12 +318,16 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		
 		onStartEditing: function(event){
 			// summary:
-			//		Event dispatched on interaction beginning (keyboard, mouse or gesture).
+			//		Called when an interaction begins (keyboard, mouse or gesture).
+			// tags:
+			//		callback
 		},
 		
 		onEndEditing: function(event){
 			// summary:
-			//		Event dispatched on interaction end (keyboard, mouse or gesture).
+			//		Called when an interaction ends (keyboard, mouse or gesture).
+			// tags:
+			//		callback
 		}
 	})
 });

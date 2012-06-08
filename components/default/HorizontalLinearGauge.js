@@ -26,7 +26,6 @@ define([
 		//		The indicator fill color. Default is "#F01E28".
 		indicatorColor: "#F01E28",
 		constructor: function(){
-			
 			// Base colors
 			this.borderColor = new Color(this.borderColor);
 			this.fillColor = new Color(this.fillColor);

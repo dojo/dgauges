@@ -163,7 +163,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 						}
 						bb = bb ? dojox.gfx.addRect(bb, cbb) : cbb;
 					}
-
 					return bb;
 				}
 			})

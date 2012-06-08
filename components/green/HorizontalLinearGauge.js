@@ -11,7 +11,7 @@ define([
 	], 
 	function(lang, declare, Color, utils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 		return declare("dojox.dgauges.components.green.HorizontalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
-			//	summary:
+			// summary:
 			//		A horizontal gauge widget.
 
 			//	borderColor: Object|Array|int

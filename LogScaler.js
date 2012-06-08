@@ -1,6 +1,6 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang, declare, Stateful){
 	return declare("dojox.dgauges.LogScaler", Stateful, {
-		//	summary:
+		// summary:
 		//		The LogScaler maps numeric values evenly
 		//		between a minimum and a maximum value along a gauge scale.
 		//		If no multiplier is specified, the scale will place
@@ -47,7 +47,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		getComputedMinimum: function(){
-			//	summary:
+			// summary:
 			//		The computed minimum value of the scale. If the minimum value is not
 			//		an even power of 10, the scale computes a new minimum so that it maps to 
 			//		an even power of 10.
@@ -55,7 +55,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		getComputedMaximum: function(){
-			//	summary:
+			// summary:
 			//		The computed maximum value of the scale. If the maximum value is not
 			//		an even power of 10, the scale computes a new maximum so that it maps to 
 			//		an even power of 10.
@@ -64,7 +64,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		
 		
 		getComputedMultiplier: function(){
-			//	summary:
+			// summary:
 			//		The computed multiplier value of the scale. If the multiplier value is not
 			//		an even power of 10, the scale computes a new multiplier so that it maps to 
 			//		an even power of 10.
@@ -73,7 +73,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		computeTicks: function(){
-			//	summary:
+			// summary:
 			//		Creates or re-creates the ticks for this scaler.
 			//	returns: Array
 			//		An array containing ticks.
@@ -82,7 +82,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		positionForValue: function(value){
-			//	summary:
+			// summary:
 			//		Transforms a value into a relative position between 0 and 1.
 			//	value: Number
 			//		A value to transform.
@@ -102,7 +102,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		valueForPosition: function(position){
-			//	summary:
+			// summary:
 			//		Transforms a relative position (between 0 and 1) into a value.
 			//	value: Number
 			//		A relative position to transform.

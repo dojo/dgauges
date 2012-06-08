@@ -1,6 +1,6 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], function(declare, gfx, ScaleBase, _circularUtils){
 	return declare("dojox.dgauges.CircularScale", ScaleBase, {
-		//	summary:
+		// summary:
 		//		The circular scale. A scaler must be set to use this class.
 
 		//	originX: Number
@@ -35,7 +35,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		},
 		
 		positionForValue: function(value){
-			//	summary:
+			// summary:
 			//		Transforms a value into an angle using the associated scaler.
 			//	returns: Number
 			//		An angle in degrees.
@@ -50,7 +50,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		},
 		
 		valueForPosition: function(angle){
-			//	summary:
+			// summary:
 			//		Transforms an angle in degrees into a value using the associated scaler.
 			//	returns: Number
 			//		The value represented by angle. 
@@ -74,7 +74,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase", "./_circularUtils"], f
 		},
 		
 		positionInRange: function(value){
-			//	summary:
+			// summary:
 			//		Returns true if the value parameter is between the accepted scale positions.
 			//	returns: Boolean
 			//		True if the value parameter is between the accepted scale positions.

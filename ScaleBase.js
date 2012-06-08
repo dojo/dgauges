@@ -1,7 +1,7 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array", "dojox/widget/_Invalidating"],
 	function(lang, declare, gfx, array, _Invalidating){
 	return declare("dojox.dgauges.ScaleBase", _Invalidating, {
-		//	summary:
+		// summary:
 		//		The ScaleBase class is the base class for the circular and rectangular scales.
 		//		A scaler must be set to use this class. A scaler is responsible for
 		//		tick generation and various data-transform operations.	
@@ -79,7 +79,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		positionForValue: function(value){
-			//	summary:
+			// summary:
 			//		See CircularScale and Rectangular for more informations.
 			//		value: Number
 			//			The value to convert.
@@ -89,7 +89,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		valueForPosition: function(position){
-			//	summary:
+			// summary:
 			//		See CircularScale and Rectangular for more informations.
 			//		position: Number
 			//			The position to convert.
@@ -98,7 +98,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		tickLabelFunc: function(tickItem){
-			//	summary:
+			// summary:
 			//		Customize the text of ticks labels.
 			//		tickItem: Object
 			//			An object containing the tick informations.
@@ -112,7 +112,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		tickShapeFunc: function(group, scale, tickItem){
-			//	summary:
+			// summary:
 			//		Customize the shape of ticks.
 			//		group: dojox.gfx.canvas.Group
 			//			The GFX group used for drawing the tick.
@@ -129,7 +129,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		getIndicatorRenderer: function(name){
-			//	summary:
+			// summary:
 			//		Gets the GFX shape of an indicator.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
@@ -139,7 +139,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		removeIndicator: function(name){
-			//	summary:
+			// summary:
 			//		Removes an indicator.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
@@ -161,7 +161,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		getIndicator: function(name){
-			//	summary:
+			// summary:
 			//		Get an indicator instance.
 			//	name: String
 			//		The name of the indicator as defined using addIndicator.
@@ -171,7 +171,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		},
 		
 		addIndicator: function(name, indicator, behindScale){
-			//	summary:
+			// summary:
 			//		Add an indicator to the scale. Before calling this function, ensure 
 			//		this scale has already been added to a gauge using the addElement method
 			//		of the gauge.

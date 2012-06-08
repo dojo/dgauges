@@ -11,7 +11,7 @@ define([
 	], 
 	function(lang, declare, Color, utils, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, DefaultPropertiesMixin){
 		return declare("dojox.dgauges.components.green.VerticalLinearGauge", [RectangularGauge, DefaultPropertiesMixin], {
-			//	summary:
+			// summary:
 			//		A vertical gauge widget.
 
 			//	borderColor: Object|Array|int

@@ -1,6 +1,6 @@
 define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(declare, GaugeBase, matrix){
 	return declare("dojox.dgauges.RectangularGauge", GaugeBase, {
-		//	summary:
+		// summary:
 		//		The base class for rectangular gauges.
 		//		You can create custom horizontal or vertical gauges by extending this class.
 		//		See dojox.dgauges.components.default.HorinzontalLinearGauge.js for an example of rectangular gauge.
@@ -51,7 +51,7 @@ define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(decla
 		},
 		
 		addElement: function(name, element, location){
-			//	summary:
+			// summary:
 			//		Adds a element to the gauge.
 			//	name: String
 			//		The name of the element to be added.
@@ -86,7 +86,7 @@ define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(decla
 		},
 		
 		removeElement: function(name){
-			//	summary:
+			// summary:
 			//		Remove the element defined by name from the gauge.
 			//	name: String
 			//		The name of the element as defined using addElement.

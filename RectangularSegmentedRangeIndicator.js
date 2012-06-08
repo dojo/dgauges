@@ -1,6 +1,6 @@
 define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], function(declare, on, gfx, IndicatorBase){
 	return declare("dojox.dgauges.RectangularRangeIndicator", IndicatorBase, {
-		//	summary:
+		// summary:
 		//		A segmented-style range indicator for rectangular gauges.
 		
 		start: 0,
@@ -32,7 +32,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		ranges: null,
 		
 		constructor: function(){
-			//	summary:
+			// summary:
 			//		Constructor.
 			//	description:
 			//		Creates a segmented range indicator.
@@ -219,7 +219,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		},
 				
 		indicatorShapeFunc: function(group, indicator, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
-			//	summary:
+			// summary:
 			//		Constructor.
 			//	description:
 			//		Creates a segmented range indicator.

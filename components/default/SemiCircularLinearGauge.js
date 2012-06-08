@@ -12,7 +12,7 @@ define([
 		], 
 	function(lang, declare, Color, utils, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, TextIndicator, DefaultPropertiesMixin){
 	return declare("dojox.dgauges.components.default.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
-		//	summary:
+		// summary:
 		//		A semi circular gauge widget.
 
 		_radius: 88,

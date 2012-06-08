@@ -1,6 +1,6 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang, declare, Stateful){
 	return declare("dojox.dgauges.LinearScaler", Stateful, {
-		//	summary:
+		// summary:
 		//		The linear scaler. This scaler creates major and minor ticks regularly between 
 		//		a minimum and a maximum.
 		//		Scalers are responsible for tick generation and various data-transform operations.		
@@ -78,7 +78,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		getComputedMajorTickInterval: function(){
-			//	summary:
+			// summary:
 			//		The computed or user defined major tick interval.
 			//	returns: Number
 			//		The major tick interval used for ticks generation.
@@ -92,7 +92,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		getComputedMinorTickInterval: function(){
-			//	summary:
+			// summary:
 			//		The computed or user defined minor tick interval.
 			//	returns: Number
 			//		The minor tick interval used for ticks generation.
@@ -106,7 +106,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		computeTicks: function(){
-			//	summary:
+			// summary:
 			//		Creates or re-creates the ticks for this scaler.
 			//	returns: Array
 			//		An array containing all ticks (major then minor ticks).
@@ -116,7 +116,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		positionForValue: function(value){
-			//	summary:
+			// summary:
 			//		Transforms a value into a relative position between 0 and 1.
 			//	value: Number
 			//		A value to transform.
@@ -136,7 +136,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/Stateful"], function(lang
 		},
 		
 		valueForPosition: function(position){
-			//	summary:
+			// summary:
 			//		Transforms a relative position (between 0 and 1) into a value.
 			//	value: Number
 			//		A relative position to transform.

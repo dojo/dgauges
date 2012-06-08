@@ -1,14 +1,14 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect", "dojo/_base/fx", "dojox/gfx", "dojox/widget/_Invalidating", "./IndicatorBase"],
 	function(lang, declare, on, connect, fx, gfx, _Invalidating, IndicatorBase){
 	return declare("dojox.dgauges.ScaleIndicatorBase", IndicatorBase, {
-		//	summary:
+		// summary:
 		//		The base class for indicators that rely on a scale for their rendering.
 		//		Typically, value indicators and range indicators are subclasses of ScaleIndicatorBase.
 
-		//	summary:
+		// summary:
 		//		The scale associated with this indicator.
 		scale: null,
-		//	summary:
+		// summary:
 		//		The value of the indicator. Default is 0.
 		value: 0,
 		
@@ -123,7 +123,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/on", "dojo/_base/connect"
 		},
 		
 		valueChanged: function(indicator){
-			//	summary:
+			// summary:
 			//		Invoked when the value of the indicator changes.
 			//		User can connect an listener on this function: 
 			//				connect.connect(theIndicator, "valueChanged", lang.hitch(this, function(){

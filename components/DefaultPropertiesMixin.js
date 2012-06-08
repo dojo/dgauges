@@ -1,6 +1,6 @@
 define(["dojo/_base/declare", "dojo/_base/Color"], function(declare, Color){
 	return declare("dojox.dgauges.components.DefaultPropertiesMixin", null, {
-		//	summary:
+		// summary:
 		//		This class defines default properties of predefined gauges.
 
 		//	minimum: Number
@@ -24,7 +24,7 @@ define(["dojo/_base/declare", "dojo/_base/Color"], function(declare, Color){
 		//		If false, minor ticks are not generated. Default is true.
 		minorTicksEnabled: true,
 
-		//	summary:
+		// summary:
 		//		The value of the indicator. Default is 0.
 		value: 0,
 		

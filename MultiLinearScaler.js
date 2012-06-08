@@ -1,6 +1,6 @@
 define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 	return declare("dojox.dgauges.MultiLinearScaler", Stateful, {
-		//	summary:
+		// summary:
 		//		The multi-linear scaler. This scaler maps numeric values according 
 		//		to the majorTickValues content. 
 		//		This allows display of very large value intervals that are difficult to render 
@@ -35,7 +35,7 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		},
 				
 		computeTicks: function(){
-			//	summary:
+			// summary:
 			//		Creates or re-creates the ticks for this scaler.
 			//	returns: Array
 			//		An array containing all ticks (major then minor ticks).			
@@ -72,7 +72,7 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		},
 		
 		positionForValue: function(value){
-			//	summary:
+			// summary:
 			//		Transforms a value into a relative position between 0 and 1.
 			//	value: Number
 			//		A value to transform.
@@ -92,7 +92,7 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		},
 		
 		valueForPosition: function(position){
-			//	summary:
+			// summary:
 			//		Transforms a relative position (between 0 and 1) into a value.
 			//	value: Number
 			//		A relative position to transform.

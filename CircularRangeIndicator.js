@@ -1,7 +1,7 @@
 define(["dojo/_base/declare", "./ScaleIndicatorBase", "./_circularUtils", "dojo/_base/event"],
 	function(declare, ScaleIndicatorBase, _circularUtils, eventUtil){
 	return declare("dojox.dgauges.CircularRangeIndicator", ScaleIndicatorBase, {
-		//	summary:
+		// summary:
 		//		A CircularRangeIndicator is used to represent a range of values on a scale.
 		//		Use the addIndicator method of CircularScale to use it.
 		//		It is represented as a donut slice.

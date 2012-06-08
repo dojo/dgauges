@@ -1,6 +1,6 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx, ScaleBase){
 	return declare("dojox.dgauges.RectangularScale", ScaleBase, {
-		//	summary:
+		// summary:
 		//		The rectangular scale. A scaler must be set to use this class.
 
 		//	paddingLeft: Number
@@ -22,7 +22,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 		},
 		
 		positionForValue: function(value){
-			//	summary:
+			// summary:
 			//		Transforms a value into a position using the associated scaler.
 			//	returns: Number
 			//		A position in pixels.
@@ -45,7 +45,7 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleBase"], function(declare, gfx
 		},
 		
 		valueForPosition: function(pos){
-			//	summary:
+			// summary:
 			//		Transforms a position in pixels into a value using the associated scaler.
 			//	returns: Number
 			//		The value represented by pos. 

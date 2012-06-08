@@ -3,7 +3,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 	function(lang, // lang.extend
 		declare, domGeom,  WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase, matrix, canvas){
 	return declare("dojox.dgauges.GaugeBase", [_WidgetBase, _Invalidating], {
-		//	summary: 
+		// summary: 
 		//		This class is the base class for the circular and 
 		//		rectangular (horizontal and vertical) gauge components.
 		//		A gauge is a composition of elements added to the gauge using the addElement method.
@@ -167,14 +167,14 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		destroy: function(){
-			//	summary:
+			// summary:
 			//		Cleanup when a gauge is to be destroyed.
 			
 			this.surface.destroy();
 		},
 
 		resize: function(width, height){
-			//	summary:
+			// summary:
 			//		Resize the gauge to the dimensions of width and height.
 			//	description:
 			//		Resize the gauge and its surface to the width and height dimensions.
@@ -215,7 +215,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		addElement: function(/* String */name, /* Object */ element){
-			//	summary:
+			// summary:
 			//		Adds a element to the gauge.
 			//	name: String
 			//		The name of the element to be added.
@@ -258,7 +258,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		removeElement: function(/* String */name){
-			//	summary:
+			// summary:
 			//		Remove the element defined by name from the gauge.
 			//	name: String
 			//		The name of the element as defined using addElement.
@@ -284,7 +284,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		getElement: function(/* String */name){
-			//	summary:
+			// summary:
 			//		Get the given element, by name.
 			//	name: String
 			//		The name of the element as defined using addElement.
@@ -294,7 +294,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		},
 		
 		getElementRenderer: function(/* String */name){
-			//	summary:
+			// summary:
 			//		Get the given element renderer, by name.
 			//	name: String
 			//		The name of the element as defined using addElement.

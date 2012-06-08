@@ -10,7 +10,7 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 
 	lang.mixin(utils, {
 		brightness: function(col, b){
-			//	summary:
+			// summary:
 			//		Adjusts the brightness of a color.
 			//	col: Number
 			//		The base color
@@ -26,7 +26,7 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 		},
 		
 		createGradient: function(entries){
-			//	summary:
+			// summary:
 			//		Creates a gradient object
 			//	entries: Array
 			//		An array of numbers representing colors
@@ -56,7 +56,7 @@ define(["dojo/_base/lang", "dojo/_base/Color"], function(lang, Color){
 		},
 		
 		genericCircularGauge: function(scale, indicator, originX, originY, radius, startAngle, endAngle, orientation, font, labelPosition, tickShapeFunc){
-			//	summary:
+			// summary:
 			//		A helper method for configuring a circular gauge.
 			//	scale: CircularScale
 			//		A circular scale

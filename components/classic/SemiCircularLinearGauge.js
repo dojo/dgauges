@@ -11,7 +11,7 @@ define([
 	], 
 	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 		return declare("dojox.dgauges.components.classic.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
-			//	summary:
+			// summary:
 			//		A semi circular gauge widget.
 
 			//	borderColor: Object|Array|int

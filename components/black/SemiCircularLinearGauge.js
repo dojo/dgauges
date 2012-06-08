@@ -8,7 +8,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 	],
 	function(lang, declare, Color, CircularGauge, LinearScaler, CircularScale, CircularValueIndicator, CircularRangeIndicator, DefaultPropertiesMixin){
 	return declare("dojox.dgauges.components.black.SemiCircularLinearGauge", [CircularGauge, DefaultPropertiesMixin], {
-		//	summary:
+		// summary:
 		//		A semi circular gauge widget.
 
 		//	borderColor: Object|Array|int

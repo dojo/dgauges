@@ -1,7 +1,7 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base/array", "dojo/on", "dojox/gfx", "./IndicatorBase"],
 	function(lang, declare, has, array, on, gfx, IndicatorBase){
 	return declare("dojox.dgauges.ScaleIndicatorBase", IndicatorBase, {
-		//	summary:
+		// summary:
 		//		This type of indicator is used to render text.
 		//		To render an arbitrary text, set the value property.
 		//		To render the value of a value indicator or a range indicator, set the indicator property.

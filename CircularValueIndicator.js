@@ -1,10 +1,10 @@
 define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/event"], function(declare, gfx, ScaleIndicatorBase, eventUtil){
 	return declare("dojox.dgauges.CircularValueIndicator", ScaleIndicatorBase, {
-		//	summary:
+		// summary:
 		//		The circular value indicator, typically used for creating needles.
 
 		indicatorShapeFunc: function(group, indicator){
-			//	summary:
+			// summary:
 			//		Draws the indicator. The rotation center is at (0, 0).
 			//	group: dojox.gfx.canvas.Group
 			//		A GFX group for drawing. 

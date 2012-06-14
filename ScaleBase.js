@@ -122,7 +122,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		tickShapeFunc: function(group, scale, tickItem){
 			// summary:
 			//		Customize the shape of ticks.
-			//		group: dojox.gfx.canvas.Group
+			//		group: dojox/gfx/canvas/Group
 			//			The GFX group used for drawing the tick.
 			//		scale: ScaleBase
 			//			The scale being processed.
@@ -141,7 +141,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			//		Gets the GFX shape of an indicator.
 			// name: String
 			//		The name of the indicator as defined using addIndicator.
-			// returns: dojox.gfx.canvas.Shape
+			// returns: dojox/gfx/canvas/Shape
 			//		The GFX shape of the indicator.
 			return this._indicatorsRenderers[name];
 		},

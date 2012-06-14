@@ -15,7 +15,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		//		Note: Indicator classes (value indicators, range indicators) are sub-elements of scales
 		//		To create a custom gauge, subclass CircularGauge or RectangularGauge and
 		//		configure its elements in the constructor.
-		//		Ready to use, predefined gauges are available in dojox.dgauges.components.
+		//		Ready to use, predefined gauges are available in dojox/dgauges/components/
 		//		They are good examples of gauges built on top of the framework.
 		
 		_elements: null,
@@ -193,7 +193,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 			//		The new width of the gauge.
 			// height: Number
 			//		The new height of the gauge.
-			// returns: dojox.dgauges.GaugeBase
+			// returns: dojox/dgauges/GaugeBase
 			//		A reference to the current gauge for functional chaining.
 			var box;
 			switch(arguments.length){

@@ -3,7 +3,7 @@ define(["dojo/_base/declare", "./GaugeBase", "dojox/gfx/matrix"], function(decla
 		// summary:
 		//		The base class for rectangular gauges.
 		//		You can create custom horizontal or vertical gauges by extending this class.
-		//		See dojox.dgauges.components.default.HorinzontalLinearGauge.js for an example of rectangular gauge.
+		//		See dojox/dgauges/components/default/HorinzontalLinearGauge.js for an example of rectangular gauge.
 
 		// orientation: "horizontal"|"vertical"
 		//		The orientation of the gauge. Default is "horizontal".	

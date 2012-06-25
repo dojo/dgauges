@@ -66,7 +66,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 		drawBackground: function(g){
 			// summary:
 			//		Draws the background shape of the gauge.
-			// g: dojox/gfx/canvas.Group
+			// g: dojox/gfx/Group
 			//		The group used to draw the background. 
 			// tags:
 			//		protected
@@ -113,7 +113,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/Color",
 		drawForeground: function(g){
 			// summary:
 			//		Draws the foreground shape of the gauge.
-			// g: dojox/gfx/canvas.Group
+			// g: dojox/gfx/Group
 			//		The group used to draw the foreground. 
 			// tags:
 			//		protected

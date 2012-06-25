@@ -28,6 +28,10 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/_base/sniff", "dojo/_base
 		},
 
 		postscript: function(mixin){
+			// summary:
+			//		Internal method
+			// tags:
+			//		private
 			this.inherited(arguments);
 			if(mixin && mixin.indicator){
 				this._indicatorChanged("indicator", null, mixin.indicator);

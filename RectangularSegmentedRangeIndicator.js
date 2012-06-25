@@ -228,9 +228,9 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				
 		indicatorShapeFunc: function(group, indicator, startX, startY, endPosition, startThickness, endThickness, fill, stroke){
 			// summary:
-			//		Constructor.
-			// description:
-			//		Creates a segmented range indicator.
+			//		Internal method.
+			// tags:
+			//		private
 			
 			if(indicator.scale._gauge.orientation == "horizontal"){
 				this._defaultHorizontalShapeFunc(indicator, group, indicator.scale, startX, startY, endPosition, startThickness, endThickness, fill, stroke);

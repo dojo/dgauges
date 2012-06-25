@@ -6,9 +6,11 @@ define(["dojo/_base/declare", "dojox/gfx", "./ScaleIndicatorBase", "dojo/_base/e
 		indicatorShapeFunc: function(group, indicator){
 			// summary:
 			//		Draws the indicator. The rotation center is at (0, 0).
-			// group: dojox/gfx/canvas/Group
+			// group: dojox/gfx/Group
 			//		A GFX group for drawing. 
-			// returns: dojox/gfx/canvas/Shape
+			// indicator: dojox/dgauges/IndicatorBase
+			//		A reference to this indicator.
+			// returns: dojox/gfx/shape.Shape
 			//		A GFX shape retrievable using the getIndicatorRenderer method of the associated scale. 
 			return group.createLine({
 				x1: 0,

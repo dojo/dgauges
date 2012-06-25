@@ -94,7 +94,7 @@ define(["dojo/_base/declare", "dojo/Stateful"], function(declare, Stateful){
 		valueForPosition: function(position){
 			// summary:
 			//		Transforms a relative position (between 0 and 1) into a value.
-			// value: Number
+			// position: Number
 			//		A relative position to transform.
 			// returns: Number
 			//		The transformed value.

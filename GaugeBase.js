@@ -318,6 +318,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		onStartEditing: function(event){
 			// summary:
 			//		Called when an interaction begins (keyboard, mouse or gesture).
+			// event:
+			//		On object with a unique member "indicator". This member is a reference to the modified indicator.
 			// tags:
 			//		callback
 		},
@@ -325,6 +327,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		onEndEditing: function(event){
 			// summary:
 			//		Called when an interaction ends (keyboard, mouse or gesture).
+			// event:
+			//		On object with a unique member "indicator". This member is a reference to the modified indicator.
 			// tags:
 			//		callback
 		}

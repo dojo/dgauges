@@ -28,7 +28,6 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		rounded: true,
 		
 		// ranges: Object
-		//
 		ranges: null,
 		
 		constructor: function(){

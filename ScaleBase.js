@@ -96,7 +96,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 			// value: Number
 			//		The value to convert.
 			// returns: Number
-			//			The position corresponding to the value.
+			//		The position corresponding to the value.
 			return 0;
 		},
 		

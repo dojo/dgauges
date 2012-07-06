@@ -2,6 +2,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 	return declare("dojox.dgauges.RectangularRangeIndicator", IndicatorBase, {
 		// summary:
 		//		A segmented-style range indicator for rectangular gauges.
+		//		This class will be replaced by a cleaner implementation in a future version.
 		
 		start: 0,
 		startThickness: 10,
@@ -27,8 +28,8 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 		//		Default is true.		
 		rounded: true,
 		
-		// ranges: Object
-		//
+		// ranges: Array
+		//		An array containing objects to define color ranges. Example [{color:"#FF0000", size:20}, {color:"#FF8800", size:50}].
 		ranges: null,
 		
 		constructor: function(){
@@ -61,7 +62,7 @@ define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], functi
 				fill.x2 = startX + length;
 				fill.y2 = startY;
 				
-				var rangeStart = 0;
+				var rangeStart = this.start;
 				
 				for(i = 0; i < this.ranges.length; i++){
 					var entry1 = {

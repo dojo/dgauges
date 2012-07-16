@@ -1,4 +1,8 @@
-define(["dojo/_base/declare", "dojox/dgauges/RectangularGauge", "dojox/dgauges/LinearScaler", "dojox/dgauges/RectangularScale", "dojox/dgauges/RectangularValueIndicator", "dojox/dgauges/RectangularRangeIndicator", "dojox/color"], function(declare, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator, RectangularRangeIndicator, color){
+define(["dojo/_base/declare", "dojox/dgauges/RectangularGauge", "dojox/dgauges/LinearScaler",
+	"dojox/dgauges/RectangularScale", "dojox/dgauges/RectangularValueIndicator",
+	"dojox/dgauges/RectangularRangeIndicator", "dojox/color"],
+	function(declare, RectangularGauge, LinearScaler, RectangularScale, RectangularValueIndicator,
+			 RectangularRangeIndicator, color){
 	return declare("dojox.dgauges.tests.gauges.BulletGraph", RectangularGauge, {
 		target: 50,
 		high: 100,

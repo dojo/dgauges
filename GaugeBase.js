@@ -9,6 +9,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		//		A gauge is a composition of elements added to the gauge using the addElement method.
 		//		Elements are drawn from back to front in the same order they are added (using addElement).
 		//		An elements can be: 
+		//
 		//		- A GFX drawing functions typically used for defining the style of the gauge.
 		//		- A scale: CircularScale or RectangularScale depending on the type of gauge.
 		//		- A text, using the TextIndicator
@@ -34,7 +35,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		value: 0,
 		
 		// font: Object
-		//		The font of the gauge used by scales if not overridden.
+		//		The font of the gauge used by elements if not overridden.
 		font: null,
 		
 		constructor: function(/* Object */args, /* DOMNode */ node){

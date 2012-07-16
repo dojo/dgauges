@@ -133,6 +133,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 			//		The name of the element to be added.
 			// element: Object
 			//		This parameter can be:
+			//
 			//		- A function which takes on argument of type GFX Group and return null or a
 			//		GFX element retrievable using the getElementRenderer() method.
 			//		- A Scale instance, i.e. CircularScale or RectangularScale.

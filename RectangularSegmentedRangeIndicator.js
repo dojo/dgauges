@@ -1,5 +1,5 @@
 define(["dojo/_base/declare", "dojo/on", "dojox/gfx", "./IndicatorBase"], function(declare, on, gfx, IndicatorBase){
-	return declare("dojox.dgauges.RectangularRangeIndicator", IndicatorBase, {
+	return declare("dojox.dgauges.RectangularSegmentedRangeIndicator", IndicatorBase, {
 		// summary:
 		//		A segmented-style range indicator for rectangular gauges.
 		//		This class will be replaced by a cleaner implementation in a future version.

@@ -1,7 +1,7 @@
 define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/registry", "dijit/_WidgetBase", "dojo/_base/html", 
-		"dojo/_base/event", "dojox/gfx", "dojox/widget/_Invalidating","./ScaleBase", "dojox/gfx/matrix", "dojox/gfx/canvas"],
+		"dojo/_base/event", "dojox/gfx", "dojox/widget/_Invalidating","./ScaleBase", "dojox/gfx/matrix"],
 	function(lang, // lang.extend
-		declare, domGeom,  WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase, matrix, canvas){
+		declare, domGeom,  WidgetRegistry, _WidgetBase, html, event, gfx, _Invalidating, ScaleBase, matrix){
 	return declare("dojox.dgauges.GaugeBase", [_WidgetBase, _Invalidating], {
 		// summary: 
 		//		This class is the base class for the circular and 
@@ -82,8 +82,8 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		destroy: function(){
 			// summary:
 			//		Cleanup when a gauge is to be destroyed.
-			
 			this.surface.destroy();
+			this.inherited(arguments);
 		},
 
 		resize: function(width, height){

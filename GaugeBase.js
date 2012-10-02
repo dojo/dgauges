@@ -33,6 +33,51 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		//		scale declared in the gauge. It must be changed using the set method.
 		//		For other indicators, you have to set their value explicitly.
 		value: 0,
+		_firstIndicator: null,
+		
+		_getValueAttr: function(){
+			if(this._firstIndicator){
+				return this._firstIndicator.get("value");
+			}else{
+				this._setFirstIndicator();
+				if(this._firstIndicator){
+					return this._firstIndicator.get("value");
+				}
+			}
+			return 0;
+		},
+		
+		_setValueAttr: function(value){
+			if(this._firstIndicator){
+				this._firstIndicator.set("value", value);
+			}else{
+				this._setFirstIndicator();
+				if(this._firstIndicator){
+					this._firstIndicator.set("value", value);
+					this._firstIndicator.refreshRendering();
+				}
+			}
+		},
+		
+		_setFirstIndicator: function(){
+			
+			var indicators;
+			for(var i=0; i<this._scales.length; i++){
+				indicators = this._scales[i]._indicators;
+				if(indicators.length > 0){
+					
+					this._firstIndicator = indicators[0]; 
+				}
+			}
+		},
+		
+		_resetFirstIndicator: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private
+			this._firstIndicator = null;
+		},
 		
 		// font: Object
 		//		The font of the gauge used by elements if not overridden.
@@ -189,6 +234,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 				if(element instanceof ScaleBase){
 					var idxs = this._scales.indexOf(element);
 					this._scales.splice(idxs, 1);
+					this._resetFirstIndicator();
 				}
 				delete this._elementsIndex[name];
 				delete this._elementsRenderers[name];

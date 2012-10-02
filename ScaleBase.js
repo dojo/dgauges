@@ -169,6 +169,9 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 				delete this._indicatorsIndex[name];
 				delete this._indicatorsRenderers[name];
 			}
+			if(this._gauge){
+				this._gauge._resetFirstIndicator();
+			}
 			this.invalidateRendering();
 			return indicator;
 		},

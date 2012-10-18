@@ -54,7 +54,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 				this._setFirstIndicator();
 				if(this._firstIndicator){
 					this._firstIndicator.set("value", value);
-					this._firstIndicator.refreshRendering();
 				}
 			}
 		},

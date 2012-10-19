@@ -56,7 +56,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 			//		Internal method.
 			// tags:
 			//		private			
-			this.value = value;
+			this._set("value", value);
 			if(this._mainIndicator){
 				this._mainIndicator.set("value", value);
 			}else{

@@ -170,7 +170,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 				delete this._indicatorsRenderers[name];
 			}
 			if(this._gauge){
-				this._gauge._resetFirstIndicator();
+				this._gauge._resetMainIndicator();
 			}
 			this.invalidateRendering();
 			return indicator;
@@ -236,3 +236,4 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/gfx", "dojo/_base/array"
 		}
 	});
 });
+

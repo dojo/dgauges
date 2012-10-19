@@ -29,53 +29,64 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 		_node: null,
 
 		// value: Number
-		//		A convenient way for setting the value of the first indicator of the first
-		//		scale declared in the gauge. It must be changed using the set method.
-		//		For other indicators, you have to set their value explicitly.
+		//		This property acts as a top-level wrapper for the value of the first indicator added to 
+		//		its scale with the name "indicator", i.e. myScale.addIndicator("indicator", myIndicator).
+		//		This property must be manipulated with get("value") and set("value", xxx).
 		value: 0,
-		_firstIndicator: null,
+		_mainIndicator: null,
 		
 		_getValueAttr: function(){
-			if(this._firstIndicator){
-				return this._firstIndicator.get("value");
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private			
+			if(this._mainIndicator){
+				return this._mainIndicator.get("value");
 			}else{
-				this._setFirstIndicator();
-				if(this._firstIndicator){
-					return this._firstIndicator.get("value");
+				this._setMainIndicator();
+				if(this._mainIndicator){
+					return this._mainIndicator.get("value");
 				}
 			}
-			return 0;
+			return this.value;
 		},
 		
 		_setValueAttr: function(value){
-			if(this._firstIndicator){
-				this._firstIndicator.set("value", value);
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private			
+			this.value = value;
+			if(this._mainIndicator){
+				this._mainIndicator.set("value", value);
 			}else{
-				this._setFirstIndicator();
-				if(this._firstIndicator){
-					this._firstIndicator.set("value", value);
+				this._setMainIndicator();
+				if(this._mainIndicator){
+					this._mainIndicator.set("value", value);
 				}
 			}
 		},
 		
-		_setFirstIndicator: function(){
-			
-			var indicators;
+		_setMainIndicator: function(){
+			// summary:
+			//		Internal method.
+			// tags:
+			//		private	
+			var indicator;
 			for(var i=0; i<this._scales.length; i++){
-				indicators = this._scales[i]._indicators;
-				if(indicators.length > 0){
-					
-					this._firstIndicator = indicators[0]; 
+				indicator = this._scales[i].getIndicator("indicator");
+				if(indicator){
+					this._mainIndicator = indicator;
 				}
 			}
 		},
 		
-		_resetFirstIndicator: function(){
+		_resetMainIndicator: function(){
 			// summary:
 			//		Internal method.
 			// tags:
 			//		private
-			this._firstIndicator = null;
+			this._mainIndicator = null;
 		},
 		
 		// font: Object
@@ -233,7 +244,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojo/dom-geometry", "dijit/reg
 				if(element instanceof ScaleBase){
 					var idxs = this._scales.indexOf(element);
 					this._scales.splice(idxs, 1);
-					this._resetFirstIndicator();
+					this._resetMainIndicator();
 				}
 				delete this._elementsIndex[name];
 				delete this._elementsRenderers[name];

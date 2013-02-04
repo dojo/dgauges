@@ -16,8 +16,6 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/dgauges/CircularGauge", 
 				// Draws a transparent bounding box
 				this.addElement("background", function(g){
 					g.createRect({
-						x:0,
-						y:0,
 						width: 200,
 						height: 100
 					});
@@ -26,9 +24,7 @@ define(["dojo/_base/lang", "dojo/_base/declare", "dojox/dgauges/CircularGauge", 
 				// The scaler
 				var scaler = new LinearScaler({
 					minimum: 0,
-					maximum: 100,
-					majorTickInterval: 20,
-					minorTickInterval: 5
+					maximum: 100
 				});
 
 				// The scale
